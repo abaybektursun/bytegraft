@@ -126,7 +126,7 @@ table.t tr.ours td { font-weight: 600; }
 <body>
 <div id="tip" hidden></div>
 <main>
-  <div class="topbar"><span class="who">BYTEGRAFT · snapshot of the study at 1a55d3e8a · stored runs, no new computation</span>
+  <div class="topbar"><span class="who">BYTEGRAFT · snapshot of the study at 1a55d3e8a; section 14 from branch research/ptr-install at 76180a711 · stored runs, no new computation</span>
     <button class="plain" id="theme">Dark / light</button></div>
   <header>
     <h1>A byte model running beside a token model: what of it can be moved across</h1>
@@ -141,14 +141,14 @@ table.t tr.ours td { font-weight: 600; }
       By the study's definition of 2026-11-12 this is not yet a graft. A graft is a small part of Bolmo attached so that neither part alone does the task,
       or the receiving model doing the task with Bolmo switched off (the study's MISSION.md, in its working repository, not public).</div>
     <p>Sections 1 to 7: the whole attention output copied into <span class="olmo-t">OLMo-2-0425-1B</span>. 8 to 10: which 16 of its 256 heads to copy, chosen by agents, scripts and searches.
-      11: Bolmo's attention weights apart from its values. 12: attention weights given to four models that share no weights with Bolmo. 13: what crosses, and what does not. 14: published methods. 15: where the study stands.</p>
+      11: Bolmo's attention weights apart from its values. 12: attention weights given to four models that share no weights with Bolmo. 13: what crosses, and what does not. 14: the pointer trained into the receiving model's own weights, Bolmo off (added 2026-11-13; this section does use training). 15: published methods. 16: where the study stands.</p>
     <p>Every number, text and token on this page comes from the study's stored runs. The example is one real item, <span class="mono" id="itemid"></span>.</p>
   </header>
   <nav class="steps" id="nav">
     <a href="#s1">1 The item</a><a href="#s2">2 Same text, two inputs</a><a href="#s3">3 One layer</a><a href="#s4">4 Where the copy happens</a>
     <a href="#s5">5 Step by step</a><a href="#s6">6 Which part uses it</a><a href="#s7">7 All results</a>
     <a href="#s9">8 Which 16 heads</a><a href="#s10">9 Sixty tries</a><a href="#s11">10 The chosen heads</a>
-    <a href="#s12">11 Weights or values</a><a href="#s13">12 Other models</a><a href="#s15">13 What crosses</a><a href="#s8">14 What others did</a><a href="#s14">15 Where it stands</a>
+    <a href="#s12">11 Weights or values</a><a href="#s13">12 Other models</a><a href="#s15">13 What crosses</a><a href="#s16">14 Bolmo off</a><a href="#s8">15 What others did</a><a href="#s14">16 Where it stands</a>
   </nav>
 
   <section id="s1">
@@ -381,8 +381,41 @@ table.t tr.ours td { font-weight: 600; }
     </div>
   </section>
 
+  <section id="s16">
+    <h2><span class="n">14</span>The pointer in the receiving model's own weights, with Bolmo off</h2>
+    <p class="lede">Section 13 found that what crosses is a position. This section asks two things with no Bolmo model running: does giving the receiving model's heads the right position fix the word-edit tasks,
+      and can that position be put into the model's own query and key weights. Unlike every earlier section, this one trains weights of the receiving model on gold answers.
+      Its items and scoring also differ: 600 training and 200 test items per task (800 test items on the four word-edit tasks, sentences disjoint from training), and an answer counts as right
+      when the text before the first closing quote equals the gold after whitespace is normalized. These counts cannot be compared with the strict counts of sections 1 to 13.
+      One seed and one split per run; no independent reader has recounted them.</p>
+    <div class="fig">
+      <div style="font-weight:650;margin-bottom:4px">The attention target is where the receiving models fail (right answers of 800, no weight changed)</div>
+      <div class="scroll"><table class="t" style="font-size:12px;min-width:640px"><tr><th></th><th>Pythia 1.4B</th><th>SmolLM2 1.7B</th><th>DeepSeek-Coder 1.3B</th></tr><tr><td>the model alone</td><td class="num">26</td><td class="num">219</td><td class="num">134</td></tr><tr><td>15 chosen heads given the script-made pointer</td><td class="num">730</td><td class="num">768</td><td class="num">750</td></tr><tr><td>15 random heads given the same pointer</td><td class="num">36</td><td class="num">233</td><td class="num">36</td></tr></table></div>
+      <p class="note">The pointer puts all attention weight, at each answer position, on the prompt position the gold answer copies next. It is computed by a script from the gold answer, so this row is a ceiling, not a method.</p>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div style="font-weight:650;margin-bottom:4px">Training it into the weights (right answers of 800)</div>
+      <div class="scroll"><table class="t" style="font-size:12px;min-width:640px"><tr><th>what is trained</th><th>Pythia 1.4B</th><th>SmolLM2 1.7B</th><th>DeepSeek-Coder 1.3B</th></tr><tr><td>query/key of 15 heads, each head fitted to the pointer, no gradient across layers</td><td class="num">451</td><td class="num">536</td><td class="num">519</td></tr><tr><td>the same, plus helper heads fitted to script-made targets</td><td class="num">577</td><td class="num">564</td><td class="num">533</td></tr><tr><td>query/key of the same 15 heads, end to end on the answer</td><td class="num">542</td><td class="num">553</td><td class="num">608</td></tr><tr><td>query/key of the 15 heads and the helper heads (23 to 31 heads), end to end</td><td class="num">708</td><td class="num">716</td><td class="num">694</td></tr><tr><td>query/key of every head, end to end</td><td class="num">750</td><td class="num">790</td><td class="num">734</td></tr><tr><td>value/output of every head, end to end (same number of weights)</td><td class="num">774</td><td class="num">734</td><td class="num">789</td></tr></table></div>
+      <p class="note">Fitting each head to the pointer without a gradient across layers scores below ordinary end-to-end training of the same heads on all three models. Controls for that fit on Pythia: random heads 33, a wrong pointer 0.
+        With del_word held out of training, no method carried over to it (5, 14 and 3 of 200).</p>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div style="font-weight:650;margin-bottom:4px">What the training costs on other prompts (mean cross-entropy; alone → query/key of every head → value/output of every head)</div>
+      <div class="scroll"><table class="t" style="font-size:12px;min-width:640px"><tr><th></th><th>Pythia 1.4B</th><th>SmolLM2 1.7B</th><th>DeepSeek-Coder 1.3B</th></tr><tr><td>prompts of the bank's other tasks</td><td class="num">1.783 → 2.693 → 4.340</td><td class="num">1.533 → 1.525 → 1.696</td><td class="num">1.370 → 1.695 → 2.754</td></tr><tr><td>Jeopardy question prompts</td><td class="num">2.594 → 3.314 → 5.604</td><td class="num">2.112 → 2.115 → 2.211</td><td class="num">2.615 → 2.924 → 3.553</td></tr></table></div>
+      <p class="note">On the four word-edit tasks, query/key-only training raises the loss on other prompts less than value/output-only training on all three models, and leaves it unchanged only on SmolLM2. Neither set of prompts is a standard corpus.</p>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div style="font-weight:650;margin-bottom:4px">All 12 tasks of the bank, SmolLM2 1.7B (right answers of 2,400, teacher-forced)</div>
+      <div class="scroll"><table class="t" style="font-size:12px;min-width:640px"><tr><th></th><th>right of 2,400</th><th>loss, other prompts</th><th>loss, Jeopardy prompts</th></tr><tr><td>the model alone</td><td class="num">618</td><td class="num">1.705</td><td class="num">2.112</td></tr><tr><td>query/key of every head, 1,500 steps</td><td class="num">1,661 (decoded: 1,709)</td><td class="num">1.926</td><td class="num">2.149</td></tr><tr><td>value/output of every head, 1,500 steps</td><td class="num">1,653</td><td class="num">1.923</td><td class="num">2.216</td></tr><tr><td>both, 1,500 steps</td><td class="num">1,643</td><td class="num">2.186</td><td class="num">2.274</td></tr><tr><td>query/key of every head, 4,000 steps</td><td class="num">1,668 (decoded: 1,706)</td><td class="num">2.020</td><td class="num">2.141</td></tr></table></div>
+      <p class="note">With all 12 tasks the two arms tie, on right answers and on the loss on other prompts; the lower cost of query/key-only training on four tasks does not repeat. The four word-edit tasks reach 190 to 199 of 200 under both arms.
+        The four character-edit tasks stay at 11 to 81 of 200 under every arm. The model alone reads 0 of 200 on both contains tasks, which a Yes/No task should not do; that base read was not decoded and checked, so the gains on those two tasks are not to be quoted.</p>
+    </div>
+    <p class="note"><b>What this section does not show.</b> No LoRA or full fine-tuning baseline was run, and no learning rate was tuned per arm. No wikitext perplexity or named benchmark was measured. No closed-form write of the pointer into the weights was tried.
+      Nothing here is a practical win over ordinary fine-tuning. Files: study/NOTES_ptr.md and results/ptr/ in this repository.</p>
+  </section>
+
   <section id="s8">
-    <h2><span class="n">14</span>What other research did</h2>
+    <h2><span class="n">15</span>What other research did</h2>
     <p class="lede">Each published method combines a byte model and a token model, or two models, at a different place. Pick one.</p>
     <div class="fig">
       <div class="tabs" id="s8tabs"></div>
@@ -395,7 +428,7 @@ table.t tr.ours td { font-weight: 600; }
   </section>
 
   <section id="s14">
-    <h2><span class="n">15</span>Where the study stands</h2>
+    <h2><span class="n">16</span>Where the study stands</h2>
     <p class="lede">The study's scoreboard (study/SCOREBOARD.md) has two levels. Level 1: a computation of one model used by another it was never trained with, with no training,
       to do what the receiving model does not do alone. Each row has three answers: reuse shown (the receiving model gains and both controls fail); the joined system above its best part; the donor's part isolated (only a small part of the donor runs).
       Level 2: a joined system above its parts and above the ordinary method on a named benchmark.</p>

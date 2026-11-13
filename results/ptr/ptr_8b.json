@@ -1,0 +1,2173 @@
+{
+ "args": {
+  "out": "/work/out",
+  "published": "s3://<s3-bucket>/results/bytegraft/bank/smoke_7/season_1/published.jsonl",
+  "host": "pythia_1b4",
+  "train_per_task": 600,
+  "test_per_task": 200,
+  "sweep_items": 64,
+  "k": 15,
+  "variants": "s3://<s3-bucket>/results/bytegraft/ptr/ptr_8b_in/variants.json",
+  "questions": "s3://<s3-bucket>/results/bytegraft/bank/jeopardy_1/out/jeopardy_items_5shot.jsonl",
+  "base_decode": 0,
+  "augment": 8,
+  "steps": 400,
+  "lr": 0.001,
+  "beta": 1.0,
+  "e2e_steps": 600,
+  "e2e_lr": 0.0001
+ },
+ "steps": {
+  "identity": {
+   "max_abs_logit_gap": 0.0008426904678344727,
+   "gap_on_another_input": 18.932342529296875,
+   "pass": true
+  },
+  "items": {
+   "train": 2400,
+   "test": 800,
+   "written_items": 19168,
+   "writer_agrees_with_bank": 0.9905,
+   "gold_tokens_with_pointer": 0.9961347055128763,
+   "example": {
+    "id": "published:del_word:009800",
+    "gold": [
+     " It",
+     " delicious",
+     "."
+    ],
+    "pointed_tokens": [
+     " It",
+     " delicious",
+     "."
+    ]
+   }
+  },
+  "selftest": {
+   "ran": true
+  },
+  "base": {
+   "tf": {
+    "exact": 26,
+    "items": 800,
+    "share": 0.0325,
+    "logp_pointed": -1.2269948791833922,
+    "per_task": {
+     "del_word": [
+      7,
+      200
+     ],
+     "ins_word": [
+      14,
+      200
+     ],
+     "sub_word": [
+      5,
+      200
+     ],
+     "swap_word": [
+      0,
+      200
+     ]
+    }
+   },
+   "other_loss": 1.7828488471733468,
+   "neutral_loss": 2.5941680896541843
+  },
+  "sweep": {
+   "reference_logp": -1.3013916574555002,
+   "top": [
+    [
+     0.6295,
+     10,
+     9
+    ],
+    [
+     0.4719,
+     10,
+     0
+    ],
+    [
+     0.4396,
+     12,
+     15
+    ],
+    [
+     0.3647,
+     10,
+     8
+    ],
+    [
+     0.2839,
+     11,
+     12
+    ],
+    [
+     0.2637,
+     10,
+     4
+    ],
+    [
+     0.2567,
+     11,
+     0
+    ],
+    [
+     0.2481,
+     11,
+     6
+    ],
+    [
+     0.2442,
+     11,
+     1
+    ],
+    [
+     0.2332,
+     14,
+     12
+    ],
+    [
+     0.2103,
+     11,
+     10
+    ],
+    [
+     0.1945,
+     11,
+     14
+    ],
+    [
+     0.1895,
+     13,
+     15
+    ],
+    [
+     0.1853,
+     10,
+     11
+    ],
+    [
+     0.1353,
+     12,
+     14
+    ],
+    [
+     0.134,
+     13,
+     6
+    ],
+    [
+     0.1301,
+     5,
+     4
+    ],
+    [
+     0.1189,
+     12,
+     8
+    ],
+    [
+     0.1151,
+     10,
+     14
+    ],
+    [
+     0.1148,
+     14,
+     0
+    ],
+    [
+     0.1105,
+     7,
+     10
+    ],
+    [
+     0.1032,
+     10,
+     3
+    ],
+    [
+     0.0931,
+     16,
+     3
+    ],
+    [
+     0.084,
+     7,
+     3
+    ],
+    [
+     0.0834,
+     11,
+     11
+    ],
+    [
+     0.0791,
+     12,
+     11
+    ],
+    [
+     0.0758,
+     4,
+     8
+    ],
+    [
+     0.0731,
+     9,
+     10
+    ],
+    [
+     0.0663,
+     11,
+     8
+    ],
+    [
+     0.0652,
+     13,
+     2
+    ],
+    [
+     0.0557,
+     16,
+     4
+    ],
+    [
+     0.0547,
+     14,
+     5
+    ],
+    [
+     0.0528,
+     18,
+     4
+    ],
+    [
+     0.0518,
+     14,
+     6
+    ],
+    [
+     0.0505,
+     19,
+     11
+    ],
+    [
+     0.0494,
+     19,
+     2
+    ],
+    [
+     0.047,
+     10,
+     12
+    ],
+    [
+     0.0465,
+     16,
+     10
+    ],
+    [
+     0.0464,
+     9,
+     15
+    ],
+    [
+     0.0444,
+     17,
+     7
+    ]
+   ],
+   "bottom": [
+    [
+     -0.2492,
+     9,
+     9
+    ],
+    [
+     -0.3275,
+     10,
+     5
+    ],
+    [
+     -0.917,
+     11,
+     15
+    ],
+    [
+     -1.0404,
+     12,
+     7
+    ],
+    [
+     -1.2622,
+     10,
+     7
+    ]
+   ],
+   "heads": [
+    [
+     10,
+     9
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     12,
+     15
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     10,
+     4
+    ],
+    [
+     11,
+     0
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     11,
+     10
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     13,
+     15
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     12,
+     14
+    ]
+   ]
+  },
+  "oracle": {
+   "k_heads_pointed": {
+    "exact": 730,
+    "items": 800,
+    "share": 0.9125,
+    "logp_pointed": -0.09963482721984587,
+    "per_task": {
+     "del_word": [
+      166,
+      200
+     ],
+     "ins_word": [
+      194,
+      200
+     ],
+     "sub_word": [
+      194,
+      200
+     ],
+     "swap_word": [
+      176,
+      200
+     ]
+    }
+   },
+   "random_heads_pointed": {
+    "exact": 36,
+    "items": 800,
+    "share": 0.045,
+    "logp_pointed": -1.143114365629681,
+    "per_task": {
+     "del_word": [
+      14,
+      200
+     ],
+     "ins_word": [
+      12,
+      200
+     ],
+     "sub_word": [
+      10,
+      200
+     ],
+     "swap_word": [
+      0,
+      200
+     ]
+    }
+   },
+   "weights_per_fit": 7868160,
+   "share_of_model": 0.005561921458828571
+  },
+  "runs": {
+   "smoke": {
+    "tf": {
+     "exact": 52,
+     "items": 800,
+     "share": 0.065,
+     "logp_pointed": -1.460257118110261,
+     "per_task": {
+      "del_word": [
+       33,
+       200
+      ],
+      "ins_word": [
+       12,
+       200
+      ],
+      "sub_word": [
+       7,
+       200
+      ],
+      "swap_word": [
+       0,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.841673806077476,
+    "neutral_loss": 2.616395801490256,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.821017267803351,
+      "top_share": 0.885546875,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.4526015202865558,
+      "top_share": 0.47154742096505825,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "spec": [
+       [
+        10,
+        9,
+        "ptr"
+       ],
+       [
+        10,
+        0,
+        "ptr"
+       ],
+       [
+        12,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        8,
+        "ptr"
+       ],
+       [
+        11,
+        12,
+        "ptr"
+       ],
+       [
+        10,
+        4,
+        "ptr"
+       ],
+       [
+        11,
+        0,
+        "ptr"
+       ],
+       [
+        11,
+        6,
+        "ptr"
+       ],
+       [
+        11,
+        1,
+        "ptr"
+       ],
+       [
+        14,
+        12,
+        "ptr"
+       ],
+       [
+        11,
+        10,
+        "ptr"
+       ],
+       [
+        11,
+        14,
+        "ptr"
+       ],
+       [
+        13,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        11,
+        "ptr"
+       ],
+       [
+        12,
+        14,
+        "ptr"
+       ],
+       [
+        7,
+        15,
+        "h1"
+       ],
+       [
+        9,
+        1,
+        "h1"
+       ],
+       [
+        4,
+        15,
+        "h2"
+       ],
+       [
+        8,
+        4,
+        "h2"
+       ]
+      ],
+      "step": -1,
+      "point_nll": 0
+     },
+     {
+      "layer": 4,
+      "step": 0,
+      "point_nll": 0.404379665851593,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 4,
+      "step": 19,
+      "point_nll": 0.008914940990507603,
+      "keep_kl": 0.046774722635746
+     },
+     {
+      "layer": 7,
+      "step": 0,
+      "point_nll": 0.7370424866676331,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 7,
+      "step": 19,
+      "point_nll": 0.0034127461258322,
+      "keep_kl": 0.08076037466526031
+     },
+     {
+      "layer": 8,
+      "step": 0,
+      "point_nll": 0.5147914290428162,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 8,
+      "step": 19,
+      "point_nll": 0.007830037735402584,
+      "keep_kl": 0.04473342373967171
+     },
+     {
+      "layer": 9,
+      "step": 0,
+      "point_nll": 2.245140314102173,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 9,
+      "step": 19,
+      "point_nll": 0.0025526622775942087,
+      "keep_kl": 0.12546034157276154
+     },
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.167447566986084,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 19,
+      "point_nll": 0.03396748751401901,
+      "keep_kl": 0.10048104077577591
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 4.022780895233154,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 19,
+      "point_nll": 0.021648503839969635,
+      "keep_kl": 0.18052594363689423
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.939656972885132,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 19,
+      "point_nll": 0.03667454421520233,
+      "keep_kl": 0.32818982005119324
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 2.87971830368042,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 19,
+      "point_nll": 0.12824232876300812,
+      "keep_kl": 1.075522780418396
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 7.148856163024902,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 19,
+      "point_nll": 6.114925861358643,
+      "keep_kl": 11.512020111083984
+     }
+    ],
+    "fit_seconds": 64.18163108825684,
+    "train_items": 64,
+    "variant": {
+     "name": "smoke",
+     "kind": "program",
+     "n": 64,
+     "steps": 20,
+     "aug": true,
+     "stream": true,
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       2
+      ],
+      [
+       "h2",
+       2,
+       9,
+       2
+      ]
+     ]
+    },
+    "weights": 9966336,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ]
+    ]
+   },
+   "PA_800": {
+    "tf": {
+     "exact": 650,
+     "items": 800,
+     "share": 0.8125,
+     "logp_pointed": -0.20742187544596782,
+     "per_task": {
+      "del_word": [
+       153,
+       200
+      ],
+      "ins_word": [
+       180,
+       200
+      ],
+      "sub_word": [
+       184,
+       200
+      ],
+      "swap_word": [
+       133,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.8993824974971152,
+    "neutral_loss": 2.6625495931051777,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.9736040721337,
+      "top_share": 0.98125,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.9572579077595283,
+      "top_share": 0.9646145313366611,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "spec": [
+       [
+        10,
+        9,
+        "ptr"
+       ],
+       [
+        10,
+        0,
+        "ptr"
+       ],
+       [
+        12,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        8,
+        "ptr"
+       ],
+       [
+        11,
+        12,
+        "ptr"
+       ],
+       [
+        10,
+        4,
+        "ptr"
+       ],
+       [
+        11,
+        0,
+        "ptr"
+       ],
+       [
+        11,
+        6,
+        "ptr"
+       ],
+       [
+        11,
+        1,
+        "ptr"
+       ],
+       [
+        14,
+        12,
+        "ptr"
+       ],
+       [
+        11,
+        10,
+        "ptr"
+       ],
+       [
+        11,
+        14,
+        "ptr"
+       ],
+       [
+        13,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        11,
+        "ptr"
+       ],
+       [
+        12,
+        14,
+        "ptr"
+       ],
+       [
+        7,
+        15,
+        "h1"
+       ],
+       [
+        9,
+        1,
+        "h1"
+       ],
+       [
+        4,
+        7,
+        "h1"
+       ],
+       [
+        2,
+        0,
+        "h1"
+       ],
+       [
+        3,
+        4,
+        "h3"
+       ],
+       [
+        2,
+        1,
+        "h3"
+       ],
+       [
+        4,
+        14,
+        "h3"
+       ],
+       [
+        9,
+        6,
+        "h3"
+       ],
+       [
+        5,
+        11,
+        "h4"
+       ],
+       [
+        2,
+        5,
+        "h4"
+       ],
+       [
+        5,
+        12,
+        "h4"
+       ],
+       [
+        8,
+        0,
+        "h4"
+       ],
+       [
+        4,
+        15,
+        "h2"
+       ],
+       [
+        8,
+        4,
+        "h2"
+       ],
+       [
+        6,
+        2,
+        "h2"
+       ],
+       [
+        3,
+        3,
+        "h2"
+       ]
+      ],
+      "step": -1,
+      "point_nll": 0
+     },
+     {
+      "layer": 2,
+      "step": 0,
+      "point_nll": 1.4103378057479858,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 2,
+      "step": 100,
+      "point_nll": 0.03269615024328232,
+      "keep_kl": 0.039493706077337265
+     },
+     {
+      "layer": 2,
+      "step": 200,
+      "point_nll": 0.015082711353898048,
+      "keep_kl": 0.024659983813762665
+     },
+     {
+      "layer": 2,
+      "step": 300,
+      "point_nll": 0.008967887610197067,
+      "keep_kl": 0.02197951450943947
+     },
+     {
+      "layer": 2,
+      "step": 400,
+      "point_nll": 0.009612806141376495,
+      "keep_kl": 0.02030927874147892
+     },
+     {
+      "layer": 2,
+      "step": 500,
+      "point_nll": 0.0054487669840455055,
+      "keep_kl": 0.01768932305276394
+     },
+     {
+      "layer": 2,
+      "step": 600,
+      "point_nll": 0.010633395053446293,
+      "keep_kl": 0.014825708232820034
+     },
+     {
+      "layer": 2,
+      "step": 700,
+      "point_nll": 0.011582326143980026,
+      "keep_kl": 0.015515962615609169
+     },
+     {
+      "layer": 2,
+      "step": 799,
+      "point_nll": 0.011341908946633339,
+      "keep_kl": 0.018709177151322365
+     },
+     {
+      "layer": 3,
+      "step": 0,
+      "point_nll": 2.1499083042144775,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 3,
+      "step": 100,
+      "point_nll": 0.014493804425001144,
+      "keep_kl": 0.034776803106069565
+     },
+     {
+      "layer": 3,
+      "step": 200,
+      "point_nll": 0.014327866956591606,
+      "keep_kl": 0.02519240975379944
+     },
+     {
+      "layer": 3,
+      "step": 300,
+      "point_nll": 0.00883642677217722,
+      "keep_kl": 0.016240762546658516
+     },
+     {
+      "layer": 3,
+      "step": 400,
+      "point_nll": 0.005257761105895042,
+      "keep_kl": 0.014815272763371468
+     },
+     {
+      "layer": 3,
+      "step": 500,
+      "point_nll": 0.006492271553725004,
+      "keep_kl": 0.01288958452641964
+     },
+     {
+      "layer": 3,
+      "step": 600,
+      "point_nll": 0.006341699045151472,
+      "keep_kl": 0.011234203353524208
+     },
+     {
+      "layer": 3,
+      "step": 700,
+      "point_nll": 0.004068182315677404,
+      "keep_kl": 0.010249999351799488
+     },
+     {
+      "layer": 3,
+      "step": 799,
+      "point_nll": 0.0033810450695455074,
+      "keep_kl": 0.01293091382831335
+     },
+     {
+      "layer": 4,
+      "step": 0,
+      "point_nll": 1.1353462934494019,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 4,
+      "step": 100,
+      "point_nll": 0.007730615325272083,
+      "keep_kl": 0.01540805958211422
+     },
+     {
+      "layer": 4,
+      "step": 200,
+      "point_nll": 0.006354330573230982,
+      "keep_kl": 0.011440603993833065
+     },
+     {
+      "layer": 4,
+      "step": 300,
+      "point_nll": 0.003122086636722088,
+      "keep_kl": 0.008123921230435371
+     },
+     {
+      "layer": 4,
+      "step": 400,
+      "point_nll": 0.001939872745424509,
+      "keep_kl": 0.008896540850400925
+     },
+     {
+      "layer": 4,
+      "step": 500,
+      "point_nll": 0.002411086345091462,
+      "keep_kl": 0.014106829650700092
+     },
+     {
+      "layer": 4,
+      "step": 600,
+      "point_nll": 0.002666121581569314,
+      "keep_kl": 0.015825875103473663
+     },
+     {
+      "layer": 4,
+      "step": 700,
+      "point_nll": 0.001414482481777668,
+      "keep_kl": 0.010229093953967094
+     },
+     {
+      "layer": 4,
+      "step": 799,
+      "point_nll": 0.0014549472834914923,
+      "keep_kl": 0.010036632418632507
+     },
+     {
+      "layer": 5,
+      "step": 0,
+      "point_nll": 1.4913657903671265,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 5,
+      "step": 100,
+      "point_nll": 0.011878588236868382,
+      "keep_kl": 0.010626818053424358
+     },
+     {
+      "layer": 5,
+      "step": 200,
+      "point_nll": 0.012451947666704655,
+      "keep_kl": 0.008458306081593037
+     },
+     {
+      "layer": 5,
+      "step": 300,
+      "point_nll": 0.011663980782032013,
+      "keep_kl": 0.013617997989058495
+     },
+     {
+      "layer": 5,
+      "step": 400,
+      "point_nll": 0.00793762132525444,
+      "keep_kl": 0.005310967564582825
+     },
+     {
+      "layer": 5,
+      "step": 500,
+      "point_nll": 0.0024798971135169268,
+      "keep_kl": 0.005402873735874891
+     },
+     {
+      "layer": 5,
+      "step": 600,
+      "point_nll": 0.007923196069896221,
+      "keep_kl": 0.010022887028753757
+     },
+     {
+      "layer": 5,
+      "step": 700,
+      "point_nll": 0.0024715298786759377,
+      "keep_kl": 0.0043721878901124
+     },
+     {
+      "layer": 5,
+      "step": 799,
+      "point_nll": 0.0011895513162016869,
+      "keep_kl": 0.004727540537714958
+     },
+     {
+      "layer": 6,
+      "step": 0,
+      "point_nll": 1.068817138671875,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 6,
+      "step": 100,
+      "point_nll": 0.007255254779011011,
+      "keep_kl": 0.007292480207979679
+     },
+     {
+      "layer": 6,
+      "step": 200,
+      "point_nll": 0.002122696954756975,
+      "keep_kl": 0.005851425230503082
+     },
+     {
+      "layer": 6,
+      "step": 300,
+      "point_nll": 0.0015150801045820117,
+      "keep_kl": 0.004406725522130728
+     },
+     {
+      "layer": 6,
+      "step": 400,
+      "point_nll": 0.0012696986086666584,
+      "keep_kl": 0.004385429434478283
+     },
+     {
+      "layer": 6,
+      "step": 500,
+      "point_nll": 0.0009155213483609259,
+      "keep_kl": 0.00262264721095562
+     },
+     {
+      "layer": 6,
+      "step": 600,
+      "point_nll": 0.0005701666232198477,
+      "keep_kl": 0.0028193555772304535
+     },
+     {
+      "layer": 6,
+      "step": 700,
+      "point_nll": 0.000567064096685499,
+      "keep_kl": 0.0018141985638067126
+     },
+     {
+      "layer": 6,
+      "step": 799,
+      "point_nll": 0.0005279081524349749,
+      "keep_kl": 0.0023171505890786648
+     },
+     {
+      "layer": 7,
+      "step": 0,
+      "point_nll": 0.583884060382843,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 7,
+      "step": 100,
+      "point_nll": 0.0019378792494535446,
+      "keep_kl": 0.015996623784303665
+     },
+     {
+      "layer": 7,
+      "step": 200,
+      "point_nll": 0.002221290022134781,
+      "keep_kl": 0.011614682152867317
+     },
+     {
+      "layer": 7,
+      "step": 300,
+      "point_nll": 0.0024624974466860294,
+      "keep_kl": 0.019686205312609673
+     },
+     {
+      "layer": 7,
+      "step": 400,
+      "point_nll": 0.002728094579651952,
+      "keep_kl": 0.03430281952023506
+     },
+     {
+      "layer": 7,
+      "step": 500,
+      "point_nll": 0.024615872651338577,
+      "keep_kl": 0.1067936047911644
+     },
+     {
+      "layer": 7,
+      "step": 600,
+      "point_nll": 0.14053098857402802,
+      "keep_kl": 0.07567896693944931
+     },
+     {
+      "layer": 7,
+      "step": 700,
+      "point_nll": 0.0015514179831370711,
+      "keep_kl": 0.040614452213048935
+     },
+     {
+      "layer": 7,
+      "step": 799,
+      "point_nll": 0.00035162968561053276,
+      "keep_kl": 0.030083203688263893
+     },
+     {
+      "layer": 8,
+      "step": 0,
+      "point_nll": 1.5875226259231567,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 8,
+      "step": 100,
+      "point_nll": 0.008004224859178066,
+      "keep_kl": 0.01164580974727869
+     },
+     {
+      "layer": 8,
+      "step": 200,
+      "point_nll": 0.004262241069227457,
+      "keep_kl": 0.008296000771224499
+     },
+     {
+      "layer": 8,
+      "step": 300,
+      "point_nll": 0.0031125450041145086,
+      "keep_kl": 0.004960858263075352
+     },
+     {
+      "layer": 8,
+      "step": 400,
+      "point_nll": 0.001999445492401719,
+      "keep_kl": 0.003703262424096465
+     },
+     {
+      "layer": 8,
+      "step": 500,
+      "point_nll": 0.001467812224291265,
+      "keep_kl": 0.004044493194669485
+     },
+     {
+      "layer": 8,
+      "step": 600,
+      "point_nll": 0.0015433907974511385,
+      "keep_kl": 0.0032741762697696686
+     },
+     {
+      "layer": 8,
+      "step": 700,
+      "point_nll": 0.0009206904796883464,
+      "keep_kl": 0.0027574081905186176
+     },
+     {
+      "layer": 8,
+      "step": 799,
+      "point_nll": 0.0006805357406847179,
+      "keep_kl": 0.0027336664497852325
+     },
+     {
+      "layer": 9,
+      "step": 0,
+      "point_nll": 2.832915782928467,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 9,
+      "step": 100,
+      "point_nll": 0.015097133815288544,
+      "keep_kl": 0.027141805738210678
+     },
+     {
+      "layer": 9,
+      "step": 200,
+      "point_nll": 0.009624729864299297,
+      "keep_kl": 0.03459223359823227
+     },
+     {
+      "layer": 9,
+      "step": 300,
+      "point_nll": 0.004400951322168112,
+      "keep_kl": 0.026834875345230103
+     },
+     {
+      "layer": 9,
+      "step": 400,
+      "point_nll": 0.004315095487982035,
+      "keep_kl": 0.01927696354687214
+     },
+     {
+      "layer": 9,
+      "step": 500,
+      "point_nll": 0.003393831430003047,
+      "keep_kl": 0.016573229804635048
+     },
+     {
+      "layer": 9,
+      "step": 600,
+      "point_nll": 0.002637256635352969,
+      "keep_kl": 0.01716841198503971
+     },
+     {
+      "layer": 9,
+      "step": 700,
+      "point_nll": 0.002037584315985441,
+      "keep_kl": 0.011688178405165672
+     },
+     {
+      "layer": 9,
+      "step": 799,
+      "point_nll": 0.0010560705559328198,
+      "keep_kl": 0.010598956607282162
+     },
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.2504656314849854,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 100,
+      "point_nll": 0.23425157368183136,
+      "keep_kl": 0.022649040445685387
+     },
+     {
+      "layer": 10,
+      "step": 200,
+      "point_nll": 0.12489775568246841,
+      "keep_kl": 0.017870327457785606
+     },
+     {
+      "layer": 10,
+      "step": 300,
+      "point_nll": 0.07305911183357239,
+      "keep_kl": 0.017173711210489273
+     },
+     {
+      "layer": 10,
+      "step": 400,
+      "point_nll": 0.03505987673997879,
+      "keep_kl": 0.017558515071868896
+     },
+     {
+      "layer": 10,
+      "step": 500,
+      "point_nll": 0.030165154486894608,
+      "keep_kl": 0.014184192754328251
+     },
+     {
+      "layer": 10,
+      "step": 600,
+      "point_nll": 0.0406850166618824,
+      "keep_kl": 0.01406420860439539
+     },
+     {
+      "layer": 10,
+      "step": 700,
+      "point_nll": 0.03546322509646416,
+      "keep_kl": 0.013860265724360943
+     },
+     {
+      "layer": 10,
+      "step": 799,
+      "point_nll": 0.026944492012262344,
+      "keep_kl": 0.012803872115910053
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 3.976609945297241,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 100,
+      "point_nll": 0.016730492934584618,
+      "keep_kl": 0.016154171898961067
+     },
+     {
+      "layer": 11,
+      "step": 200,
+      "point_nll": 0.03835218772292137,
+      "keep_kl": 0.010323346592485905
+     },
+     {
+      "layer": 11,
+      "step": 300,
+      "point_nll": 0.03734228014945984,
+      "keep_kl": 0.011163031682372093
+     },
+     {
+      "layer": 11,
+      "step": 400,
+      "point_nll": 0.01636669598519802,
+      "keep_kl": 0.007587055675685406
+     },
+     {
+      "layer": 11,
+      "step": 500,
+      "point_nll": 0.036893174052238464,
+      "keep_kl": 0.007883072830736637
+     },
+     {
+      "layer": 11,
+      "step": 600,
+      "point_nll": 0.023585399612784386,
+      "keep_kl": 0.008300809189677238
+     },
+     {
+      "layer": 11,
+      "step": 700,
+      "point_nll": 0.0025887438096106052,
+      "keep_kl": 0.007630691863596439
+     },
+     {
+      "layer": 11,
+      "step": 799,
+      "point_nll": 0.014292462728917599,
+      "keep_kl": 0.009855283424258232
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.9156036376953125,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.022421272471547127,
+      "keep_kl": 0.01619374193251133
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.011787382885813713,
+      "keep_kl": 0.009368876926600933
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.005267735570669174,
+      "keep_kl": 0.0069940900430083275
+     },
+     {
+      "layer": 12,
+      "step": 400,
+      "point_nll": 0.0022811281960457563,
+      "keep_kl": 0.0057282522320747375
+     },
+     {
+      "layer": 12,
+      "step": 500,
+      "point_nll": 0.0020154137164354324,
+      "keep_kl": 0.005438918247818947
+     },
+     {
+      "layer": 12,
+      "step": 600,
+      "point_nll": 0.010652617551386356,
+      "keep_kl": 0.0055339643731713295
+     },
+     {
+      "layer": 12,
+      "step": 700,
+      "point_nll": 0.004551713354885578,
+      "keep_kl": 0.006099798250943422
+     },
+     {
+      "layer": 12,
+      "step": 799,
+      "point_nll": 0.001378994551487267,
+      "keep_kl": 0.004758572671562433
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 3.2398459911346436,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.029871786013245583,
+      "keep_kl": 0.04307342320680618
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.011243141256272793,
+      "keep_kl": 0.018165485933423042
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.018748391419649124,
+      "keep_kl": 0.012542594224214554
+     },
+     {
+      "layer": 13,
+      "step": 400,
+      "point_nll": 0.028783131390810013,
+      "keep_kl": 0.009759766049683094
+     },
+     {
+      "layer": 13,
+      "step": 500,
+      "point_nll": 0.007668023928999901,
+      "keep_kl": 0.008539128117263317
+     },
+     {
+      "layer": 13,
+      "step": 600,
+      "point_nll": 0.006973445415496826,
+      "keep_kl": 0.007113758008927107
+     },
+     {
+      "layer": 13,
+      "step": 700,
+      "point_nll": 0.013511965982615948,
+      "keep_kl": 0.010155044496059418
+     },
+     {
+      "layer": 13,
+      "step": 799,
+      "point_nll": 0.007177844177931547,
+      "keep_kl": 0.006815500557422638
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 7.757259368896484,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.10763920843601227,
+      "keep_kl": 0.21468804776668549
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.04751340672373772,
+      "keep_kl": 0.061855003237724304
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.04914313927292824,
+      "keep_kl": 0.033500585705041885
+     },
+     {
+      "layer": 14,
+      "step": 400,
+      "point_nll": 0.02543977089226246,
+      "keep_kl": 0.025306489318609238
+     },
+     {
+      "layer": 14,
+      "step": 500,
+      "point_nll": 0.025560040026903152,
+      "keep_kl": 0.01802857406437397
+     },
+     {
+      "layer": 14,
+      "step": 600,
+      "point_nll": 0.027307046577334404,
+      "keep_kl": 0.016827698796987534
+     },
+     {
+      "layer": 14,
+      "step": 700,
+      "point_nll": 0.005869843997061253,
+      "keep_kl": 0.016131741926074028
+     },
+     {
+      "layer": 14,
+      "step": 799,
+      "point_nll": 0.03930430859327316,
+      "keep_kl": 0.6899833083152771
+     }
+    ],
+    "decode": {
+     "right": 650,
+     "items": 800,
+     "share": 0.8125,
+     "per_task": {
+      "del_word": [
+       153,
+       200
+      ],
+      "sub_word": [
+       184,
+       200
+      ],
+      "swap_word": [
+       133,
+       200
+      ],
+      "ins_word": [
+       180,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked his delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw society it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what what statement other mysteries the box had. \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review she looked closer, she saw it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other program the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " delicious looked It. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " was she closer, she saw it When a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They other what wondered mysteries the box had. \"",
+       "right": true
+      }
+     ]
+    },
+    "fit_seconds": 3082.0685312747955,
+    "train_items": 21568,
+    "variant": {
+     "name": "PA_800",
+     "kind": "program",
+     "aug": true,
+     "stream": true,
+     "steps": 800,
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       4
+      ],
+      [
+       "h3",
+       2,
+       9,
+       4
+      ],
+      [
+       "h4",
+       2,
+       9,
+       4
+      ],
+      [
+       "h2",
+       2,
+       9,
+       4
+      ]
+     ],
+     "decode": true
+    },
+    "weights": 16260864,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      7,
+      "h1"
+     ],
+     [
+      2,
+      0,
+      "h1"
+     ],
+     [
+      3,
+      4,
+      "h3"
+     ],
+     [
+      2,
+      1,
+      "h3"
+     ],
+     [
+      4,
+      14,
+      "h3"
+     ],
+     [
+      9,
+      6,
+      "h3"
+     ],
+     [
+      5,
+      11,
+      "h4"
+     ],
+     [
+      2,
+      5,
+      "h4"
+     ],
+     [
+      5,
+      12,
+      "h4"
+     ],
+     [
+      8,
+      0,
+      "h4"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ],
+     [
+      6,
+      2,
+      "h2"
+     ],
+     [
+      3,
+      3,
+      "h2"
+     ]
+    ]
+   },
+   "E_aug_1200": {
+    "tf": {
+     "exact": 616,
+     "items": 800,
+     "share": 0.77,
+     "logp_pointed": -0.12338665649066208,
+     "per_task": {
+      "del_word": [
+       173,
+       200
+      ],
+      "ins_word": [
+       159,
+       200
+      ],
+      "sub_word": [
+       179,
+       200
+      ],
+      "swap_word": [
+       105,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.869803769001931,
+    "neutral_loss": 2.6086436789501337,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.28267474795381226,
+      "top_share": 0.32278645833333336,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.22083133800922314,
+      "top_share": 0.2473655019412091,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "step": 0,
+      "ce": 1.167654037475586
+     },
+     {
+      "step": 100,
+      "ce": 0.26063260436058044
+     },
+     {
+      "step": 200,
+      "ce": 0.275751531124115
+     },
+     {
+      "step": 300,
+      "ce": 0.11033863574266434
+     },
+     {
+      "step": 400,
+      "ce": 0.1928754299879074
+     },
+     {
+      "step": 500,
+      "ce": 0.11201593279838562
+     },
+     {
+      "step": 600,
+      "ce": 0.06624488532543182
+     },
+     {
+      "step": 700,
+      "ce": 0.23154187202453613
+     },
+     {
+      "step": 800,
+      "ce": 0.1870962232351303
+     },
+     {
+      "step": 900,
+      "ce": 0.07488621026277542
+     },
+     {
+      "step": 1000,
+      "ce": 0.09233546257019043
+     },
+     {
+      "step": 1100,
+      "ce": 0.0243068840354681
+     },
+     {
+      "step": 1199,
+      "ce": 0.05500275641679764
+     }
+    ],
+    "fit_seconds": 464.3678011894226,
+    "train_items": 21568,
+    "variant": {
+     "name": "E_aug_1200",
+     "kind": "e2e",
+     "aug": true,
+     "e2e_steps": 1200
+    },
+    "weights": 7868160,
+    "heads": [
+     [
+      10,
+      9
+     ],
+     [
+      10,
+      0
+     ],
+     [
+      12,
+      15
+     ],
+     [
+      10,
+      8
+     ],
+     [
+      11,
+      12
+     ],
+     [
+      10,
+      4
+     ],
+     [
+      11,
+      0
+     ],
+     [
+      11,
+      6
+     ],
+     [
+      11,
+      1
+     ],
+     [
+      14,
+      12
+     ],
+     [
+      11,
+      10
+     ],
+     [
+      11,
+      14
+     ],
+     [
+      13,
+      15
+     ],
+     [
+      10,
+      11
+     ],
+     [
+      12,
+      14
+     ]
+    ]
+   }
+  }
+ },
+ "seconds": 4291.446627378464
+}

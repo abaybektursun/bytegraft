@@ -1,0 +1,2178 @@
+{
+ "args": {
+  "out": "/work/out",
+  "published": "s3://<s3-bucket>/results/bytegraft/bank/smoke_7/season_1/published.jsonl",
+  "host": "pythia_1b4",
+  "train_per_task": 600,
+  "test_per_task": 200,
+  "sweep_items": 64,
+  "k": 15,
+  "sizes": "128,2400",
+  "steps": 400,
+  "lr": 0.001,
+  "beta": 1.0,
+  "e2e_steps": 600,
+  "e2e_lr": 0.0001
+ },
+ "steps": {
+  "identity": {
+   "max_abs_logit_gap": 0.0006939172744750977,
+   "gap_on_another_input": 20.853050231933594,
+   "pass": true
+  },
+  "items": {
+   "train": 2400,
+   "test": 800,
+   "gold_tokens_with_pointer": 0.9961347055128763,
+   "example": {
+    "id": "published:del_word:009800",
+    "gold": [
+     " It",
+     " delicious",
+     "."
+    ],
+    "pointed_tokens": [
+     " It",
+     " delicious",
+     "."
+    ]
+   }
+  },
+  "selftest": {
+   "ran": true
+  },
+  "base": {
+   "tf": {
+    "exact": 26,
+    "items": 800,
+    "share": 0.0325,
+    "logp_pointed": -1.2269948791833922,
+    "per_task": {
+     "del_word": [
+      7,
+      200
+     ],
+     "ins_word": [
+      14,
+      200
+     ],
+     "sub_word": [
+      5,
+      200
+     ],
+     "swap_word": [
+      0,
+      200
+     ]
+    }
+   },
+   "decode": {
+    "right": 26,
+    "items": 800,
+    "share": 0.0325,
+    "per_task": {
+     "del_word": [
+      7,
+      200
+     ],
+     "sub_word": [
+      5,
+      200
+     ],
+     "swap_word": [
+      0,
+      200
+     ],
+     "ins_word": [
+      14,
+      200
+     ]
+    },
+    "samples": [
+     {
+      "id": "published:del_word:009800",
+      "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+      "gold": " It delicious.",
+      "output": " It looked delicious. \"",
+      "right": false
+     },
+     {
+      "id": "published:del_word:009801",
+      "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+      "gold": " When she looked closer, she saw it a picture!",
+      "output": " When she looked closer, she saw it was a picture! \"",
+      "right": false
+     },
+     {
+      "id": "published:del_word:009802",
+      "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+      "gold": " wondered what other mysteries the box had.",
+      "output": " Wonder what other mysteries the box had. \"",
+      "right": false
+     },
+     {
+      "id": "published:ins_word:007800",
+      "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+      "gold": " It looked his delicious.",
+      "output": " It looked delicious his. \"",
+      "right": false
+     },
+     {
+      "id": "published:ins_word:007801",
+      "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+      "gold": " When she looked closer, she saw society it was a picture!",
+      "output": " When she looked closer, she saw it was a picture! \"",
+      "right": false
+     },
+     {
+      "id": "published:ins_word:007802",
+      "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+      "gold": " They wondered what statement other mysteries the box had.",
+      "output": " They wondered what other mysteries the box had statement. \"",
+      "right": false
+     },
+     {
+      "id": "published:sub_word:011800",
+      "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+      "gold": " It looked microsoft.",
+      "output": " microsoft delicious. \"",
+      "right": false
+     },
+     {
+      "id": "published:sub_word:011801",
+      "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+      "gold": " review she looked closer, she saw it was a picture!",
+      "output": " review is a review. \"",
+      "right": false
+     },
+     {
+      "id": "published:sub_word:011802",
+      "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+      "gold": " They wondered what other program the box had.",
+      "output": " program \"",
+      "right": false
+     },
+     {
+      "id": "published:swap_word:013800",
+      "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+      "gold": " delicious looked It.",
+      "output": " It looked delicious is It delicious. \"",
+      "right": false
+     },
+     {
+      "id": "published:swap_word:013801",
+      "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+      "gold": " was she looked closer, she saw it When a picture!",
+      "output": " was a When she looked closer, she saw it was a picture! \"",
+      "right": false
+     },
+     {
+      "id": "published:swap_word:013802",
+      "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+      "gold": " They other what wondered mysteries the box had.",
+      "output": " wonder other is it. \"",
+      "right": false
+     }
+    ]
+   },
+   "other_loss": 1.7828488471733468
+  },
+  "sweep": {
+   "reference_logp": -1.3013916574555002,
+   "top": [
+    [
+     0.6295,
+     10,
+     9
+    ],
+    [
+     0.4719,
+     10,
+     0
+    ],
+    [
+     0.4396,
+     12,
+     15
+    ],
+    [
+     0.3647,
+     10,
+     8
+    ],
+    [
+     0.2839,
+     11,
+     12
+    ],
+    [
+     0.2637,
+     10,
+     4
+    ],
+    [
+     0.2567,
+     11,
+     0
+    ],
+    [
+     0.2481,
+     11,
+     6
+    ],
+    [
+     0.2442,
+     11,
+     1
+    ],
+    [
+     0.2332,
+     14,
+     12
+    ],
+    [
+     0.2103,
+     11,
+     10
+    ],
+    [
+     0.1945,
+     11,
+     14
+    ],
+    [
+     0.1895,
+     13,
+     15
+    ],
+    [
+     0.1853,
+     10,
+     11
+    ],
+    [
+     0.1353,
+     12,
+     14
+    ],
+    [
+     0.134,
+     13,
+     6
+    ],
+    [
+     0.1301,
+     5,
+     4
+    ],
+    [
+     0.1189,
+     12,
+     8
+    ],
+    [
+     0.1151,
+     10,
+     14
+    ],
+    [
+     0.1148,
+     14,
+     0
+    ],
+    [
+     0.1105,
+     7,
+     10
+    ],
+    [
+     0.1032,
+     10,
+     3
+    ],
+    [
+     0.0931,
+     16,
+     3
+    ],
+    [
+     0.084,
+     7,
+     3
+    ],
+    [
+     0.0834,
+     11,
+     11
+    ],
+    [
+     0.0791,
+     12,
+     11
+    ],
+    [
+     0.0758,
+     4,
+     8
+    ],
+    [
+     0.0731,
+     9,
+     10
+    ],
+    [
+     0.0663,
+     11,
+     8
+    ],
+    [
+     0.0652,
+     13,
+     2
+    ],
+    [
+     0.0557,
+     16,
+     4
+    ],
+    [
+     0.0547,
+     14,
+     5
+    ],
+    [
+     0.0528,
+     18,
+     4
+    ],
+    [
+     0.0518,
+     14,
+     6
+    ],
+    [
+     0.0505,
+     19,
+     11
+    ],
+    [
+     0.0494,
+     19,
+     2
+    ],
+    [
+     0.047,
+     10,
+     12
+    ],
+    [
+     0.0465,
+     16,
+     10
+    ],
+    [
+     0.0464,
+     9,
+     15
+    ],
+    [
+     0.0444,
+     17,
+     7
+    ]
+   ],
+   "bottom": [
+    [
+     -0.2492,
+     9,
+     9
+    ],
+    [
+     -0.3275,
+     10,
+     5
+    ],
+    [
+     -0.917,
+     11,
+     15
+    ],
+    [
+     -1.0404,
+     12,
+     7
+    ],
+    [
+     -1.2622,
+     10,
+     7
+    ]
+   ],
+   "heads": [
+    [
+     10,
+     9
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     12,
+     15
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     10,
+     4
+    ],
+    [
+     11,
+     0
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     11,
+     10
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     13,
+     15
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     12,
+     14
+    ]
+   ]
+  },
+  "oracle": {
+   "k_heads_pointed": {
+    "exact": 730,
+    "items": 800,
+    "share": 0.9125,
+    "logp_pointed": -0.09963482721984587,
+    "per_task": {
+     "del_word": [
+      166,
+      200
+     ],
+     "ins_word": [
+      194,
+      200
+     ],
+     "sub_word": [
+      194,
+      200
+     ],
+     "swap_word": [
+      176,
+      200
+     ]
+    }
+   },
+   "random_heads_pointed": {
+    "exact": 36,
+    "items": 800,
+    "share": 0.045,
+    "logp_pointed": -1.143114365629681,
+    "per_task": {
+     "del_word": [
+      14,
+      200
+     ],
+     "ins_word": [
+      12,
+      200
+     ],
+     "sub_word": [
+      10,
+      200
+     ],
+     "swap_word": [
+      0,
+      200
+     ]
+    }
+   },
+   "weights_per_fit": 7868160,
+   "share_of_model": 0.005561921458828571
+  },
+  "runs": {
+   "local_n128": {
+    "tf": {
+     "exact": 98,
+     "items": 800,
+     "share": 0.1225,
+     "logp_pointed": -1.5570224492709817,
+     "per_task": {
+      "del_word": [
+       41,
+       200
+      ],
+      "ins_word": [
+       24,
+       200
+      ],
+      "sub_word": [
+       30,
+       200
+      ],
+      "swap_word": [
+       3,
+       200
+      ]
+     }
+    },
+    "decode": {
+     "right": 98,
+     "items": 800,
+     "share": 0.1225,
+     "per_task": {
+      "del_word": [
+       41,
+       200
+      ],
+      "sub_word": [
+       30,
+       200
+      ],
+      "swap_word": [
+       3,
+       200
+      ],
+      "ins_word": [
+       24,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It looked delicious. \"",
+       "right": false
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked his delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what other mysteries the box had statement. \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other mysteries the box had. \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " It looked delicious. \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They wondered what other mysteries the box had. \"",
+       "right": false
+      }
+     ]
+    },
+    "other_loss": 1.8308589710929288,
+    "log": [
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.0089313983917236,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 100,
+      "point_nll": 0.00560556398704648,
+      "keep_kl": 0.008608642965555191
+     },
+     {
+      "layer": 10,
+      "step": 200,
+      "point_nll": 0.0016032326966524124,
+      "keep_kl": 0.003725900314748287
+     },
+     {
+      "layer": 10,
+      "step": 300,
+      "point_nll": 0.0014637102140113711,
+      "keep_kl": 0.002914868760854006
+     },
+     {
+      "layer": 10,
+      "step": 399,
+      "point_nll": 0.0009942995384335518,
+      "keep_kl": 0.002161754062399268
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 4.0125908851623535,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 100,
+      "point_nll": 0.0043194531463086605,
+      "keep_kl": 0.010447110049426556
+     },
+     {
+      "layer": 11,
+      "step": 200,
+      "point_nll": 0.0013940727803856134,
+      "keep_kl": 0.004410281777381897
+     },
+     {
+      "layer": 11,
+      "step": 300,
+      "point_nll": 0.0012150832917541265,
+      "keep_kl": 0.0031951754353940487
+     },
+     {
+      "layer": 11,
+      "step": 399,
+      "point_nll": 0.0008414930780418217,
+      "keep_kl": 0.00344218872487545
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.981066942214966,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.004687048960477114,
+      "keep_kl": 0.01213501114398241
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.0014846170088276267,
+      "keep_kl": 0.005028823856264353
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.001232634880580008,
+      "keep_kl": 0.00346113508567214
+     },
+     {
+      "layer": 12,
+      "step": 399,
+      "point_nll": 0.000854272220749408,
+      "keep_kl": 0.0025047080125659704
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 3.054394483566284,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.0063706450164318085,
+      "keep_kl": 0.035555895417928696
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.00272259209305048,
+      "keep_kl": 0.013303643092513084
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.0022880234755575657,
+      "keep_kl": 0.008537543006241322
+     },
+     {
+      "layer": 13,
+      "step": 399,
+      "point_nll": 0.0016051866114139557,
+      "keep_kl": 0.005990724544972181
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 8.159660339355469,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.013230262324213982,
+      "keep_kl": 0.21764138340950012
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.005521771963685751,
+      "keep_kl": 0.0676056370139122
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.005526056047528982,
+      "keep_kl": 0.0376117117702961
+     },
+     {
+      "layer": 14,
+      "step": 399,
+      "point_nll": 0.004032826516777277,
+      "keep_kl": 0.02379273623228073
+     }
+    ],
+    "fit_seconds": 29.010318279266357,
+    "train_items": 128
+   },
+   "e2e_n128": {
+    "tf": {
+     "exact": 233,
+     "items": 800,
+     "share": 0.29125,
+     "logp_pointed": -0.8932140862647333,
+     "per_task": {
+      "del_word": [
+       86,
+       200
+      ],
+      "ins_word": [
+       52,
+       200
+      ],
+      "sub_word": [
+       85,
+       200
+      ],
+      "swap_word": [
+       10,
+       200
+      ]
+     }
+    },
+    "decode": {
+     "right": 233,
+     "items": 800,
+     "share": 0.29125,
+     "per_task": {
+      "del_word": [
+       86,
+       200
+      ],
+      "sub_word": [
+       85,
+       200
+      ],
+      "swap_word": [
+       10,
+       200
+      ],
+      "ins_word": [
+       52,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked delicious his. \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what statement other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review she looked closer, she saw it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other program the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " a looked delicious It. \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They wondered what other mysteries the box had. \"",
+       "right": false
+      }
+     ]
+    },
+    "other_loss": 1.8855085350696665,
+    "log": [
+     {
+      "step": 0,
+      "ce": 1.0721442699432373
+     },
+     {
+      "step": 100,
+      "ce": 0.033532653003931046
+     },
+     {
+      "step": 200,
+      "ce": 0.0061117736622691154
+     },
+     {
+      "step": 300,
+      "ce": 0.0040270015597343445
+     },
+     {
+      "step": 400,
+      "ce": 0.0032668644562363625
+     },
+     {
+      "step": 500,
+      "ce": 0.00222553638741374
+     },
+     {
+      "step": 599,
+      "ce": 0.0015421485295519233
+     }
+    ],
+    "fit_seconds": 230.7664132118225,
+    "train_items": 128
+   },
+   "local_n2400": {
+    "tf": {
+     "exact": 451,
+     "items": 800,
+     "share": 0.56375,
+     "logp_pointed": -0.6394803856751139,
+     "per_task": {
+      "del_word": [
+       125,
+       200
+      ],
+      "ins_word": [
+       130,
+       200
+      ],
+      "sub_word": [
+       149,
+       200
+      ],
+      "swap_word": [
+       47,
+       200
+      ]
+     }
+    },
+    "decode": {
+     "right": 451,
+     "items": 800,
+     "share": 0.56375,
+     "per_task": {
+      "del_word": [
+       125,
+       200
+      ],
+      "sub_word": [
+       149,
+       200
+      ],
+      "swap_word": [
+       47,
+       200
+      ],
+      "ins_word": [
+       130,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked his delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw society it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what statement other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review she looked closer, she saw it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other program the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " delicious looked It. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " it she looked closer, she saw it When a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They other what mysteries the box had. \"",
+       "right": false
+      }
+     ]
+    },
+    "other_loss": 1.8590095422041384,
+    "log": [
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.0089313983917236,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 100,
+      "point_nll": 0.17090284824371338,
+      "keep_kl": 0.028815919533371925
+     },
+     {
+      "layer": 10,
+      "step": 200,
+      "point_nll": 0.05785765126347542,
+      "keep_kl": 0.024412531405687332
+     },
+     {
+      "layer": 10,
+      "step": 300,
+      "point_nll": 0.03209967538714409,
+      "keep_kl": 0.0199324581772089
+     },
+     {
+      "layer": 10,
+      "step": 399,
+      "point_nll": 0.01099738571792841,
+      "keep_kl": 0.011243274435400963
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 4.0147905349731445,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 100,
+      "point_nll": 0.013589069247245789,
+      "keep_kl": 0.016696887090802193
+     },
+     {
+      "layer": 11,
+      "step": 200,
+      "point_nll": 0.005149143747985363,
+      "keep_kl": 0.009081486612558365
+     },
+     {
+      "layer": 11,
+      "step": 300,
+      "point_nll": 0.0030423805583268404,
+      "keep_kl": 0.006858345586806536
+     },
+     {
+      "layer": 11,
+      "step": 399,
+      "point_nll": 0.002809230936691165,
+      "keep_kl": 0.006897708401083946
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.979543447494507,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.012500512413680553,
+      "keep_kl": 0.01656695082783699
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.005116639658808708,
+      "keep_kl": 0.008762480691075325
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.003000740660354495,
+      "keep_kl": 0.006187645718455315
+     },
+     {
+      "layer": 12,
+      "step": 399,
+      "point_nll": 0.0025255342479795218,
+      "keep_kl": 0.004218626767396927
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 3.038909435272217,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.022051705047488213,
+      "keep_kl": 0.04374503344297409
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.009734442457556725,
+      "keep_kl": 0.019353285431861877
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.005967764649540186,
+      "keep_kl": 0.012814914807677269
+     },
+     {
+      "layer": 13,
+      "step": 399,
+      "point_nll": 0.005011934321373701,
+      "keep_kl": 0.008705412968993187
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 8.121217727661133,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.15257331728935242,
+      "keep_kl": 0.2718753516674042
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.0439319834113121,
+      "keep_kl": 0.08540143072605133
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.021679788827896118,
+      "keep_kl": 0.046549100428819656
+     },
+     {
+      "layer": 14,
+      "step": 399,
+      "point_nll": 0.014497130177915096,
+      "keep_kl": 0.028940340504050255
+     }
+    ],
+    "fit_seconds": 129.00556206703186,
+    "train_items": 2400
+   },
+   "e2e_n2400": {
+    "tf": {
+     "exact": 542,
+     "items": 800,
+     "share": 0.6775,
+     "logp_pointed": -0.1957654879139509,
+     "per_task": {
+      "del_word": [
+       156,
+       200
+      ],
+      "ins_word": [
+       156,
+       200
+      ],
+      "sub_word": [
+       153,
+       200
+      ],
+      "swap_word": [
+       77,
+       200
+      ]
+     }
+    },
+    "decode": {
+     "right": 542,
+     "items": 800,
+     "share": 0.6775,
+     "per_task": {
+      "del_word": [
+       156,
+       200
+      ],
+      "sub_word": [
+       153,
+       200
+      ],
+      "swap_word": [
+       77,
+       200
+      ],
+      "ins_word": [
+       156,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked his delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw society it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what statement other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review she looked closer, she saw it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other program the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " delicious looked It. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " was she When, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They other what wonder what the box had. \"",
+       "right": false
+      }
+     ]
+    },
+    "other_loss": 1.8734933262055264,
+    "log": [
+     {
+      "step": 0,
+      "ce": 1.352205514907837
+     },
+     {
+      "step": 100,
+      "ce": 0.23870790004730225
+     },
+     {
+      "step": 200,
+      "ce": 0.19328977167606354
+     },
+     {
+      "step": 300,
+      "ce": 0.0571163147687912
+     },
+     {
+      "step": 400,
+      "ce": 0.05471111461520195
+     },
+     {
+      "step": 500,
+      "ce": 0.04355838522315025
+     },
+     {
+      "step": 599,
+      "ce": 0.05927996337413788
+     }
+    ],
+    "fit_seconds": 229.60078358650208,
+    "train_items": 2400
+   },
+   "local_random_heads": {
+    "tf": {
+     "exact": 33,
+     "items": 800,
+     "share": 0.04125,
+     "logp_pointed": -1.2429828300961063,
+     "per_task": {
+      "del_word": [
+       14,
+       200
+      ],
+      "ins_word": [
+       11,
+       200
+      ],
+      "sub_word": [
+       8,
+       200
+      ],
+      "swap_word": [
+       0,
+       200
+      ]
+     }
+    },
+    "decode": {
+     "right": 33,
+     "items": 800,
+     "share": 0.04125,
+     "per_task": {
+      "del_word": [
+       14,
+       200
+      ],
+      "sub_word": [
+       8,
+       200
+      ],
+      "swap_word": [
+       0,
+       200
+      ],
+      "ins_word": [
+       11,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It looked delicious. \"",
+       "right": false
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " they wondered what other mysteries the box had. \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked delicious his. \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what other mysteries the box had. \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " microsoft delicious. \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " program \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " It looked delicious is It delicious. \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " was it when she looked closer, she saw it was a picture! \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They wondered what other mysteries the box had. \"",
+       "right": false
+      }
+     ]
+    },
+    "other_loss": 1.8012560974347036,
+    "log": [
+     {
+      "layer": 2,
+      "step": 0,
+      "point_nll": 8.576008796691895,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 2,
+      "step": 100,
+      "point_nll": 0.6394890546798706,
+      "keep_kl": 0.07101466506719589
+     },
+     {
+      "layer": 2,
+      "step": 200,
+      "point_nll": 0.39228931069374084,
+      "keep_kl": 0.056406062096357346
+     },
+     {
+      "layer": 2,
+      "step": 300,
+      "point_nll": 0.29293569922447205,
+      "keep_kl": 0.04984290897846222
+     },
+     {
+      "layer": 2,
+      "step": 399,
+      "point_nll": 0.2034507393836975,
+      "keep_kl": 0.04483562335371971
+     },
+     {
+      "layer": 3,
+      "step": 0,
+      "point_nll": 5.828995704650879,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 3,
+      "step": 100,
+      "point_nll": 0.31831955909729004,
+      "keep_kl": 0.06290104240179062
+     },
+     {
+      "layer": 3,
+      "step": 200,
+      "point_nll": 0.19800348579883575,
+      "keep_kl": 0.04835665971040726
+     },
+     {
+      "layer": 3,
+      "step": 300,
+      "point_nll": 0.16091902554035187,
+      "keep_kl": 0.04023914039134979
+     },
+     {
+      "layer": 3,
+      "step": 399,
+      "point_nll": 0.0872994139790535,
+      "keep_kl": 0.03354790061712265
+     },
+     {
+      "layer": 5,
+      "step": 0,
+      "point_nll": 8.922893524169922,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 5,
+      "step": 100,
+      "point_nll": 0.21190255880355835,
+      "keep_kl": 0.04056999459862709
+     },
+     {
+      "layer": 5,
+      "step": 200,
+      "point_nll": 0.103823721408844,
+      "keep_kl": 0.026999684050679207
+     },
+     {
+      "layer": 5,
+      "step": 300,
+      "point_nll": 0.08965720236301422,
+      "keep_kl": 0.021242331713438034
+     },
+     {
+      "layer": 5,
+      "step": 399,
+      "point_nll": 0.017310572788119316,
+      "keep_kl": 0.017440754920244217
+     },
+     {
+      "layer": 9,
+      "step": 0,
+      "point_nll": 4.999410152435303,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 9,
+      "step": 100,
+      "point_nll": 0.13585670292377472,
+      "keep_kl": 0.03342311084270477
+     },
+     {
+      "layer": 9,
+      "step": 200,
+      "point_nll": 0.05590352788567543,
+      "keep_kl": 0.02172398753464222
+     },
+     {
+      "layer": 9,
+      "step": 300,
+      "point_nll": 0.03712691366672516,
+      "keep_kl": 0.016591141000390053
+     },
+     {
+      "layer": 9,
+      "step": 399,
+      "point_nll": 0.009642006829380989,
+      "keep_kl": 0.013769714161753654
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 4.504960060119629,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.1970464289188385,
+      "keep_kl": 0.03281491622328758
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.06405697017908096,
+      "keep_kl": 0.021221330389380455
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.02915837988257408,
+      "keep_kl": 0.016475781798362732
+     },
+     {
+      "layer": 12,
+      "step": 399,
+      "point_nll": 0.016968563199043274,
+      "keep_kl": 0.013769772835075855
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 3.003568410873413,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.4178970754146576,
+      "keep_kl": 0.20625829696655273
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.14804406464099884,
+      "keep_kl": 0.17295318841934204
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.07314761728048325,
+      "keep_kl": 0.03521416336297989
+     },
+     {
+      "layer": 13,
+      "step": 399,
+      "point_nll": 0.04231851547956467,
+      "keep_kl": 0.03614701330661774
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 5.161189079284668,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.18585790693759918,
+      "keep_kl": 0.05461984500288963
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.06955916434526443,
+      "keep_kl": 0.03128953278064728
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.03558629751205444,
+      "keep_kl": 0.02316453866660595
+     },
+     {
+      "layer": 14,
+      "step": 399,
+      "point_nll": 0.024163179099559784,
+      "keep_kl": 0.0169025007635355
+     },
+     {
+      "layer": 15,
+      "step": 0,
+      "point_nll": 6.791396141052246,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 15,
+      "step": 100,
+      "point_nll": 0.41477668285369873,
+      "keep_kl": 0.11656458675861359
+     },
+     {
+      "layer": 15,
+      "step": 200,
+      "point_nll": 0.14612191915512085,
+      "keep_kl": 0.04415329173207283
+     },
+     {
+      "layer": 15,
+      "step": 300,
+      "point_nll": 0.0777682512998581,
+      "keep_kl": 0.030474213883280754
+     },
+     {
+      "layer": 15,
+      "step": 399,
+      "point_nll": 0.0488511361181736,
+      "keep_kl": 0.024499868974089622
+     },
+     {
+      "layer": 21,
+      "step": 0,
+      "point_nll": 15.831888198852539,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 21,
+      "step": 100,
+      "point_nll": 0.8251743316650391,
+      "keep_kl": 0.05370109900832176
+     },
+     {
+      "layer": 21,
+      "step": 200,
+      "point_nll": 0.36229899525642395,
+      "keep_kl": 0.02384191006422043
+     },
+     {
+      "layer": 21,
+      "step": 300,
+      "point_nll": 0.21410417556762695,
+      "keep_kl": 0.014297752641141415
+     },
+     {
+      "layer": 21,
+      "step": 399,
+      "point_nll": 0.13453726470470428,
+      "keep_kl": 0.01085743959993124
+     },
+     {
+      "layer": 23,
+      "step": 0,
+      "point_nll": 16.852556228637695,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 23,
+      "step": 100,
+      "point_nll": 1.0420494079589844,
+      "keep_kl": 0.12233929336071014
+     },
+     {
+      "layer": 23,
+      "step": 200,
+      "point_nll": 0.35628020763397217,
+      "keep_kl": 0.04817315936088562
+     },
+     {
+      "layer": 23,
+      "step": 300,
+      "point_nll": 0.18798509240150452,
+      "keep_kl": 0.03096538782119751
+     },
+     {
+      "layer": 23,
+      "step": 399,
+      "point_nll": 0.1258039027452469,
+      "keep_kl": 0.021719621494412422
+     }
+    ],
+    "train_items": 2400
+   },
+   "local_wrong_pointer": {
+    "tf": {
+     "exact": 0,
+     "items": 800,
+     "share": 0.0,
+     "logp_pointed": -6.301584223984592,
+     "per_task": {
+      "del_word": [
+       0,
+       200
+      ],
+      "ins_word": [
+       0,
+       200
+      ],
+      "sub_word": [
+       0,
+       200
+      ],
+      "swap_word": [
+       0,
+       200
+      ]
+     }
+    },
+    "decode": {
+     "right": 0,
+     "items": 800,
+     "share": 0.0,
+     "per_task": {
+      "del_word": [
+       0,
+       200
+      ],
+      "sub_word": [
+       0,
+       200
+      ],
+      "swap_word": [
+       0,
+       200
+      ],
+      "ins_word": [
+       0,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " . \"",
+       "right": false
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " \".",
+       "right": false
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " Answer: \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " did it. \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " \"",
+       "right": false
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " Add \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " I can I can do it. \"",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " I\n",
+       "right": false
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " do. \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " do I do can It can it. \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " \"",
+       "right": false
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " can it. \"",
+       "right": false
+      }
+     ]
+    },
+    "other_loss": 1.7956739120305574,
+    "log": [
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 9.181883811950684,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 100,
+      "point_nll": 0.7928488850593567,
+      "keep_kl": 0.0509372353553772
+     },
+     {
+      "layer": 10,
+      "step": 200,
+      "point_nll": 0.5605132579803467,
+      "keep_kl": 0.045681536197662354
+     },
+     {
+      "layer": 10,
+      "step": 300,
+      "point_nll": 0.4171663224697113,
+      "keep_kl": 0.051863472908735275
+     },
+     {
+      "layer": 10,
+      "step": 399,
+      "point_nll": 0.3439260721206665,
+      "keep_kl": 0.06432882696390152
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 6.438936710357666,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 100,
+      "point_nll": 0.23628288507461548,
+      "keep_kl": 0.05151451751589775
+     },
+     {
+      "layer": 11,
+      "step": 200,
+      "point_nll": 0.1754779815673828,
+      "keep_kl": 0.03760455548763275
+     },
+     {
+      "layer": 11,
+      "step": 300,
+      "point_nll": 0.1417502760887146,
+      "keep_kl": 0.03391449153423309
+     },
+     {
+      "layer": 11,
+      "step": 399,
+      "point_nll": 0.10796067863702774,
+      "keep_kl": 0.033536408096551895
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 5.427647113800049,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.17258808016777039,
+      "keep_kl": 0.03989431634545326
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.14241714775562286,
+      "keep_kl": 0.027139268815517426
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.12661732733249664,
+      "keep_kl": 0.023198815062642097
+     },
+     {
+      "layer": 12,
+      "step": 399,
+      "point_nll": 0.09180494397878647,
+      "keep_kl": 0.023392237722873688
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 5.708465576171875,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.19128914177417755,
+      "keep_kl": 0.07628307491540909
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.13780555129051208,
+      "keep_kl": 0.03557652607560158
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.12003400921821594,
+      "keep_kl": 0.025938324630260468
+     },
+     {
+      "layer": 13,
+      "step": 399,
+      "point_nll": 0.08602423220872879,
+      "keep_kl": 0.022666670382022858
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 8.782265663146973,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.44773194193840027,
+      "keep_kl": 0.5151286721229553
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.21792908012866974,
+      "keep_kl": 0.1640484482049942
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.154799684882164,
+      "keep_kl": 0.08920633792877197
+     },
+     {
+      "layer": 14,
+      "step": 399,
+      "point_nll": 0.10245314985513687,
+      "keep_kl": 0.06444775313138962
+     }
+    ],
+    "train_items": 2400
+   }
+  },
+  "restored": {
+   "tf_exact_after_removing_deltas": 26,
+   "equals_base": true
+  }
+ },
+ "seconds": 2857.3289601802826
+}

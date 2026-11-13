@@ -1,0 +1,4305 @@
+{
+ "args": {
+  "out": "/work/out",
+  "published": "s3://<s3-bucket>/results/bytegraft/bank/smoke_7/season_1/published.jsonl",
+  "host": "pythia_1b4",
+  "train_per_task": 600,
+  "test_per_task": 200,
+  "sweep_items": 64,
+  "k": 15,
+  "variants": "s3://<s3-bucket>/results/bytegraft/ptr/ptr_6b_in/variants.json",
+  "questions": "s3://<s3-bucket>/results/bytegraft/bank/jeopardy_1/out/jeopardy_items_5shot.jsonl",
+  "base_decode": 0,
+  "augment": 0,
+  "steps": 400,
+  "lr": 0.001,
+  "beta": 1.0,
+  "e2e_steps": 600,
+  "e2e_lr": 0.0001
+ },
+ "steps": {
+  "identity": {
+   "max_abs_logit_gap": 0.0008426904678344727,
+   "gap_on_another_input": 18.932342529296875,
+   "pass": true
+  },
+  "items": {
+   "train": 2400,
+   "test": 800,
+   "written_items": 0,
+   "writer_agrees_with_bank": 0.9905,
+   "gold_tokens_with_pointer": 0.9961347055128763,
+   "example": {
+    "id": "published:del_word:009800",
+    "gold": [
+     " It",
+     " delicious",
+     "."
+    ],
+    "pointed_tokens": [
+     " It",
+     " delicious",
+     "."
+    ]
+   }
+  },
+  "selftest": {
+   "ran": true
+  },
+  "base": {
+   "tf": {
+    "exact": 26,
+    "items": 800,
+    "share": 0.0325,
+    "logp_pointed": -1.2269948791833922,
+    "per_task": {
+     "del_word": [
+      7,
+      200
+     ],
+     "ins_word": [
+      14,
+      200
+     ],
+     "sub_word": [
+      5,
+      200
+     ],
+     "swap_word": [
+      0,
+      200
+     ]
+    }
+   },
+   "other_loss": 1.7828488471733468,
+   "neutral_loss": 2.5941680896541843
+  },
+  "sweep": {
+   "reference_logp": -1.3013916574555002,
+   "top": [
+    [
+     0.6295,
+     10,
+     9
+    ],
+    [
+     0.4719,
+     10,
+     0
+    ],
+    [
+     0.4396,
+     12,
+     15
+    ],
+    [
+     0.3647,
+     10,
+     8
+    ],
+    [
+     0.2839,
+     11,
+     12
+    ],
+    [
+     0.2637,
+     10,
+     4
+    ],
+    [
+     0.2567,
+     11,
+     0
+    ],
+    [
+     0.2481,
+     11,
+     6
+    ],
+    [
+     0.2442,
+     11,
+     1
+    ],
+    [
+     0.2332,
+     14,
+     12
+    ],
+    [
+     0.2103,
+     11,
+     10
+    ],
+    [
+     0.1945,
+     11,
+     14
+    ],
+    [
+     0.1895,
+     13,
+     15
+    ],
+    [
+     0.1853,
+     10,
+     11
+    ],
+    [
+     0.1353,
+     12,
+     14
+    ],
+    [
+     0.134,
+     13,
+     6
+    ],
+    [
+     0.1301,
+     5,
+     4
+    ],
+    [
+     0.1189,
+     12,
+     8
+    ],
+    [
+     0.1151,
+     10,
+     14
+    ],
+    [
+     0.1148,
+     14,
+     0
+    ],
+    [
+     0.1105,
+     7,
+     10
+    ],
+    [
+     0.1032,
+     10,
+     3
+    ],
+    [
+     0.0931,
+     16,
+     3
+    ],
+    [
+     0.084,
+     7,
+     3
+    ],
+    [
+     0.0834,
+     11,
+     11
+    ],
+    [
+     0.0791,
+     12,
+     11
+    ],
+    [
+     0.0758,
+     4,
+     8
+    ],
+    [
+     0.0731,
+     9,
+     10
+    ],
+    [
+     0.0663,
+     11,
+     8
+    ],
+    [
+     0.0652,
+     13,
+     2
+    ],
+    [
+     0.0557,
+     16,
+     4
+    ],
+    [
+     0.0547,
+     14,
+     5
+    ],
+    [
+     0.0528,
+     18,
+     4
+    ],
+    [
+     0.0518,
+     14,
+     6
+    ],
+    [
+     0.0505,
+     19,
+     11
+    ],
+    [
+     0.0494,
+     19,
+     2
+    ],
+    [
+     0.047,
+     10,
+     12
+    ],
+    [
+     0.0465,
+     16,
+     10
+    ],
+    [
+     0.0464,
+     9,
+     15
+    ],
+    [
+     0.0444,
+     17,
+     7
+    ]
+   ],
+   "bottom": [
+    [
+     -0.2492,
+     9,
+     9
+    ],
+    [
+     -0.3275,
+     10,
+     5
+    ],
+    [
+     -0.917,
+     11,
+     15
+    ],
+    [
+     -1.0404,
+     12,
+     7
+    ],
+    [
+     -1.2622,
+     10,
+     7
+    ]
+   ],
+   "heads": [
+    [
+     10,
+     9
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     12,
+     15
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     10,
+     4
+    ],
+    [
+     11,
+     0
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     11,
+     10
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     13,
+     15
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     12,
+     14
+    ]
+   ]
+  },
+  "oracle": {
+   "k_heads_pointed": {
+    "exact": 730,
+    "items": 800,
+    "share": 0.9125,
+    "logp_pointed": -0.09963482721984587,
+    "per_task": {
+     "del_word": [
+      166,
+      200
+     ],
+     "ins_word": [
+      194,
+      200
+     ],
+     "sub_word": [
+      194,
+      200
+     ],
+     "swap_word": [
+      176,
+      200
+     ]
+    }
+   },
+   "random_heads_pointed": {
+    "exact": 36,
+    "items": 800,
+    "share": 0.045,
+    "logp_pointed": -1.143114365629681,
+    "per_task": {
+     "del_word": [
+      14,
+      200
+     ],
+     "ins_word": [
+      12,
+      200
+     ],
+     "sub_word": [
+      10,
+      200
+     ],
+     "swap_word": [
+      0,
+      200
+     ]
+    }
+   },
+   "weights_per_fit": 7868160,
+   "share_of_model": 0.005561921458828571
+  },
+  "runs": {
+   "smoke": {
+    "tf": {
+     "exact": 43,
+     "items": 800,
+     "share": 0.05375,
+     "logp_pointed": -1.4815810428069172,
+     "per_task": {
+      "del_word": [
+       15,
+       200
+      ],
+      "ins_word": [
+       11,
+       200
+      ],
+      "sub_word": [
+       15,
+       200
+      ],
+      "swap_word": [
+       2,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.8291497858801586,
+    "neutral_loss": 2.6131266866880014,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.7966823478539785,
+      "top_share": 0.8693359375,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.4534290260826953,
+      "top_share": 0.4746533555185801,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "spec": [
+       [
+        10,
+        9,
+        "ptr"
+       ],
+       [
+        10,
+        0,
+        "ptr"
+       ],
+       [
+        12,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        8,
+        "ptr"
+       ],
+       [
+        11,
+        12,
+        "ptr"
+       ],
+       [
+        10,
+        4,
+        "ptr"
+       ],
+       [
+        11,
+        0,
+        "ptr"
+       ],
+       [
+        11,
+        6,
+        "ptr"
+       ],
+       [
+        11,
+        1,
+        "ptr"
+       ],
+       [
+        14,
+        12,
+        "ptr"
+       ],
+       [
+        11,
+        10,
+        "ptr"
+       ],
+       [
+        11,
+        14,
+        "ptr"
+       ],
+       [
+        13,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        11,
+        "ptr"
+       ],
+       [
+        12,
+        14,
+        "ptr"
+       ],
+       [
+        7,
+        15,
+        "h1"
+       ],
+       [
+        9,
+        1,
+        "h1"
+       ],
+       [
+        4,
+        15,
+        "h2"
+       ],
+       [
+        8,
+        4,
+        "h2"
+       ]
+      ],
+      "step": -1,
+      "point_nll": 0
+     },
+     {
+      "layer": 4,
+      "step": 0,
+      "point_nll": 0.4050641655921936,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 4,
+      "step": 19,
+      "point_nll": 0.006150071043521166,
+      "keep_kl": 0.04854553937911987
+     },
+     {
+      "layer": 7,
+      "step": 0,
+      "point_nll": 0.5758772492408752,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 7,
+      "step": 19,
+      "point_nll": 0.0027573988772928715,
+      "keep_kl": 0.08676551282405853
+     },
+     {
+      "layer": 8,
+      "step": 0,
+      "point_nll": 0.5290286540985107,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 8,
+      "step": 19,
+      "point_nll": 0.005228628870099783,
+      "keep_kl": 0.050058599561452866
+     },
+     {
+      "layer": 9,
+      "step": 0,
+      "point_nll": 1.7714539766311646,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 9,
+      "step": 19,
+      "point_nll": 0.002744886092841625,
+      "keep_kl": 0.11281310766935349
+     },
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.10370135307312,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 19,
+      "point_nll": 0.014630824327468872,
+      "keep_kl": 0.09921704977750778
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 3.9364519119262695,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 19,
+      "point_nll": 0.011926122009754181,
+      "keep_kl": 0.17175492644309998
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.9393677711486816,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 19,
+      "point_nll": 0.017593838274478912,
+      "keep_kl": 0.33030152320861816
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 2.944960355758667,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 19,
+      "point_nll": 0.05003614351153374,
+      "keep_kl": 1.0683479309082031
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 7.376136779785156,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 19,
+      "point_nll": 6.526518821716309,
+      "keep_kl": 8.968301773071289
+     }
+    ],
+    "fit_seconds": 7.7677857875823975,
+    "train_items": 64,
+    "variant": {
+     "name": "smoke",
+     "kind": "program",
+     "n": 64,
+     "steps": 20,
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       2
+      ],
+      [
+       "h2",
+       2,
+       9,
+       2
+      ]
+     ]
+    },
+    "weights": 9966336,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ]
+    ]
+   },
+   "P_all": {
+    "tf": {
+     "exact": 577,
+     "items": 800,
+     "share": 0.72125,
+     "logp_pointed": -0.37963606407815526,
+     "per_task": {
+      "del_word": [
+       148,
+       200
+      ],
+      "ins_word": [
+       173,
+       200
+      ],
+      "sub_word": [
+       177,
+       200
+      ],
+      "swap_word": [
+       79,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.8744170795296147,
+    "neutral_loss": 2.6414977490924723,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.9758459816376368,
+      "top_share": 0.98671875,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.899628670640079,
+      "top_share": 0.9146977260122019,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "spec": [
+       [
+        10,
+        9,
+        "ptr"
+       ],
+       [
+        10,
+        0,
+        "ptr"
+       ],
+       [
+        12,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        8,
+        "ptr"
+       ],
+       [
+        11,
+        12,
+        "ptr"
+       ],
+       [
+        10,
+        4,
+        "ptr"
+       ],
+       [
+        11,
+        0,
+        "ptr"
+       ],
+       [
+        11,
+        6,
+        "ptr"
+       ],
+       [
+        11,
+        1,
+        "ptr"
+       ],
+       [
+        14,
+        12,
+        "ptr"
+       ],
+       [
+        11,
+        10,
+        "ptr"
+       ],
+       [
+        11,
+        14,
+        "ptr"
+       ],
+       [
+        13,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        11,
+        "ptr"
+       ],
+       [
+        12,
+        14,
+        "ptr"
+       ],
+       [
+        7,
+        15,
+        "h1"
+       ],
+       [
+        9,
+        1,
+        "h1"
+       ],
+       [
+        4,
+        7,
+        "h1"
+       ],
+       [
+        2,
+        0,
+        "h1"
+       ],
+       [
+        3,
+        4,
+        "h3"
+       ],
+       [
+        2,
+        1,
+        "h3"
+       ],
+       [
+        4,
+        14,
+        "h3"
+       ],
+       [
+        9,
+        6,
+        "h3"
+       ],
+       [
+        5,
+        11,
+        "h4"
+       ],
+       [
+        2,
+        5,
+        "h4"
+       ],
+       [
+        5,
+        12,
+        "h4"
+       ],
+       [
+        8,
+        0,
+        "h4"
+       ],
+       [
+        4,
+        15,
+        "h2"
+       ],
+       [
+        8,
+        4,
+        "h2"
+       ],
+       [
+        6,
+        2,
+        "h2"
+       ],
+       [
+        3,
+        3,
+        "h2"
+       ]
+      ],
+      "step": -1,
+      "point_nll": 0
+     },
+     {
+      "layer": 2,
+      "step": 0,
+      "point_nll": 1.393807291984558,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 2,
+      "step": 100,
+      "point_nll": 0.009152701124548912,
+      "keep_kl": 0.038249120116233826
+     },
+     {
+      "layer": 2,
+      "step": 200,
+      "point_nll": 0.006456729024648666,
+      "keep_kl": 0.021502267569303513
+     },
+     {
+      "layer": 2,
+      "step": 300,
+      "point_nll": 0.005092761944979429,
+      "keep_kl": 0.0157802514731884
+     },
+     {
+      "layer": 2,
+      "step": 399,
+      "point_nll": 0.007399745285511017,
+      "keep_kl": 0.01299631129950285
+     },
+     {
+      "layer": 3,
+      "step": 0,
+      "point_nll": 2.111957550048828,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 3,
+      "step": 100,
+      "point_nll": 0.007514363620430231,
+      "keep_kl": 0.03786841407418251
+     },
+     {
+      "layer": 3,
+      "step": 200,
+      "point_nll": 0.005437383893877268,
+      "keep_kl": 0.02062077820301056
+     },
+     {
+      "layer": 3,
+      "step": 300,
+      "point_nll": 0.004258696921169758,
+      "keep_kl": 0.014175577089190483
+     },
+     {
+      "layer": 3,
+      "step": 399,
+      "point_nll": 0.005168591625988483,
+      "keep_kl": 0.010339777916669846
+     },
+     {
+      "layer": 4,
+      "step": 0,
+      "point_nll": 1.0902173519134521,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 4,
+      "step": 100,
+      "point_nll": 0.002360515296459198,
+      "keep_kl": 0.018626445904374123
+     },
+     {
+      "layer": 4,
+      "step": 200,
+      "point_nll": 0.0016646062722429633,
+      "keep_kl": 0.009600338526070118
+     },
+     {
+      "layer": 4,
+      "step": 300,
+      "point_nll": 0.0013618560042232275,
+      "keep_kl": 0.0069425469264388084
+     },
+     {
+      "layer": 4,
+      "step": 399,
+      "point_nll": 0.0022854364942759275,
+      "keep_kl": 0.004787942860275507
+     },
+     {
+      "layer": 5,
+      "step": 0,
+      "point_nll": 1.4905301332473755,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 5,
+      "step": 100,
+      "point_nll": 0.005950539372861385,
+      "keep_kl": 0.012140524573624134
+     },
+     {
+      "layer": 5,
+      "step": 200,
+      "point_nll": 0.0031340941786766052,
+      "keep_kl": 0.006836025044322014
+     },
+     {
+      "layer": 5,
+      "step": 300,
+      "point_nll": 0.0021307191345840693,
+      "keep_kl": 0.00503703486174345
+     },
+     {
+      "layer": 5,
+      "step": 399,
+      "point_nll": 0.002162786666303873,
+      "keep_kl": 0.0038421263452619314
+     },
+     {
+      "layer": 6,
+      "step": 0,
+      "point_nll": 1.1244621276855469,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 6,
+      "step": 100,
+      "point_nll": 0.002676262753084302,
+      "keep_kl": 0.009742461144924164
+     },
+     {
+      "layer": 6,
+      "step": 200,
+      "point_nll": 0.0015127266524359584,
+      "keep_kl": 0.016561191529035568
+     },
+     {
+      "layer": 6,
+      "step": 300,
+      "point_nll": 0.0010560228256508708,
+      "keep_kl": 0.003504611784592271
+     },
+     {
+      "layer": 6,
+      "step": 399,
+      "point_nll": 0.0013380314921960235,
+      "keep_kl": 0.004774932283908129
+     },
+     {
+      "layer": 7,
+      "step": 0,
+      "point_nll": 0.5305277109146118,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 7,
+      "step": 100,
+      "point_nll": 0.0004703375161625445,
+      "keep_kl": 0.02139107510447502
+     },
+     {
+      "layer": 7,
+      "step": 200,
+      "point_nll": 0.0004123971448279917,
+      "keep_kl": 0.008142911829054356
+     },
+     {
+      "layer": 7,
+      "step": 300,
+      "point_nll": 0.0004153048212174326,
+      "keep_kl": 0.004815992433577776
+     },
+     {
+      "layer": 7,
+      "step": 399,
+      "point_nll": 0.0010620731627568603,
+      "keep_kl": 0.0033483796287328005
+     },
+     {
+      "layer": 8,
+      "step": 0,
+      "point_nll": 1.6531974077224731,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 8,
+      "step": 100,
+      "point_nll": 0.00653336476534605,
+      "keep_kl": 0.010898209176957607
+     },
+     {
+      "layer": 8,
+      "step": 200,
+      "point_nll": 0.0032285854686051607,
+      "keep_kl": 0.006103775463998318
+     },
+     {
+      "layer": 8,
+      "step": 300,
+      "point_nll": 0.0020968837197870016,
+      "keep_kl": 0.004682378843426704
+     },
+     {
+      "layer": 8,
+      "step": 399,
+      "point_nll": 0.0018051218939945102,
+      "keep_kl": 0.0030070138163864613
+     },
+     {
+      "layer": 9,
+      "step": 0,
+      "point_nll": 2.464629650115967,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 9,
+      "step": 100,
+      "point_nll": 0.007927398197352886,
+      "keep_kl": 0.03885547071695328
+     },
+     {
+      "layer": 9,
+      "step": 200,
+      "point_nll": 0.0016112151788547635,
+      "keep_kl": 0.01647913083434105
+     },
+     {
+      "layer": 9,
+      "step": 300,
+      "point_nll": 0.0012876406544819474,
+      "keep_kl": 0.011648726649582386
+     },
+     {
+      "layer": 9,
+      "step": 399,
+      "point_nll": 0.002670495305210352,
+      "keep_kl": 0.007019833195954561
+     },
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.485229969024658,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 100,
+      "point_nll": 0.0952397957444191,
+      "keep_kl": 0.023133397102355957
+     },
+     {
+      "layer": 10,
+      "step": 200,
+      "point_nll": 0.023595666512846947,
+      "keep_kl": 0.0149903055280447
+     },
+     {
+      "layer": 10,
+      "step": 300,
+      "point_nll": 0.00983270350843668,
+      "keep_kl": 0.009743815287947655
+     },
+     {
+      "layer": 10,
+      "step": 399,
+      "point_nll": 0.005016263574361801,
+      "keep_kl": 0.006930297706276178
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 4.060088634490967,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 100,
+      "point_nll": 0.01051938533782959,
+      "keep_kl": 0.016058407723903656
+     },
+     {
+      "layer": 11,
+      "step": 200,
+      "point_nll": 0.0042977663688361645,
+      "keep_kl": 0.008486518636345863
+     },
+     {
+      "layer": 11,
+      "step": 300,
+      "point_nll": 0.0025813099928200245,
+      "keep_kl": 0.005907466169446707
+     },
+     {
+      "layer": 11,
+      "step": 399,
+      "point_nll": 0.0024318271316587925,
+      "keep_kl": 0.004697966855019331
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.993511438369751,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.009724104776978493,
+      "keep_kl": 0.015696601942181587
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.00413654325529933,
+      "keep_kl": 0.008055306039750576
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.0024516377598047256,
+      "keep_kl": 0.005589969456195831
+     },
+     {
+      "layer": 12,
+      "step": 399,
+      "point_nll": 0.0021945731714367867,
+      "keep_kl": 0.004127965774387121
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 3.2106857299804688,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.02016424387693405,
+      "keep_kl": 0.04311469942331314
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.008997778408229351,
+      "keep_kl": 0.018849965184926987
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.005535414442420006,
+      "keep_kl": 0.012375659309327602
+     },
+     {
+      "layer": 13,
+      "step": 399,
+      "point_nll": 0.0044914777390658855,
+      "keep_kl": 0.008834525011479855
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 8.144537925720215,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.11946568638086319,
+      "keep_kl": 0.22736747562885284
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.033177006989717484,
+      "keep_kl": 0.06940606981515884
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.017749596387147903,
+      "keep_kl": 0.03704746440052986
+     },
+     {
+      "layer": 14,
+      "step": 399,
+      "point_nll": 0.011877508834004402,
+      "keep_kl": 0.024625087156891823
+     }
+    ],
+    "decode": {
+     "right": 577,
+     "items": 800,
+     "share": 0.72125,
+     "per_task": {
+      "del_word": [
+       148,
+       200
+      ],
+      "sub_word": [
+       177,
+       200
+      ],
+      "swap_word": [
+       79,
+       200
+      ],
+      "ins_word": [
+       173,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked his delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw society it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what statement other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review she looked closer, she saw it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other program the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " delicious looked It. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " was she looked closer, she saw it When a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They wondered what other mysteries the wondered mysteries the box had. \"",
+       "right": false
+      }
+     ]
+    },
+    "fit_seconds": 260.77506613731384,
+    "train_items": 2400,
+    "variant": {
+     "name": "P_all",
+     "kind": "program",
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       4
+      ],
+      [
+       "h3",
+       2,
+       9,
+       4
+      ],
+      [
+       "h4",
+       2,
+       9,
+       4
+      ],
+      [
+       "h2",
+       2,
+       9,
+       4
+      ]
+     ],
+     "decode": true
+    },
+    "weights": 16260864,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      7,
+      "h1"
+     ],
+     [
+      2,
+      0,
+      "h1"
+     ],
+     [
+      3,
+      4,
+      "h3"
+     ],
+     [
+      2,
+      1,
+      "h3"
+     ],
+     [
+      4,
+      14,
+      "h3"
+     ],
+     [
+      9,
+      6,
+      "h3"
+     ],
+     [
+      5,
+      11,
+      "h4"
+     ],
+     [
+      2,
+      5,
+      "h4"
+     ],
+     [
+      5,
+      12,
+      "h4"
+     ],
+     [
+      8,
+      0,
+      "h4"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ],
+     [
+      6,
+      2,
+      "h2"
+     ],
+     [
+      3,
+      3,
+      "h2"
+     ]
+    ]
+   },
+   "P_all+E300": {
+    "tf": {
+     "exact": 635,
+     "items": 800,
+     "share": 0.79375,
+     "logp_pointed": -0.25585497552742653,
+     "per_task": {
+      "del_word": [
+       178,
+       200
+      ],
+      "ins_word": [
+       179,
+       200
+      ],
+      "sub_word": [
+       181,
+       200
+      ],
+      "swap_word": [
+       97,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.8893312365572585,
+    "neutral_loss": 2.6519936876074706,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.827591980745395,
+      "top_share": 0.8522135416666666,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.713466290110558,
+      "top_share": 0.7435385468663339,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "spec": [
+       [
+        10,
+        9,
+        "ptr"
+       ],
+       [
+        10,
+        0,
+        "ptr"
+       ],
+       [
+        12,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        8,
+        "ptr"
+       ],
+       [
+        11,
+        12,
+        "ptr"
+       ],
+       [
+        10,
+        4,
+        "ptr"
+       ],
+       [
+        11,
+        0,
+        "ptr"
+       ],
+       [
+        11,
+        6,
+        "ptr"
+       ],
+       [
+        11,
+        1,
+        "ptr"
+       ],
+       [
+        14,
+        12,
+        "ptr"
+       ],
+       [
+        11,
+        10,
+        "ptr"
+       ],
+       [
+        11,
+        14,
+        "ptr"
+       ],
+       [
+        13,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        11,
+        "ptr"
+       ],
+       [
+        12,
+        14,
+        "ptr"
+       ],
+       [
+        7,
+        15,
+        "h1"
+       ],
+       [
+        9,
+        1,
+        "h1"
+       ],
+       [
+        4,
+        7,
+        "h1"
+       ],
+       [
+        2,
+        0,
+        "h1"
+       ],
+       [
+        3,
+        4,
+        "h3"
+       ],
+       [
+        2,
+        1,
+        "h3"
+       ],
+       [
+        4,
+        14,
+        "h3"
+       ],
+       [
+        9,
+        6,
+        "h3"
+       ],
+       [
+        5,
+        11,
+        "h4"
+       ],
+       [
+        2,
+        5,
+        "h4"
+       ],
+       [
+        5,
+        12,
+        "h4"
+       ],
+       [
+        8,
+        0,
+        "h4"
+       ],
+       [
+        4,
+        15,
+        "h2"
+       ],
+       [
+        8,
+        4,
+        "h2"
+       ],
+       [
+        6,
+        2,
+        "h2"
+       ],
+       [
+        3,
+        3,
+        "h2"
+       ]
+      ],
+      "step": -1,
+      "point_nll": 0
+     },
+     {
+      "layer": 2,
+      "step": 0,
+      "point_nll": 1.393807291984558,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 2,
+      "step": 100,
+      "point_nll": 0.009152701124548912,
+      "keep_kl": 0.038249120116233826
+     },
+     {
+      "layer": 2,
+      "step": 200,
+      "point_nll": 0.006456729024648666,
+      "keep_kl": 0.021502267569303513
+     },
+     {
+      "layer": 2,
+      "step": 300,
+      "point_nll": 0.005092761944979429,
+      "keep_kl": 0.0157802514731884
+     },
+     {
+      "layer": 2,
+      "step": 399,
+      "point_nll": 0.007399745285511017,
+      "keep_kl": 0.01299631129950285
+     },
+     {
+      "layer": 3,
+      "step": 0,
+      "point_nll": 2.111957550048828,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 3,
+      "step": 100,
+      "point_nll": 0.007514363620430231,
+      "keep_kl": 0.03786841407418251
+     },
+     {
+      "layer": 3,
+      "step": 200,
+      "point_nll": 0.005437383893877268,
+      "keep_kl": 0.02062077820301056
+     },
+     {
+      "layer": 3,
+      "step": 300,
+      "point_nll": 0.004258696921169758,
+      "keep_kl": 0.014175577089190483
+     },
+     {
+      "layer": 3,
+      "step": 399,
+      "point_nll": 0.005168591625988483,
+      "keep_kl": 0.010339777916669846
+     },
+     {
+      "layer": 4,
+      "step": 0,
+      "point_nll": 1.0902173519134521,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 4,
+      "step": 100,
+      "point_nll": 0.002360515296459198,
+      "keep_kl": 0.018626445904374123
+     },
+     {
+      "layer": 4,
+      "step": 200,
+      "point_nll": 0.0016646062722429633,
+      "keep_kl": 0.009600338526070118
+     },
+     {
+      "layer": 4,
+      "step": 300,
+      "point_nll": 0.0013618560042232275,
+      "keep_kl": 0.0069425469264388084
+     },
+     {
+      "layer": 4,
+      "step": 399,
+      "point_nll": 0.0022854364942759275,
+      "keep_kl": 0.004787942860275507
+     },
+     {
+      "layer": 5,
+      "step": 0,
+      "point_nll": 1.4905301332473755,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 5,
+      "step": 100,
+      "point_nll": 0.005950539372861385,
+      "keep_kl": 0.012140524573624134
+     },
+     {
+      "layer": 5,
+      "step": 200,
+      "point_nll": 0.0031340941786766052,
+      "keep_kl": 0.006836025044322014
+     },
+     {
+      "layer": 5,
+      "step": 300,
+      "point_nll": 0.0021307191345840693,
+      "keep_kl": 0.00503703486174345
+     },
+     {
+      "layer": 5,
+      "step": 399,
+      "point_nll": 0.002162786666303873,
+      "keep_kl": 0.0038421263452619314
+     },
+     {
+      "layer": 6,
+      "step": 0,
+      "point_nll": 1.1244621276855469,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 6,
+      "step": 100,
+      "point_nll": 0.002676262753084302,
+      "keep_kl": 0.009742461144924164
+     },
+     {
+      "layer": 6,
+      "step": 200,
+      "point_nll": 0.0015127266524359584,
+      "keep_kl": 0.016561191529035568
+     },
+     {
+      "layer": 6,
+      "step": 300,
+      "point_nll": 0.0010560228256508708,
+      "keep_kl": 0.003504611784592271
+     },
+     {
+      "layer": 6,
+      "step": 399,
+      "point_nll": 0.0013380314921960235,
+      "keep_kl": 0.004774932283908129
+     },
+     {
+      "layer": 7,
+      "step": 0,
+      "point_nll": 0.5305277109146118,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 7,
+      "step": 100,
+      "point_nll": 0.0004703375161625445,
+      "keep_kl": 0.02139107510447502
+     },
+     {
+      "layer": 7,
+      "step": 200,
+      "point_nll": 0.0004123971448279917,
+      "keep_kl": 0.008142911829054356
+     },
+     {
+      "layer": 7,
+      "step": 300,
+      "point_nll": 0.0004153048212174326,
+      "keep_kl": 0.004815992433577776
+     },
+     {
+      "layer": 7,
+      "step": 399,
+      "point_nll": 0.0010620731627568603,
+      "keep_kl": 0.0033483796287328005
+     },
+     {
+      "layer": 8,
+      "step": 0,
+      "point_nll": 1.6531974077224731,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 8,
+      "step": 100,
+      "point_nll": 0.00653336476534605,
+      "keep_kl": 0.010898209176957607
+     },
+     {
+      "layer": 8,
+      "step": 200,
+      "point_nll": 0.0032285854686051607,
+      "keep_kl": 0.006103775463998318
+     },
+     {
+      "layer": 8,
+      "step": 300,
+      "point_nll": 0.0020968837197870016,
+      "keep_kl": 0.004682378843426704
+     },
+     {
+      "layer": 8,
+      "step": 399,
+      "point_nll": 0.0018051218939945102,
+      "keep_kl": 0.0030070138163864613
+     },
+     {
+      "layer": 9,
+      "step": 0,
+      "point_nll": 2.464629650115967,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 9,
+      "step": 100,
+      "point_nll": 0.007927398197352886,
+      "keep_kl": 0.03885547071695328
+     },
+     {
+      "layer": 9,
+      "step": 200,
+      "point_nll": 0.0016112151788547635,
+      "keep_kl": 0.01647913083434105
+     },
+     {
+      "layer": 9,
+      "step": 300,
+      "point_nll": 0.0012876406544819474,
+      "keep_kl": 0.011648726649582386
+     },
+     {
+      "layer": 9,
+      "step": 399,
+      "point_nll": 0.002670495305210352,
+      "keep_kl": 0.007019833195954561
+     },
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.485229969024658,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 100,
+      "point_nll": 0.0952397957444191,
+      "keep_kl": 0.023133397102355957
+     },
+     {
+      "layer": 10,
+      "step": 200,
+      "point_nll": 0.023595666512846947,
+      "keep_kl": 0.0149903055280447
+     },
+     {
+      "layer": 10,
+      "step": 300,
+      "point_nll": 0.00983270350843668,
+      "keep_kl": 0.009743815287947655
+     },
+     {
+      "layer": 10,
+      "step": 399,
+      "point_nll": 0.005016263574361801,
+      "keep_kl": 0.006930297706276178
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 4.060088634490967,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 100,
+      "point_nll": 0.01051938533782959,
+      "keep_kl": 0.016058407723903656
+     },
+     {
+      "layer": 11,
+      "step": 200,
+      "point_nll": 0.0042977663688361645,
+      "keep_kl": 0.008486518636345863
+     },
+     {
+      "layer": 11,
+      "step": 300,
+      "point_nll": 0.0025813099928200245,
+      "keep_kl": 0.005907466169446707
+     },
+     {
+      "layer": 11,
+      "step": 399,
+      "point_nll": 0.0024318271316587925,
+      "keep_kl": 0.004697966855019331
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.993511438369751,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.009724104776978493,
+      "keep_kl": 0.015696601942181587
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.00413654325529933,
+      "keep_kl": 0.008055306039750576
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.0024516377598047256,
+      "keep_kl": 0.005589969456195831
+     },
+     {
+      "layer": 12,
+      "step": 399,
+      "point_nll": 0.0021945731714367867,
+      "keep_kl": 0.004127965774387121
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 3.2106857299804688,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.02016424387693405,
+      "keep_kl": 0.04311469942331314
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.008997778408229351,
+      "keep_kl": 0.018849965184926987
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.005535414442420006,
+      "keep_kl": 0.012375659309327602
+     },
+     {
+      "layer": 13,
+      "step": 399,
+      "point_nll": 0.0044914777390658855,
+      "keep_kl": 0.008834525011479855
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 8.144537925720215,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.11946568638086319,
+      "keep_kl": 0.22736747562885284
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.033177006989717484,
+      "keep_kl": 0.06940606981515884
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.017749596387147903,
+      "keep_kl": 0.03704746440052986
+     },
+     {
+      "layer": 14,
+      "step": 399,
+      "point_nll": 0.011877508834004402,
+      "keep_kl": 0.024625087156891823
+     },
+     {
+      "step": 0,
+      "ce": 0.10959246754646301
+     },
+     {
+      "step": 100,
+      "ce": 0.012598379515111446
+     },
+     {
+      "step": 200,
+      "ce": 0.02831626869738102
+     },
+     {
+      "step": 299,
+      "ce": 0.0021057496778666973
+     }
+    ],
+    "decode": {
+     "right": 635,
+     "items": 800,
+     "share": 0.79375,
+     "per_task": {
+      "del_word": [
+       178,
+       200
+      ],
+      "sub_word": [
+       181,
+       200
+      ],
+      "swap_word": [
+       97,
+       200
+      ],
+      "ins_word": [
+       179,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked his delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw society it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what statement other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review she looked closer, she saw it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other program the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " delicious looked It. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " was she looked closer, she saw it When a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They wondered other mysteries the box had. \"",
+       "right": false
+      }
+     ]
+    },
+    "fit_seconds": 398.23333764076233,
+    "train_items": 2400,
+    "variant": {
+     "name": "P_all+E300",
+     "kind": "program+e2e",
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       4
+      ],
+      [
+       "h3",
+       2,
+       9,
+       4
+      ],
+      [
+       "h4",
+       2,
+       9,
+       4
+      ],
+      [
+       "h2",
+       2,
+       9,
+       4
+      ]
+     ],
+     "e2e_steps": 300,
+     "decode": true
+    },
+    "weights": 16260864,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      7,
+      "h1"
+     ],
+     [
+      2,
+      0,
+      "h1"
+     ],
+     [
+      3,
+      4,
+      "h3"
+     ],
+     [
+      2,
+      1,
+      "h3"
+     ],
+     [
+      4,
+      14,
+      "h3"
+     ],
+     [
+      9,
+      6,
+      "h3"
+     ],
+     [
+      5,
+      11,
+      "h4"
+     ],
+     [
+      2,
+      5,
+      "h4"
+     ],
+     [
+      5,
+      12,
+      "h4"
+     ],
+     [
+      8,
+      0,
+      "h4"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ],
+     [
+      6,
+      2,
+      "h2"
+     ],
+     [
+      3,
+      3,
+      "h2"
+     ]
+    ]
+   },
+   "E600_same_heads": {
+    "tf": {
+     "exact": 708,
+     "items": 800,
+     "share": 0.885,
+     "logp_pointed": -0.0597413366307436,
+     "per_task": {
+      "del_word": [
+       188,
+       200
+      ],
+      "ins_word": [
+       179,
+       200
+      ],
+      "sub_word": [
+       180,
+       200
+      ],
+      "swap_word": [
+       161,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.9041533429402222,
+    "neutral_loss": 2.624972386081391,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.3004859691722411,
+      "top_share": 0.3634114583333333,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.25892470116535493,
+      "top_share": 0.30160843039378815,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "step": 0,
+      "ce": 1.352205514907837
+     },
+     {
+      "step": 100,
+      "ce": 0.05831354483962059
+     },
+     {
+      "step": 200,
+      "ce": 0.08633299171924591
+     },
+     {
+      "step": 300,
+      "ce": 0.007443846203386784
+     },
+     {
+      "step": 400,
+      "ce": 0.014387237839400768
+     },
+     {
+      "step": 500,
+      "ce": 0.003770095994696021
+     },
+     {
+      "step": 599,
+      "ce": 0.035251911729574203
+     }
+    ],
+    "decode": {
+     "right": 708,
+     "items": 800,
+     "share": 0.885,
+     "per_task": {
+      "del_word": [
+       188,
+       200
+      ],
+      "sub_word": [
+       180,
+       200
+      ],
+      "swap_word": [
+       161,
+       200
+      ],
+      "ins_word": [
+       179,
+       200
+      ]
+     },
+     "samples": [
+      {
+       "id": "published:del_word:009800",
+       "prompt_tail": "e every instance of \" can \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It delicious.",
+       "output": " It delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009801",
+       "prompt_tail": "\" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" was \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw it a picture!",
+       "output": " When she looked closer, she saw it a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:del_word:009802",
+       "prompt_tail": " \" in \" I think I can do it. \". Answer: \" I think I do it. \"\nDelete every instance of \" They \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " wondered what other mysteries the box had.",
+       "output": " wondered what other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007800",
+       "prompt_tail": " after every \" can \" in \" I think I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" his \" after every \" looked \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked his delicious.",
+       "output": " It looked his delicious. \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007801",
+       "prompt_tail": "ink I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" society \" after every \" saw \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " When she looked closer, she saw society it was a picture!",
+       "output": " When she looked closer, she saw society it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:ins_word:007802",
+       "prompt_tail": "nk I can do it. \". Answer: \" I think I can can do it. \"\nAdd \" statement \" after every \" what \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what statement other mysteries the box had.",
+       "output": " They wondered what statement other mysteries the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011800",
+       "prompt_tail": "nk \" with \" can \" in \" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" delicious \" with \" microsoft \" in \" It looked delicious. \". Answer: \"",
+       "gold": " It looked microsoft.",
+       "output": " It looked microsoft. \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011801",
+       "prompt_tail": "\" I think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" When \" with \" review \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " review she looked closer, she saw it was a picture!",
+       "output": " review she looked closer, she saw it was a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:sub_word:011802",
+       "prompt_tail": "think I can do it. \". Answer: \" I can I can do it. \"\nSubstitute \" mysteries \" with \" program \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They wondered what other program the box had.",
+       "output": " They wondered what other program the box had. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013800",
+       "prompt_tail": "it. \"\nSwap \" can \" and \" do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" delicious \" and \" It \" in \" It looked delicious. \". Answer: \"",
+       "gold": " delicious looked It.",
+       "output": " delicious looked It. \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013801",
+       "prompt_tail": "do \" in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" was \" and \" When \" in \" When she looked closer, she saw it was a picture! \". Answer: \"",
+       "gold": " was she looked closer, she saw it When a picture!",
+       "output": " was she looked closer, she saw it When a picture! \"",
+       "right": true
+      },
+      {
+       "id": "published:swap_word:013802",
+       "prompt_tail": " in \" I think I can do it. \". Answer: \" I think I do can it. \"\nSwap \" other \" and \" wondered \" in \" They wondered what other mysteries the box had. \". Answer: \"",
+       "gold": " They other what wondered mysteries the box had.",
+       "output": " They other what wondered mysteries the box had. \"",
+       "right": true
+      }
+     ]
+    },
+    "fit_seconds": 282.26777720451355,
+    "train_items": 2400,
+    "variant": {
+     "name": "E600_same_heads",
+     "kind": "e2e",
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       4
+      ],
+      [
+       "h3",
+       2,
+       9,
+       4
+      ],
+      [
+       "h4",
+       2,
+       9,
+       4
+      ],
+      [
+       "h2",
+       2,
+       9,
+       4
+      ]
+     ],
+     "decode": true
+    },
+    "weights": 16260864,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      7,
+      "h1"
+     ],
+     [
+      2,
+      0,
+      "h1"
+     ],
+     [
+      3,
+      4,
+      "h3"
+     ],
+     [
+      2,
+      1,
+      "h3"
+     ],
+     [
+      4,
+      14,
+      "h3"
+     ],
+     [
+      9,
+      6,
+      "h3"
+     ],
+     [
+      5,
+      11,
+      "h4"
+     ],
+     [
+      2,
+      5,
+      "h4"
+     ],
+     [
+      5,
+      12,
+      "h4"
+     ],
+     [
+      8,
+      0,
+      "h4"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ],
+     [
+      6,
+      2,
+      "h2"
+     ],
+     [
+      3,
+      3,
+      "h2"
+     ]
+    ]
+   },
+   "E1200_same_heads": {
+    "tf": {
+     "exact": 720,
+     "items": 800,
+     "share": 0.9,
+     "logp_pointed": -0.05584719319380499,
+     "per_task": {
+      "del_word": [
+       190,
+       200
+      ],
+      "ins_word": [
+       192,
+       200
+      ],
+      "sub_word": [
+       187,
+       200
+      ],
+      "swap_word": [
+       151,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.877216936568827,
+    "neutral_loss": 2.6326045373399887,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.3136979909409341,
+      "top_share": 0.3621744791666667,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.2696913110444798,
+      "top_share": 0.2985024958402662,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "step": 0,
+      "ce": 1.352205514907837
+     },
+     {
+      "step": 100,
+      "ce": 0.05831354483962059
+     },
+     {
+      "step": 200,
+      "ce": 0.08633299171924591
+     },
+     {
+      "step": 300,
+      "ce": 0.007443846203386784
+     },
+     {
+      "step": 400,
+      "ce": 0.014387237839400768
+     },
+     {
+      "step": 500,
+      "ce": 0.003770095994696021
+     },
+     {
+      "step": 600,
+      "ce": 0.004852768499404192
+     },
+     {
+      "step": 700,
+      "ce": 0.002976539544761181
+     },
+     {
+      "step": 800,
+      "ce": 0.030588941648602486
+     },
+     {
+      "step": 900,
+      "ce": 0.004234999418258667
+     },
+     {
+      "step": 1000,
+      "ce": 0.005401172675192356
+     },
+     {
+      "step": 1100,
+      "ce": 0.028437787666916847
+     },
+     {
+      "step": 1199,
+      "ce": 0.006262431852519512
+     }
+    ],
+    "fit_seconds": 561.3746340274811,
+    "train_items": 2400,
+    "variant": {
+     "name": "E1200_same_heads",
+     "kind": "e2e",
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       4
+      ],
+      [
+       "h3",
+       2,
+       9,
+       4
+      ],
+      [
+       "h4",
+       2,
+       9,
+       4
+      ],
+      [
+       "h2",
+       2,
+       9,
+       4
+      ]
+     ],
+     "e2e_steps": 1200
+    },
+    "weights": 16260864,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      7,
+      "h1"
+     ],
+     [
+      2,
+      0,
+      "h1"
+     ],
+     [
+      3,
+      4,
+      "h3"
+     ],
+     [
+      2,
+      1,
+      "h3"
+     ],
+     [
+      4,
+      14,
+      "h3"
+     ],
+     [
+      9,
+      6,
+      "h3"
+     ],
+     [
+      5,
+      11,
+      "h4"
+     ],
+     [
+      2,
+      5,
+      "h4"
+     ],
+     [
+      5,
+      12,
+      "h4"
+     ],
+     [
+      8,
+      0,
+      "h4"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ],
+     [
+      6,
+      2,
+      "h2"
+     ],
+     [
+      3,
+      3,
+      "h2"
+     ]
+    ]
+   },
+   "P_all_n512": {
+    "tf": {
+     "exact": 397,
+     "items": 800,
+     "share": 0.49625,
+     "logp_pointed": -0.7806197426637222,
+     "per_task": {
+      "del_word": [
+       131,
+       200
+      ],
+      "ins_word": [
+       123,
+       200
+      ],
+      "sub_word": [
+       124,
+       200
+      ],
+      "swap_word": [
+       19,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.8613357791505758,
+    "neutral_loss": 2.6357830859524265,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.9642799605925878,
+      "top_share": 0.9790364583333333,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.7420019944244401,
+      "top_share": 0.7544093178036606,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "spec": [
+       [
+        10,
+        9,
+        "ptr"
+       ],
+       [
+        10,
+        0,
+        "ptr"
+       ],
+       [
+        12,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        8,
+        "ptr"
+       ],
+       [
+        11,
+        12,
+        "ptr"
+       ],
+       [
+        10,
+        4,
+        "ptr"
+       ],
+       [
+        11,
+        0,
+        "ptr"
+       ],
+       [
+        11,
+        6,
+        "ptr"
+       ],
+       [
+        11,
+        1,
+        "ptr"
+       ],
+       [
+        14,
+        12,
+        "ptr"
+       ],
+       [
+        11,
+        10,
+        "ptr"
+       ],
+       [
+        11,
+        14,
+        "ptr"
+       ],
+       [
+        13,
+        15,
+        "ptr"
+       ],
+       [
+        10,
+        11,
+        "ptr"
+       ],
+       [
+        12,
+        14,
+        "ptr"
+       ],
+       [
+        7,
+        15,
+        "h1"
+       ],
+       [
+        9,
+        1,
+        "h1"
+       ],
+       [
+        4,
+        7,
+        "h1"
+       ],
+       [
+        2,
+        0,
+        "h1"
+       ],
+       [
+        3,
+        4,
+        "h3"
+       ],
+       [
+        2,
+        1,
+        "h3"
+       ],
+       [
+        4,
+        14,
+        "h3"
+       ],
+       [
+        9,
+        6,
+        "h3"
+       ],
+       [
+        5,
+        11,
+        "h4"
+       ],
+       [
+        2,
+        5,
+        "h4"
+       ],
+       [
+        5,
+        12,
+        "h4"
+       ],
+       [
+        8,
+        0,
+        "h4"
+       ],
+       [
+        4,
+        15,
+        "h2"
+       ],
+       [
+        8,
+        4,
+        "h2"
+       ],
+       [
+        6,
+        2,
+        "h2"
+       ],
+       [
+        3,
+        3,
+        "h2"
+       ]
+      ],
+      "step": -1,
+      "point_nll": 0
+     },
+     {
+      "layer": 2,
+      "step": 0,
+      "point_nll": 1.393807291984558,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 2,
+      "step": 100,
+      "point_nll": 0.009493457153439522,
+      "keep_kl": 0.02036524936556816
+     },
+     {
+      "layer": 2,
+      "step": 200,
+      "point_nll": 0.00555402971804142,
+      "keep_kl": 0.011802664957940578
+     },
+     {
+      "layer": 2,
+      "step": 300,
+      "point_nll": 0.005634353030472994,
+      "keep_kl": 0.008362805470824242
+     },
+     {
+      "layer": 2,
+      "step": 399,
+      "point_nll": 0.004063048865646124,
+      "keep_kl": 0.006616272032260895
+     },
+     {
+      "layer": 3,
+      "step": 0,
+      "point_nll": 2.1167078018188477,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 3,
+      "step": 100,
+      "point_nll": 0.0070003666914999485,
+      "keep_kl": 0.021903958171606064
+     },
+     {
+      "layer": 3,
+      "step": 200,
+      "point_nll": 0.004435715265572071,
+      "keep_kl": 0.01095150038599968
+     },
+     {
+      "layer": 3,
+      "step": 300,
+      "point_nll": 0.0038237872067838907,
+      "keep_kl": 0.007830427959561348
+     },
+     {
+      "layer": 3,
+      "step": 399,
+      "point_nll": 0.0027445091400295496,
+      "keep_kl": 0.0061266119591891766
+     },
+     {
+      "layer": 4,
+      "step": 0,
+      "point_nll": 1.0876235961914062,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 4,
+      "step": 100,
+      "point_nll": 0.0029502923134714365,
+      "keep_kl": 0.009506204165518284
+     },
+     {
+      "layer": 4,
+      "step": 200,
+      "point_nll": 0.001628643716685474,
+      "keep_kl": 0.0082476194947958
+     },
+     {
+      "layer": 4,
+      "step": 300,
+      "point_nll": 0.0016513600712642074,
+      "keep_kl": 0.003177310572937131
+     },
+     {
+      "layer": 4,
+      "step": 399,
+      "point_nll": 0.0011818638304248452,
+      "keep_kl": 0.005769533570855856
+     },
+     {
+      "layer": 5,
+      "step": 0,
+      "point_nll": 1.4899479150772095,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 5,
+      "step": 100,
+      "point_nll": 0.004270527977496386,
+      "keep_kl": 0.007959414273500443
+     },
+     {
+      "layer": 5,
+      "step": 200,
+      "point_nll": 0.002407834166660905,
+      "keep_kl": 0.004403177183121443
+     },
+     {
+      "layer": 5,
+      "step": 300,
+      "point_nll": 0.0018837848911061883,
+      "keep_kl": 0.002961750142276287
+     },
+     {
+      "layer": 5,
+      "step": 399,
+      "point_nll": 0.0013936555478721857,
+      "keep_kl": 0.0027993887197226286
+     },
+     {
+      "layer": 6,
+      "step": 0,
+      "point_nll": 1.127333402633667,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 6,
+      "step": 100,
+      "point_nll": 0.0029878464993089437,
+      "keep_kl": 0.006769905798137188
+     },
+     {
+      "layer": 6,
+      "step": 200,
+      "point_nll": 0.0016430403338745236,
+      "keep_kl": 0.005721941590309143
+     },
+     {
+      "layer": 6,
+      "step": 300,
+      "point_nll": 0.001396533683873713,
+      "keep_kl": 0.003150475909933448
+     },
+     {
+      "layer": 6,
+      "step": 399,
+      "point_nll": 0.0010006880620494485,
+      "keep_kl": 0.0020129706244915724
+     },
+     {
+      "layer": 7,
+      "step": 0,
+      "point_nll": 0.5358719229698181,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 7,
+      "step": 100,
+      "point_nll": 0.0010974728502333164,
+      "keep_kl": 0.006905802525579929
+     },
+     {
+      "layer": 7,
+      "step": 200,
+      "point_nll": 0.0007414352148771286,
+      "keep_kl": 0.003410348668694496
+     },
+     {
+      "layer": 7,
+      "step": 300,
+      "point_nll": 0.000673920672852546,
+      "keep_kl": 0.0018700428772717714
+     },
+     {
+      "layer": 7,
+      "step": 399,
+      "point_nll": 0.0005141064175404608,
+      "keep_kl": 0.0015668083215132356
+     },
+     {
+      "layer": 8,
+      "step": 0,
+      "point_nll": 1.6616884469985962,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 8,
+      "step": 100,
+      "point_nll": 0.0043184650130569935,
+      "keep_kl": 0.007736546453088522
+     },
+     {
+      "layer": 8,
+      "step": 200,
+      "point_nll": 0.0022329078055918217,
+      "keep_kl": 0.004665524233132601
+     },
+     {
+      "layer": 8,
+      "step": 300,
+      "point_nll": 0.0017857544589787722,
+      "keep_kl": 0.003260950557887554
+     },
+     {
+      "layer": 8,
+      "step": 399,
+      "point_nll": 0.0012505697086453438,
+      "keep_kl": 0.0028263083659112453
+     },
+     {
+      "layer": 9,
+      "step": 0,
+      "point_nll": 2.4603781700134277,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 9,
+      "step": 100,
+      "point_nll": 0.0023341928608715534,
+      "keep_kl": 0.01575145125389099
+     },
+     {
+      "layer": 9,
+      "step": 200,
+      "point_nll": 0.0016808842774480581,
+      "keep_kl": 0.0076311323791742325
+     },
+     {
+      "layer": 9,
+      "step": 300,
+      "point_nll": 0.0013675030786544085,
+      "keep_kl": 0.004937989171594381
+     },
+     {
+      "layer": 9,
+      "step": 399,
+      "point_nll": 0.0010293197119608521,
+      "keep_kl": 0.003820194862782955
+     },
+     {
+      "layer": 10,
+      "step": 0,
+      "point_nll": 3.4964821338653564,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 10,
+      "step": 100,
+      "point_nll": 0.012263069860637188,
+      "keep_kl": 0.013310805894434452
+     },
+     {
+      "layer": 10,
+      "step": 200,
+      "point_nll": 0.004626173060387373,
+      "keep_kl": 0.0071418071165680885
+     },
+     {
+      "layer": 10,
+      "step": 300,
+      "point_nll": 0.0029078079387545586,
+      "keep_kl": 0.004460472613573074
+     },
+     {
+      "layer": 10,
+      "step": 399,
+      "point_nll": 0.001973489299416542,
+      "keep_kl": 0.00339743634685874
+     },
+     {
+      "layer": 11,
+      "step": 0,
+      "point_nll": 4.06067419052124,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 11,
+      "step": 100,
+      "point_nll": 0.0051970514468848705,
+      "keep_kl": 0.012894347310066223
+     },
+     {
+      "layer": 11,
+      "step": 200,
+      "point_nll": 0.003067206824198365,
+      "keep_kl": 0.006991757545620203
+     },
+     {
+      "layer": 11,
+      "step": 300,
+      "point_nll": 0.002486563054844737,
+      "keep_kl": 0.0044053769670426846
+     },
+     {
+      "layer": 11,
+      "step": 399,
+      "point_nll": 0.001747457543388009,
+      "keep_kl": 0.0037994729354977608
+     },
+     {
+      "layer": 12,
+      "step": 0,
+      "point_nll": 2.9891674518585205,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 12,
+      "step": 100,
+      "point_nll": 0.0053657302632927895,
+      "keep_kl": 0.013806873001158237
+     },
+     {
+      "layer": 12,
+      "step": 200,
+      "point_nll": 0.002944245235994458,
+      "keep_kl": 0.006986013613641262
+     },
+     {
+      "layer": 12,
+      "step": 300,
+      "point_nll": 0.0022365639451891184,
+      "keep_kl": 0.004467132035642862
+     },
+     {
+      "layer": 12,
+      "step": 399,
+      "point_nll": 0.0015796219231560826,
+      "keep_kl": 0.003351418999955058
+     },
+     {
+      "layer": 13,
+      "step": 0,
+      "point_nll": 3.2358715534210205,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 13,
+      "step": 100,
+      "point_nll": 0.008759844116866589,
+      "keep_kl": 0.03863177075982094
+     },
+     {
+      "layer": 13,
+      "step": 200,
+      "point_nll": 0.005403411574661732,
+      "keep_kl": 0.016964716836810112
+     },
+     {
+      "layer": 13,
+      "step": 300,
+      "point_nll": 0.00447773328050971,
+      "keep_kl": 0.011147290468215942
+     },
+     {
+      "layer": 13,
+      "step": 399,
+      "point_nll": 0.003238844219595194,
+      "keep_kl": 0.00812695361673832
+     },
+     {
+      "layer": 14,
+      "step": 0,
+      "point_nll": 8.218125343322754,
+      "keep_kl": 0.0
+     },
+     {
+      "layer": 14,
+      "step": 100,
+      "point_nll": 0.02371346764266491,
+      "keep_kl": 0.21721024811267853
+     },
+     {
+      "layer": 14,
+      "step": 200,
+      "point_nll": 0.014665694907307625,
+      "keep_kl": 0.06637345254421234
+     },
+     {
+      "layer": 14,
+      "step": 300,
+      "point_nll": 0.009628422558307648,
+      "keep_kl": 0.03427693620324135
+     },
+     {
+      "layer": 14,
+      "step": 399,
+      "point_nll": 0.007079009898006916,
+      "keep_kl": 0.021883541718125343
+     }
+    ],
+    "fit_seconds": 109.08763909339905,
+    "train_items": 512,
+    "variant": {
+     "name": "P_all_n512",
+     "kind": "program",
+     "n": 512,
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       4
+      ],
+      [
+       "h3",
+       2,
+       9,
+       4
+      ],
+      [
+       "h4",
+       2,
+       9,
+       4
+      ],
+      [
+       "h2",
+       2,
+       9,
+       4
+      ]
+     ]
+    },
+    "weights": 16260864,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      7,
+      "h1"
+     ],
+     [
+      2,
+      0,
+      "h1"
+     ],
+     [
+      3,
+      4,
+      "h3"
+     ],
+     [
+      2,
+      1,
+      "h3"
+     ],
+     [
+      4,
+      14,
+      "h3"
+     ],
+     [
+      9,
+      6,
+      "h3"
+     ],
+     [
+      5,
+      11,
+      "h4"
+     ],
+     [
+      2,
+      5,
+      "h4"
+     ],
+     [
+      5,
+      12,
+      "h4"
+     ],
+     [
+      8,
+      0,
+      "h4"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ],
+     [
+      6,
+      2,
+      "h2"
+     ],
+     [
+      3,
+      3,
+      "h2"
+     ]
+    ]
+   },
+   "E600_same_heads_n512": {
+    "tf": {
+     "exact": 614,
+     "items": 800,
+     "share": 0.7675,
+     "logp_pointed": -0.19956895849709272,
+     "per_task": {
+      "del_word": [
+       173,
+       200
+      ],
+      "ins_word": [
+       166,
+       200
+      ],
+      "sub_word": [
+       175,
+       200
+      ],
+      "swap_word": [
+       100,
+       200
+      ]
+     }
+    },
+    "other_loss": 1.9057565304409363,
+    "neutral_loss": 2.578387705387849,
+    "pointer": {
+     "copy": {
+      "mean_weight": 0.29900434327908515,
+      "top_share": 0.362109375,
+      "rows": 15360
+     },
+     "edit": {
+      "mean_weight": 0.2676184619541226,
+      "top_share": 0.3135884636716583,
+      "rows": 9015
+     }
+    },
+    "log": [
+     {
+      "step": 0,
+      "ce": 1.1388815641403198
+     },
+     {
+      "step": 100,
+      "ce": 0.015347028151154518
+     },
+     {
+      "step": 200,
+      "ce": 0.0050244019366800785
+     },
+     {
+      "step": 300,
+      "ce": 0.00968935713171959
+     },
+     {
+      "step": 400,
+      "ce": 0.001615208457224071
+     },
+     {
+      "step": 500,
+      "ce": 0.0014886660501360893
+     },
+     {
+      "step": 599,
+      "ce": 0.0006914453697390854
+     }
+    ],
+    "fit_seconds": 285.6497206687927,
+    "train_items": 512,
+    "variant": {
+     "name": "E600_same_heads_n512",
+     "kind": "e2e",
+     "n": 512,
+     "stages": [
+      [
+       "h1",
+       2,
+       9,
+       4
+      ],
+      [
+       "h3",
+       2,
+       9,
+       4
+      ],
+      [
+       "h4",
+       2,
+       9,
+       4
+      ],
+      [
+       "h2",
+       2,
+       9,
+       4
+      ]
+     ]
+    },
+    "weights": 16260864,
+    "heads": [
+     [
+      10,
+      9,
+      "ptr"
+     ],
+     [
+      10,
+      0,
+      "ptr"
+     ],
+     [
+      12,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      8,
+      "ptr"
+     ],
+     [
+      11,
+      12,
+      "ptr"
+     ],
+     [
+      10,
+      4,
+      "ptr"
+     ],
+     [
+      11,
+      0,
+      "ptr"
+     ],
+     [
+      11,
+      6,
+      "ptr"
+     ],
+     [
+      11,
+      1,
+      "ptr"
+     ],
+     [
+      14,
+      12,
+      "ptr"
+     ],
+     [
+      11,
+      10,
+      "ptr"
+     ],
+     [
+      11,
+      14,
+      "ptr"
+     ],
+     [
+      13,
+      15,
+      "ptr"
+     ],
+     [
+      10,
+      11,
+      "ptr"
+     ],
+     [
+      12,
+      14,
+      "ptr"
+     ],
+     [
+      7,
+      15,
+      "h1"
+     ],
+     [
+      9,
+      1,
+      "h1"
+     ],
+     [
+      4,
+      7,
+      "h1"
+     ],
+     [
+      2,
+      0,
+      "h1"
+     ],
+     [
+      3,
+      4,
+      "h3"
+     ],
+     [
+      2,
+      1,
+      "h3"
+     ],
+     [
+      4,
+      14,
+      "h3"
+     ],
+     [
+      9,
+      6,
+      "h3"
+     ],
+     [
+      5,
+      11,
+      "h4"
+     ],
+     [
+      2,
+      5,
+      "h4"
+     ],
+     [
+      5,
+      12,
+      "h4"
+     ],
+     [
+      8,
+      0,
+      "h4"
+     ],
+     [
+      4,
+      15,
+      "h2"
+     ],
+     [
+      8,
+      4,
+      "h2"
+     ],
+     [
+      6,
+      2,
+      "h2"
+     ],
+     [
+      3,
+      3,
+      "h2"
+     ]
+    ]
+   }
+  },
+  "restored": {
+   "tf_exact_after_removing_deltas": 26,
+   "equals_base": true
+  }
+ },
+ "seconds": 2967.26540517807
+}

@@ -8,6 +8,8 @@ between the models; the rows that add an "output part" or a "residual map" use m
   number, text and token on it comes from the study's stored runs.
 - **Snapshot:** the study at commit `1a55d3e8a` of its private working repository, 2026-11-13. The study continues; this
   copy does not follow it.
+- **Added 2026-11-13:** section 14 of the page, `study/NOTES_ptr.md` and `results/ptr/`, from branch `research/ptr-install`
+  at commit `76180a711` (result 6 below). Sections 1 to 13 and their data are unchanged.
 
 ## What runs at inference, in every result
 
@@ -37,7 +39,16 @@ the task, or the receiving model doing the task with the donor switched off.
    answer is not a position (contains_word; spell and spell_inverse) do not move through attention weights. A residual map
    fitted in closed form carries contains_word into the OLMo checkpoint: 33 of 40 test and 19 of 20 fresh items, against 22
    and 8 for the checkpoint alone (not yet read by an independent reader).
-6. **Not shown:** a joined system above Bolmo alone; the byte-level form of proxy tuning (arXiv 2506.14123), the published
+6. **The pointer in the receiving model's own weights, Bolmo off** (page section 14; this result trains weights, and uses
+   800 test items with a whitespace-normalized match, so its counts cannot be compared with those above). Giving 15 chosen
+   heads a script-made pointer, with no weight changed, takes Pythia 1.4B, SmolLM2-1.7B and DeepSeek-Coder 1.3B from 26, 219
+   and 134 of 800 to 730, 768 and 750; 15 random heads give 36, 233 and 36. Fitting each head's query and key weights to the
+   pointer without a gradient across layers reaches 451 to 577, below end-to-end training of the same heads (542 to 720).
+   Query/key-only training of every head reaches 750, 790 and 734; value/output-only training 774, 734 and 789, at a higher
+   loss on other prompts. With all 12 tasks on SmolLM2 the two tie (1,661 and 1,653 of 2,400) and the character-edit tasks
+   stay at 11 to 81 of 200. No LoRA or full fine-tuning baseline was run; no practical win over ordinary fine-tuning is
+   shown. One seed; not read by an independent reader.
+7. **Not shown:** a joined system above Bolmo alone; the byte-level form of proxy tuning (arXiv 2506.14123), the published
    method closest to these results, has not been run beside them.
 
 The study calls these engineering-stage counts. Independent recounts from the stored rows: `study/AUDIT_2026-11-12i.md`
@@ -53,6 +64,7 @@ recounted: the fixed pointer read (94 of 120), the per-head sweep, spelling and 
 | `build/build_explainer_data.py` | writes `data.js`; checks every count against the audit, recompute and result files |
 | `results/` | every result file of the study's repository that the build reads (56 files) |
 | `study/` | the audits the page cites, the scoreboard, and the journal entries the page uses (`JOURNAL_excerpt.md`) |
+| `study/NOTES_ptr.md`, `results/ptr/` | the note and the 15 metrics files behind page section 14 (the job code is not in this repository) |
 | `REDACTIONS.md` | every private name replaced in the copied files, and the one edit that is not a redaction |
 
 The per-item decode rows the build also reads (about 15 MB) are kept in the study's storage and are not in this repository,

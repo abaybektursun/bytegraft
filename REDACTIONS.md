@@ -56,3 +56,54 @@ The page was also changed where it names files: paths to files in this repositor
 | `study/JOURNAL_excerpt.md` | 1351 | EC2 instance id | `<instance>` | 1 |
 | `study/JOURNAL_excerpt.md` | 1397 | EC2 instance id | `<instance>` | 1 |
 | `study/JOURNAL_excerpt.md` | 1459 | EC2 instance id | `<instance>` | 1 |
+
+## Added 2026-11-13: section 14
+
+`results/ptr/` and `study/NOTES_ptr.md` are copies of `studies/bytegraft/results/ptr/` and `studies/bytegraft/NOTES_ptr.md` at commit 76180a711 of branch `research/ptr-install` in the private working repository. One rule was applied with `sed`: the S3 bucket name replaced by `<s3-bucket>`. 44 replacements in 16 files; no line added or removed. Section 14 of `docs/index.html` was written for this repository and has no private original.
+
+| file | line | pattern class | replacement | count |
+|---|---|---|---|---|
+| `results/ptr/ptr_1.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_2.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_2.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_2.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_3b.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_3b.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_3b.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_4.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_4.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_4.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_5.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_5.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_5.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_6b.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_6b.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_6b.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_7b.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_7b.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_7b.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_8b.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_8b.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_8b.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_dscoder_2.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_dscoder_2.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_dscoder_2.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_dscoder_qk.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_dscoder_qk.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_dscoder_qk.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_pythia_qk.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_pythia_qk.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_pythia_qk.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_1.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_1.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_1.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_2.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_2.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_2.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_3.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_3.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_3.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_all12b.json` | 4 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_all12b.json` | 10 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `results/ptr/ptr_smollm2_all12b.json` | 11 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
+| `study/NOTES_ptr.md` | 7 | S3 bucket name (contains the AWS account id) | `<s3-bucket>` | 1 |
