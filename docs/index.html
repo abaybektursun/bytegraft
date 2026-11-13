@@ -1,0 +1,1578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bolmo inside other models</title>
+<style>
+:root {
+  color-scheme: light;
+  --surface: #fcfcfb; --surface-2: #f3f2ef; --surface-3: #e9e8e4;
+  --ink: #0b0b0b; --ink-2: #52514e; --ink-3: #8a8984; --rule: #e1e0dc;
+  --olmo: #2a78d6; --olmo-soft: #d7e6f8; --bolmo: #eb6834; --bolmo-soft: #fbe0d4;
+  --agA: #6250d6; --agB: #1baf7a; --scrC: #eda100; --scrD: #e87ba4;
+  --right: #0ca30c; --wrong: #d03b3b;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --surface: #1a1a19; --surface-2: #232321; --surface-3: #2e2e2b;
+    --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #8f8e86; --rule: #393936;
+    --olmo: #3987e5; --olmo-soft: #1f3550; --bolmo: #d95926; --bolmo-soft: #4a2a1c; --agA: #9085e9; --agB: #199e70; --scrC: #c98500; --scrD: #d55181;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #1a1a19; --surface-2: #232321; --surface-3: #2e2e2b;
+  --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #8f8e86; --rule: #393936;
+  --olmo: #3987e5; --olmo-soft: #1f3550; --bolmo: #d95926; --bolmo-soft: #4a2a1c; --agA: #9085e9; --agB: #199e70; --scrC: #c98500; --scrD: #d55181;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface); color: var(--ink); font: 15px/1.55 var(--sans); }
+main { max-width: 1000px; margin: 0 auto; padding: 32px 16px 80px; }
+header h1 { font-size: 26px; line-height: 1.25; margin: 0 0 8px; font-weight: 650; letter-spacing: -0.01em; }
+header p { margin: 0 0 6px; color: var(--ink-2); max-width: 760px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+.topbar .who { font-size: 13px; color: var(--ink-3); }
+nav.steps { position: sticky; top: 0; z-index: 5; background: var(--surface); border-bottom: 1px solid var(--rule);
+  display: flex; gap: 4px; overflow-x: auto; padding: 8px 0; margin: 18px 0 8px; }
+nav.steps a { flex: none; font-size: 13px; color: var(--ink-2); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
+nav.steps a:hover, nav.steps a.on { background: var(--surface-2); color: var(--ink); }
+section { padding: 36px 0 8px; border-bottom: 1px solid var(--rule); }
+section h2 { font-size: 19px; margin: 0 0 6px; font-weight: 650; }
+section h2 .n { color: var(--ink-3); font-weight: 500; margin-right: 8px; }
+.lede { margin: 0 0 16px; color: var(--ink-2); max-width: 780px; }
+.note { font-size: 13px; color: var(--ink-3); max-width: 800px; margin: 10px 0 0; }
+.src { font-size: 12px; color: var(--ink-3); margin-top: 12px; font-family: var(--mono); word-break: break-word; }
+.fig { background: var(--surface-2); border-radius: 10px; padding: 16px; margin: 0 0 8px; }
+.ctl { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 0 0 12px; font-size: 13px; color: var(--ink-2); }
+.seg { display: inline-flex; background: var(--surface-3); border-radius: 8px; padding: 2px; }
+.seg button { border: 0; background: transparent; color: var(--ink-2); font: 13px var(--sans); padding: 5px 10px; border-radius: 6px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+button.plain { border: 1px solid var(--rule); background: var(--surface); color: var(--ink); font: 13px var(--sans); padding: 5px 12px; border-radius: 8px; cursor: pointer; }
+button.plain:hover { background: var(--surface-3); }
+input[type=range] { accent-color: var(--ink-2); width: 220px; }
+.mono { font-family: var(--mono); }
+.olmo-t { color: var(--olmo); font-weight: 600; } .bolmo-t { color: var(--bolmo); font-weight: 600; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin-right: 5px; }
+/* prompt */
+.prompt { font-family: var(--mono); font-size: 13px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; word-break: break-word; }
+.prompt .ex { color: var(--ink-3); } .prompt.collapsed .ex { display: none; }
+.prompt .last { color: var(--ink); }
+.outs { display: grid; gap: 8px; margin-top: 12px; }
+.out { display: grid; grid-template-columns: 250px 1fr 90px; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 12px; }
+.out .lab { font-size: 13px; color: var(--ink-2); }
+.verdict { font-size: 13px; font-weight: 600; text-align: right; white-space: nowrap; }
+.verdict.r { color: var(--right); } .verdict.w { color: var(--wrong); }
+.chips { display: flex; flex-wrap: wrap; gap: 3px; }
+.chip { font-family: var(--mono); font-size: 13px; padding: 1px 5px; border-radius: 4px; border: 1px solid var(--olmo); background: var(--olmo-soft); white-space: pre; cursor: default; }
+.chip.b { border-color: var(--bolmo); background: var(--bolmo-soft); }
+.chip.new { outline: 2px solid var(--ink); outline-offset: 1px; }
+.chip.dim { opacity: .45; }
+.ws { color: var(--ink-3); }
+/* section 2 columns */
+.cols { display: flex; flex-wrap: wrap; gap: 10px 4px; }
+.col { display: flex; flex-direction: column; align-items: stretch; gap: 3px; cursor: default; }
+.col .tk { font-family: var(--mono); font-size: 12px; text-align: center; border-radius: 5px; padding: 2px 4px; line-height: 1.3; white-space: pre; }
+.col .tk.o { border: 1.5px solid var(--olmo); background: var(--olmo-soft); }
+.col .tk.b { border: 1.5px solid var(--bolmo); background: var(--bolmo-soft); }
+.col .tk small { display: block; font-size: 10px; color: var(--ink-2); }
+.col .link { width: 1.5px; height: 8px; background: var(--ink-3); align-self: center; }
+.col .bys { display: flex; gap: 1px; justify-content: center; }
+.by { display: flex; flex-direction: column; align-items: center; min-width: 22px; font-family: var(--mono); font-size: 12px; background: var(--surface); border: 1px solid var(--rule); border-radius: 3px; padding: 1px 2px; }
+.by i { font-style: normal; } .by b { font-weight: 400; font-size: 10px; color: var(--bolmo); }
+.by.end { border-bottom: 3px solid var(--bolmo); }
+.col.hl .tk, .col.hl .by { box-shadow: 0 0 0 2px var(--ink); }
+.info { margin-top: 12px; font-size: 13px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; min-height: 64px; }
+.rowlab { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 6px 16px; font-size: 12px; color: var(--ink-2); margin-bottom: 12px; }
+/* svg text */
+svg text { font-family: var(--sans); fill: var(--ink); }
+svg .t2 { fill: var(--ink-2); } svg .t3 { fill: var(--ink-3); }
+svg .mono { font-family: var(--mono); }
+.readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-top: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; }
+.stat .k { font-size: 12px; color: var(--ink-2); } .stat .v { font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.outline { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; margin-top: 12px; display: grid; gap: 6px; }
+.outline .row { display: grid; grid-template-columns: 200px 1fr auto; gap: 10px; align-items: center; font-size: 13px; }
+table.t { border-collapse: collapse; width: 100%; font-size: 13px; background: var(--surface); }
+table.t th, table.t td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.t th { color: var(--ink-2); font-weight: 600; }
+table.t td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.t tr.ours td { font-weight: 600; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tabs button { border: 1px solid var(--rule); background: var(--surface); color: var(--ink-2); font: 13px var(--sans); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.tabs button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
+.method { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.method dl { margin: 0; font-size: 13px; display: grid; grid-template-columns: 110px 1fr; gap: 6px 10px; }
+.method dt { color: var(--ink-2); } .method dd { margin: 0; }
+#tip { position: fixed; z-index: 20; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--rule); box-shadow: 0 4px 16px rgba(0,0,0,.15); border-radius: 8px; padding: 8px 10px; font-size: 12px; max-width: 320px; }
+.scroll { overflow-x: auto; }
+.runs { border: 1.5px solid var(--ink); border-radius: 10px; padding: 12px 14px; margin: 14px 0 8px; max-width: 820px; font-size: 14px; }
+.runs b { font-weight: 650; }
+.seg .grp { align-self: center; font-size: 11px; color: var(--ink-3); padding: 0 6px 0 10px; }
+.seg.wrap { flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .out { grid-template-columns: 1fr; } .verdict { text-align: left; }
+  .method { grid-template-columns: 1fr; }
+  .outline .row { grid-template-columns: 1fr !important; }
+  .chip { white-space: pre-wrap; word-break: break-all; }
+  .seg { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div id="tip" hidden></div>
+<main>
+  <div class="topbar"><span class="who">BYTEGRAFT · snapshot of the study at 1a55d3e8a · stored runs, no new computation</span>
+    <button class="plain" id="theme">Dark / light</button></div>
+  <header>
+    <h1>A byte model running beside a token model: what of it can be moved across</h1>
+    <p>Two models run on the same text. <span class="bolmo-t">Bolmo-1B</span> reads bytes; the receiving model reads tokens.
+      At chosen layers and heads, at positions where both models cover the same bytes, part of the receiving model's attention is replaced by Bolmo's.
+      The receiving model computes everything else and chooses the next token. No training; no map between the two models, except where a row names a fitted map (the output part, the residual map).</p>
+    <div class="runs"><b>What runs at inference, in every result on this page.</b> The whole of Bolmo-1B runs on the same text beside the receiving model, at every decoding step.
+      Bolmo-1B-Stage1, the same model before its editing skill, also reads the text at every step: positions are paired only where both Bolmo models' patches match, and the output part and the residual map use its activations too.
+      Bolmo works out where to look; the receiving model writes the token from its own computation. With Bolmo switched off, the receiving model is unchanged.
+      Bolmo alone gets <span id="hdrF"></span> of 160 test items right, more than any joined system on this page.
+      Through attention weights, what crosses into the separately trained models is a position: on Pythia's selection list, a hand-made pointer that uses the answer, with no Bolmo weights, does better than Bolmo's weights (section 13).
+      By the study's definition of 2026-11-12 this is not yet a graft. A graft is a small part of Bolmo attached so that neither part alone does the task,
+      or the receiving model doing the task with Bolmo switched off (the study's MISSION.md, in its working repository, not public).</div>
+    <p>Sections 1 to 7: the whole attention output copied into <span class="olmo-t">OLMo-2-0425-1B</span>. 8 to 10: which 16 of its 256 heads to copy, chosen by agents, scripts and searches.
+      11: Bolmo's attention weights apart from its values. 12: attention weights given to four models that share no weights with Bolmo. 13: what crosses, and what does not. 14: published methods. 15: where the study stands.</p>
+    <p>Every number, text and token on this page comes from the study's stored runs. The example is one real item, <span class="mono" id="itemid"></span>.</p>
+  </header>
+  <nav class="steps" id="nav">
+    <a href="#s1">1 The item</a><a href="#s2">2 Same text, two inputs</a><a href="#s3">3 One layer</a><a href="#s4">4 Where the copy happens</a>
+    <a href="#s5">5 Step by step</a><a href="#s6">6 Which part uses it</a><a href="#s7">7 All results</a>
+    <a href="#s9">8 Which 16 heads</a><a href="#s10">9 Sixty tries</a><a href="#s11">10 The chosen heads</a>
+    <a href="#s12">11 Weights or values</a><a href="#s13">12 Other models</a><a href="#s15">13 What crosses</a><a href="#s8">14 What others did</a><a href="#s14">15 Where it stands</a>
+  </nav>
+
+  <section id="s1">
+    <h2><span class="n">1</span>The item</h2>
+    <p class="lede">A word-deletion item from CUTE. The prompt has four solved examples and then the question. The answer must delete the word " they".</p>
+    <div class="fig">
+      <div class="ctl"><button class="plain" id="toggleEx">Show the 4 example lines</button>
+        <span>Gold answer: <span class="mono" id="gold"></span></span></div>
+      <div class="prompt collapsed" id="prompt"></div>
+      <div class="outs" id="outs"></div>
+      <p class="note">Scored right when the output begins with the gold answer followed by the closing quote (the study's strict rule).
+        Hover a token to see its id in OLMo's vocabulary. Bolmo writes bytes, not tokens.</p>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2><span class="n">2</span>The same text enters each model in a different way</h2>
+    <p class="lede">OLMo splits the text into tokens: one position per token. Bolmo reads one byte at a time, runs a small encoder over the bytes,
+      and groups them into patches: one position per patch. A position in OLMo is paired with a position in Bolmo when both cover exactly the same bytes.</p>
+    <div class="fig">
+      <div class="ctl"><span class="seg" id="s2scope"><button aria-pressed="true" data-v="line">Last line</button><button aria-pressed="false" data-v="all">Whole prompt (<span id="npos"></span> positions)</button></span></div>
+      <div class="rowlab">
+        <div><span class="sw" style="background:var(--olmo)"></span><b>Top:</b> OLMo position, token, token id. The token id selects one row of OLMo's embedding matrix (<span id="embdim"></span>).</div>
+        <div><b>Middle:</b> the bytes. Orange number: Bolmo's input id for that byte (byte value + 4; ids 0 to 3 are special tokens).</div>
+        <div><span class="sw" style="background:var(--bolmo)"></span><b>Bottom:</b> Bolmo position (patch). The underlined byte is the patch's last byte: the encoder's output at that byte, after an RMSNorm and a 2048 × 2048 linear projection, is the patch's input to Bolmo's first transformer layer.</div>
+      </div>
+      <div class="cols" id="cols"></div>
+      <div class="info" id="s2info">Hover a column.</div>
+      <p class="note">The run did not save Bolmo's patch boundaries. It saved that, at every step of every run on this item, all of OLMo's positions found a Bolmo patch with
+        identical bytes (stored share 1.000; 69 of the 160 edit items have this). So for this item Bolmo's patches are exactly OLMo's tokens, and position k pairs with position k.
+        Bolmo's encoder is one mLSTM layer; its input also adds an embedding looked up by a subword id (config: add_expanded_embeddings), which this page does not show.</p>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2><span class="n">3</span>One layer, one position: the replacement</h2>
+    <p class="lede">Both models have the same layer design: 16 transformer layers, 16 attention heads of 128 dimensions, a 2048-dimensional residual stream,
+      and an RMSNorm on each sublayer's output before it is added to the residual stream. Bolmo runs its own layer on its own residual stream.
+      In OLMo, at a paired position, the attention output (after o_proj, before the RMSNorm) is replaced by Bolmo's.</p>
+    <div class="fig">
+      <div class="ctl">
+        <span class="seg" id="s3copy"><button aria-pressed="false" data-v="off">OLMo alone</button><button aria-pressed="true" data-v="on">With the copy</button></span>
+        <label>Layer <b id="s3Lv">0</b> <input type="range" id="s3L" min="0" max="15" value="0"></label>
+      </div>
+      <div class="scroll"><svg id="s3svg" viewBox="0 0 900 590" width="100%" role="img" aria-label="One transformer layer of Bolmo and of OLMo, with the attention output copied"></svg></div>
+      <div class="readout" id="s3read"></div>
+      <p class="note">Measured at the first generation step, at position <span id="s3pos"></span> (the last prompt position), in the run with the copy at all 16 layers.
+        The RMSNorm applied to the copied vector is OLMo's own (its gain weights). Values in layer L already include the copies made in layers below L.</p>
+    </div>
+  </section>
+
+  <section id="s4">
+    <h2><span class="n">4</span>Where the copy happens: 16 layers × positions</h2>
+    <p class="lede">Each cell is one attention output in OLMo: one layer, one position. Pick which cells receive Bolmo's attention output.
+      Five of these choices were run on all 160 items; the panel shows this item's real output and the accuracy over the 160 items.</p>
+    <div class="fig">
+      <div class="ctl">
+        <span>Positions</span><span class="seg" id="s4pos"><button aria-pressed="false" data-v="none">None (OLMo alone)</button><button aria-pressed="false" data-v="all">All paired</button><button aria-pressed="false" data-v="context">Earlier prompt positions only</button><button aria-pressed="true" data-v="last">Last prompt position + generated</button></span>
+        <span>Layers</span><span class="seg" id="s4lay"><button aria-pressed="true" data-v="all">All 16</button><button aria-pressed="false" data-v="early">0–11</button><button aria-pressed="false" data-v="late">12–15</button></span>
+      </div>
+      <div class="scroll"><svg id="s4svg" viewBox="0 0 900 470" width="100%" role="img" aria-label="Grid of OLMo attention outputs by layer and position"></svg></div>
+      <div class="outline" id="s4out"></div>
+    </div>
+  </section>
+
+  <section id="s5">
+    <h2><span class="n">5</span>Generation, step by step</h2>
+    <p class="lede">At each step both models read the text so far: OLMo as tokens, Bolmo as bytes. OLMo, with Bolmo's attention outputs copied in at the last prompt position and at every generated position,
+      chooses one token. It is appended, and the next step starts. The chart shows the sizes at each layer at this step.</p>
+    <div class="fig">
+      <div class="ctl"><button class="plain" id="s5prev">◀</button><button class="plain" id="s5play">Play</button><button class="plain" id="s5next">▶</button>
+        <span>Step <b id="s5t">0</b> of <span id="s5n"></span></span><span id="s5copied"></span></div>
+      <div class="outline" id="s5rows"></div>
+      <div class="scroll" style="margin-top:12px"><svg id="s5svg" viewBox="0 0 900 300" width="100%" role="img" aria-label="Per-layer sizes at this step"></svg></div>
+      <p class="note">Blue: size of OLMo's own attention output after OLMo's RMSNorm, ‖RMSNorm(a<sub>OLMo</sub>)‖. Orange: size of the change the copy makes, ‖RMSNorm(a<sub>Bolmo</sub>) − RMSNorm(a<sub>OLMo</sub>)‖.
+        Euclidean norm over the 2048 coordinates. The run stored one Frobenius norm over all positions copied at that step (1 at step 0, t + 1 at step t);
+        the bars show it divided by √(t + 1), the root-mean-square size per position. Step 0 is a single position, exactly as in section 3. Hover a bar.</p>
+    </div>
+  </section>
+
+  <section id="s6">
+    <h2><span class="n">6</span>Which part of OLMo uses the copied vectors</h2>
+    <p class="lede">A control run computes, for each layer, the change the copy makes at that layer when every other layer is left alone (both against OLMo's unchanged run), and adds their sum once, at the input of OLMo's final RMSNorm. No OLMo layer reads them there.
+      The difference between the two runs is what OLMo's own later layers (their attention and MLPs) do with the copied vectors.</p>
+    <div class="fig">
+      <div class="scroll"><svg id="s6svg" viewBox="0 0 900 360" width="100%" role="img" aria-label="Two ways of adding the changes, and their accuracy"></svg></div>
+      <div class="outline" id="s6out"></div>
+    </div>
+  </section>
+
+  <section id="s7">
+    <h2><span class="n">7</span>All measured results</h2>
+    <p class="lede">Accuracy on the four word-edit tasks (del_word, ins_word, sub_word, swap_word), 160 items, 40 per task, strict rule. Whiskers: 95% bootstrap interval (items resampled within task, <span id="draws"></span> draws).</p>
+    <div class="fig">
+      <div class="ctl"><span class="seg" id="s7view"><button aria-pressed="true" data-v="chart">Chart</button><button aria-pressed="false" data-v="table">Table</button></span></div>
+      <div class="scroll" id="s7chart"><svg id="s7svg" viewBox="0 0 900 700" width="100%" role="img" aria-label="Accuracy of every measured condition"></svg></div>
+      <div id="s7table" hidden></div>
+      <p class="note">Bolmo-1B-Stage1's transformer layers are identical to OLMo's (176 tensors equal by hash); only its byte encoder and decoder were trained. Bolmo-1B continued training all of its weights.
+        The OLMo stage-1 checkpoints are separately trained networks by their weights: for stage1-step1907359, the cosine between each of 112 weight matrices and the final model's matching matrix is within ±0.002 of zero.
+        Copying whole attention outputs into them gives 0.000; giving 15 heads of stage1-step1907359 Bolmo's attention weights alone does not (section 12).</p>
+    </div>
+  </section>
+
+  <section id="s9">
+    <h2><span class="n">8</span>Which heads carry it? The task: copy 16 of the 256</h2>
+    <p class="lede">Each layer's attention output is the sum of 16 head writes: head h writes its 128 output numbers through its own 128 columns of o_proj.
+      Copying all 16 heads at all 16 layers is the copy of sections 3 to 7. Copying one head replaces OLMo's write for that head by Bolmo's write for the same head,
+      at the last prompt position and every generated position. The task: choose at most 16 of the 256 heads.</p>
+    <div class="fig">
+      <div class="readout" id="s9tiles" style="margin:0 0 14px"></div>
+      <div class="ctl"><span>Colour by</span><span class="seg" id="s9col">
+        <button aria-pressed="true" data-v="single">Each head copied alone</button><button aria-pressed="false" data-v="gradient">Gradient estimate</button>
+        <button aria-pressed="false" data-v="direct_effect">Direct effect (table)</button><button aria-pressed="false" data-v="att_shift">Attention shift (table)</button>
+        <button aria-pressed="false" data-v="diff_norm">Write difference (table)</button></span></div>
+      <div class="method"><div class="scroll"><svg id="s9svg" viewBox="0 0 470 490" width="100%" role="img" aria-label="The 256 attention heads, coloured by one quantity"></svg></div>
+        <div id="s9head"></div></div>
+      <p class="note" id="s9what"></p>
+    </div>
+  </section>
+
+  <section id="s10">
+    <h2><span class="n">9</span>Sixty scored sets per method</h2>
+    <p class="lede">Each method could send 60 sets of at most 16 heads to one scorer. A <b>dot</b> is one set, scored once.
+      <b>x</b>: the set's number, 1 to 60, in the order the method sent it. <b>y</b>: its score, the mean gain in the gold token's log-odds over 80 practice items (the study's fit items)
+      when OLMo uses Bolmo's write for those heads (0: no change; 1.96: the gold token's odds multiplied by about 7; all 256 heads: <span id="s10all"></span>).
+      A <b>line</b> is the best score so far, so it can only rise or stay flat.</p>
+    <p class="lede">The rise has two sources. More tries: the best of 60 random sets is higher than the best of 10, with no learning; random search's dots stay at one level.
+      Learning: the agents, the surrogate and the scripts sent 20 sets, got the 20 scores back, and chose the next 20 from them; their dots move up from round to round.</p>
+    <div class="fig">
+      <div class="ctl" id="s10toggles"></div>
+      <div class="scroll"><svg id="s10svg" viewBox="0 0 900 420" width="100%" role="img" aria-label="Score of every scored set, in order, for each method"></svg></div>
+      <div class="outline" id="s10who"></div>
+      <p class="note">Each method's final set is its own best of 60. Rounds of 20 apply to the agents, the surrogate and the scripts; random search sent its 60 sets at once.
+        The agents also sent sets smaller than 16 as probes (Agent A 24, Agent B 19): that is why some of their early dots are low. Hover a dot for its heads.</p>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div style="font-weight:650;margin-bottom:4px">With more scored sets: greedy forward selection (select_3)</div>
+      <p class="note" style="margin:0 0 10px">Start from no heads. At each step, score every remaining candidate head added to the current set, and keep the best. 16 steps, <span id="s10gN"></span> scored sets in all,
+        from a pool of 73 heads (the 64 best single heads plus every head of the agents', the gradient and the select_2 scripts' sets).</p>
+      <div class="scroll"><svg id="s10g" viewBox="0 0 900 360" width="100%" role="img" aria-label="Greedy's kept score against the number of scored sets, beside the agents' best so far"></svg></div>
+      <p class="note" id="s10gnote"></p>
+    </div>
+  </section>
+
+  <section id="s11">
+    <h2><span class="n">10</span>The chosen heads, read on items no method saw</h2>
+    <p class="lede">Each final set was copied into OLMo during free generation and scored with the strict rule: on the 160 test items of sections 1 to 7,
+      and, for the later runs, on 80 fresh edit items (pair_1's list): outside every method's practice items, and not decoded before with any of these head sets.</p>
+    <div class="fig">
+      <div class="ctl"><span class="seg wrap" id="s11m"><span class="grp">select_1</span>
+        <button aria-pressed="true" data-v="agent_a">Agent A</button><button aria-pressed="false" data-v="agent_b">Agent B</button>
+        <button aria-pressed="false" data-v="gradient_top16">Gradient top 16</button><button aria-pressed="false" data-v="direct_top16">Direct-effect top 16</button>
+        <button aria-pressed="false" data-v="surrogate">Ridge surrogate</button><button aria-pressed="false" data-v="random">Random search</button>
+        <button aria-pressed="false" data-v="att_shift_rule">Table rule: attention shift</button>
+        <span class="grp">select_2</span><button aria-pressed="false" data-v="script_columns">Script, same table</button><button aria-pressed="false" data-v="script_direct">Script from direct effect</button>
+        <span class="grp">select_3</span><button aria-pressed="false" data-v="script_raw">Script without attention-change rankings</button><button aria-pressed="false" data-v="greedy">Greedy, 1,048 scored sets</button></span></div>
+      <div class="method"><div class="scroll"><svg id="s11svg" viewBox="0 0 470 470" width="100%" role="img" aria-label="The 16 heads a method chose"></svg></div>
+        <div id="s11info"></div></div>
+      <div class="ctl" style="margin-top:14px"><span class="seg" id="s11list"><button aria-pressed="true" data-v="test">160 test items</button><button aria-pressed="false" data-v="fresh">80 fresh items</button></span></div>
+      <div class="scroll"><svg id="s11bars" viewBox="0 0 900 460" width="100%" role="img" aria-label="Accuracy of each final set"></svg></div>
+      <div class="outline" id="s11diff"></div>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div class="readout" id="s11quotes" style="margin:0"></div>
+    </div>
+    <div class="outline" id="s11limits"></div>
+  </section>
+
+  <section id="s12">
+    <h2><span class="n">11</span>Where Bolmo's heads look, or what they read</h2>
+    <p class="lede">One head's output at position q is W<sub>O</sub>[:, h] · Σ<sub>k</sub> A<sub>h</sub>[q, k] · v<sub>h</sub>[k].
+      A<sub>h</sub>[q, k] is the attention weight from q to an earlier position k; the weights of one row sum to 1. v<sub>h</sub>[k] is the value at k, 128 numbers.
+      W<sub>O</sub>[:, h] is the head's 128 columns of o_proj. Copying a head's output, as in sections 3 to 10, takes A, v and W<sub>O</sub> all from Bolmo.
+      The run <span class="mono">route_1</span> takes the weights from one model and the values with o_proj from the other: all 256 heads, at the last prompt position and every generated position, on OLMo-2-0425-1B.</p>
+    <div class="fig">
+      <div class="ctl"><span>Weights A from</span><span class="seg" id="s12w"><button aria-pressed="false" data-v="O">OLMo</button><button aria-pressed="true" data-v="F">Bolmo</button><button aria-pressed="false" data-v="X">Bolmo, reading another item</button></span>
+        <span>Values v and o_proj from</span><span class="seg" id="s12v"><button aria-pressed="true" data-v="O">OLMo</button><button aria-pressed="false" data-v="F">Bolmo</button></span></div>
+      <div class="method"><div class="scroll"><svg id="s12svg" viewBox="0 0 540 432" width="100%" role="img" aria-label="One head's computation with weights and values from chosen models"></svg></div>
+        <div id="s12info"></div></div>
+      <div class="ctl" style="margin-top:14px"><span class="seg" id="s12list"><button aria-pressed="true" data-v="test">160 test items</button><button aria-pressed="false" data-v="fresh">80 fresh items</button></span></div>
+      <div class="scroll"><svg id="s12bars" viewBox="0 0 900 220" width="100%" role="img" aria-label="Right answers for each combination of weights and values"></svg></div>
+      <p class="note" id="s12note"></p>
+    </div>
+  </section>
+
+  <section id="s13">
+    <h2><span class="n">12</span>Into models that share no weights with Bolmo</h2>
+    <p class="lede">Attention weights are indexed by position, not by the 2048 coordinates, and positions are matched by bytes. So a head of any model can be given the weights of one of Bolmo's heads,
+      with no map: it reads its own values with Bolmo's weights, through its own o_proj. One such assignment is a pair, receiving head ← Bolmo head, used at the last prompt position and every generated position.
+      The study tried four receiving models. <b>H</b>: the OLMo-2 1B checkpoint stage1-step1907359, whose weight matrices each have a cosine within ±0.002 of zero with OLMo-2-0425-1B's matching matrix, so it is a separately trained network.
+      <b>Pythia 1.4B</b>: GPT-NeoX, 24 layers of 16 heads, its own tokenizer and training data. <b>DeepSeek-Coder 1.3B</b>: Llama type, 24 layers of 16 heads, trained on code.
+      <b>SmolLM2-1.7B</b>: Llama type, 24 layers of 32 heads, a third model family.</p>
+    <div class="fig">
+      <div class="ctl"><span class="seg" id="s13h"><button aria-pressed="true" data-v="H">H: 15 pairs</button><button aria-pressed="false" data-v="P15">Pythia 1.4B: 15 pairs</button><button aria-pressed="false" data-v="P27">Pythia 1.4B: 27 pairs</button><button aria-pressed="false" data-v="DSC">DeepSeek-Coder 1.3B: 15 pairs</button><button aria-pressed="false" data-v="SML">SmolLM2-1.7B: 15 pairs</button></span></div>
+      <div class="scroll"><svg id="s13svg" viewBox="0 0 900 450" width="100%" role="img" aria-label="Which receiving head takes which Bolmo head's attention weights"></svg></div>
+      <p class="note" id="s13pairs"></p>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div class="ctl"><span class="seg" id="s13list"><button aria-pressed="true" data-v="test">160 test items</button><button aria-pressed="false" data-v="fresh">80 fresh items</button></span></div>
+      <div class="scroll"><svg id="s13bars" viewBox="0 0 900 320" width="100%" role="img" aria-label="Right answers of each wiring and its controls"></svg></div>
+      <div class="outline" id="s13out"></div>
+      <p class="note" id="s13note"></p>
+    </div>
+  </section>
+  <section id="s15">
+    <h2><span class="n">13</span>Through attention weights a position crosses; what else does</h2>
+    <p class="lede">On these four word-edit tasks the answer is a copy of the prompt's words with one change, so where the next word sits is most of the answer.
+      The run <span class="mono">step 41</span> asks whether Bolmo's weights carry more than that. The same Pythia heads were given a hand-made pointer instead:
+      at each answer position, all weight on the position of the word the gold answer copies next. It uses the answer and no Bolmo weights.
+      Bolmo and Bolmo-1B-Stage1 still read the text, only to set which positions are paired.</p>
+    <div class="fig">
+      <div style="font-weight:650;margin-bottom:4px">Pythia 1.4B, the 120 selection items: Bolmo's weights against the hand-made pointer</div>
+      <div class="scroll"><svg id="s15bars" viewBox="0 0 900 200" width="100%" role="img" aria-label="Right answers with Bolmo's weights and with the hand-made pointer"></svg></div>
+      <p class="note" id="s15barsnote"></p>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div style="font-weight:650;margin-bottom:4px">Which Pythia heads copy from where they are pointed</div>
+      <div class="method"><div class="scroll"><svg id="s15grid" viewBox="0 0 470 690" width="100%" role="img" aria-label="Pythia's 384 heads, each scored alone with the hand-made pointer"></svg></div>
+        <div><p class="note" style="margin-top:0" id="s15gridnote"></p></div></div>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div style="font-weight:650;margin-bottom:4px">No small part of Bolmo is enough to compute the position (step 40)</div>
+      <div class="scroll"><svg id="s15off" viewBox="0 0 900 156" width="100%" role="img" aria-label="Pythia's right answers with one layer of Bolmo replaced by a constant"></svg></div>
+      <p class="note" id="s15offnote"></p>
+    </div>
+    <div class="fig" style="margin-top:12px">
+      <div style="font-weight:650;margin-bottom:4px">Tasks whose answer is not at a position</div>
+      <div class="scroll"><table class="t" id="s15tasks" style="font-size:12px;table-layout:fixed;min-width:860px"></table></div>
+      <p class="note" id="s15tasksnote"></p>
+    </div>
+  </section>
+
+  <section id="s8">
+    <h2><span class="n">14</span>What other research did</h2>
+    <p class="lede">Each published method combines a byte model and a token model, or two models, at a different place. Pick one.</p>
+    <div class="fig">
+      <div class="tabs" id="s8tabs"></div>
+      <div class="method"><div class="scroll"><svg id="s8svg" viewBox="0 0 560 400" width="100%" role="img" aria-label="Where the method combines the models"></svg></div><dl id="s8dl"></dl></div>
+    </div>
+    <div style="margin-top:14px" class="scroll"><table class="t" id="s8table" style="font-size:12px;min-width:900px;table-layout:fixed"></table></div>
+    <p class="note">This study's row is the only one found that copies internal activations from a byte model into a token model at run time without a map or training (research passes 5 to 10 of the study; a search result, not a proof).
+      The whole attention output works between Bolmo and the token model it was built from; copied into separately trained OLMo checkpoints it gives 0.000 (section 7).
+      Attention weights alone do cross into separately trained models (section 12). The byte-level form of proxy tuning (ByteSampler §4.4), the published method closest to these results, has not been run beside them.</p>
+  </section>
+
+  <section id="s14">
+    <h2><span class="n">15</span>Where the study stands</h2>
+    <p class="lede">The study's scoreboard (study/SCOREBOARD.md) has two levels. Level 1: a computation of one model used by another it was never trained with, with no training,
+      to do what the receiving model does not do alone. Each row has three answers: reuse shown (the receiving model gains and both controls fail); the joined system above its best part; the donor's part isolated (only a small part of the donor runs).
+      Level 2: a joined system above its parts and above the ordinary method on a named benchmark.</p>
+    <div class="scroll"><table class="t" id="s14table"></table></div>
+    <div class="outline" id="s14more"></div>
+  </section>
+  <p class="src" id="sources"></p>
+</main>
+<script src="data.js"></script>
+<script>
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const NS = "http://www.w3.org/2000/svg";
+function S(tag, attrs, parent, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs || {}) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function H(tag, attrs, parent, text) {
+  const e = document.createElement(tag);
+  for (const k in attrs || {}) { if (k === "class") e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  if (text != null) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const vis = s => s.replace(/ /g, "·").replace(/\n/g, "↵");
+const f3 = x => (Math.round(x * 1000 + 1e-9 * Math.sign(x)) / 1000).toFixed(3);   // half away from zero, as the study reports
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const tip = $("#tip");
+function showTip(ev, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = tip.getBoundingClientRect(); let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = ev.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = ev.clientY - r.height - 14;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+function seg(id, onChange) {
+  const box = $(id);
+  box.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    for (const x of box.querySelectorAll("button")) x.setAttribute("aria-pressed", x === b ? "true" : "false");
+    onChange(b.dataset.v);
+  });
+  return () => box.querySelector('button[aria-pressed="true"]').dataset.v;
+}
+function wrapText(g, x, y, text, width, size, cls, lineH) {
+  const words = text.split(" "); let line = "", yy = y; const approx = size * 0.55;
+  for (const w of words) {
+    const test = line ? line + " " + w : w;
+    if (test.length * approx > width && line) { S("text", { x, y: yy, "font-size": size, class: cls || "" }, g, line); line = w; yy += lineH || size * 1.3; }
+    else line = test;
+  }
+  if (line) S("text", { x, y: yy, "font-size": size, class: cls || "" }, g, line);
+  return yy;
+}
+
+const D = DATA, IT = D.item, NP = IT.n_prompt, LAST = NP - 1, A = D.arch;
+$("#itemid").textContent = IT.id;
+$("#hdrF").textContent = D.acc.F.right;
+$("#theme").addEventListener("click", () => {
+  const dark = getComputedStyle(document.documentElement).colorScheme === "dark";
+  document.documentElement.dataset.theme = dark ? "light" : "dark";
+});
+
+/* ---------- 1. the item ---------- */
+(function () {
+  $("#gold").textContent = JSON.stringify(IT.gold);
+  const lines = IT.context.split("\n");
+  lines.forEach((ln, i) => H("div", { class: i < lines.length - 1 ? "ex" : "last" }, $("#prompt"), ln));
+  $("#toggleEx").addEventListener("click", e => {
+    const p = $("#prompt"); p.classList.toggle("collapsed");
+    e.target.textContent = p.classList.contains("collapsed") ? "Show the 4 example lines" : "Hide the example lines";
+  });
+  const rows = [["OLMo-2-0425-1B alone", "O"], ["Bolmo-1B alone", "F"], ["OLMo-2-0425-1B with Bolmo-1B's attention outputs copied in (all 16 layers, last prompt position + generated positions)", "deciding"]];
+  for (const [lab, key] of rows) {
+    const r = D.runs[key], o = H("div", { class: "out" }, $("#outs"));
+    H("div", { class: "lab" }, o, lab);
+    const c = H("div", { class: "chips" }, o);
+    if (key === "F") H("span", { class: "chip b" }, c, vis(r.generated));
+    else for (const t of r.tokens) {
+      const ch = H("span", { class: "chip" }, c, vis(t.text));
+      ch.addEventListener("mousemove", ev => showTip(ev, `OLMo token id <b>${t.id}</b><br><span class="mono">${esc(JSON.stringify(t.text))}</span>`));
+      ch.addEventListener("mouseleave", hideTip);
+    }
+    H("div", { class: "verdict " + (r.correct ? "r" : "w") }, o, r.correct ? "✓ right" : "✗ wrong");
+  }
+})();
+
+/* ---------- 2. same text, two inputs ---------- */
+(function () {
+  $("#npos").textContent = NP;
+  $("#embdim").textContent = `${A.vocab_size.toLocaleString()} rows × ${A.hidden_size}`;
+  const P = IT.positions, ctx = IT.context;
+  let lineStart = 0;
+  P.forEach((p, i) => { if (p.text === "Delete") lineStart = i; });
+  const box = $("#cols"), info = $("#s2info");
+  function render(scope) {
+    box.innerHTML = "";
+    const from = scope === "all" ? 0 : lineStart;
+    for (let i = from; i < P.length; i++) {
+      const p = P[i], col = H("div", { class: "col" }, box);
+      const top = H("div", { class: "tk o" }, col); top.append(vis(p.text)); H("small", {}, top, `pos ${p.pos} · id ${p.id}`);
+      H("div", { class: "link" }, col);
+      const bys = H("div", { class: "bys" }, col);
+      if (p.span === null) { const b = H("span", { class: "by end" }, bys); H("i", {}, b, "<bos>"); H("b", {}, b, "1"); }
+      else for (let k = p.span[0]; k < p.span[1]; k++) {
+        const ch = ctx[k], b = H("span", { class: "by" + (k === p.span[1] - 1 ? " end" : "") }, bys);
+        H("i", {}, b, ch === " " ? "·" : ch === "\n" ? "↵" : ch); H("b", {}, b, String(ch.charCodeAt(0) + 4));
+      }
+      H("div", { class: "link" }, col);
+      const bot = H("div", { class: "tk b" }, col); bot.append("patch"); H("small", {}, bot, `pos ${p.pos}`);
+      col.addEventListener("mouseenter", () => {
+        col.classList.add("hl");
+        if (p.span === null) { info.innerHTML = `<b>Position 0.</b> OLMo: the start token &lt;|endoftext|&gt; (id ${p.id}). Bolmo: its start token &lt;bos&gt; (id 1), always its own patch. Paired.`; return; }
+        const bytes = [...ctx.slice(p.span[0], p.span[1])];
+        info.innerHTML = `<b>Position ${p.pos}.</b> Both cover bytes ${p.span[0]}–${p.span[1] - 1} of the prompt: <span class="mono">${esc(JSON.stringify(p.text))}</span>.<br>` +
+          `<span class="olmo-t">OLMo</span>: one token, id ${p.id} → one row of the embedding matrix (${A.hidden_size} numbers) → transformer layer 0.<br>` +
+          `<span class="bolmo-t">Bolmo</span>: ${bytes.length} byte${bytes.length > 1 ? "s" : ""}, input ids ${bytes.map(c => c.charCodeAt(0) + 4).join(", ")} → byte embeddings → one mLSTM layer, byte by byte → RMSNorm → the output at the last byte ` +
+          `(<span class="mono">${esc(JSON.stringify(bytes[bytes.length - 1]))}</span>) → linear projection (2048 × 2048) → transformer layer 0, as position ${p.pos}.`;
+      });
+      col.addEventListener("mouseleave", () => col.classList.remove("hl"));
+    }
+  }
+  seg("#s2scope", render); render("line");
+})();
+
+/* ---------- 3. one layer ---------- */
+(function () {
+  const svg = $("#s3svg"), st0 = D.steps[0];
+  $("#s3pos").textContent = LAST;
+  const W = 300, xB = 60, xO = 540, cx = x => x + W / 2;
+  const ys = { out: 70, add2: 112, nf: 154, mlp: 202, add1: 256, na: 298, a: 348, o: 402, att: 462, in: 540 };
+  const boxH = 34;
+  const defs = S("defs", {}, svg);
+  for (const [id, col] of [["arI", "var(--ink-3)"], ["arB", "var(--bolmo)"], ["arO", "var(--olmo)"]]) {
+    const m = S("marker", { id, viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse" }, defs);
+    S("path", { d: "M0,0 L10,5 L0,10 z", fill: col }, m);
+  }
+  const g = S("g", {}, svg);
+  function col(x, who, color, soft) {
+    const c = cx(x);
+    S("text", { x: c, y: 16, "text-anchor": "middle", "font-size": 15, "font-weight": 650, fill: color }, g, who);
+    // residual stream line on the left side
+    const rx = x - 26;
+    S("line", { x1: rx, y1: ys.in, x2: rx, y2: ys.out + 6, stroke: "var(--ink-3)", "stroke-width": 2, "marker-end": "url(#arI)" }, g);
+    const ry = (ys.att + ys.in) / 2 - 20;
+    S("text", { x: rx - 6, y: ry, "font-size": 11, class: "t3", transform: `rotate(-90 ${rx - 6} ${ry})`, "text-anchor": "middle" }, g, "residual stream (2048)");
+    const box = (y, label, sub, cls) => {
+      const r = S("rect", { x, y: y - boxH / 2, width: W, height: boxH, rx: 6, fill: "var(--surface)", stroke: "var(--rule)", "stroke-width": 1.5 }, g);
+      if (cls) r.setAttribute("data-k", cls);
+      S("text", { x: c, y: y - (sub ? 2 : -4), "text-anchor": "middle", "font-size": 13 }, g, label);
+      if (sub) S("text", { x: c, y: y + 12, "text-anchor": "middle", "font-size": 11, class: "t2" }, g, sub);
+      return r;
+    };
+    const arrow = (y1, y2, stroke) => S("line", { x1: c, y1, x2: c, y2, stroke: stroke || "var(--ink-3)", "stroke-width": 1.5, "marker-end": "url(#arI)" }, g);
+    const add = (y) => { S("circle", { cx: c, cy: y, r: 11, fill: "var(--surface)", stroke: "var(--ink-3)", "stroke-width": 1.5 }, g); S("text", { x: c, y: y + 5, "text-anchor": "middle", "font-size": 15 }, g, "+"); S("line", { x1: rx, y1: y, x2: c - 11, y2: y, stroke: "var(--ink-3)", "stroke-width": 1.5 }, g); };
+    S("text", { x: c, y: ys.in + 22, "text-anchor": "middle", "font-size": 12, class: "t2" }, g, "input to layer L, position " + LAST);
+    S("line", { x1: rx, y1: ys.in, x2: c, y2: ys.in, stroke: "var(--ink-3)", "stroke-width": 1.5 }, g);
+    arrow(ys.in, ys.att + boxH / 2 + 2);
+    box(ys.att, `attention: ${A.num_attention_heads} heads × ${A.head_dim}`, "q and k RMSNorm, rotary positions, causal");
+    arrow(ys.att - boxH / 2, ys.o + boxH / 2 + 2);
+    box(ys.o, `o_proj (${A.hidden_size} × ${A.hidden_size})`, null);
+    const aBox = box(ys.a, "attention output a (2048 numbers)", null, "a");
+    aBox.setAttribute("stroke", color); aBox.setAttribute("fill", soft);
+    const ao = arrow(ys.o - boxH / 2, ys.a + boxH / 2 + 2);
+    arrow(ys.a - boxH / 2, ys.na + boxH / 2 + 2);
+    box(ys.na, "RMSNorm (post-attention)", "this model's own gain weights");
+    arrow(ys.na - boxH / 2, ys.add1 + 13);
+    add(ys.add1);
+    arrow(ys.add1 - 11, ys.mlp + boxH / 2 + 2);
+    box(ys.mlp, `MLP: ${A.hidden_size} → ${A.intermediate_size} → ${A.hidden_size}`, "SiLU-gated");
+    arrow(ys.mlp - boxH / 2, ys.nf + boxH / 2 + 2);
+    box(ys.nf, "RMSNorm (post-feedforward)", null);
+    arrow(ys.nf - boxH / 2, ys.add2 + 13);
+    add(ys.add2);
+    arrow(ys.add2 - 11, ys.out - 10);
+    S("text", { x: c, y: ys.out - 14, "text-anchor": "middle", "font-size": 12, class: "t2" }, g, "to layer L + 1");
+    return { c, aBox, ao };
+  }
+  const B = col(xB, "Bolmo-1B, layer L (patch position " + LAST + ")", "var(--bolmo)", "var(--bolmo-soft)");
+  const O = col(xO, "OLMo-2-0425-1B, layer L (token position " + LAST + ")", "var(--olmo)", "var(--olmo-soft)");
+  // copy path: from Bolmo a box right edge to OLMo a box left edge
+  const path = S("path", { d: `M${xB + W},${ys.a} C${xB + W + 60},${ys.a - 70} ${xO - 70},${ys.a - 70} ${xO - 3},${ys.a - 2}`, fill: "none", stroke: "var(--bolmo)", "stroke-width": 2.5, "marker-end": "url(#arB)" }, g);
+  const pathLab = S("text", { x: (xB + W + xO) / 2, y: ys.a - 64, "text-anchor": "middle", "font-size": 12, fill: "var(--bolmo)" }, g, "copied unchanged (no map)");
+  const strike = S("g", {}, g);
+  S("line", { x1: O.c - 8, y1: ys.o - boxH / 2 - 4, x2: O.c + 8, y2: ys.o - boxH / 2 - 16, stroke: "var(--wrong)", "stroke-width": 2.5 }, strike);
+  S("line", { x1: O.c - 8, y1: ys.o - boxH / 2 - 16, x2: O.c + 8, y2: ys.o - boxH / 2 - 4, stroke: "var(--wrong)", "stroke-width": 2.5 }, strike);
+  S("text", { x: O.c + 14, y: ys.o - boxH / 2 - 6, "font-size": 11, class: "t2" }, strike, "OLMo's own a: not used here");
+  const dot = S("circle", { r: 6, fill: "var(--bolmo)", opacity: 0 }, g);
+  const oLab = O.aBox.nextSibling;
+  let copyOn = true, anim = 0;
+  function setCopy(on) {
+    copyOn = on;
+    for (const el of [path, pathLab, strike]) el.style.display = on ? "" : "none";
+    O.aBox.setAttribute("stroke", on ? "var(--bolmo)" : "var(--olmo)");
+    O.aBox.setAttribute("fill", on ? "var(--bolmo-soft)" : "var(--olmo-soft)");
+    oLab.textContent = on ? "attention output a, taken from Bolmo" : "attention output a (2048 numbers)";
+    O.ao.setAttribute("stroke-dasharray", on ? "4 4" : "");
+    const run = ++anim; dot.setAttribute("opacity", 0);
+    if (on && !reduced) {
+      const len = path.getTotalLength(), t0 = performance.now();
+      const stepA = now => { if (run !== anim) return; const u = Math.min(1, (now - t0) / 900), p = path.getPointAtLength(u * len);
+        dot.setAttribute("cx", p.x); dot.setAttribute("cy", p.y); dot.setAttribute("opacity", u < 1 ? 1 : 0); if (u < 1) requestAnimationFrame(stepA); };
+      requestAnimationFrame(stepA);
+    }
+    readout();
+  }
+  function readout() {
+    const L = +$("#s3L").value; $("#s3Lv").textContent = L;
+    const own = st0.own[L], land = st0.landed[L];
+    $("#s3read").innerHTML =
+      `<div class="stat"><div class="k">‖RMSNorm(a<sub>OLMo</sub>)‖, layer ${L}: size of what OLMo itself would add</div><div class="v">${f3(own)}</div></div>` +
+      `<div class="stat"><div class="k">‖RMSNorm(a<sub>Bolmo</sub>) − RMSNorm(a<sub>OLMo</sub>)‖, layer ${L}: size of the change ${copyOn ? "the copy makes" : "the copy would make"}</div><div class="v">${f3(land)}</div></div>` +
+      `<div class="stat"><div class="k">change ÷ own, layer ${L}</div><div class="v">${(land / own).toFixed(2)}</div></div>`;
+  }
+  $("#s3L").addEventListener("input", readout);
+  seg("#s3copy", v => setCopy(v === "on"));
+  setCopy(true);
+})();
+
+/* ---------- 4. grid ---------- */
+(function () {
+  const svg = $("#s4svg"), P = IT.positions;
+  const firstShown = LAST - 7, gen = 6;                // 8 prompt positions shown, then 6 generated positions (124..129)
+  const cols = [{ kind: "rest", label: `0–${firstShown - 1}`, pos: null }];
+  for (let p = firstShown; p <= LAST; p++) cols.push({ kind: "prompt", pos: p });
+  for (let k = 0; k < gen; k++) cols.push({ kind: "gen", pos: NP + k });
+  const x0 = 70, y0 = 30, cw = 50, restW = 70, ch = 19, nL = 16;
+  const colX = i => i === 0 ? x0 : x0 + restW + 6 + (i - 1) * cw;
+  const colW = i => i === 0 ? restW : cw - 4;
+  const RUN = { "all|all": "all", "context|all": "context", "last|all": "deciding", "last|early": "deciding_early", "last|late": "deciding_late" };
+  const posSel = (v, c) => v === "none" ? false : v === "all" ? true : v === "context" ? (c.kind === "rest" || (c.kind === "prompt" && c.pos < LAST)) : (c.pos !== null && c.pos >= LAST);
+  const laySel = (v, L) => v === "all" ? true : v === "early" ? L <= 11 : L >= 12;
+  const getPos = seg("#s4pos", draw), getLay = seg("#s4lay", draw);
+  function draw() {
+    svg.innerHTML = ""; const pv = getPos(), lv = getLay();
+    const key = pv === "none" ? "O" : RUN[pv + "|" + lv] || null, run = key ? D.runs[key] : null;
+    const processedTo = run ? LAST + run.tokens.length - 1 : LAST + gen;   // positions OLMo processed as input in that run
+    for (let L = 0; L < nL; L++) S("text", { x: x0 - 10, y: y0 + (nL - 1 - L) * ch + 14, "text-anchor": "end", "font-size": 11, class: "t2" }, svg, "layer " + L);
+    cols.forEach((c, i) => {
+      const x = colX(i), w = colW(i), notProc = c.kind === "gen" && c.pos > processedTo;
+      for (let L = 0; L < nL; L++) {
+        const on = !notProc && posSel(pv, c) && laySel(lv, L);
+        const r = S("rect", { x, y: y0 + (nL - 1 - L) * ch, width: w, height: ch - 3, rx: 2,
+          fill: notProc ? "none" : on ? "var(--bolmo)" : "var(--olmo-soft)", stroke: notProc ? "var(--rule)" : "none", "stroke-dasharray": notProc ? "3 3" : "" }, svg);
+        r.style.transition = "fill .3s";
+        r.addEventListener("mousemove", ev => showTip(ev, notProc ? `Position ${c.pos} was not an input in this run.` :
+          `Layer ${L}, ${c.kind === "rest" ? "positions " + c.label : "position " + c.pos}<br>${on ? '<b style="color:var(--bolmo)">Bolmo\'s attention output</b>' : '<b style="color:var(--olmo)">OLMo\'s own attention output</b>'}`));
+        r.addEventListener("mouseleave", hideTip);
+      }
+      const yb = y0 + nL * ch + 4;
+      let label = c.kind === "rest" ? c.label : String(c.pos);
+      S("text", { x: x + w / 2, y: yb + 10, "text-anchor": "middle", "font-size": 10, class: "t3" }, svg, label);
+      let tok = "";
+      if (c.kind === "prompt") tok = P[c.pos].text;
+      else if (c.kind === "gen") tok = run && c.pos <= processedTo ? run.tokens[c.pos - NP].text : "";
+      else tok = "…";
+      S("text", { x: x + w / 2, y: yb + 26, "text-anchor": "middle", "font-size": 11, class: "mono" }, svg, vis(tok));
+    });
+    const yb = y0 + nL * ch + 48;
+    const xp1 = colX(1), xp2 = colX(8) + colW(8), xg1 = colX(9), xg2 = colX(14) + colW(14);
+    S("line", { x1: x0, y1: yb, x2: xp2, y2: yb, stroke: "var(--ink-3)" }, svg);
+    S("text", { x: (x0 + xp2) / 2, y: yb + 16, "text-anchor": "middle", "font-size": 12, class: "t2" }, svg, `prompt positions 0–${LAST}`);
+    S("line", { x1: xg1, y1: yb, x2: xg2, y2: yb, stroke: "var(--ink-3)" }, svg);
+    S("text", { x: (xg1 + xg2) / 2, y: yb + 16, "text-anchor": "middle", "font-size": 12, class: "t2" }, svg, "generated tokens (inputs at later steps)");
+    const lx = x0, ly = yb + 40;
+    S("rect", { x: lx, y: ly - 10, width: 14, height: 12, rx: 2, fill: "var(--olmo-soft)" }, svg); S("text", { x: lx + 20, y: ly, "font-size": 12, class: "t2" }, svg, "OLMo's own attention output");
+    S("rect", { x: lx + 220, y: ly - 10, width: 14, height: 12, rx: 2, fill: "var(--bolmo)" }, svg); S("text", { x: lx + 240, y: ly, "font-size": 12, class: "t2" }, svg, "replaced by Bolmo's attention output");
+    S("rect", { x: lx + 500, y: ly - 10, width: 14, height: 12, rx: 2, fill: "none", stroke: "var(--rule)", "stroke-dasharray": "3 3" }, svg); S("text", { x: lx + 520, y: ly, "font-size": 12, class: "t2" }, svg, "not an input in this run");
+    const out = $("#s4out"); out.innerHTML = "";
+    if (!run) { H("div", { class: "row" }, out).innerHTML = `<span>This combination</span><span>was not run in the study.</span><span></span>`; return; }
+    const a = D.acc[key];
+    const r1 = H("div", { class: "row" }, out); H("span", {}, r1, "This item, OLMo writes");
+    const ch_ = H("span", { class: "chips" }, r1); for (const t of run.tokens) H("span", { class: "chip" }, ch_, vis(t.text));
+    H("span", { class: "verdict " + (run.correct ? "r" : "w") }, r1, run.correct ? "✓ right" : "✗ wrong");
+    const r2 = H("div", { class: "row" }, out); H("span", {}, r2, "All 160 items");
+    H("span", {}, r2).innerHTML = `<b>${a.right} of 160</b> right · accuracy ${f3(a.mean)} (95% interval ${f3(a.lo)} to ${f3(a.hi)})`;
+    H("span", {}, r2);
+  }
+  draw();
+})();
+
+/* ---------- 5. step by step ---------- */
+(function () {
+  const steps = D.steps, n = steps.length, Ot = D.runs.O.tokens, Ct = D.runs.deciding.tokens;
+  $("#s5n").textContent = n - 1;
+  let t = 0, timer = null;
+  const svg = $("#s5svg");
+  // stored values are Frobenius norms over the s.carried copied positions; divide by √(positions) for a per-position (root-mean-square) size
+  const per = (s, k) => s[k].map(v => v / Math.sqrt(s.carried));
+  const maxV = Math.max(...steps.flatMap(s => per(s, "own").concat(per(s, "landed"))));
+  const yMax = Math.ceil(maxV / 5) * 5;
+  function row(box, label, toks, tt, cls) {
+    const r = H("div", { class: "row" }, box); H("span", {}, r, label);
+    const c = H("span", { class: "chips" }, r);
+    H("span", { class: "chip dim" }, c, "…Answer:·\"");
+    for (let k = 0; k < toks.length && k <= tt; k++) {
+      const ch = H("span", { class: "chip" + (k === tt ? " new" : "") }, c, vis(toks[k].text));
+      ch.title = "OLMo token id " + toks[k].id;
+    }
+    const note = tt < toks.length ? `chooses ${vis(toks[tt].text)} (id ${toks[tt].id})` : "run ended";
+    H("span", { class: "verdict" + (cls ? " " + cls : ""), style: "font-weight:500;color:var(--ink-2)" }, r, note);
+  }
+  function draw() {
+    $("#s5t").textContent = t;
+    const s = steps[t], own = per(s, "own"), land = per(s, "landed");
+    $("#s5copied").textContent = `· copied at positions ${LAST}${t ? "–" + (LAST + t) : ""} (${s.carried} of ${s.positions} positions), every layer`;
+    const box = $("#s5rows"); box.innerHTML = "";
+    row(box, "OLMo alone", Ot, t);
+    row(box, "OLMo with the copy", Ct, t);
+    if (t >= 1 && Ot[1] && Ct[1] && t === 1) H("div", { class: "note", style: "margin:0" }, box, `At step 1 both runs have read the same text (…Answer: " And). OLMo alone chooses ${JSON.stringify(Ot[1].text)}; with the copy it chooses ${JSON.stringify(Ct[1].text)}. After this step the two texts differ.`);
+    svg.innerHTML = "";
+    const x0 = 56, y0 = 20, w = 820, hgt = 220, bw = w / 16;
+    const y = v => y0 + hgt - v / yMax * hgt;
+    for (let v = 0; v <= yMax; v += 5) {
+      S("line", { x1: x0, x2: x0 + w, y1: y(v), y2: y(v), stroke: "var(--rule)", "stroke-width": v ? 1 : 1.5 }, svg);
+      S("text", { x: x0 - 8, y: y(v) + 4, "text-anchor": "end", "font-size": 11, class: "t3" }, svg, v);
+    }
+    for (let L = 0; L < 16; L++) {
+      const xc = x0 + L * bw, bwi = (bw - 10) / 2;
+      S("rect", { x: xc + 4, y: y(own[L]), width: bwi, height: y(0) - y(own[L]), rx: 3, fill: "var(--olmo)" }, svg);
+      S("rect", { x: xc + 6 + bwi, y: y(land[L]), width: bwi, height: y(0) - y(land[L]), rx: 3, fill: "var(--bolmo)" }, svg);
+      const hit = S("rect", { x: xc, y: y0, width: bw, height: hgt, fill: "transparent" }, svg);
+      hit.addEventListener("mousemove", ev => showTip(ev, `Step ${t}, layer ${L}, per copied position (${s.carried})<br><span style="color:var(--olmo)">■</span> OLMo's own, after its RMSNorm: <b>${f3(own[L])}</b><br><span style="color:var(--bolmo)">■</span> change made by the copy: <b>${f3(land[L])}</b><br>ratio ${(land[L] / own[L]).toFixed(2)}<br><span style="color:var(--ink-3)">stored Frobenius norms: ${f3(s.own[L])}, ${f3(s.landed[L])}</span>`));
+      hit.addEventListener("mouseleave", hideTip);
+      S("text", { x: xc + bw / 2, y: y0 + hgt + 16, "text-anchor": "middle", "font-size": 11, class: "t2" }, svg, L);
+    }
+    S("text", { x: x0 + w / 2, y: y0 + hgt + 34, "text-anchor": "middle", "font-size": 12, class: "t2" }, svg, "layer");
+    S("text", { x: 14, y: y0 + hgt / 2, "font-size": 12, class: "t2", transform: `rotate(-90 14 ${y0 + hgt / 2})`, "text-anchor": "middle" }, svg, "norm per position");
+    S("rect", { x: x0 + 8, y: y0 + 2, width: 10, height: 10, rx: 2, fill: "var(--olmo)" }, svg); S("text", { x: x0 + 24, y: y0 + 11, "font-size": 12, class: "t2" }, svg, "OLMo's own attention output after its RMSNorm");
+    S("rect", { x: x0 + 330, y: y0 + 2, width: 10, height: 10, rx: 2, fill: "var(--bolmo)" }, svg); S("text", { x: x0 + 346, y: y0 + 11, "font-size": 12, class: "t2" }, svg, "change made by copying Bolmo's");
+  }
+  const go = d => { t = Math.max(0, Math.min(n - 1, t + d)); draw(); };
+  $("#s5prev").addEventListener("click", () => go(-1));
+  $("#s5next").addEventListener("click", () => go(1));
+  $("#s5play").addEventListener("click", e => {
+    if (timer) { clearInterval(timer); timer = null; e.target.textContent = "Play"; return; }
+    if (t === n - 1) t = -1;
+    e.target.textContent = "Pause";
+    timer = setInterval(() => { if (t >= n - 1) { clearInterval(timer); timer = null; e.target.textContent = "Play"; return; } go(1); }, 1300);
+    go(1);
+  });
+  draw();
+})();
+
+/* ---------- 6. which part uses it ---------- */
+(function () {
+  const svg = $("#s6svg");
+  const defs = S("defs", {}, svg);
+  const m = S("marker", { id: "ar6", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto" }, defs);
+  S("path", { d: "M0,0 L10,5 L0,10 z", fill: "var(--bolmo)" }, m);
+  const m2 = S("marker", { id: "ar6i", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto" }, defs);
+  S("path", { d: "M0,0 L10,5 L0,10 z", fill: "var(--ink-3)" }, m2);
+  function stack(x, title, direct) {
+    S("text", { x: x + 150, y: 18, "text-anchor": "middle", "font-size": 13, "font-weight": 600 }, svg, title);
+    const lx = x + 70, lw = 160, top = 64, lh = 13;
+    S("rect", { x: lx, y: 32, width: lw, height: 22, rx: 4, fill: "var(--surface)", stroke: "var(--rule)" }, svg);
+    S("text", { x: lx + lw / 2, y: 47, "text-anchor": "middle", "font-size": 11 }, svg, "final RMSNorm → unembedding");
+    for (let L = 15; L >= 0; L--) {
+      const yy = top + (15 - L) * lh;
+      S("rect", { x: lx, y: yy, width: lw, height: lh - 2, rx: 2, fill: "var(--olmo-soft)" }, svg);
+      S("text", { x: lx + lw - 6, y: yy + 9, "text-anchor": "end", "font-size": 9, class: "t2" }, svg, "layer " + L);
+      if (!direct) S("line", { x1: lx - 44, y1: yy + 5, x2: lx + 14, y2: yy + 5, stroke: "var(--bolmo)", "stroke-width": 1.5, "marker-end": "url(#ar6)" }, svg);
+    }
+    const yb = top + 16 * lh;
+    S("text", { x: lx + lw / 2, y: yb + 14, "text-anchor": "middle", "font-size": 11, class: "t2" }, svg, "OLMo's 16 layers (blue)");
+    if (direct) {
+      S("path", { d: `M${lx - 36},${yb - 4} L${lx - 36},44 L${lx - 2},44`, fill: "none", stroke: "var(--bolmo)", "stroke-width": 2, "marker-end": "url(#ar6)" }, svg);
+      wrapText(svg, x + 2, yb + 34, "The 16 per-layer changes, summed, added once at the input of the final RMSNorm. No layer reads them.", 300, 11, "t2", 15);
+    } else {
+      wrapText(svg, x + 2, yb + 34, "At each layer, Bolmo's attention output replaces OLMo's. Later layers (attention and MLPs) read the result.", 300, 11, "t2", 15);
+    }
+  }
+  stack(10, "The copy, at each layer", false);
+  stack(320, "Control: the same changes at the final norm only", true);
+  // grouped bars on the right
+  const groups = [["layers 0–11", "deciding_early", "PD_early"], ["layers 12–15", "deciding_late", "PD_late"], ["all 16 layers", "deciding", "PD"]];
+  const bx = 660, by = 40, bh = 200, bwid = 220;
+  const yv = v => by + bh - v * bh / 0.7;
+  for (const v of [0, 0.2, 0.4, 0.6]) { S("line", { x1: bx, x2: bx + bwid, y1: yv(v), y2: yv(v), stroke: "var(--rule)" }, svg); S("text", { x: bx - 6, y: yv(v) + 4, "text-anchor": "end", "font-size": 10, class: "t3" }, svg, v.toFixed(1)); }
+  S("text", { x: bx + bwid / 2, y: 18, "text-anchor": "middle", "font-size": 13, "font-weight": 600 }, svg, "Accuracy, 160 items");
+  groups.forEach(([lab, a, b], i) => {
+    const gx = bx + 10 + i * 72;
+    [[a, "var(--bolmo)", "copy"], [b, "var(--ink-3)", "control"]].forEach(([k, col, nm], j) => {
+      const A_ = D.acc[k], x = gx + j * 28;
+      S("rect", { x, y: yv(A_.mean), width: 24, height: yv(0) - yv(A_.mean), rx: 3, fill: col }, svg);
+      S("line", { x1: x + 12, x2: x + 12, y1: yv(A_.lo), y2: yv(A_.hi), stroke: "var(--ink)", "stroke-width": 1.2 }, svg);
+      const hit = S("rect", { x, y: by, width: 24, height: bh, fill: "transparent" }, svg);
+      hit.addEventListener("mousemove", ev => showTip(ev, `${nm === "copy" ? "The copy" : "Control (final norm only)"}, ${lab}<br><b>${A_.right} of 160</b> · ${f3(A_.mean)} (${f3(A_.lo)} to ${f3(A_.hi)})`));
+      hit.addEventListener("mouseleave", hideTip);
+    });
+    wrapText(svg, gx - 4, by + bh + 16, lab, 70, 10, "t2", 12);
+  });
+  S("rect", { x: bx, y: by + bh + 44, width: 10, height: 10, rx: 2, fill: "var(--bolmo)" }, svg); S("text", { x: bx + 15, y: by + bh + 53, "font-size": 11, class: "t2" }, svg, "copy");
+  S("rect", { x: bx + 70, y: by + bh + 44, width: 10, height: 10, rx: 2, fill: "var(--ink-3)" }, svg); S("text", { x: bx + 85, y: by + bh + 53, "font-size": 11, class: "t2" }, svg, "final norm only");
+  const out = $("#s6out");
+  for (const [lab, k] of [["The copy, at each layer", "deciding"], ["Control: final norm only", "PD"]]) {
+    const r = H("div", { class: "row" }, out); H("span", {}, r, lab + " — this item");
+    const c = H("span", { class: "chips" }, r); for (const t of D.runs[k].tokens) H("span", { class: "chip" }, c, vis(t.text));
+    H("span", { class: "verdict " + (D.runs[k].correct ? "r" : "w") }, r, D.runs[k].correct ? "✓ right" : "✗ wrong");
+  }
+  const d = D.diffs, f4 = v => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(4), iv = k => `${f4(d[k].mean)} (${f4(d[k].lo)} to ${f4(d[k].hi)})`;
+  H("div", { class: "note", style: "margin:4px 0 0" }, out).innerHTML =
+    `Copy − control over 160 items, paired, 95% bootstrap interval: all 16 layers ${iv("deciding-PD")}; layers 0–11 ${iv("deciding_early-PD_early")}; layers 12–15 ${iv("deciding_late-PD_late")}. ` +
+    `Layers 0–11 alone change nothing directly (control ${f3(D.acc.PD_early.mean)}, OLMo alone ${f3(D.acc.O.mean)}); their effect comes through OLMo's later layers.`;
+})();
+
+/* ---------- 7. all results ---------- */
+(function () {
+  $("#draws").textContent = D.draws.toLocaleString();
+  const R = [
+    ["Each model alone", null],
+    ["OLMo-2-0425-1B alone", "O", "olmo"],
+    ["Bolmo-1B alone", "F", "bolmo"],
+    ["Bolmo-1B's attention outputs copied into OLMo-2-0425-1B", null],
+    ["all paired positions, all 16 layers", "all", "main"],
+    ["last prompt position + generated positions, all 16 layers", "deciding", "main"],
+    ["last prompt position + generated positions, layers 12–15", "deciding_late"],
+    ["last prompt position + generated positions, layers 0–11", "deciding_early"],
+    ["earlier prompt positions only, all 16 layers", "context"],
+    ["Controls (all paired positions, all 16 layers)", null],
+    ["copied from Bolmo-1B-Stage1 (no editing skill)", "j3_S"],
+    ["Bolmo-1B-Stage1, scaled per layer to Bolmo-1B's change size", "j3_S_scaled"],
+    ["Bolmo-1B's outputs taken from another item", "j3_other"],
+    ["Without OLMo's later layers", null],
+    ["changes added only at OLMo's final norm input", "PD"],
+    ["token-readout approximation of proxy tuning (not the published byte-level form)", "P2"],
+    ["Separately trained OLMo stage-1 checkpoints as the receiving model", null],
+    ["stage1-step1907359 alone", "dist|stage1-step1907359-tokens4001B|O"],
+    ["stage1-step1907359 with the copy (all positions)", "dist|stage1-step1907359-tokens4001B|all"],
+    ["stage1-step970000 alone", "dist|stage1-step970000-tokens2035B|O"],
+    ["stage1-step970000 with the copy (all positions)", "dist|stage1-step970000-tokens2035B|all"],
+    ["stage1-step190000 alone", "dist|stage1-step190000-tokens399B|O"],
+    ["stage1-step190000 with the copy (all positions)", "dist|stage1-step190000-tokens399B|all"],
+  ];
+  const svg = $("#s7svg"), lx = 450, pw = 340, rowH = 26, top = 30;
+  const x = v => lx + v * pw;
+  let yy = top;
+  const rowsY = [];
+  for (const r of R) { rowsY.push(yy); yy += r[1] ? rowH : 30; }
+  svg.setAttribute("viewBox", `0 0 900 ${yy + 30}`);
+  for (const v of [0, 0.2, 0.4, 0.6, 0.8, 1]) {
+    S("line", { x1: x(v), x2: x(v), y1: top - 8, y2: yy, stroke: "var(--rule)" }, svg);
+    S("text", { x: x(v), y: top - 14, "text-anchor": "middle", "font-size": 11, class: "t3" }, svg, v.toFixed(1));
+  }
+  R.forEach((r, i) => {
+    const y = rowsY[i];
+    if (!r[1]) { S("text", { x: 0, y: y + 20, "font-size": 12, "font-weight": 650, class: "t2" }, svg, r[0]); return; }
+    const a = D.acc[r[1]];
+    const col = r[2] === "olmo" ? "var(--olmo)" : r[2] === "bolmo" ? "var(--bolmo)" : r[2] === "main" ? "var(--ink-2)" : "var(--ink-3)";
+    S("text", { x: 12, y: y + 16, "font-size": 12, "font-weight": r[2] === "main" ? 650 : 400 }, svg, r[0]);
+    S("rect", { x: lx, y: y + 6, width: Math.max(0, x(a.mean) - lx), height: rowH - 12, rx: 3, fill: col, opacity: r[2] ? 1 : 0.6 }, svg);
+    const ym = y + rowH / 2;
+    S("path", { d: `M${x(a.lo)},${ym} H${x(a.hi)} M${x(a.lo)},${ym - 5} V${ym + 5} M${x(a.hi)},${ym - 5} V${ym + 5}`, stroke: "var(--ink)", "stroke-width": 1.3, fill: "none" }, svg);
+    S("text", { x: x(a.hi) + 6, y: y + 17, "font-size": 11, class: "t2" }, svg, `${f3(a.mean)} (${a.right}/160)`);
+    const hit = S("rect", { x: 0, y, width: 900, height: rowH, fill: "transparent" }, svg);
+    hit.addEventListener("mousemove", ev => showTip(ev, `<b>${esc(r[0])}</b><br>${a.right} of 160 right · ${f3(a.mean)} (95% interval ${f3(a.lo)} to ${f3(a.hi)})<br>` +
+      Object.entries(a.per_task).map(([t, n]) => `${t}: ${n} of 40`).join("<br>")));
+    hit.addEventListener("mouseleave", hideTip);
+  });
+  const tb = H("table", { class: "t" }, $("#s7table"));
+  tb.innerHTML = "<tr><th>condition</th><th>right of 160</th><th>accuracy</th><th>95% interval</th><th>del / ins / sub / swap (of 40)</th></tr>" +
+    R.map(r => r[1] ? (a => `<tr><td>${esc(r[0])}</td><td class="num">${a.right}</td><td class="num">${f3(a.mean)}</td><td class="num">${f3(a.lo)} to ${f3(a.hi)}</td><td class="num">${Object.values(a.per_task).join(" / ")}</td></tr>`)(D.acc[r[1]])
+      : `<tr><td colspan="5"><b>${esc(r[0])}</b></td></tr>`).join("");
+  seg("#s7view", v => { $("#s7chart").hidden = v !== "chart"; $("#s7table").hidden = v !== "table"; });
+})();
+
+/* ---------- 8. what others did ---------- */
+(function () {
+  const svg = $("#s8svg");
+  const defs = S("defs", {}, svg);
+  for (const [id, col] of [["a8", "var(--ink-2)"], ["a8b", "var(--bolmo)"]]) {
+    const m = S("marker", { id, viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto" }, defs);
+    S("path", { d: "M0,0 L10,5 L0,10 z", fill: col }, m);
+  }
+  const g = S("g", {}, svg);
+  // one model as three boxes: output layer, transformer layers, input layer; returns geometry
+  function model(x, title, input, inLayer, outLayer, color, soft, opts) {
+    const w = opts && opts.w || 170;
+    S("text", { x: x + w / 2, y: 22, "text-anchor": "middle", "font-size": 13, "font-weight": 650 }, g, title);
+    const b = (y, h, label, fill, stroke) => { S("rect", { x, y, width: w, height: h, rx: 5, fill, stroke, "stroke-width": 1.5 }, g); wrapText(g, x + 8, y + 16, label, w - 16, 12); };
+    b(40, 40, outLayer, "var(--surface)", "var(--rule)");
+    b(92, 190, "transformer layers", soft, color);
+    b(294, 40, inLayer, "var(--surface)", "var(--rule)");
+    S("text", { x: x + w / 2, y: 356, "text-anchor": "middle", "font-size": 11, class: "t2 mono" }, g, input);
+    S("line", { x1: x + w / 2, y1: 342, x2: x + w / 2, y2: 336, stroke: "var(--ink-3)" }, g);
+    return { x, w, cx: x + w / 2 };
+  }
+  const arrow = (d, col, lab, lx, ly) => { S("path", { d, fill: "none", stroke: col || "var(--ink-2)", "stroke-width": 2, "marker-end": `url(#${col ? "a8b" : "a8"})` }, g); if (lab) wrapText(g, lx, ly, lab, 150, 12, "t2"); };
+  const hl = (x, y, w, h, col) => S("rect", { x: x - 4, y: y - 4, width: w + 8, height: h + 8, rx: 8, fill: "none", stroke: col || "var(--ink)", "stroke-width": 2, "stroke-dasharray": "5 4" }, g);
+  const M = [
+    { tab: "Byteification", name: "Byteification (Bolmo; also H-Net Appendix F, Bao et al., HAT)",
+      what: "New byte layers attached to a token model's transformer layers", where: "input and output layers of one model", map: "none", train: "yes, gradient descent",
+      how: "A byte encoder (Bolmo: one mLSTM layer) replaces the token embedding; a byte decoder (four mLSTM layers) replaces the unembedding. Stage 1 trains them with the transformer layers held fixed, so OLMo's first four layers give the same states on pooled bytes as on token embeddings. Stage 2 trains all weights.",
+      result: "One model at run time; nothing is copied between models. Bolmo-1B-Stage1 and Bolmo-1B on this page are these models.", src: "Bolmo, arXiv 2512.15586 (read in full by the study)",
+      draw() { model(195, "one model at run time", "bytes", "byte encoder (new, trained)", "byte decoder (new, trained) → next byte", "var(--olmo)", "var(--olmo-soft)");
+        hl(195, 294, 170, 40, "var(--bolmo)"); hl(195, 40, 170, 40, "var(--bolmo)"); wrapText(g, 380, 120, "OLMo's transformer layers, frozen in Stage 1, trained in Stage 2", 170, 12, "t2"); wrapText(g, 20, 310, "trained with gradient descent", 160, 12, "t2"); } },
+    { tab: "Weight difference", name: "Weight difference (Bolmo §5.2, App. D)",
+      what: "Weight matrices", where: "the weights, once, before running", map: "none (matching layers)", train: "no",
+      how: "Compute θ_post − θ_base for the token model (its post-training change) and add it to the matching weight matrices of the byte model. No activations are involved.",
+      result: "One model at run time.", src: "Bolmo, arXiv 2512.15586 §5.2 and App. D (read in full by the study)",
+      draw() { model(20, "token model, post-trained (θ_post)", "tokens", "token embedding", "unembedding", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        model(370, "byte model", "bytes", "byte encoder", "byte decoder", "var(--bolmo)", "var(--bolmo-soft)", { w: 170 });
+        arrow("M172,187 L364,187", null); wrapText(g, 190, 170, "θ_post − θ_base, added", 160, 12, "t2"); hl(370, 92, 170, 190); } },
+    { tab: "Output probabilities", name: "Combining output probabilities across tokenizers (ByteSampler)",
+      what: "Next-byte probabilities", where: "after the last layer", map: "none", train: "no",
+      how: "Each token model is turned into an exact byte-level model: the probability of a byte prefix sums over every tokenization of it (the paper's valid covering tree). §4.4 then combines next-byte logits one byte at a time, the expert added and the anti-expert subtracted (proxy tuning). One byte is sampled and appended.",
+      result: "ByteSampler §4.4: Llama-3.1-8B + (OLMo2-1B-Instruct − OLMo2-1B), GSM8K 55.3 → 76.6 (expert alone 51.9).",
+      src: "ByteSampler, arXiv 2506.14123 §4.4 (read by the study)",
+      draw() { model(20, "model A", "tokens (tokenizer A)", "embedding", "unembedding → next-token probs", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        model(390, "model B", "tokens (tokenizer B)", "embedding", "unembedding → next-token probs", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        S("rect", { x: 194, y: 40, width: 172, height: 96, rx: 6, fill: "var(--surface)", stroke: "var(--ink)", "stroke-width": 1.5 }, g);
+        wrapText(g, 202, 58, "each → exact next-byte probs; base + expert − anti-expert; sample one byte", 156, 12, "", 16);
+        arrow("M172,60 L190,64", null); arrow("M388,60 L370,64", null); } },
+    { tab: "Internal states, no map", name: "Copying internal states between models with no map (CMAP; Chen, Wang et al.; Ramesh & Li)",
+      what: "Head outputs (CMAP), MLP neuron activations (Chen, Wang et al.), or one residual state (Ramesh & Li)", where: "inside: the same position in both models (CMAP, Chen, Wang et al.); the last position (Ramesh & Li)", map: "none", train: "no",
+      how: "CMAP: attention head outputs of a fine-tuned model replace the base model's on the same input. Chen, Wang et al.: about 5% of MLP neuron activations copied from a fine-tuned model into its base at every decoding step. Ramesh & Li: one model's last-position residual state at layer 26 replaces another's.",
+      result: "CMAP: Goat-7B heads into Llama-7B recover the fine-tuned accuracy on entity tracking. Chen, Wang et al.: 56 to 134% of the safety gain. Ramesh & Li: replace 78.0 against a natural-language message 69.0.",
+      src: "arXiv 2402.14811; 2406.14144; 2501.14082 (read by the study)",
+      draw() { model(20, "fine-tuned model", "the same tokens", "token embedding", "unembedding", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        model(390, "base model", "the same tokens", "token embedding", "unembedding", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        arrow("M172,170 L386,170", "var(--bolmo)"); wrapText(g, 200, 150, "position i → position i", 160, 12, "t2"); wrapText(g, 200, 200, "head outputs, neurons, or a residual state", 170, 12, "t2"); } },
+    { tab: "Different tokenizers (RISE)", name: "RISE: residual vectors across subword tokenizers",
+      what: "Whole residual-stream vectors", where: "inside, at chosen layers", map: "orthogonal rotation (Procrustes)", train: "no; the rotation is fitted on paired hidden states from 100,000 MiniPile tokens",
+      how: "Several models with different subword tokenizers run on the same text. Positions are paired by the fraction of shared characters. At chosen layers each helper's residual vector is multiplied by the rotation and averaged, with weights, into the main model's vector.",
+      result: "Scores move by at most about 3.4 points in its tables.", src: "Huang et al., TACL 2026 (2026.tacl-1.79; read in part by the study)",
+      draw() { model(20, "helper model", "subword tokens (tokenizer A)", "embedding", "unembedding", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        model(390, "main model", "subword tokens (tokenizer B)", "embedding", "unembedding", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        arrow("M172,170 L386,170", "var(--bolmo)"); wrapText(g, 196, 150, "× rotation R, then weighted average", 170, 12, "t2"); wrapText(g, 196, 200, "positions paired by shared characters", 170, 12, "t2"); } },
+    { tab: "Attention matrices (IAM)", name: "IAM: a small model's attention matrices in a large model of the same family (Zhao, Li, Zhao, ACL 2025)",
+      what: "Attention matrices (weights), replaced", where: "inside, at mapped heads of the later layers, at every decoding step", map: "none; each receiving head is matched to the source head with the most similar attention matrix (cosine)",
+      train: "the receiver is not trained; the source is instruction-tuned on Alpaca through the frozen receiver",
+      how: "A small source model (Qwen2-0.5B or Qwen2-7B; Llama 3.2-1B) and a large receiver (Qwen2-72B; Llama 3.1-70B) read the same prompt. At prefill each receiving head is matched to the source head whose attention matrix is most similar; during decoding the source's matrix replaces the receiving head's, which keeps its own values and o_proj. The aim is to save compute.",
+      result: "Qwen2-72B with the latter half of its layers mapped: WikiText-2 log perplexity 2.414 with the 7B source and 2.577 with the 0.5B source, against 2.136 alone.",
+      src: "arXiv 2507.11953 §3 to §4, Table 1, App. A to D (read by the study)",
+      draw() { model(20, "small source model", "the same tokens", "token embedding", "unembedding", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        model(390, "large receiving model", "the same tokens", "token embedding", "unembedding → next token", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        for (let k = 0; k < 6; k++) { const y = 110 + k * 14; S("line", { x1: 172, y1: y, x2: 386, y2: y, stroke: "var(--bolmo)", "stroke-width": 1.2, "marker-end": "url(#a8b)" }, g); }
+        wrapText(g, 196, 220, "attention matrices of matched heads, later layers; values and o_proj stay the receiver's", 170, 12, "t2"); } },
+    { tab: "This study", name: "This study: attention outputs, or attention weights alone, from a running byte model into a running token model", ours: true,
+      what: "Attention outputs (after o_proj), replaced; or attention weights alone, given to chosen heads", where: "inside, at chosen layers and heads, at the last prompt and generated positions", map: "none", train: "no",
+      how: "Bolmo-1B reads bytes and the receiving model reads tokens of the same text; both run at every step. Positions are paired when they cover identical bytes. Sections 3 to 7: at each layer OLMo's attention output is replaced by Bolmo's. Sections 11 and 12: chosen receiving heads use a Bolmo head's attention weights over their own values.",
+      result: "Four word-edit tasks, 160 items. Attention outputs into OLMo-2-0425-1B: 16 → 95 right; into separately trained OLMo checkpoints: 0. Attention weights into 15 heads of four separately trained models: H 12 → 76, Pythia 1.4B 10 → 70, DeepSeek-Coder 1.3B 28 → 70, SmolLM2-1.7B 38 → 86. Bolmo-1B alone: 101. A hand-made pointer with no Bolmo weights does better on Pythia (94 of 120 against 50).",
+      src: "this page; study/JOURNAL_excerpt.md; AUDIT_2026-11-11e.md, AUDIT_2026-11-12i.md, AUDIT_2026-11-12j.md",
+      draw() { model(20, "Bolmo-1B", "bytes", "byte encoder (1 mLSTM layer)", "byte decoder (not used here)", "var(--bolmo)", "var(--bolmo-soft)", { w: 150 });
+        model(390, "OLMo-2-0425-1B", "tokens", "token embedding", "unembedding → next token", "var(--olmo)", "var(--olmo-soft)", { w: 150 });
+        for (let k = 0; k < 16; k++) { const y = 100 + k * 11.6; S("line", { x1: 172, y1: y, x2: 386, y2: y, stroke: "var(--bolmo)", "stroke-width": 1.2, "marker-end": "url(#a8b)" }, g); }
+        wrapText(g, 196, 300, "attention output at each of the 16 layers, paired positions, no map", 170, 12, "t2"); } },
+  ];
+  // what each method can and cannot do, from the papers' numbers as the study's literature notes record them (not public;
+  // the study's research passes, not public) and from this study's own runs
+  const EXTRA = {
+    "Byteification": {
+      can: "Turns a token model into a byte model that keeps its scores: averages of Bolmo 62.5 against its source's 62.3, Bwen 69.8 against Qwen3's 70.3, Blama 59.8 against 60.7. Bolmo-1B, a byteified OLMo, gets 101 of 160 word-edit items on this page; OLMo-2-0425-1B gets 16.",
+      cannot: "Reuse a separately trained model at run time: the result is one new model. The byte encoder starts from random weights and has to be trained.",
+      pro: "One model at run time, with no second model running beside it. Public checkpoints, Stage 1 and final.",
+      con: "Gradient training: 49.1B tokens for Bolmo, 9.8B of them in Stage 1. A new training run for each token model." },
+    "Weight difference": {
+      can: "Carries a post-training change to a model of the same lineage with no training. Bolmo §5.2: IFEval 31.1 → 67.4, against 66.9 for the post-trained token model. Param Δ (2504.21023): Llama 3 → 3.1 at 70B, about 95% of Llama-3.1-Instruct.",
+      cannot: "Cross between separately trained networks: OLMo 2 7B at the end of stage 1 plus the stage-2 difference, GSM8K 24.4 → 24.0 (2503.20110 §4.2); here, Bolmo-1B minus Stage1 added to the stage1-step1907359 checkpoint gives 0 of 160. Move the byte encoder or decoder: the token model has no matching parameters.",
+      pro: "No training, no data, no extra cost at run time: one model, edited once.",
+      con: "Needs the base and the post-trained versions, and a receiving model whose layers started as that same base, with the same shapes. Bolmo App. D also needs what it calls embedding resettability, which held for a substantial fraction of the models tested." },
+    "Output probabilities": {
+      can: "Combines models with different tokenizers and architectures at run time, with no training. ByteSampler §4.4: Llama-3.1-8B + (OLMo2-1B-Instruct − OLMo2-1B), GSM8K 55.3 → 76.6, above the expert alone (51.9).",
+      cannot: "Share anything inside the models: only the next-byte distributions are combined.",
+      pro: "Any pair of models; no map, no training; measured on public benchmarks.",
+      con: "Every model runs at every step. With a byte model such as Bolmo on one side, the exact probability of a candidate token is a sum over 2^(n−1) byte-boundary parses; the study costed an approximation at about 320 GPU-minutes and has not run it." },
+    "Internal states, no map": {
+      can: "Moves a fine-tune's internal change into its base at run time with no training. CMAP: Goat-7B's heads in Llama-7B recover the fine-tuned accuracy on entity tracking. Chen, Wang et al.: about 5% of MLP neurons give 56 to 134% of the safety gain. Ramesh & Li: one model's last-position state after layer 26 replaces another's, across 6 model pairs with no map; with two LLaMA-3.2-3B, replace 78.0 against a natural-language message 69.0.",
+      cannot: "CMAP and Chen, Wang et al.: only between a fine-tune and its base, which share coordinates. Ramesh & Li: one last-position state, not a computation at every position.",
+      pro: "No map, no training; CMAP and Chen, Wang et al. also locate which heads or neurons carry the change.",
+      con: "Both models run at every step. CMAP and Chen, Wang et al. need a fine-tune and its base." },
+    "Different tokenizers (RISE)": {
+      can: "Fuses hidden states of models with different subword tokenizers at run time, with no gradient training.",
+      cannot: "Not established by the study's partial read. The tables it read show score moves of at most about 3.4 points; the reference of those differences was not checked.",
+      pro: "Works across tokenizers; the rotation is a closed-form fit.",
+      con: "Every model runs at every step; the rotation needs a forward pass of both models on 100,000 corpus tokens. In this study, a rotation of Bolmo's attention writes into the stage1-step1907359 checkpoint worked only as a direct write, and a residual rotation at layer 11 did not hold on fresh items." },
+    "Attention matrices (IAM)": {
+      can: "Run a large model with some of its attention matrices taken from a small model of the same family, at a perplexity cost: 2.136 → 2.414 with the 7B source.",
+      cannot: "Shown across families: from Llama 3.2-1B to Qwen2-72B the best-match cosine is 0.568, and that pair was not mapped. Layers 0 to 16 were impractical to map.",
+      pro: "Saves the receiver's attention computation at the mapped heads; no training of the receiver; a published rule for matching heads.",
+      con: "Same family only in its tables; perplexity rises; the source is tuned through the receiver. On H in this study its matching rule picks pairs worth 17 to 27 of 120 selection items, against the search's 57." },
+    "This study": {
+      can: "Bolmo's whole attention outputs into OLMo-2-0425-1B, which shares its coordinates: 16 → 95 of 160. Attention weights alone, with no map, point the copy heads of models that share no weights with Bolmo: four hosts, for example Pythia 1.4B 10 → 70.",
+      cannot: "Beat Bolmo alone (101 of 160) anywhere. Carry more than a position through attention weights: on Pythia a hand-made pointer does better, and contains_word and spelling do not move. No small part of Bolmo is known to be enough (step 40). Whole attention outputs into separately trained checkpoints give 0.",
+      pro: "No training. Attention weights need no map, because positions are matched by bytes, so it works across tokenizers and model families. The connection is a short list of head pairs.",
+      con: "The whole of Bolmo, and Bolmo-1B-Stage1, run beside the receiving model at every step. The pairs are found by search, with scored sets on labelled items. One skill, one donor. The byte-level form of proxy tuning has not been run beside it." },
+  };
+  for (const m of M) Object.assign(m, EXTRA[m.tab]);
+  const tabs = $("#s8tabs"), dl = $("#s8dl");
+  M.forEach((m, i) => { const b = H("button", { "aria-pressed": i === M.length - 1 ? "true" : "false" }, tabs, m.tab); b.addEventListener("click", () => show(i)); });
+  function show(i) {
+    [...tabs.children].forEach((b, j) => b.setAttribute("aria-pressed", j === i ? "true" : "false"));
+    g.innerHTML = ""; M[i].draw();
+    const m = M[i];
+    dl.innerHTML = `<dt>Method</dt><dd><b>${esc(m.name)}</b></dd><dt>Combined</dt><dd>${esc(m.what)}</dd><dt>Where</dt><dd>${esc(m.where)}</dd><dt>Map</dt><dd>${esc(m.map)}</dd>` +
+      `<dt>Training</dt><dd>${esc(m.train)}</dd><dt>Mechanics</dt><dd>${esc(m.how)}</dd><dt>Result</dt><dd>${esc(m.result)}</dd>` +
+      `<dt>Can do</dt><dd>${esc(m.can)}</dd><dt>Cannot do</dt><dd>${esc(m.cannot)}</dd><dt>Advantages</dt><dd>${esc(m.pro)}</dd><dt>Disadvantages</dt><dd>${esc(m.con)}</dd><dt>Source</dt><dd>${esc(m.src)}</dd>`;
+  }
+  show(M.length - 1);
+  // methods as columns, so that eight rows of text fit the page width
+  const FIELDS = [["what is combined", "what"], ["where", "where"], ["map", "map"], ["training", "train"], ["can do", "can"], ["cannot do", "cannot"], ["advantages", "pro"], ["disadvantages", "con"]];
+  $("#s8table").innerHTML = `<tr><th></th>${M.map(m => `<th${m.ours ? ' style="color:var(--ink)"' : ""}>${esc(m.tab)}</th>`).join("")}</tr>` +
+    FIELDS.map(([lab, k]) => `<tr><th>${lab}</th>${M.map(m => `<td${m.ours ? ' style="background:var(--surface-2)"' : ""}>${esc(m[k])}</td>`).join("")}</tr>`).join("");
+})();
+
+/* ---------- 9 to 11: select_1 ---------- */
+const SEL = D.select, HEADS = SEL.heads;
+const COLS = {
+  single: { name: "Each head copied alone", seen: false, what: "score of the set containing only this head (the reference screen, 256 scored sets)" },
+  gradient: { name: "Gradient estimate", seen: false, what: "Σ over fit items of g · (Bolmo's head write − OLMo's), g the gradient of the gold token's log-odds at OLMo's o_proj output (a first-order estimate of copying the head)" },
+  direct_effect: { name: "Direct effect", seen: true, what: "the change copying the head makes, passed through OLMo's post-attention norm, final-norm gain and unembedding: gold logit minus mean logit (relative; leaves out the final norm's division)" },
+  att_shift: { name: "Attention shift", seen: true, what: "computed from the table: Σ over the five attention columns of |Bolmo − OLMo|" },
+  diff_norm: { name: "Write difference", seen: true, what: "norm of Bolmo's head write minus OLMo's at the last row" },
+};
+const LATER = D.later;
+const LAB = { agent_a: "Agent A", agent_b: "Agent B", random: "Random search", surrogate: "Ridge surrogate", gradient_top16: "Gradient top 16",
+  direct_top16: "Direct-effect top 16", att_shift_rule: "Table rule: attention shift", all_256: "All 256 heads", none: "No heads (OLMo alone)",
+  script_columns: "Script, same table", script_direct: "Script from direct effect", script_raw: "Script without attention-change rankings", greedy: "Greedy, 1,048 scored sets" };
+const MCOL = { agent_a: "var(--agA)", agent_b: "var(--agB)", random: "var(--ink-3)", surrogate: "var(--ink-2)", script_columns: "var(--scrC)", script_direct: "var(--scrD)", script_raw: "var(--ink)", greedy: "var(--ink)" };
+const hk = (L, h) => `(${L}, ${h})`;
+function headGrid(svg, fillOf, onPick, picked) {
+  svg.innerHTML = "";
+  const x0 = 54, y0 = 40, c = 24;
+  for (let h = 0; h < 16; h++) S("text", { x: x0 + h * c + c / 2 - 1, y: y0 - 8, "text-anchor": "middle", "font-size": 10, class: "t3" }, svg, h);
+  S("text", { x: x0 + 8 * c, y: 12, "text-anchor": "middle", "font-size": 11, class: "t2" }, svg, "head (0 to 15)");
+  for (let L = 0; L < 16; L++) S("text", { x: x0 - 8, y: y0 + (15 - L) * c + 16, "text-anchor": "end", "font-size": 10, class: "t3" }, svg, "layer " + L);
+  const cells = [];
+  for (let L = 0; L < 16; L++) for (let h = 0; h < 16; h++) {
+    const i = L * 16 + h, f = fillOf(i);
+    const r = S("rect", { x: x0 + h * c, y: y0 + (15 - L) * c, width: c - 2, height: c - 2, rx: 3, fill: f.fill, stroke: f.stroke || "none", "stroke-width": f.stroke ? 2 : 0 }, svg);
+    if (picked === i) r.setAttribute("stroke", "var(--ink)"), r.setAttribute("stroke-width", 2.5);
+    r.style.cursor = onPick ? "pointer" : "default";
+    r.addEventListener("mousemove", ev => showTip(ev, f.tip));
+    r.addEventListener("mouseleave", hideTip);
+    if (onPick) r.addEventListener("click", () => onPick(i));
+    cells.push(r);
+  }
+  return { x0, y0, c, bottom: y0 + 16 * c };
+}
+const shade = t => `color-mix(in oklab, var(--ink) ${Math.round(6 + 84 * t)}%, var(--surface))`;
+
+(function () {
+  const t = D.select.test, bs = SEL.best_single;
+  $("#s9tiles").innerHTML =
+    `<div class="stat"><div class="k">All 256 heads: score on the 80 fit items · on the 160 test items</div><div class="v">${SEL.all_256_fit.toFixed(3)} · ${t.all_256.right}/160</div></div>` +
+    `<div class="stat"><div class="k">No heads (OLMo alone)</div><div class="v">0 · ${t.none.right}/160</div></div>` +
+    `<div class="stat"><div class="k">Best single head ${hk(bs[0][0], bs[0][1])}, copied alone</div><div class="v">${bs[1].toFixed(3)}</div></div>`;
+  let col = "single", pick = 12 * 16 + 6;
+  function draw() {
+    const vals = HEADS.map(r => r[col]), lo = Math.min(...vals), hi = Math.max(...vals);
+    const g = headGrid($("#s9svg"), i => ({ fill: shade(Math.max(0, vals[i]) / hi),
+      tip: `Head ${hk(i >> 4, i & 15)}<br>${COLS[col].name}: <b>${vals[i].toFixed(3)}</b><br><span style="color:var(--ink-3)">click for the table row</span>` }), i => { pick = i; draw(); }, pick);
+    const svg = $("#s9svg"), lx = g.x0, ly = g.bottom + 26, lw = 16 * g.c - 2;
+    const defs = S("defs", {}, svg), lg = S("linearGradient", { id: "s9lg" }, defs);
+    for (const u of [0, 0.5, 1]) S("stop", { offset: u, "stop-color": shade(u) }, lg);
+    S("rect", { x: lx, y: ly, width: lw, height: 10, rx: 2, fill: "url(#s9lg)" }, svg);
+    S("text", { x: lx, y: ly + 24, "font-size": 10, class: "t2" }, svg, lo < 0 ? `≤ 0 (min ${lo.toFixed(3)})` : "0");
+    S("text", { x: lx + lw, y: ly + 24, "font-size": 10, class: "t2", "text-anchor": "end" }, svg, hi.toFixed(3));
+    S("text", { x: lx + lw / 2, y: ly - 6, "font-size": 10, class: "t2", "text-anchor": "middle" }, svg, COLS[col].name + (COLS[col].seen ? " (in the table)" : " (not shown to the agents)"));
+    $("#s9what").innerHTML = `<b>${esc(COLS[col].name)}:</b> ${esc(COLS[col].what)}. ` +
+      `The agents saw only the evidence table: for each head, the attention columns, the write norms, the write difference and the direct effect, measured at the last row on the 80 fit items. ` +
+      `They did not see the single-head screen or the gradient estimate.`;
+    detail();
+  }
+  function detail() {
+    const r = HEADS[pick], L = pick >> 4, h = pick & 15, box = $("#s9head");
+    box.innerHTML = `<div style="font-weight:650;margin-bottom:6px">Head ${hk(L, h)}: its row of the evidence table</div>`;
+    const svg = S("svg", { viewBox: "0 0 380 200", width: "100%" }, box);
+    const rows = [["operand word(s)", "operand"], ["instruction verb, quotes, Answer:", "verb_quotes"], ["sentence outside the operand", "sentence"], ["previous row", "previous"], ["first row (start token)", "first"]];
+    const x0 = 196, w = 150;
+    S("text", { x: 0, y: 12, "font-size": 10, class: "t3" }, svg, "attention weight from the last row to these rows, mean over the 80 fit items");
+    rows.forEach(([lab, k], j) => {
+      const y = 26 + j * 33;
+      S("text", { x: 0, y: y + 14, "font-size": 11, class: "t2" }, svg, lab);
+      const b = r["F_" + k], m = r["main_" + k];
+      S("rect", { x: x0, y, width: Math.max(1, b * w), height: 11, rx: 2, fill: "var(--bolmo)" }, svg);
+      S("text", { x: x0 + b * w + 4, y: y + 9, "font-size": 10, class: "t2" }, svg, b.toFixed(2));
+      S("rect", { x: x0, y: y + 13, width: Math.max(1, m * w), height: 11, rx: 2, fill: "var(--olmo)" }, svg);
+      S("text", { x: x0 + m * w + 4, y: y + 22, "font-size": 10, class: "t2" }, svg, m.toFixed(2));
+    });
+    H("div", { class: "note", style: "margin:2px 0 8px" }, box).innerHTML = `<span class="sw" style="background:var(--bolmo)"></span>Bolmo-1B <span class="sw" style="background:var(--olmo);margin-left:10px"></span>OLMo-2-0425-1B`;
+    const tb = H("table", { class: "t" }, box);
+    tb.innerHTML = [["write norm: Bolmo / OLMo", `${r.F_out_norm.toFixed(3)} / ${r.main_out_norm.toFixed(3)}`, true],
+      ["write difference", r.diff_norm.toFixed(3), true], ["direct effect", r.direct_effect.toFixed(4), true], ["attention shift (Σ |Bolmo − OLMo|)", r.att_shift.toFixed(3), true],
+      ["copied alone (not shown to agents)", r.single.toFixed(4), false], ["gradient estimate (not shown to agents)", r.gradient.toFixed(4), false]]
+      .map(([k, v]) => `<tr><td>${k}</td><td class="num">${v}</td></tr>`).join("");
+  }
+  seg("#s9col", v => { col = v; draw(); });
+  draw();
+})();
+
+// spread end labels so that none is closer than `gap` to the next (sorted by y)
+function spread(items, gap, lo, hi) {
+  items.sort((a, b) => a.y - b.y);
+  for (let k = 1; k < items.length; k++) items[k].y = Math.max(items[k].y, items[k - 1].y + gap);
+  const over = items.length ? items[items.length - 1].y - hi : 0;
+  if (over > 0) for (const it of items) it.y -= over;
+  for (let k = items.length - 2; k >= 0; k--) items[k].y = Math.min(items[k].y, items[k + 1].y - gap);
+  if (items.length && items[0].y < lo) { const d = lo - items[0].y; for (const it of items) it.y += d; }
+  return items;
+}
+
+(function () {
+  $("#s10all").textContent = SEL.all_256_fit.toFixed(3);
+  const svg = $("#s10svg"), x0 = 60, y0 = 20, w = 680, hgt = 340;
+  const SC = Object.assign({}, SEL.scored, LATER.scored);
+  const all = Object.values(SC).flat().map(s => s.score);
+  const yLo = Math.floor(Math.min(...all) * 4) / 4, yHi = 2.25;
+  const X = n => x0 + (n - 0.5) / 60 * w, Y = v => y0 + hgt - (v - yLo) / (yHi - yLo) * hgt;
+  const on = { agent_a: true, agent_b: true, random: true, surrogate: true, script_columns: false, script_direct: false, script_raw: false };
+  const tg = $("#s10toggles");
+  for (const m of Object.keys(on)) {
+    if (m === "script_columns") H("span", { class: "grp", style: "font-size:12px;color:var(--ink-3)" }, tg, "later runs, same scorer:");
+    const b = H("button", { class: "plain", "aria-pressed": String(on[m]) }, tg);
+    b.style.opacity = on[m] ? 1 : 0.4;
+    b.innerHTML = `<span class="sw" style="background:${MCOL[m]}"></span>${LAB[m]}`;
+    b.addEventListener("click", () => { on[m] = !on[m]; b.setAttribute("aria-pressed", on[m]); b.style.opacity = on[m] ? 1 : 0.4; draw(); });
+  }
+  const hollow = m => m === "random" || m === "script_raw";
+  function draw() {
+    svg.innerHTML = "";
+    for (let v = Math.ceil(yLo * 2) / 2; v <= yHi; v += 0.5) {
+      S("line", { x1: x0, x2: x0 + w, y1: Y(v), y2: Y(v), stroke: "var(--rule)", "stroke-width": v === 0 ? 1.5 : 1 }, svg);
+      S("text", { x: x0 - 8, y: Y(v) + 4, "text-anchor": "end", "font-size": 11, class: "t3" }, svg, v.toFixed(1));
+    }
+    for (const b of [20, 40]) S("line", { x1: X(b + 0.5), x2: X(b + 0.5), y1: y0, y2: y0 + hgt, stroke: "var(--rule)", "stroke-dasharray": "4 4" }, svg);
+    ["round 1", "round 2", "round 3"].forEach((t, k) => S("text", { x: X(10.5 + 20 * k), y: y0 + 12, "text-anchor": "middle", "font-size": 11, class: "t3" }, svg, t));
+    const rule = SEL.fit.att_shift_rule;
+    S("line", { x1: x0, x2: x0 + w, y1: Y(rule), y2: Y(rule), stroke: "var(--ink)", "stroke-dasharray": "2 4", "stroke-width": 1.5 }, svg);
+    const ends = [];
+    for (const m of Object.keys(on)) {
+      if (!on[m]) continue;
+      const pts = SC[m], col = MCOL[m];
+      let best = -1e9, d = "";
+      pts.forEach((s, k) => { best = Math.max(best, s.score); d += (k ? " H" + X(k + 1) + " V" : "M" + X(1) + ",") + Y(best); });
+      S("path", { d, fill: "none", stroke: col, "stroke-width": 2 }, svg);
+      pts.forEach((s, k) => {
+        S("circle", { cx: X(k + 1), cy: Y(s.score), r: 3.2, fill: hollow(m) ? "var(--surface)" : col, stroke: col, "stroke-width": 1.3, opacity: 0.9 }, svg);
+        const hit = S("circle", { cx: X(k + 1), cy: Y(s.score), r: 7, fill: "transparent" }, svg);
+        hit.addEventListener("mousemove", ev => showTip(ev, `<b>${LAB[m]}</b>, scored set ${k + 1} (${m === "random" ? "one batch of 60" : "round " + s.round}), ${s.set.length} head${s.set.length > 1 ? "s" : ""}<br>score <b>${s.score.toFixed(3)}</b><br>` +
+          `<span class="mono" style="font-size:11px">${s.set.map(p => p[0] + "." + p[1]).join(" ")}</span>`));
+        hit.addEventListener("mouseleave", hideTip);
+      });
+      const fb = Math.max(...pts.map(s => s.score));
+      ends.push({ y: Y(fb) + 4, text: `${LAB[m]} ${fb.toFixed(3)}`, col });
+    }
+    for (const e of spread(ends, 14, y0 + 8, y0 + hgt)) S("text", { x: x0 + w + 8, y: e.y, "font-size": 11, "font-weight": 600 }, svg, e.text).setAttribute("fill", e.col);
+    const rl = S("text", { x: x0 + 6, y: Y(rule) - 6, "font-size": 10, class: "t2" }, svg, `${rule.toFixed(3)}: a one-line table rule, the attention-shift top 16 (scored by Agent B in round 1)`);
+    const bb = rl.getBBox();
+    svg.insertBefore(S("rect", { x: bb.x - 3, y: bb.y - 1, width: bb.width + 6, height: bb.height + 2, rx: 3, fill: "var(--surface-2)", opacity: 0.92 }), rl);
+    S("text", { x: x0 + w / 2, y: y0 + hgt + 30, "text-anchor": "middle", "font-size": 12, class: "t2" }, svg, "scored set, in the order the method sent it (1 to 60)");
+    for (const n of [1, 10, 20, 30, 40, 50, 60]) S("text", { x: X(n), y: y0 + hgt + 14, "text-anchor": "middle", "font-size": 10, class: "t3" }, svg, n);
+    S("text", { x: 14, y: y0 + hgt / 2, "font-size": 12, class: "t2", transform: `rotate(-90 14 ${y0 + hgt / 2})`, "text-anchor": "middle" }, svg, "score on the 80 practice items");
+  }
+  draw();
+  const med = (m, r) => { const v = SC[m].filter(s => s.round === r).map(s => s.score).sort((a, b) => a - b); return v[Math.floor(v.length / 2)]; };
+  const who = {
+    agent_a: "Claude Opus agent with the evidence table; sees its own scores after each round of 20.",
+    agent_b: "A second, independent Claude Opus agent; the same inputs.",
+    random: "60 sets of 16 heads drawn uniformly from the 256. No table, no learning.",
+    surrogate: "Round 1: 20 random sets. Rounds 2 and 3: a ridge regression of score on which heads a set holds; heads drawn in proportion to their positive coefficients. No table.",
+    script_columns: "select_2, no language model: round 1 is the table's one-line rankings (the attention-change columns among them) and whole layers 6 to 15; rounds 2 and 3 fit a ridge model and swap heads. Written after seeing what the agents did.",
+    script_direct: "select_2: round 1 is random sets from the 32 heads with the largest direct effect; rounds 2 and 3 as above.",
+    script_raw: "select_3: like the script with the table, but without the attention-change rankings (raw columns, whole layers, random sets).",
+  };
+  $("#s10who").innerHTML = `<div class="row" style="grid-template-columns:200px 1fr 190px"><b>method</b><b>what it knew and did</b><b>median dot per round (random: sets 1–20, 21–40, 41–60)</b></div>` +
+    Object.keys(who).map(m => `<div class="row" style="grid-template-columns:200px 1fr 190px"><span><span class="sw" style="background:${MCOL[m]}"></span>${LAB[m]}</span><span>${esc(who[m])}</span>` +
+      `<span class="mono">${[1, 2, 3].map(r => med(m, r).toFixed(2)).join(" / ")}</span></div>`).join("");
+
+  // greedy against the agents' best so far, on one axis of scored sets
+  const G = LATER.greedy, gs = $("#s10g"), gx0 = 60, gy0 = 16, gw = 660, gh = 290, N = G[G.length - 1].cum;
+  $("#s10gN").textContent = N.toLocaleString();
+  const GX = n => gx0 + n / N * gw, GY = v => gy0 + gh - v / 2.4 * gh;
+  for (let v = 0; v <= 2.4; v += 0.5) { S("line", { x1: gx0, x2: gx0 + gw, y1: GY(v), y2: GY(v), stroke: "var(--rule)" }, gs); S("text", { x: gx0 - 8, y: GY(v) + 4, "text-anchor": "end", "font-size": 11, class: "t3" }, gs, v.toFixed(1)); }
+  S("rect", { x: GX(0), y: gy0, width: GX(60) - GX(0), height: gh, fill: "var(--surface-3)", opacity: 0.8 }, gs);
+  S("text", { x: GX(60) + 4, y: gy0 + 12, "font-size": 10, class: "t2" }, gs, "60 scored sets: the budget of the agents and scripts");
+  const ends = [];
+  for (const m of ["agent_a", "agent_b", "script_columns"]) {
+    let best = -1e9, d = "";
+    SC[m].forEach((s, k) => { best = Math.max(best, s.score); d += (k ? " H" + GX(k + 1) + " V" : "M" + GX(1) + ",") + GY(best); });
+    S("path", { d, fill: "none", stroke: MCOL[m], "stroke-width": 2 }, gs);
+    S("line", { x1: GX(60), x2: gx0 + gw, y1: GY(best), y2: GY(best), stroke: MCOL[m], "stroke-dasharray": "3 4", "stroke-width": 1.2 }, gs);
+    ends.push({ y: GY(best) + 4, text: `${LAB[m]} ${best.toFixed(3)}`, col: MCOL[m] });
+  }
+  let d = `M${GX(0)},${GY(0)}`, prev = 0;
+  G.forEach(s => { d += ` H${GX(s.cum)} V${GY(s.score)}`; prev = s.score; });
+  S("path", { d, fill: "none", stroke: "var(--ink)", "stroke-width": 2.2 }, gs);
+  G.forEach(s => {
+    S("circle", { cx: GX(s.cum), cy: GY(s.score), r: 3.5, fill: "var(--ink)" }, gs);
+    const hit = S("circle", { cx: GX(s.cum), cy: GY(s.score), r: 8, fill: "transparent" }, gs);
+    hit.addEventListener("mousemove", ev => showTip(ev, `<b>Greedy, step ${s.step}</b>: added head ${hk(s.added[0], s.added[1])}<br>kept score <b>${s.score.toFixed(3)}</b> after ${s.cum.toLocaleString()} scored sets`));
+    hit.addEventListener("mouseleave", hideTip);
+  });
+  ends.push({ y: GY(G[G.length - 1].score) + 4, text: `Greedy ${G[G.length - 1].score.toFixed(3)}`, col: "var(--ink)" });
+  for (const e of spread(ends, 14, gy0 + 8, gy0 + gh)) S("text", { x: gx0 + gw + 8, y: e.y, "font-size": 11, "font-weight": 600 }, gs, e.text).setAttribute("fill", e.col);
+  for (const n of [0, 200, 400, 600, 800, 1000]) S("text", { x: GX(n), y: gy0 + gh + 14, "text-anchor": "middle", "font-size": 10, class: "t3" }, gs, n);
+  S("text", { x: gx0 + gw / 2, y: gy0 + gh + 32, "text-anchor": "middle", "font-size": 12, class: "t2" }, gs, "scored sets used so far");
+  S("text", { x: 14, y: gy0 + gh / 2, "font-size": 12, class: "t2", transform: `rotate(-90 14 ${gy0 + gh / 2})`, "text-anchor": "middle" }, gs, "score on the 80 practice items");
+  const pass = v => G.find(s => s.score > v);
+  const pa = pass(SEL.fit.agent_a), pb = pass(SEL.fit.agent_b);
+  $("#s10gnote").innerHTML = `Black steps: greedy's kept score after each of its 16 steps (hover a dot for the head it added). With 60 scored sets it has not finished its first step (73 sets).
+    The dashed lines carry each 60-set method's best to the right for comparison. It passes Agent B's ${SEL.fit.agent_b.toFixed(3)} at step ${pb.step} (${pb.cum} scored sets) and Agent A's ${SEL.fit.agent_a.toFixed(3)} at step ${pa.step} (${pa.cum}).
+    Its final set reads ${LATER.acc.test.greedy.right} of 160 test items and ${LATER.acc.fresh.greedy.right} of 80 fresh items (section 10). Not an equal-budget comparison: it shows how high 16 heads can go on this scorer.`;
+})();
+
+(function () {
+  const sets = Object.assign({}, SEL.sets, LATER.sets), ACC = LATER.acc;
+  const fit = Object.assign({}, SEL.fit, LATER.fit), EX = Object.assign({}, SEL.example, LATER.example);
+  const key = s => s.map(p => p[0] * 16 + p[1]);
+  const lst = m => [["160 test items", ACC.test[m], 160], ["80 fresh items", ACC.fresh[m], 80]];
+  function info(m) {
+    const set = new Set(key(sets[m])), col = MCOL[m] || "var(--ink)";
+    const g = headGrid($("#s11svg"), i => ({ fill: set.has(i) ? col : "var(--surface-3)",
+      tip: `Head ${hk(i >> 4, i & 15)}${set.has(i) ? " · <b>in this set</b>" : ""}<br>copied alone: ${HEADS[i].single.toFixed(3)}` }), null, -1);
+    const hist = {}; for (const i of set) hist[i >> 4] = (hist[i >> 4] || 0) + 1;
+    const svg = $("#s11svg");
+    S("text", { x: g.x0, y: g.bottom + 22, "font-size": 11, class: "t2" }, svg, "layers: " + Object.entries(hist).map(([L, n]) => `${L} (${n})`).join(", "));
+    const ov = k => [...set].filter(i => new Set(key(sets[k])).has(i)).length;
+    const box = $("#s11info"); box.innerHTML = "";
+    H("div", { style: "font-weight:650;margin-bottom:8px" }, box, LAB[m]);
+    const rows = [["Score on the 80 practice items", fit[m] != null ? fit[m].toFixed(3) : "not scored"]];
+    for (const [lab, a, n] of lst(m))
+      rows.push([lab + ", strict", a ? `<b>${a.right} of ${n}</b> · ${f3(a.mean)} (${f3(a.lo)} to ${f3(a.hi)})<br><span style="color:var(--ink-3)">del / ins / sub / swap: ${a.per_task.join(" / ")}</span>` : "not decoded"]);
+    rows.push(["heads shared with Agent A / Agent B / gradient top 16 / greedy", `${ov("agent_a")} / ${ov("agent_b")} / ${ov("gradient_top16")} / ${ov("greedy")}`]);
+    H("table", { class: "t" }, box).innerHTML = rows.map(([k, v]) => `<tr><td>${k}</td><td class="num">${v}</td></tr>`).join("");
+    const ex = EX[m];
+    if (ex) {
+      const d = H("div", { class: "outline" }, box);
+      const r = H("div", { class: "row" }, d); r.style.gridTemplateColumns = "1fr auto";
+      H("span", {}, r).innerHTML = `This page's item, OLMo with these heads copied: <span class="chip">${esc(vis(ex.generated))}</span>`;
+      H("span", { class: "verdict " + (ex.correct ? "r" : "w") }, r, ex.correct ? "✓ right" : "✗ wrong");
+    }
+    const how = { agent_a: "Its best of 60 scored sets (round 3, set 20).", agent_b: "Its best of 60 scored sets (round 3, set 14).",
+      gradient_top16: "The 16 heads with the largest gradient estimate. No agent, no scored set. The same 16 heads as the top 16 when each head is copied alone.",
+      direct_top16: "The 16 heads with the largest direct effect in the table. No scored set.", surrogate: "Its best of 60 scored sets. It had no table.",
+      random: "Its best of 60 random sets. It had no table.", att_shift_rule: "The top 16 by attention shift, a ranking the table gives in one line. Agent B scored this set in round 1 (1.450); it was not decoded on unseen items.",
+      script_columns: "select_2: its best of 60 scored sets (its 30th). A fixed script holding the same table, no language model; written after seeing what the agents did.",
+      script_direct: "select_2: its best of 60 scored sets (its 51st), starting from the table's direct-effect column.",
+      script_raw: "select_3: its best of 60 scored sets (its 45th), without the table's attention-change rankings.",
+      greedy: "select_3: the full 16-step path of greedy forward selection, 1,048 scored sets. Not an equal budget." };
+    H("p", { class: "note" }, box, how[m]);
+  }
+  seg("#s11m", info); info("agent_a");
+
+  const order = ["none", "random", "surrogate", "direct_top16", "script_direct", "script_raw", "gradient_top16", "agent_b", "script_columns", "agent_a", "greedy", "all_256"];
+  const svg = $("#s11bars"), lx = 290, pw = 440, rh = 32, top = 30, X = v => lx + v * pw;
+  function bars(which) {
+    svg.innerHTML = "";
+    const n = which === "test" ? 160 : 80;
+    for (const v of [0, 0.2, 0.4, 0.6]) { S("line", { x1: X(v), x2: X(v), y1: top - 6, y2: top + order.length * rh, stroke: "var(--rule)" }, svg); S("text", { x: X(v), y: top - 12, "text-anchor": "middle", "font-size": 11, class: "t3" }, svg, v.toFixed(1)); }
+    order.forEach((m, k) => {
+      const a = ACC[which][m], y = top + k * rh, col = MCOL[m] || (m === "all_256" ? "var(--bolmo)" : m === "none" ? "var(--olmo)" : "var(--ink-3)");
+      S("text", { x: lx - 10, y: y + 20, "text-anchor": "end", "font-size": 12, "font-weight": m.startsWith("agent") ? 650 : 400 }, svg, LAB[m]);
+      if (!a) { S("text", { x: lx + 6, y: y + 20, "font-size": 11, class: "t3" }, svg, "not decoded on this list"); return; }
+      S("rect", { x: lx, y: y + 8, width: Math.max(1, X(a.mean) - lx), height: rh - 16, rx: 3, fill: col }, svg);
+      const ym = y + rh / 2;
+      S("path", { d: `M${X(a.lo)},${ym} H${X(a.hi)} M${X(a.lo)},${ym - 5} V${ym + 5} M${X(a.hi)},${ym - 5} V${ym + 5}`, stroke: "var(--ink)", "stroke-width": 1.3, fill: "none" }, svg);
+      S("text", { x: X(a.hi) + 6, y: y + 20, "font-size": 11, class: "t2" }, svg, `${f3(a.mean)} (${a.right}/${n})` + (fit[m] != null ? ` · fit ${fit[m].toFixed(3)}` : ""));
+      const hit = S("rect", { x: 0, y, width: 900, height: rh, fill: "transparent" }, svg);
+      hit.addEventListener("mousemove", ev => showTip(ev, `<b>${LAB[m]}</b><br>${a.right} of ${n} · ${f3(a.mean)} (95% interval ${f3(a.lo)} to ${f3(a.hi)})<br>del / ins / sub / swap: ${a.per_task.join(" / ")} of ${n / 4}`));
+      hit.addEventListener("mouseleave", hideTip);
+    });
+    S("text", { x: lx, y: top + order.length * rh + 22, "font-size": 11, class: "t3" }, svg, `accuracy on the ${n} ${which} items, strict rule`);
+    S("text", { x: lx, y: top + order.length * rh + 38, "font-size": 11, class: "t3" }, svg, `whiskers: 95% bootstrap interval, items resampled within task, ${D.draws.toLocaleString()} draws`);
+    svg.setAttribute("viewBox", `0 0 900 ${top + order.length * rh + 48}`);
+  }
+  seg("#s11list", bars); bars("test");
+
+  const sg = v => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(4).replace(/0$/, "");
+  const dbox = $("#s11diff");
+  H("div", { class: "note", style: "margin:0" }, dbox, "The frozen rules, each written before its run. A = the mean of the two agents, item by item. Paired over the same items; " +
+    "95% interval from the independent-draws recomputation (AUDIT h2, 10,000 draws), the job's own interval beside it where it differs.");
+  for (const p of LATER.paired) {
+    const r = H("div", { class: "row" }, dbox); r.style.gridTemplateColumns = "250px 1fr 230px";
+    H("span", {}, r).innerHTML = `<span class="mono" style="font-size:11px;color:var(--ink-3)">${p.run} · ${p.list}</span><br>${esc(p.label)}`;
+    const job = Math.abs(p.job_lo - p.lo) > 1e-9 || Math.abs(p.job_hi - p.hi) > 1e-9 ? ` <span style="color:var(--ink-3)">(job: ${sg(p.job_lo)} to ${sg(p.job_hi)})</span>` : "";
+    H("span", {}, r).innerHTML = `<b>${sg(p.mean)}</b> (${sg(p.lo)} to ${sg(p.hi)})${job}<br><span style="color:var(--ink-3)">items favouring the first: ${p.fav_x}; the second: ${p.fav_y}</span>`;
+    H("span", { class: "verdict", style: "font-weight:500;color:var(--ink-2);white-space:normal;text-align:left" }, r,
+      p.printed === p.independent ? `printed: "${p.printed}"` : `printed: "${p.printed}"; with independent task draws: "${p.independent}"`);
+  }
+  const q = $("#s11quotes");
+  for (const m of ["agent_a", "agent_b"]) q.innerHTML += `<div class="stat"><div class="k"><span class="sw" style="background:${MCOL[m]}"></span>${LAB[m]}, from its own final note</div>` +
+    `<div style="font-size:14px;margin-top:4px">“${esc(SEL.quotes[m])}”</div></div>`;
+  const T = ACC.test, F = ACC.fresh;
+  $("#s11limits").innerHTML = [
+    ["What it shows", `With 60 scored sets, agents holding the evidence table reached the level of the gradient ranking (no agent, no scored set) and of a fixed script holding the same table: test ${T.agent_a.right} and ${T.agent_b.right} against ${T.gradient_top16.right} and ${T.script_columns.right} of 160; fresh ${F.agent_a.right} and ${F.agent_b.right} against ${F.gradient_top16.right} and ${F.script_columns.right} of 80. Random search and the surrogate, without the table, read ${T.random.right} and ${T.surrogate.right} of 160.`],
+    ["No language-model advantage shown", "A script with the same table and budget matches the agents on both lists (select_2). It was written after seeing what the agents did, which favours it. A script without the attention-change rankings is narrowly below the agents, carried by Agent A (select_3, with independent task draws). Both agents fitted additive ridge models on their own scores."],
+    ["Room above", `Greedy forward selection with 1,048 scored sets reads ${T.greedy.right} of 160 and ${F.greedy.right} of 80, above the agents' mean on both. The earlier tie at 0.36 to 0.39 was not a ceiling for 16 heads.`],
+    ["What the agents did show", "Fit scores of 1.960 and 1.798 within 60 scored sets, which greedy passes after 810 and 685. A script with the same table reaches 1.804 in 60, not 1.960."],
+    ["Scope", "Two agents, one task, one pair of models, one run each; the host is OLMo-2-0425-1B, which shares coordinates with Bolmo. Sources: study/JOURNAL_excerpt.md (select_1 to select_3), AUDIT_2026-11-11f.md, AUDIT_2026-11-12g.md, AUDIT_2026-11-12h.md, AUDIT_2026-11-12h2.md."],
+  ].map(([k, v]) => `<div class="row" style="grid-template-columns:200px 1fr"><b>${k}</b><span>${esc(v)}</span></div>`).join("");
+})();
+
+/* ---------- 11. weights or values (route_1) ---------- */
+function countBars(svg, rows, which, n) {
+  // rows: [label, {right, per_task} | null, colour, bold]; counts only (the runs report counts)
+  svg.innerHTML = "";
+  const lx = 380, pw = 390, rh = 30, top = 26, X = v => lx + v / n * pw;
+  for (const v of [0, n / 4, n / 2, 3 * n / 4, n]) { S("line", { x1: X(v), x2: X(v), y1: top - 6, y2: top + rows.length * rh, stroke: "var(--rule)" }, svg); S("text", { x: X(v), y: top - 10, "text-anchor": "middle", "font-size": 11, class: "t3" }, svg, v); }
+  rows.forEach(([lab, a, col, bold], k) => {
+    const y = top + k * rh;
+    wrapText(svg, 0, y + 19, lab, lx - 16, 12, "");
+    if (bold) svg.lastChild.setAttribute("font-weight", 650);
+    if (!a) { S("text", { x: lx + 6, y: y + 19, "font-size": 11, class: "t3" }, svg, "not read"); return; }
+    S("rect", { x: lx, y: y + 7, width: Math.max(1.5, X(a.right) - lx), height: rh - 14, rx: 3, fill: col }, svg);
+    S("text", { x: X(a.right) + 6, y: y + 19, "font-size": 11, class: "t2" }, svg, `${a.right} of ${n}`);
+    const hit = S("rect", { x: 0, y, width: 900, height: rh, fill: "transparent" }, svg);
+    hit.addEventListener("mousemove", ev => showTip(ev, `<b>${esc(lab)}</b><br>${a.right} of ${n} right, strict` + (a.per_task ? `<br>del / ins / sub / swap: ${a.per_task.join(" / ")} of ${n / 4}` : "")));
+    hit.addEventListener("mouseleave", hideTip);
+  });
+  S("text", { x: lx, y: top + rows.length * rh + 20, "font-size": 11, class: "t3" }, svg, `right answers on the ${n} ${which} items, strict rule`);
+  svg.setAttribute("viewBox", `0 0 900 ${top + rows.length * rh + 30}`);
+}
+
+(function () {
+  const R = D.route, svg = $("#s12svg");
+  const COMBO = { "O|O": "none", "F|F": "join", "F|O": "w_only", "O|F": "v_only", "X|O": "w_other", "X|F": null };
+  const NAME = { none: "OLMo alone", join: "Bolmo's weights, Bolmo's values (the copy of sections 3 to 7)", w_only: "Bolmo's weights over OLMo's values",
+    v_only: "OLMo's weights over Bolmo's values", w_other: "Bolmo's weights from another item, over OLMo's values" };
+  const EXR = { none: D.runs.O, join: D.runs.deciding, w_only: R.example.w_only, v_only: R.example.v_only, w_other: R.example.w_other };
+  const srcCol = v => v === "O" ? "var(--olmo)" : "var(--bolmo)";
+  const srcSoft = v => v === "O" ? "var(--olmo-soft)" : "var(--bolmo-soft)";
+  const srcName = v => v === "O" ? "OLMo" : v === "F" ? "Bolmo" : "Bolmo, another item";
+  const hd = HEADS[12 * 16 + 6];
+  let w = "F", v = "O";
+  function draw() {
+    svg.innerHTML = "";
+    const defs = S("defs", {}, svg), mk = S("marker", { id: "a12", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto" }, defs);
+    S("path", { d: "M0,0 L10,5 L0,10 z", fill: "var(--ink-2)" }, mk);
+    const box = (x, y, bw, bh, fill, stroke, lines, dash) => {
+      S("rect", { x, y, width: bw, height: bh, rx: 6, fill, stroke, "stroke-width": 1.6, "stroke-dasharray": dash ? "5 4" : "none" }, svg);
+      lines.forEach((t, k) => S("text", { x: x + 10, y: y + 18 + k * 15, "font-size": k ? 11 : 12, "font-weight": k ? 400 : 650, class: k ? "t2" : "" }, svg, t));
+    };
+    box(10, 14, 240, 62, srcSoft(w === "X" ? "F" : w), srcCol(w === "X" ? "F" : w), [`A_h[q, ·] from ${srcName(w)}`, "one weight per earlier position,", "the row sums to 1"], w === "X");
+    box(290, 14, 240, 62, srcSoft(v), srcCol(v), [`v_h[k] from ${srcName(v)}`, "128 numbers at each", "earlier position k"]);
+    S("path", { d: "M130,76 L250,120", stroke: "var(--ink-2)", "stroke-width": 1.6, fill: "none", "marker-end": "url(#a12)" }, svg);
+    S("path", { d: "M410,76 L290,120", stroke: "var(--ink-2)", "stroke-width": 1.6, fill: "none", "marker-end": "url(#a12)" }, svg);
+    box(170, 122, 200, 46, "var(--surface)", "var(--ink-3)", ["Σ_k A_h[q, k] · v_h[k]", "128 numbers"]);
+    S("path", { d: "M270,168 L270,190", stroke: "var(--ink-2)", "stroke-width": 1.6, fill: "none", "marker-end": "url(#a12)" }, svg);
+    box(150, 192, 240, 46, srcSoft(v), srcCol(v), [`× W_O[:, h] from ${srcName(v)}`, "2048 × 128 columns of o_proj"]);
+    S("path", { d: "M270,238 L270,260", stroke: "var(--ink-2)", "stroke-width": 1.6, fill: "none", "marker-end": "url(#a12)" }, svg);
+    box(110, 262, 320, 46, "var(--olmo-soft)", "var(--olmo)", ["replaces head h's write in OLMo at q", "before OLMo's RMSNorm; all 256 heads"]);
+    // the real weights of one head, from the evidence table
+    S("text", { x: 10, y: 336, "font-size": 11, "font-weight": 650 }, svg, "Head (12, 6): where its last row looks (mean over 80 practice items)");
+    const parts = [["operand", "var(--ink)"], ["verb_quotes", "var(--ink-2)"], ["sentence", "var(--ink-3)"], ["previous", "var(--scrC)"], ["first", "var(--scrD)"]];
+    [["Bolmo", "F"], ["OLMo", "main"]].forEach(([lab, k], r) => {
+      const y = 348 + r * 24; let x = 70;
+      S("text", { x: 10, y: y + 12, "font-size": 11, class: "t2" }, svg, lab);
+      for (const [p, col] of parts) {
+        const wd = hd[`${k}_${p}`] * 440;
+        const rc = S("rect", { x, y, width: Math.max(0, wd - 1), height: 16, fill: col }, svg);
+        rc.addEventListener("mousemove", ev => showTip(ev, `${lab}, head (12, 6): weight on <b>${p}</b> ${hd[`${k}_${p}`].toFixed(3)}`)); rc.addEventListener("mouseleave", hideTip);
+        x += wd;
+      }
+      S("text", { x: x + 4, y: y + 12, "font-size": 10, class: "t3" }, svg, `rest ${(1 - parts.reduce((a, [p]) => a + hd[`${k}_${p}`], 0)).toFixed(2)}`);
+    });
+    S("text", { x: 70, y: 410, "font-size": 10, class: "t3" }, svg, "black: operand word · dark grey: instruction verb and quotes · grey: sentence");
+    S("text", { x: 70, y: 423, "font-size": 10, class: "t3" }, svg, "yellow: previous row · pink: first row · rest: few-shot lines and the answer so far");
+    const c = COMBO[w + "|" + v], ib = $("#s12info"); ib.innerHTML = "";
+    if (!c) { H("p", {}, ib, "This combination was not run."); return; }
+    H("div", { style: "font-weight:650;margin-bottom:8px" }, ib, NAME[c]);
+    const ex = EXR[c];
+    H("div", { class: "outline" }, ib).innerHTML = `<div class="row" style="grid-template-columns:1fr auto"><span>This page's item: <span class="chip">${esc(vis(ex.generated))}</span></span>` +
+      `<span class="verdict ${ex.correct ? "r" : "w"}">${ex.correct ? "✓ right" : "✗ wrong"}</span></div>`;
+    H("table", { class: "t", style: "margin-top:10px" }, ib).innerHTML = [["160 test items", R.test[c]], ["80 fresh items", R.fresh[c]]]
+      .map(([k, a]) => `<tr><td>${k}</td><td class="num"><b>${a.right}</b> right · del / ins / sub / swap ${a.per_task.join(" / ")}</td></tr>`).join("");
+  }
+  seg("#s12w", x => { w = x; draw(); }); seg("#s12v", x => { v = x; draw(); }); draw();
+  const order = [["OLMo alone", "none", "var(--olmo)"], ["Bolmo's weights (another item), OLMo's values", "w_other", "var(--ink-3)"], ["OLMo's weights, Bolmo's values", "v_only", "var(--ink-2)"],
+    ["Bolmo's weights, OLMo's values", "w_only", "var(--ink-2)", true], ["Bolmo's weights and values (the full copy)", "join", "var(--bolmo)"]];
+  const bars = which => countBars($("#s12bars"), order.map(([l, k, c, b]) => [l, R[which][k], c, b]), which, which === "test" ? 160 : 80);
+  seg("#s12list", bars); bars("test");
+  const sg = x => (x >= 0 ? "+" : "−") + Math.abs(x).toFixed(4).replace(/0$/, ""), iv = d => `${sg(d.mean)} (${sg(d.lo)} to ${sg(d.hi)})`;
+  $("#s12note").innerHTML = `Most of the gain is where Bolmo's heads look, applied to what OLMo already holds: Bolmo's weights over OLMo's values minus OLMo alone ${iv(R.diffs.w1)} on the test items, ${iv(R.diffs.fresh_w1)} on the fresh items.
+    The full copy is above weights alone by ${iv(R.diffs.w2)} on the test items and ${iv(R.diffs.fresh_w2)} on the fresh items; the rule written before the run printed "${R.printed.re_routing}" for re-routing and "${R.printed.values}".
+    Another item's weights give nothing. Paired 95% intervals from the run (items resampled within task, independent draws per task). Not audited. One receiving model, which shares coordinates with Bolmo.
+    A key position with no exact byte partner gives its weight to the OLMo position that holds its last byte. The other-item control changed 0.78 of the deciding positions against 0.98, so it is a rough control.`;
+})();
+
+/* ---------- 12. into other models (wire) ---------- */
+(function () {
+  const Wd = D.wire, svg = $("#s13svg");
+  const p27 = Wd.pythia.pairs.concat(Wd.pythia.pairs_27_added.filter(e => e.added).map(e => e.added.pairs[0]));
+  const WIRING = { H: { pairs: Wd.H.pairs, layers: 16, heads: 16, name: "H (OLMo-2 1B, stage1-step1907359)" }, P15: { pairs: Wd.pythia.pairs, layers: 24, heads: 16, name: "Pythia 1.4B" },
+    P27: { pairs: p27, layers: 24, heads: 16, name: "Pythia 1.4B" }, DSC: { pairs: Wd.dscoder.pairs, layers: 24, heads: 16, name: "DeepSeek-Coder 1.3B" },
+    SML: { pairs: Wd.smollm2.pairs, layers: 24, heads: 32, name: "SmolLM2-1.7B" } };
+  function grid(x0, yb, layers, heads, c, title, used, col) {
+    const cw = 224 / heads;
+    S("text", { x: x0 + 112, y: yb - layers * c - 14, "text-anchor": "middle", "font-size": 12, "font-weight": 650 }, svg, title);
+    for (let L = 0; L < layers; L++) {
+      if (L % 4 === 0 || L === layers - 1) S("text", { x: x0 - 6, y: yb - L * c - 3, "text-anchor": "end", "font-size": 9, class: "t3" }, svg, "layer " + L);
+      for (let h = 0; h < heads; h++) S("rect", { x: x0 + h * cw, y: yb - (L + 1) * c, width: cw - (heads > 16 ? 1 : 1.5), height: c - 1.5, rx: heads > 16 ? 1 : 2, fill: used.has(L * heads + h) ? col : "var(--surface-3)" }, svg);
+    }
+    S("text", { x: x0 + 112, y: yb + 14, "text-anchor": "middle", "font-size": 10, class: "t3" }, svg, `head 0 to ${heads - 1}`);
+    return (L, h) => [x0 + h * cw + cw / 2, yb - L * c - c / 2];
+  }
+  function draw(k) {
+    svg.innerHTML = "";
+    const wd = WIRING[k], c = 14, yb = 410, topY = yb - Math.max(16, wd.layers) * c - 36;
+    svg.setAttribute("viewBox", `0 ${topY} 900 ${yb + 24 - topY}`);
+    const fu = new Set(wd.pairs.map(p => p[2] * 16 + p[3])), hu = new Set(wd.pairs.map(p => p[0] * wd.heads + p[1]));
+    const fpos = grid(80, yb, 16, 16, c, "Bolmo-1B: heads whose weights are given", fu, "var(--bolmo)");
+    const hpos = grid(560, yb, wd.layers, wd.heads, c, wd.name + ": receiving heads", hu, "var(--olmo)");
+    for (const p of wd.pairs) {
+      const [x1, y1] = fpos(p[2], p[3]), [x2, y2] = hpos(p[0], p[1]);
+      S("line", { x1, y1, x2, y2, stroke: "var(--bolmo)", "stroke-width": 1.4, opacity: 0.75 }, svg);
+      const hit = S("line", { x1, y1, x2, y2, stroke: "transparent", "stroke-width": 8 }, svg);
+      hit.addEventListener("mousemove", ev => showTip(ev, `receiving head <b>(${p[0]}, ${p[1]})</b> ← Bolmo head <b>(${p[2]}, ${p[3]})</b><br>at the deciding positions, the receiving head uses this Bolmo head's attention weights over its own values and o_proj`));
+      hit.addEventListener("mouseleave", hideTip);
+    }
+    $("#s13pairs").textContent = `${wd.pairs.length} receiving heads take the attention weights of ${fu.size} Bolmo heads. Hover a line. ` +
+      (k === "H" ? "Chosen by greedy forward selection on a whole-answer score over 80 practice items, among single pairs screened first. No rule fixed the length 15: it was the search's length when the selection decode was sent (AUDIT i)."
+        : k === "P15" ? "The first 15 pairs of the same kind of search on Pythia, fixed by a rule written before any wiring was decoded on this host. The search was offered 12 Bolmo heads picked from H's results, so the overlap with H's heads is partly by construction."
+          : k === "P27" ? "The same search continued from the 15 pairs after its score was fixed to cover the closing quote; 12 pairs added, then no candidate raised the score."
+            : "The first 15 pairs of the same search on this host (4,608 single pairs on DeepSeek-Coder, 9,216 on SmolLM2, the same 12 Bolmo heads offered), fixed by a rule written before the read. Counts, recounted from stored rows by AUDIT k.");
+  }
+  seg("#s13h", x => { draw(x); bars(); }); draw("H");
+  const FA = Wd.f_alone;
+  const rowsFor = (k, which) => {
+    const n = "var(--ink-2)", cc = "var(--ink-3)";
+    if (k === "DSC" || k === "SML") {
+      const r = (k === "DSC" ? Wd.dscoder : Wd.smollm2).reads, g = nm => r[nm][which], nm0 = WIRING[k].name;
+      return [[nm0 + " alone", g("host_alone"), "var(--olmo)"], ["15 pairs, Stage1's weights (no editing skill)", g("pairs_15 from S"), cc], ["15 pairs, Bolmo's weights from another item", g("pairs_15 other item"), cc],
+        ["15 pairs, Bolmo's weights", g("pairs_15"), n, true], ["Bolmo-1B alone", FA[which], "var(--bolmo)"]];
+    }
+    const r = k === "H" ? Wd.H.reads : Wd.pythia.reads, g = (nm) => r[nm] ? r[nm][which] : null;
+    return k === "H" ? [["H alone", g("host_alone"), "var(--olmo)"], ["15 pairs, Stage1's weights (no editing skill)", g("pairs_15_from_S"), cc], ["15 pairs, Bolmo's weights from another item", g("pairs_15_other_item"), cc],
+      ["15 pairs, Bolmo's weights", g("pairs_15"), n, true], ["output part alone (attention-output change through a map)", g("out_U"), cc], ["15 pairs + output part", g("pairs_15+out_U"), n, true], ["Bolmo-1B alone", FA[which], "var(--bolmo)"]]
+      : [["Pythia 1.4B alone", g("host_alone"), "var(--olmo)"], ["15 pairs, Stage1's weights", g("pairs_15_from_S"), cc], ["15 pairs, Bolmo's weights from another item", g("pairs_15_other_item"), cc],
+        ["15 pairs, Bolmo's weights", g("pairs_15"), n, k === "P15"], ["27 pairs, Stage1's weights", g("pairs_27_from_S"), cc], ["27 pairs, another item", g("pairs_27_other_item"), cc], ["27 pairs, Bolmo's weights", g("pairs_27"), n, k === "P27"],
+        ["output part at a quarter of its size, alone", g("out_U_q"), cc], ["15 pairs + output part (quarter), Stage1's weights", g("pairs_15+out_U_q_from_S"), cc], ["15 pairs + output part at a quarter", g("pairs_15+out_U_q"), n], ["Bolmo-1B alone", FA[which], "var(--bolmo)"]];
+  };
+  const curH = () => $("#s13h").querySelector('button[aria-pressed="true"]').dataset.v, curL = () => $("#s13list").querySelector('button[aria-pressed="true"]').dataset.v;
+  function bars() {
+    const k = curH(), which = curL();
+    countBars($("#s13bars"), rowsFor(k, which), which, which === "test" ? 160 : 80);
+    if (k === "DSC" || k === "SML") { $("#s13out").innerHTML = `<div class="note" style="margin:0">No stored row for this page's item in the files this page reads for this host; counts only.</div>`; return; }
+    const r = k === "H" ? Wd.H.reads : Wd.pythia.reads;
+    const ex = k === "H" ? [["H alone", "host_alone"], ["15 pairs", "pairs_15"], ["15 pairs + output part", "pairs_15+out_U"], ["15 pairs, Stage1's weights", "pairs_15_from_S"], ["15 pairs, another item's weights", "pairs_15_other_item"]]
+      : [["Pythia alone", "host_alone"], ["15 pairs", "pairs_15"], ["15 pairs, Stage1's weights", "pairs_15_from_S"], ["15 pairs, another item's weights", "pairs_15_other_item"]];
+    $("#s13out").innerHTML = `<div class="note" style="margin:0">This page's item (test list), the receiving model's real output:</div>` + ex.map(([lab, nm]) => {
+      const e = r[nm].test.example;
+      return `<div class="row" style="grid-template-columns:230px 1fr auto"><span>${lab}</span><span class="chip" style="justify-self:start">${esc(vis(e.generated))}</span><span class="verdict ${e.correct ? "r" : "w"}">${e.correct ? "✓ right" : "✗ wrong"}</span></div>`;
+    }).join("") + (k === "H" ? "" : `<div class="note" style="margin:0">The 27-pair and output-part reads stored no row for this item in the files this page reads; counts only.</div>`);
+  }
+  seg("#s13list", bars); bars();
+  const cs = Wd.cosine;
+  $("#s13note").innerHTML = `What runs: Bolmo-1B whole, at every step, beside the receiving model, and Bolmo-1B-Stage1 too, to set which positions are paired; the receiving model's 15 (or 27) heads use Bolmo's attention weights, everything else is its own.
+    No training; the weights need no map, and the rows marked output part use a closed-form map. Bolmo alone reads ${FA.test.right} of 160 and ${FA.fresh.right} of 80: every wiring is below it.
+    H 12 → 76, Pythia 10 → 70, DeepSeek-Coder 28 → 70, SmolLM2 38 → 86. Among Pythia, DeepSeek-Coder and SmolLM2, the hosts that do more alone are moved less by a single pair (best single-pair score +0.264, +0.096, +0.063); SmolLM2, which does the most alone, ends highest.
+    Stage1's weights stay within 2 items of the receiving model alone on H, Pythia and DeepSeek-Coder, on both lists; on SmolLM2 they give 43 against 38 alone on the test list and 20 against 25 on the fresh list. Another item's weights give fewer than the receiving model alone everywhere. So Stage1's weights and another item's weights do not give the gain.
+    The published way to match heads across models, by the cosine between their attention maps (arXiv 2507.11953 §3.4), on H's 120 selection items: the same 15 receiving heads given their best-matching Bolmo heads ${cs.cosine_same15hosts_F_no_bos};
+    each of the search's 8 Bolmo heads given to its best-matching H head ${cs.cosine_donor_side_S_no_bos}; every H head given its best match ${cs.cosine_all256_F_no_bos}; the search's 15 pairs ${Wd.select_h[0]}.
+    The output part on Pythia uses a map fitted on the tokens both vocabularies spell with the same bytes; at full size it lowered the wiring; at a quarter of its size its gain over the 15 pairs alone is not resolved (+0.044, 0.000 to 0.094 on the test items; +0.075, 0.000 to 0.150 on the fresh items; the scale was picked among several; AUDIT k).
+    Sources: study/JOURNAL_excerpt.md (the wire entries). Independent recounts from stored rows: AUDIT_2026-11-12i.md (H), AUDIT_2026-11-12j.md (Pythia's 15 pairs), AUDIT_2026-11-12k.md (Pythia's 27 pairs and output part, DeepSeek-Coder, SmolLM2).`;
+})();
+
+/* ---------- 13. what crosses ---------- */
+(function () {
+  const Wd = D.wire, PT = Wd.pointer, R = PT.reads.fixed, R1 = PT.reads.first;
+  const nm = Object.keys(R);
+  const col = { "host alone": "var(--olmo)", "15 heads, F's weights": "var(--ink-2)", "15 heads, hand-made pointer": "var(--ink)", "27 heads, F's weights": "var(--ink-2)", "27 heads, hand-made pointer": "var(--ink)" };
+  const lab = { "host alone": "Pythia 1.4B alone", "15 heads, F's weights": "15 heads, Bolmo's weights (Bolmo running)", "15 heads, hand-made pointer": "15 heads, hand-made pointer (no Bolmo weights)",
+    "27 heads, F's weights": "27 heads, Bolmo's weights", "27 heads, hand-made pointer": "27 heads, hand-made pointer" };
+  countBars($("#s15bars"), nm.map(k => [lab[k], R[k], col[k], k.includes("pointer")]), "selection", 120);
+  $("#s15barsnote").innerHTML = `Per task (delete, insert, substitute, swap, 30 each): Bolmo's weights ${R["15 heads, F's weights"].per_task.join(", ")}; the pointer ${R["15 heads, hand-made pointer"].per_task.join(", ")}.
+    The rule written before the first read counted delete, insert and substitute only, because that version of the pointer was known to be weak on swap items: 76 of 90 against Bolmo's 43.
+    That first version read ${R1["15 heads, hand-made pointer"].right} and ${R1["27 heads, hand-made pointer"].right}; the bars show the fixed version. A control that uses the gold, on the selection list only (its words overlap the practice items); not read on the test or fresh lists.
+    The first read (93, 91, and 76 of 90) was recounted from stored rows by AUDIT k; the fixed version (94, 92) and the head sweep below were not.
+    So, on Pythia, what Bolmo's weights hand over is a position, and on these tasks a script that knows the answer computes it better. It shows the heads can copy a pointed token; it does not show what else of the task the receiving models hold (AUDIT_2026-11-12k.md).`;
+
+  // Pythia's heads, each alone with the pointer
+  const svg = $("#s15grid"), x0 = 54, y0 = 30, c = 24, hs = PT.head_seq, hi = Math.max(...hs.map(r => r[2]));
+  const sset = new Set(PT.search15.map(([L, h]) => L * 16 + h));
+  for (let h = 0; h < 16; h++) S("text", { x: x0 + h * c + c / 2 - 1, y: y0 - 8, "text-anchor": "middle", "font-size": 10, class: "t3" }, svg, h);
+  for (let L = 0; L < 24; L++) S("text", { x: x0 - 8, y: y0 + (23 - L) * c + 16, "text-anchor": "end", "font-size": 10, class: "t3" }, svg, "layer " + L);
+  for (const [L, h, v] of hs) {
+    const r = S("rect", { x: x0 + h * c, y: y0 + (23 - L) * c, width: c - 2, height: c - 2, rx: 3, fill: shade(Math.max(0, v) / hi),
+      stroke: sset.has(L * 16 + h) ? "var(--bolmo)" : "none", "stroke-width": sset.has(L * 16 + h) ? 2.5 : 0 }, svg);
+    r.addEventListener("mousemove", ev => showTip(ev, `Pythia head (${L}, ${h})<br>score alone with the pointer: <b>${v.toFixed(3)}</b>` + (sset.has(L * 16 + h) ? "<br>one of the 15 heads the search on Bolmo's weights chose" : "")));
+    r.addEventListener("mouseleave", hideTip);
+  }
+  const ly = y0 + 24 * c + 18, lw = 16 * c - 2;
+  const defs = S("defs", {}, svg), lg = S("linearGradient", { id: "s15lg" }, defs);
+  for (const u of [0, 0.5, 1]) S("stop", { offset: u, "stop-color": shade(u) }, lg);
+  S("rect", { x: x0, y: ly, width: lw, height: 10, rx: 2, fill: "url(#s15lg)" }, svg);
+  S("text", { x: x0, y: ly + 24, "font-size": 10, class: "t2" }, svg, "≤ 0");
+  S("text", { x: x0 + lw, y: ly + 24, "font-size": 10, class: "t2", "text-anchor": "end" }, svg, hi.toFixed(3));
+  S("text", { x: x0 + lw / 2, y: ly - 6, "font-size": 10, class: "t2", "text-anchor": "middle" }, svg, "whole-answer score on 80 practice items, one head alone with the pointer");
+  const rk = PT.rank15.slice().sort((a, b) => a - b);
+  $("#s15gridnote").innerHTML = `Each of Pythia's 384 heads was given the hand-made pointer alone, and scored on the 80 practice items (about four minutes for the sweep).
+    Orange outline: the 15 heads that the search on Bolmo's weights chose (section 12). Their ranks among the 384 by the pointer: ${rk.join(", ")}.
+    Eleven of them are the eleven best. So the wiring the search finds is mostly Pythia's own heads that copy from where they are pointed, and that set can be read from Pythia with no Bolmo weights. Hover a cell.`;
+
+  // step 40: one layer of Bolmo replaced by its mean over the prompt's rows
+  const off = Wd.donor_off, so = $("#s15off"), ox = 200, cw2 = 42, oy = 30;
+  for (let L = 0; L < 16; L++) S("text", { x: ox + L * cw2 + cw2 / 2, y: oy - 8, "text-anchor": "middle", "font-size": 10, class: "t3" }, so, "layer " + L);
+  [["Bolmo's heads (wired heads kept)", off.heads], ["Bolmo's MLP", off.mlp]].forEach(([lab2, vals], r) => {
+    const y = oy + r * 40;
+    S("text", { x: ox - 10, y: y + 22, "text-anchor": "end", "font-size": 11 }, so, lab2);
+    vals.forEach((v, L) => {
+      S("rect", { x: ox + L * cw2, y, width: cw2 - 2, height: 34, rx: 3, fill: shade(v / off.clean) }, so);
+      S("text", { x: ox + L * cw2 + cw2 / 2, y: y + 22, "text-anchor": "middle", "font-size": 12, "font-weight": 600 }, so, v).setAttribute("fill", v / off.clean > 0.55 ? "var(--surface)" : "var(--ink)");
+    });
+  });
+  S("text", { x: ox, y: oy + 100, "font-size": 11, class: "t2" }, so, `Pythia's right answers on 40 check items with Bolmo's weights, when one part of Bolmo is replaced`);
+  S("text", { x: ox, y: oy + 114, "font-size": 11, class: "t2" }, so, `by its mean over the prompt's positions. Nothing replaced: ${off.clean}.`);
+  $("#s15offnote").innerHTML = `The heads of one layer that the wiring does not read, or one MLP, replaced by its mean: in layers 0 to 10 this costs Pythia a third to all of its count; layers 11 to 15 change little (the wiring reads Bolmo's heads in layers 10 to 13).
+    A layer replaced by a constant also breaks Bolmo's reading of the text in general, so this shows each layer below 11 is needed for anything, not for this skill only. How many parts can be off together was not measured (the planned cumulative pass was not run as written).
+    So no small part of Bolmo is known to be enough. 40 items: a change under about 3 is not resolved. Recounted from stored rows by AUDIT k.`;
+
+  // tasks that are not copying
+  const cw = Wd.contains_word, sp = Wd.spell, st = Wd.site;
+  const yes = a => a.yes_written != null ? `<br><span style="color:var(--ink-3);font-weight:400">Yes written ${a.yes_written}; right on Yes ${a.right_on_yes_golds}, No ${a.right_on_no_golds}</span>` : "";
+  const cell = a => a ? `${a.right} of ${a.items}${yes(a)}` : "not read";
+  const rows = [
+    ["contains_word on H: 7 heads given Bolmo's weights", cw.host_alone, cw.pairs_7, cw["pairs_7 from S"], cw["pairs_7 other item"], "no"],
+    ["spell and spell_inverse on H: 10 heads given Bolmo's weights", sp.host_alone, sp.pairs_10, sp["pairs_10 from S"], sp["pairs_10 other item"], "no"],
+    ["contains_word on H: Bolmo − Stage1 residual at layer 15, through a map fitted in closed form, added at H's final norm input", st["host alone"], st["resid 15 F-S -> resid 16 x1.0"], st["resid 15 F-S -> resid 16 x1.0 | S in F's place"], st["resid 15 F-S -> resid 16 x1.0 | another item"], "yes"],
+  ];
+  let html = `<colgroup><col style="width:22%"><col style="width:7%"><col style="width:15%"><col style="width:15%"><col style="width:15%"><col style="width:15%"><col style="width:11%"></colgroup>` +
+    "<tr><th>what is used</th><th>list</th><th>H alone</th><th>joined</th><th>Stage1 in Bolmo's place</th><th>another item</th><th>moved (rule set before the read)</th></tr>";
+  for (const [lab2, a, b, c2, d, mv] of rows) for (const lst of ["test", "fresh"])
+    html += `<tr>${lst === "test" ? `<td rowspan="2">${esc(lab2)}</td>` : ""}<td>${lst}</td><td>${cell(a[lst])}</td><td><b>${cell(b[lst])}</b></td><td>${cell(c2[lst])}</td><td>${cell(d[lst])}</td>${lst === "test" ? `<td rowspan="2">${mv}</td>` : ""}</tr>`;
+  $("#s15tasks").innerHTML = html;
+  $("#s15tasksnote").innerHTML = `contains_word asks whether a word contains a letter; the answer is Yes or No, not a position. Bolmo alone is right on about 0.97 of these items.
+    Through attention weights, close to nothing crosses: on contains_word the weights mostly turn H's default answer from Yes to No, and the controls do much the same (recounted by AUDIT k); on spelling the weights lower H, and the controls lower it as much (by decode, the number the study uses for spelled letters, the wiring gives 33 of 80; the table shows the count by bytes; not recounted).
+    The residual map (step 42) is the first case where something that is not a position crosses: 33 of 40 test and 19 of 20 fresh items. With Stage1 in Bolmo's place the write is zero, so that column equals H alone by construction; another item's vectors give 23 and 11.
+    It writes at H's output end: the study calls it the output-level form, published as proxy tuning, here in residual space through a fitted map. H is of Bolmo's own model family; the setting was chosen among 54 on 30 selection items; on Pythia the same settings move nothing. Not yet read by an independent reader.`;
+})();
+
+/* ---------- 15. where it stands ---------- */
+(function () {
+  const Wd = D.wire, h = Wd.H.reads, p = Wd.pythia.reads, FA = Wd.f_alone, dc = Wd.dscoder.reads, sm = Wd.smollm2.reads;
+  const tf = a => `${a.test.right}; ${a.fresh.right}`;
+  const nF = pairs => new Set(pairs.map(q => q[2] * 16 + q[3])).size;
+  const p27 = Wd.pythia.pairs.concat(Wd.pythia.pairs_27_added.filter(e => e.added).map(e => e.added.pairs[0]));
+  const rows = [
+    [`Bolmo's attention weights, ${nF(Wd.H.pairs)} heads into 15`, "H (OLMo-2 1B stage1-step1907359)", h.host_alone, h.pairs_15, h.pairs_15_from_S, h.pairs_15_other_item, "yes"],
+    ["the same + Bolmo's attention-output change through a vocabulary map", "H", h.host_alone, h["pairs_15+out_U"], null, null, "gain yes; controls not read"],
+    [`Bolmo's attention weights, ${nF(Wd.pythia.pairs)} heads into 15`, "Pythia 1.4B", p.host_alone, p.pairs_15, p.pairs_15_from_S, p.pairs_15_other_item, "yes"],
+    [`Bolmo's attention weights, ${nF(p27)} heads into 27`, "Pythia 1.4B", p.host_alone, p.pairs_27, p.pairs_27_from_S, p.pairs_27_other_item, "yes"],
+    ["15 pairs + the output part at a quarter of its size", "Pythia 1.4B", p.host_alone, p["pairs_15+out_U_q"], p["pairs_15+out_U_q_from_S"], null, "yes; one control read"],
+    [`Bolmo's attention weights, ${nF(Wd.dscoder.pairs)} heads into 15`, "DeepSeek-Coder 1.3B", dc.host_alone, dc.pairs_15, dc["pairs_15 from S"], dc["pairs_15 other item"], "yes"],
+    [`Bolmo's attention weights, ${nF(Wd.smollm2.pairs)} heads into 15`, "SmolLM2-1.7B", sm.host_alone, sm.pairs_15, sm["pairs_15 from S"], sm["pairs_15 other item"], "yes"],
+  ];
+  const c = a => a ? tf(a) : "not read";
+  $("#s14table").innerHTML = "<tr><th>what is used (level 1, the word-edit tasks)</th><th>receiving model</th><th>it alone</th><th>joined</th><th>Bolmo alone</th><th>Stage1's weights</th><th>another item</th><th>reuse shown</th><th>above the best part</th><th>part isolated</th></tr>" +
+    rows.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td class="num">${c(r[2])}</td><td class="num"><b>${c(r[3])}</b></td><td class="num">${tf(FA)}</td><td class="num">${c(r[4])}</td><td class="num">${c(r[5])}</td><td>${esc(r[6])}</td><td>no</td><td>no</td></tr>`).join("") +
+    `<tr><td colspan="10" style="color:var(--ink-3)">Right answers: 160 test items; 80 fresh items. No training in any row; the vocabulary maps are closed-form fits. In every row the whole of Bolmo-1B, and Bolmo-1B-Stage1, run beside the receiving model at every step.
+      What is reused in every row is a position (measured on Pythia, section 13). Recounted from stored rows: AUDIT i (H), AUDIT j (Pythia's 15 pairs), AUDIT k (the other rows).
+      The step-42 residual map on contains_word (section 13) is the one case of something else crossing: reuse shown, not above Bolmo alone, part not isolated, not yet read by an independent reader.
+      Level 2 (a benchmark above the parts and above the ordinary method): none yet.</td></tr>`;
+  $("#s14more").innerHTML = [
+    ["Not shown anywhere", "A joined system above Bolmo alone; the used part working with the rest of Bolmo switched off (step 40: no small part is enough for this skill); a second skill through attention weights (contains_word and spelling did not move); a second donor model. The byte-level form of proxy tuning (2506.14123), the ordinary method these rows would stand beside, has not been run."],
+    ["Planned next", "From the study's handoff notes of 2026-11-13, 01:45Z, not public (no GPU instance running then): the residual-map grid of step 42 on the edit tasks (on contains_word the Pythia grid already moved nothing); fit sets that hold items the receiving model already gets right, for every task; and, if no map moves contains_word across families, a donor and receiving model that share more, or a donor whose skill is not text editing."],
+  ].map(([k, v]) => `<div class="row" style="grid-template-columns:160px 1fr"><b>${k}</b><span>${esc(v)}</span></div>`).join("");
+})();
+
+/* ---------- nav highlight and sources ---------- */
+(function () {
+  const links = [...document.querySelectorAll("#nav a")];
+  const obs = new IntersectionObserver(es => { for (const e of es) if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id)); }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("section").forEach(s => obs.observe(s));
+  $("#sources").innerHTML = "Sources. In this repository: results/ (every result file the build reads, copied from the study at 1a55d3e8a), " +
+    "study/ (the audits AUDIT_2026-11-11e to AUDIT_2026-11-12k, SCOREBOARD.md and JOURNAL_excerpt.md, the journal entries this page uses) and " +
+    "build/build_explainer_data.py, which writes data.js and checks every count against the audit, recompute and result files. " +
+    "Not in this repository: the per-item decode rows the build also reads, kept in the study's S3 bucket under results/bytegraft/ " +
+    "(join/join_4, join/join_3, join/diff_3m, join/dist_1, bench/select_1, select/select_1_final_a and _b, select/select_2_final, select/select_3_final, " +
+    "pair/pair_1, route/route_1, bench/wire_2i_h and bench/wire_3d_pythia), the CUTE prompts (bank/smoke_7/season_1/published.jsonl) " +
+    "and the OLMo-2-0425-1B tokenizer and both config.json files from the model repositories.";
+})();
+</script>
+</body>
+</html>

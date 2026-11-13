@@ -1,0 +1,135 @@
+{
+ "right": {
+  "test": {
+   "agent_a": {
+    "del_word": 9,
+    "ins_word": 20,
+    "sub_word": 26,
+    "swap_word": 8
+   },
+   "agent_b": {
+    "del_word": 6,
+    "ins_word": 19,
+    "sub_word": 24,
+    "swap_word": 9
+   },
+   "gradient_top16": {
+    "del_word": 7,
+    "ins_word": 23,
+    "sub_word": 20,
+    "swap_word": 7
+   },
+   "script_columns": {
+    "del_word": 7,
+    "ins_word": 20,
+    "sub_word": 21,
+    "swap_word": 12
+   },
+   "script_direct": {
+    "del_word": 6,
+    "ins_word": 15,
+    "sub_word": 21,
+    "swap_word": 7
+   }
+  },
+  "fresh": {
+   "agent_a": {
+    "del_word": 7,
+    "ins_word": 10,
+    "sub_word": 12,
+    "swap_word": 2
+   },
+   "agent_b": {
+    "del_word": 5,
+    "ins_word": 6,
+    "sub_word": 10,
+    "swap_word": 3
+   },
+   "gradient_top16": {
+    "del_word": 6,
+    "ins_word": 12,
+    "sub_word": 11,
+    "swap_word": 2
+   },
+   "none": {
+    "del_word": 1,
+    "ins_word": 2,
+    "sub_word": 4,
+    "swap_word": 0
+   },
+   "script_columns": {
+    "del_word": 5,
+    "ins_word": 10,
+    "sub_word": 11,
+    "swap_word": 4
+   },
+   "script_direct": {
+    "del_word": 3,
+    "ins_word": 6,
+    "sub_word": 13,
+    "swap_word": 0
+   }
+  }
+ },
+ "S": "script_columns",
+ "fit_scores": {
+  "script_direct": 1.6894868100127305,
+  "script_columns": 1.8035403690395384,
+  "agent_a": 1.9596904657175813,
+  "agent_b": 1.7976417025888636,
+  "gradient_top16": null
+ },
+ "differences_strict": {
+  "test A - S": {
+   "mean": 0.0031250000000000028,
+   "lo": -0.05625,
+   "hi": 0.06874999999999999,
+   "job_interval": [
+    -0.059375,
+    0.065625
+   ],
+   "only_x": 23,
+   "only_y": 20
+  },
+  "fresh A - S": {
+   "mean": -0.03125,
+   "lo": -0.11875000000000001,
+   "hi": 0.05,
+   "job_interval": [
+    -0.125,
+    0.0625
+   ],
+   "only_x": 11,
+   "only_y": 15
+  },
+  "fresh A - gradient_top16": {
+   "mean": -0.043750000000000004,
+   "lo": -0.10625,
+   "hi": 0.018750000000000003,
+   "job_interval": [
+    -0.1125,
+    0.037500000000000006
+   ],
+   "only_x": 7,
+   "only_y": 14
+  }
+ },
+ "overlap": {
+  "script_direct": {
+   "agent_a": 7,
+   "agent_b": 5,
+   "gradient_top16": 6
+  },
+  "script_columns": {
+   "agent_a": 7,
+   "agent_b": 9,
+   "gradient_top16": 8
+  }
+ },
+ "sentences": {
+  "joined": "test: a scripted search with the same table matches the agents; fresh: a scripted search with the same table matches the agents",
+  "test": "a scripted search with the same table matches the agents",
+  "fresh": "a scripted search with the same table matches the agents",
+  "fresh_vs_gradient": "level"
+ }
+}

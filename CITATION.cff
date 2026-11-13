@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: dataset
+title: 'ByteGraft: a byte model running beside other language models (an interactive account, snapshot of 2026-11-13)'
+authors:
+  - family-names: Bektursun
+    given-names: Abay
+url: "https://github.com/abaybektursun/bytegraft"
+license: CC-BY-4.0
+preferred-citation:
+  type: generic
+  title: 'ByteGraft: a byte model running beside other language models (an interactive account, snapshot of 2026-11-13)'
+  authors:
+    - family-names: Bektursun
+      given-names: Abay
+  year: 2026
+  url: "https://github.com/abaybektursun/bytegraft"
+  notes: "Snapshot of the study at commit 1a55d3e8a of its private working repository"

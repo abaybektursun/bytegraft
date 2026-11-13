@@ -1,0 +1,248 @@
+[
+ {
+  "spec": [],
+  "count": {
+   "list": "test",
+   "items": 40,
+   "right": 22,
+   "share": 0.55,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     22,
+     40
+    ]
+   },
+   "yes_no_items": 40,
+   "yes_golds": 20,
+   "yes_written": 34,
+   "right_on_yes_golds": 18,
+   "right_on_no_golds": 4
+  },
+  "rows": "out/counts/laptop--r1794528590879804000_870d6513.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 2558
+ },
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      10,
+      13,
+      12,
+      6
+     ],
+     [
+      9,
+      4,
+      1,
+      12
+     ],
+     [
+      10,
+      5,
+      11,
+      3
+     ],
+     [
+      9,
+      2,
+      12,
+      6
+     ],
+     [
+      11,
+      0,
+      7,
+      14
+     ],
+     [
+      11,
+      5,
+      12,
+      6
+     ],
+     [
+      9,
+      15,
+      12,
+      11
+     ]
+    ]
+   }
+  ],
+  "count": {
+   "list": "test",
+   "items": 40,
+   "right": 27,
+   "share": 0.675,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     27,
+     40
+    ]
+   },
+   "yes_no_items": 40,
+   "yes_golds": 20,
+   "yes_written": 13,
+   "right_on_yes_golds": 10,
+   "right_on_no_golds": 17
+  },
+  "rows": "out/counts/laptop--r1794528590879804000_870d6513.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 2559
+ },
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      10,
+      13,
+      12,
+      6
+     ],
+     [
+      9,
+      4,
+      1,
+      12
+     ],
+     [
+      10,
+      5,
+      11,
+      3
+     ],
+     [
+      9,
+      2,
+      12,
+      6
+     ],
+     [
+      11,
+      0,
+      7,
+      14
+     ],
+     [
+      11,
+      5,
+      12,
+      6
+     ],
+     [
+      9,
+      15,
+      12,
+      11
+     ]
+    ],
+    "donor": "S"
+   }
+  ],
+  "count": {
+   "list": "test",
+   "items": 40,
+   "right": 18,
+   "share": 0.45,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     18,
+     40
+    ]
+   },
+   "yes_no_items": 40,
+   "yes_golds": 20,
+   "yes_written": 4,
+   "right_on_yes_golds": 1,
+   "right_on_no_golds": 17
+  },
+  "rows": "out/counts/laptop--r1794528590879804000_870d6513.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 2560
+ },
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      10,
+      13,
+      12,
+      6
+     ],
+     [
+      9,
+      4,
+      1,
+      12
+     ],
+     [
+      10,
+      5,
+      11,
+      3
+     ],
+     [
+      9,
+      2,
+      12,
+      6
+     ],
+     [
+      11,
+      0,
+      7,
+      14
+     ],
+     [
+      11,
+      5,
+      12,
+      6
+     ],
+     [
+      9,
+      15,
+      12,
+      11
+     ]
+    ],
+    "other": true
+   }
+  ],
+  "count": {
+   "list": "test",
+   "items": 40,
+   "right": 22,
+   "share": 0.55,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     22,
+     40
+    ]
+   },
+   "yes_no_items": 40,
+   "yes_golds": 20,
+   "yes_written": 10,
+   "right_on_yes_golds": 6,
+   "right_on_no_golds": 16
+  },
+  "rows": "out/counts/laptop--r1794528590879804000_870d6513.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 2561
+ }
+]

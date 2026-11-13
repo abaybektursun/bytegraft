@@ -1,0 +1,957 @@
+{
+ "responses": {
+  "wire_2g_h test": {
+   "15 pairs + out U": {
+    "right": 98,
+    "items": 160,
+    "per_task": null
+   },
+   "15 pairs": {
+    "right": 76,
+    "items": 160,
+    "per_task": null
+   },
+   "out U": {
+    "right": 45,
+    "items": 160,
+    "per_task": null
+   },
+   "H alone": {
+    "right": 12,
+    "items": 160,
+    "per_task": null
+   },
+   "direct proc": {
+    "right": 52,
+    "items": 160,
+    "per_task": null
+   }
+  },
+  "wire_2g_h fresh": {
+   "15 pairs + out U": {
+    "right": 50,
+    "items": 80,
+    "per_task": null
+   },
+   "15 pairs": {
+    "right": 44,
+    "items": 80,
+    "per_task": null
+   },
+   "out U": {
+    "right": 21,
+    "items": 80,
+    "per_task": null
+   },
+   "H alone": {
+    "right": 6,
+    "items": 80,
+    "per_task": null
+   },
+   "direct proc": {
+    "right": 30,
+    "items": 80,
+    "per_task": null
+   }
+  },
+  "wire_2h_h select": {
+   "15 pairs (S's weights)": {
+    "right": 8,
+    "items": 120,
+    "per_task": {
+     "del_word": 3,
+     "ins_word": 2,
+     "sub_word": 3,
+     "swap_word": 0
+    }
+   },
+   "15 pairs (another item)": {
+    "right": 0,
+    "items": 120,
+    "per_task": {
+     "del_word": 0,
+     "ins_word": 0,
+     "sub_word": 0,
+     "swap_word": 0
+    }
+   }
+  },
+  "wire_2h_h test": {
+   "15 pairs (S's weights)": {
+    "right": 10,
+    "items": 160,
+    "per_task": {
+     "del_word": 2,
+     "ins_word": 4,
+     "sub_word": 4,
+     "swap_word": 0
+    }
+   },
+   "15 pairs (another item)": {
+    "right": 0,
+    "items": 160,
+    "per_task": {
+     "del_word": 0,
+     "ins_word": 0,
+     "sub_word": 0,
+     "swap_word": 0
+    }
+   }
+  },
+  "wire_2h_h fresh": {
+   "15 pairs (S's weights)": {
+    "right": 8,
+    "items": 80,
+    "per_task": {
+     "del_word": 2,
+     "ins_word": 2,
+     "sub_word": 4,
+     "swap_word": 0
+    }
+   },
+   "15 pairs (another item)": {
+    "right": 0,
+    "items": 80,
+    "per_task": {
+     "del_word": 0,
+     "ins_word": 0,
+     "sub_word": 0,
+     "swap_word": 0
+    }
+   }
+  },
+  "wire_2i_h test": {
+   "15 pairs + out U": {
+    "right": 98,
+    "items": 160,
+    "per_task": {
+     "del_word": 27,
+     "ins_word": 26,
+     "sub_word": 30,
+     "swap_word": 15
+    }
+   },
+   "15 pairs": {
+    "right": 76,
+    "items": 160,
+    "per_task": {
+     "del_word": 16,
+     "ins_word": 20,
+     "sub_word": 29,
+     "swap_word": 11
+    }
+   },
+   "out U": {
+    "right": 45,
+    "items": 160,
+    "per_task": {
+     "del_word": 14,
+     "ins_word": 13,
+     "sub_word": 17,
+     "swap_word": 1
+    }
+   },
+   "H alone": {
+    "right": 12,
+    "items": 160,
+    "per_task": {
+     "del_word": 1,
+     "ins_word": 6,
+     "sub_word": 5,
+     "swap_word": 0
+    }
+   },
+   "direct proc": {
+    "right": 52,
+    "items": 160,
+    "per_task": {
+     "del_word": 18,
+     "ins_word": 18,
+     "sub_word": 13,
+     "swap_word": 3
+    }
+   },
+   "15 pairs (S's weights)": {
+    "right": 10,
+    "items": 160,
+    "per_task": {
+     "del_word": 2,
+     "ins_word": 4,
+     "sub_word": 4,
+     "swap_word": 0
+    }
+   },
+   "15 pairs (another item)": {
+    "right": 0,
+    "items": 160,
+    "per_task": {
+     "del_word": 0,
+     "ins_word": 0,
+     "sub_word": 0,
+     "swap_word": 0
+    }
+   }
+  },
+  "wire_2i_h fresh": {
+   "15 pairs + out U": {
+    "right": 50,
+    "items": 80,
+    "per_task": {
+     "del_word": 16,
+     "ins_word": 14,
+     "sub_word": 16,
+     "swap_word": 4
+    }
+   },
+   "15 pairs": {
+    "right": 44,
+    "items": 80,
+    "per_task": {
+     "del_word": 13,
+     "ins_word": 13,
+     "sub_word": 15,
+     "swap_word": 3
+    }
+   },
+   "out U": {
+    "right": 21,
+    "items": 80,
+    "per_task": {
+     "del_word": 2,
+     "ins_word": 10,
+     "sub_word": 8,
+     "swap_word": 1
+    }
+   },
+   "H alone": {
+    "right": 6,
+    "items": 80,
+    "per_task": {
+     "del_word": 0,
+     "ins_word": 3,
+     "sub_word": 3,
+     "swap_word": 0
+    }
+   },
+   "direct proc": {
+    "right": 30,
+    "items": 80,
+    "per_task": {
+     "del_word": 6,
+     "ins_word": 11,
+     "sub_word": 9,
+     "swap_word": 4
+    }
+   },
+   "15 pairs (S's weights)": {
+    "right": 8,
+    "items": 80,
+    "per_task": {
+     "del_word": 2,
+     "ins_word": 2,
+     "sub_word": 4,
+     "swap_word": 0
+    }
+   },
+   "15 pairs (another item)": {
+    "right": 0,
+    "items": 80,
+    "per_task": {
+     "del_word": 0,
+     "ins_word": 0,
+     "sub_word": 0,
+     "swap_word": 0
+    }
+   }
+  }
+ },
+ "recount": {
+  "fresh | 15 pairs": {
+   "right": 44,
+   "per_task": {
+    "del_word": 13,
+    "ins_word": 13,
+    "sub_word": 15,
+    "swap_word": 3
+   },
+   "lenient": 44,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 44,
+   "first_read_right": 44
+  },
+  "fresh | 15 pairs (S's weights)": {
+   "right": 8,
+   "per_task": {
+    "del_word": 2,
+    "ins_word": 2,
+    "sub_word": 4,
+    "swap_word": 0
+   },
+   "lenient": 8,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 8,
+   "first_read_right": 8
+  },
+  "fresh | 15 pairs (another item)": {
+   "right": 0,
+   "per_task": {
+    "del_word": 0,
+    "ins_word": 0,
+    "sub_word": 0,
+    "swap_word": 0
+   },
+   "lenient": 0,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 0,
+   "first_read_right": 0
+  },
+  "fresh | 15 pairs + out U": {
+   "right": 50,
+   "per_task": {
+    "del_word": 16,
+    "ins_word": 14,
+    "sub_word": 16,
+    "swap_word": 4
+   },
+   "lenient": 50,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 50,
+   "first_read_right": 50
+  },
+  "fresh | H alone": {
+   "right": 6,
+   "per_task": {
+    "del_word": 0,
+    "ins_word": 3,
+    "sub_word": 3,
+    "swap_word": 0
+   },
+   "lenient": 6,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 6,
+   "first_read_right": 6
+  },
+  "fresh | direct proc": {
+   "right": 30,
+   "per_task": {
+    "del_word": 6,
+    "ins_word": 11,
+    "sub_word": 9,
+    "swap_word": 4
+   },
+   "lenient": 30,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 30,
+   "first_read_right": 30
+  },
+  "fresh | out U": {
+   "right": 21,
+   "per_task": {
+    "del_word": 2,
+    "ins_word": 10,
+    "sub_word": 8,
+    "swap_word": 1
+   },
+   "lenient": 21,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 21,
+   "first_read_right": 21
+  },
+  "test | 15 pairs": {
+   "right": 76,
+   "per_task": {
+    "del_word": 16,
+    "ins_word": 20,
+    "sub_word": 29,
+    "swap_word": 11
+   },
+   "lenient": 76,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 76,
+   "first_read_right": 76
+  },
+  "test | 15 pairs (S's weights)": {
+   "right": 10,
+   "per_task": {
+    "del_word": 2,
+    "ins_word": 4,
+    "sub_word": 4,
+    "swap_word": 0
+   },
+   "lenient": 10,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 10,
+   "first_read_right": 10
+  },
+  "test | 15 pairs (another item)": {
+   "right": 0,
+   "per_task": {
+    "del_word": 0,
+    "ins_word": 0,
+    "sub_word": 0,
+    "swap_word": 0
+   },
+   "lenient": 0,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 0,
+   "first_read_right": 0
+  },
+  "test | 15 pairs + out U": {
+   "right": 98,
+   "per_task": {
+    "del_word": 27,
+    "ins_word": 26,
+    "sub_word": 30,
+    "swap_word": 15
+   },
+   "lenient": 98,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 98,
+   "first_read_right": 98
+  },
+  "test | H alone": {
+   "right": 12,
+   "per_task": {
+    "del_word": 1,
+    "ins_word": 6,
+    "sub_word": 5,
+    "swap_word": 0
+   },
+   "lenient": 12,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 12,
+   "first_read_right": 12
+  },
+  "test | direct proc": {
+   "right": 52,
+   "per_task": {
+    "del_word": 18,
+    "ins_word": 18,
+    "sub_word": 13,
+    "swap_word": 3
+   },
+   "lenient": 52,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 52,
+   "first_read_right": 52
+  },
+  "test | out U": {
+   "right": 45,
+   "per_task": {
+    "del_word": 14,
+    "ins_word": 13,
+    "sub_word": 17,
+    "swap_word": 1
+   },
+   "lenient": 45,
+   "row_strict_differs": 0,
+   "row_lenient_differs": 0,
+   "row_gold_differs_from_bank": 0,
+   "response_right": 45,
+   "first_read_right": 45
+  }
+ },
+ "stored_runs": {
+  "fresh | F alone": {
+   "stored_right": 59,
+   "per_task": {
+    "del_word": 15,
+    "ins_word": 15,
+    "sub_word": 18,
+    "swap_word": 11
+   }
+  },
+  "fresh | H alone": {
+   "stored_right": 6,
+   "per_task": {
+    "del_word": 0,
+    "ins_word": 3,
+    "sub_word": 3,
+    "swap_word": 0
+   },
+   "texts_equal_to_wire": 80,
+   "wire_right": 6
+  },
+  "fresh | out U": {
+   "stored_right": 21,
+   "per_task": {
+    "del_word": 2,
+    "ins_word": 10,
+    "sub_word": 8,
+    "swap_word": 1
+   },
+   "texts_equal_to_wire": 80,
+   "wire_right": 21
+  },
+  "test | F alone": {
+   "stored_right": 101,
+   "per_task": {
+    "del_word": 24,
+    "ins_word": 31,
+    "sub_word": 30,
+    "swap_word": 16
+   }
+  },
+  "test | H alone": {
+   "stored_right": 12,
+   "per_task": {
+    "del_word": 1,
+    "ins_word": 6,
+    "sub_word": 5,
+    "swap_word": 0
+   },
+   "texts_equal_to_wire": 160,
+   "wire_right": 12
+  },
+  "test | direct proc": {
+   "stored_right": 52,
+   "per_task": {
+    "del_word": 18,
+    "ins_word": 18,
+    "sub_word": 13,
+    "swap_word": 3
+   },
+   "texts_equal_to_wire": 160,
+   "wire_right": 52
+  },
+  "test | out U": {
+   "stored_right": 45,
+   "per_task": {
+    "del_word": 14,
+    "ins_word": 13,
+    "sub_word": 17,
+    "swap_word": 1
+   },
+   "texts_equal_to_wire": 160,
+   "wire_right": 45
+  }
+ },
+ "intervals": {
+  "test": {
+   "15 pairs + out U - F alone": {
+    "mean": -0.01875,
+    "lo": -0.09375,
+    "hi": 0.05625,
+    "x_right_y_wrong": 18,
+    "y_right_x_wrong": 21
+   },
+   "15 pairs - F alone": {
+    "mean": -0.15625,
+    "lo": -0.2375,
+    "hi": -0.075,
+    "x_right_y_wrong": 12,
+    "y_right_x_wrong": 37
+   },
+   "15 pairs - H alone": {
+    "mean": 0.4,
+    "lo": 0.325,
+    "hi": 0.475,
+    "x_right_y_wrong": 64,
+    "y_right_x_wrong": 0
+   },
+   "15 pairs - 15 pairs (S's weights)": {
+    "mean": 0.4125,
+    "lo": 0.3375,
+    "hi": 0.4875,
+    "x_right_y_wrong": 66,
+    "y_right_x_wrong": 0
+   },
+   "15 pairs - 15 pairs (another item)": {
+    "mean": 0.475,
+    "lo": 0.4,
+    "hi": 0.55,
+    "x_right_y_wrong": 76,
+    "y_right_x_wrong": 0
+   },
+   "15 pairs - out U": {
+    "mean": 0.19375,
+    "lo": 0.11875,
+    "hi": 0.26875,
+    "x_right_y_wrong": 38,
+    "y_right_x_wrong": 7
+   },
+   "15 pairs - direct proc": {
+    "mean": 0.15,
+    "lo": 0.06875,
+    "hi": 0.23125,
+    "x_right_y_wrong": 37,
+    "y_right_x_wrong": 13
+   },
+   "15 pairs + out U - out U": {
+    "mean": 0.33125,
+    "lo": 0.2625,
+    "hi": 0.40625,
+    "x_right_y_wrong": 53,
+    "y_right_x_wrong": 0
+   },
+   "15 pairs + out U - 15 pairs": {
+    "mean": 0.1375,
+    "lo": 0.075,
+    "hi": 0.20625,
+    "x_right_y_wrong": 28,
+    "y_right_x_wrong": 6
+   },
+   "15 pairs (S's weights) - H alone": {
+    "mean": -0.0125,
+    "lo": -0.05625,
+    "hi": 0.03125,
+    "x_right_y_wrong": 6,
+    "y_right_x_wrong": 8
+   },
+   "out U - H alone": {
+    "mean": 0.20625,
+    "lo": 0.15,
+    "hi": 0.26875,
+    "x_right_y_wrong": 33,
+    "y_right_x_wrong": 0
+   }
+  },
+  "fresh": {
+   "15 pairs + out U - F alone": {
+    "mean": -0.1125,
+    "lo": -0.2125,
+    "hi": -0.0125,
+    "x_right_y_wrong": 6,
+    "y_right_x_wrong": 15
+   },
+   "15 pairs - F alone": {
+    "mean": -0.1875,
+    "lo": -0.3,
+    "hi": -0.075,
+    "x_right_y_wrong": 6,
+    "y_right_x_wrong": 21
+   },
+   "15 pairs - H alone": {
+    "mean": 0.475,
+    "lo": 0.3625,
+    "hi": 0.575,
+    "x_right_y_wrong": 39,
+    "y_right_x_wrong": 1
+   },
+   "15 pairs - 15 pairs (S's weights)": {
+    "mean": 0.45,
+    "lo": 0.35,
+    "hi": 0.55,
+    "x_right_y_wrong": 36,
+    "y_right_x_wrong": 0
+   },
+   "15 pairs - 15 pairs (another item)": {
+    "mean": 0.55,
+    "lo": 0.45,
+    "hi": 0.65,
+    "x_right_y_wrong": 44,
+    "y_right_x_wrong": 0
+   },
+   "15 pairs - out U": {
+    "mean": 0.2875,
+    "lo": 0.1875,
+    "hi": 0.4,
+    "x_right_y_wrong": 25,
+    "y_right_x_wrong": 2
+   },
+   "15 pairs - direct proc": {
+    "mean": 0.175,
+    "lo": 0.0625,
+    "hi": 0.2875,
+    "x_right_y_wrong": 20,
+    "y_right_x_wrong": 6
+   },
+   "15 pairs + out U - out U": {
+    "mean": 0.3625,
+    "lo": 0.2625,
+    "hi": 0.4625,
+    "x_right_y_wrong": 31,
+    "y_right_x_wrong": 2
+   },
+   "15 pairs + out U - 15 pairs": {
+    "mean": 0.075,
+    "lo": -0.025,
+    "hi": 0.175,
+    "x_right_y_wrong": 11,
+    "y_right_x_wrong": 5
+   },
+   "15 pairs (S's weights) - H alone": {
+    "mean": 0.025,
+    "lo": -0.0375,
+    "hi": 0.0875,
+    "x_right_y_wrong": 5,
+    "y_right_x_wrong": 3
+   },
+   "out U - H alone": {
+    "mean": 0.1875,
+    "lo": 0.1,
+    "hi": 0.275,
+    "x_right_y_wrong": 16,
+    "y_right_x_wrong": 1
+   }
+  }
+ },
+ "sets_equal_across_sessions": {
+  "wire_2_h": {
+   "fit": true,
+   "check": true
+  },
+  "wire_2b_h": {
+   "fit": true,
+   "check": true
+  },
+  "wire_2c_h": {
+   "fit": true,
+   "check": true
+  },
+  "wire_2e_h": {
+   "fit": true,
+   "check": true,
+   "select": true
+  },
+  "wire_2f_h": {
+   "fit": true,
+   "check": true,
+   "select": true
+  },
+  "wire_2g_h": {
+   "fit": true,
+   "check": true,
+   "select": true,
+   "test": true,
+   "fresh": true
+  },
+  "wire_2h_h": {
+   "fit": true,
+   "check": true,
+   "select": true,
+   "test": true,
+   "fresh": true
+  },
+  "wire_2i_h": {
+   "fit": true,
+   "check": true,
+   "select": true,
+   "test": true,
+   "fresh": true
+  }
+ },
+ "test_fresh_lists_equal_join3_pair1": {
+  "test": true,
+  "fresh": true
+ },
+ "overlap_ids": {
+  "fit-check": 0,
+  "fit-select": 0,
+  "fit-test": 0,
+  "fit-fresh": 0,
+  "check-select": 0,
+  "check-test": 0,
+  "check-fresh": 0,
+  "select-test": 0,
+  "select-fresh": 0,
+  "test-fresh": 0
+ },
+ "overlap_units": {
+  "fit-check": 21,
+  "fit-select": 49,
+  "fit-test": 0,
+  "fit-fresh": 0,
+  "check-select": 30,
+  "check-test": 0,
+  "check-fresh": 0,
+  "select-test": 0,
+  "select-fresh": 0,
+  "test-fresh": 12
+ },
+ "any_dev_item_shares_a_unit_with": {
+  "test": 0,
+  "fresh": 0
+ },
+ "lists_decoded_per_session": {
+  "wire_2_h": {
+   "score": 227,
+   "check (only list in this code)": 20
+  },
+  "wire_2b_h": {
+   "score": 10000
+  },
+  "wire_2c_h": {
+   "score": 12168,
+   "check (only list in this code)": 19
+  },
+  "wire_2e_h": {
+   "score": 4659,
+   "select": 4
+  },
+  "wire_2f_h": {
+   "check": 8,
+   "select": 16
+  },
+  "wire_2g_h": {
+   "test": 5,
+   "fresh": 5
+  },
+  "wire_2h_h": {
+   "select": 2,
+   "test": 2,
+   "fresh": 2
+  },
+  "wire_2i_h": {
+   "test": 7,
+   "fresh": 7
+  }
+ },
+ "controls": {
+  "test": {
+   "other_same_task": 160,
+   "other_is_itself": 0,
+   "other_in_same_list": 160,
+   "distinct_others": 101,
+   "text_starts_with_other_gold": 0,
+   "answer_equals_other_gold": 0,
+   "answer_empty": 9,
+   "texts_equal_H_alone": 9,
+   "first_bytes": {
+    " Th": 18,
+    " Sh": 10,
+    " in": 8,
+    " \" ": 8,
+    " an": 5,
+    " ca": 5,
+    " wa": 4,
+    " He": 4
+   },
+   "mean_steps": 10.175,
+   "mean_steps_H_alone": 9.18125,
+   "S_control_texts_equal_H_alone": 52,
+   "S_control_other_field_null": true
+  },
+  "fresh": {
+   "other_same_task": 80,
+   "other_is_itself": 0,
+   "other_in_same_list": 80,
+   "distinct_others": 53,
+   "text_starts_with_other_gold": 0,
+   "answer_equals_other_gold": 0,
+   "answer_empty": 4,
+   "texts_equal_H_alone": 2,
+   "first_bytes": {
+    " Th": 9,
+    " in": 5,
+    " It": 5,
+    " Sh": 4,
+    " Ev": 4,
+    " an": 3,
+    " \"\n": 3,
+    " He": 3
+   },
+   "mean_steps": 9.6875,
+   "mean_steps_H_alone": 9.35,
+   "S_control_texts_equal_H_alone": 24,
+   "S_control_other_field_null": true
+  }
+ },
+ "samples": {
+  "pairs_right_H_wrong": [
+   {
+    "id": "published:del_word:009948",
+    "prompt_last_line": "Delete every instance of \" to \" in \" The brave little girl smiled to herself. \". Answer: \"",
+    "gold": " The brave little girl smiled herself.",
+    "15 pairs": " The brave little girl smiled herself. \"\n",
+    "H alone": " to herself. \"\nDelete every instance of \""
+   },
+   {
+    "id": "published:sub_word:011792",
+    "prompt_last_line": "Substitute \" seek \" with \" see \" in \" One day, they were playing hide and seek. \". Answer: \"",
+    "gold": " One day, they were playing hide and see.",
+    "15 pairs": " One day, they were playing hide and see. \"\n",
+    "H alone": " One day, they were playing hide and seek. \"\n"
+   },
+   {
+    "id": "published:swap_word:013713",
+    "prompt_last_line": "Swap \" potato \" and \" is \" in \" It is called a potato. \". Answer: \"",
+    "gold": " It potato called a is.",
+    "15 pairs": " It potato called a is. \"\n",
+    "H alone": " It is called a potato. \"\n"
+   }
+  ],
+  "pairs_wrong": [
+   {
+    "id": "published:del_word:009539",
+    "prompt_last_line": "Delete every instance of \" they \" in \" And they lived happily ever after. \". Answer: \"",
+    "gold": " And lived happily ever after.",
+    "15 pairs": " And lived happily. \"\nDelete every",
+    "H alone": " they lived happily. \"\nDelete every"
+   },
+   {
+    "id": "published:ins_word:007193",
+    "prompt_last_line": "Add \" its \" after every \" enjoyed \" in \" She enjoyed playing by the sea and watching the waves. \". Answer: \"",
+    "gold": " She enjoyed its playing by the sea and watching the waves.",
+    "15 pairs": " She enjoyed playing by the sea and watching the waves its. \"\n",
+    "H alone": " Its its enjoyed playing by the sea and watching the waves. \"\n"
+   },
+   {
+    "id": "published:swap_word:013112",
+    "prompt_last_line": "Swap \" balloon \" and \" starts \" in \" The balloon starts to rise in the air. \". Answer: \"",
+    "gold": " The starts balloon to rise in the air.",
+    "15 pairs": " The balloon starts to rise in the air. \"\n",
+    "H alone": " The balloon starts to rise in the air. \"\n"
+   }
+  ],
+  "another_item": [
+   {
+    "id": "published:del_word:009539",
+    "prompt_last_line": "Delete every instance of \" they \" in \" And they lived happily ever after. \". Answer: \"",
+    "gold": " And lived happily ever after.",
+    "15 pairs (another item)": " happily ever. \"\nDelete every instance",
+    "H alone": " they lived happily. \"\nDelete every",
+    "other": "published:del_word:009954",
+    "other_gold": " and Kim are scared."
+   },
+   {
+    "id": "published:sub_word:011037",
+    "prompt_last_line": "Substitute \" the \" with \" welcome \" in \" She went to tell the news to her mom. \". Answer: \"",
+    "gold": " She went to tell welcome news to her mom.",
+    "15 pairs (another item)": " with went She went She went She went She went",
+    "H alone": " welcome the news to her mom. \"\nSubstitute \"",
+    "other": "published:sub_word:011691",
+    "other_gold": " printer went inside and found some crackers and cheese."
+   },
+   {
+    "id": "published:swap_word:013112",
+    "prompt_last_line": "Swap \" balloon \" and \" starts \" in \" The balloon starts to rise in the air. \". Answer: \"",
+    "gold": " The starts balloon to rise in the air.",
+    "15 pairs (another item)": " balloon starts to balloon in the air. \"\n",
+    "H alone": " The balloon starts to rise in the air. \"\n",
+    "other": "published:swap_word:013183",
+    "other_gold": " shell little girl was excited to have her special The."
+   }
+  ],
+  "counts": {
+   "pairs_right_H_wrong": 64,
+   "pairs_wrong": 84
+  }
+ }
+}

@@ -1,0 +1,432 @@
+[
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      10,
+      7,
+      12,
+      6
+     ],
+     [
+      12,
+      0,
+      12,
+      8
+     ],
+     [
+      12,
+      7,
+      12,
+      6
+     ],
+     [
+      12,
+      6,
+      12,
+      8
+     ],
+     [
+      13,
+      2,
+      13,
+      12
+     ],
+     [
+      14,
+      2,
+      13,
+      12
+     ],
+     [
+      10,
+      4,
+      12,
+      3
+     ],
+     [
+      10,
+      15,
+      12,
+      8
+     ],
+     [
+      13,
+      5,
+      10,
+      10
+     ],
+     [
+      12,
+      12,
+      12,
+      11
+     ],
+     [
+      10,
+      8,
+      11,
+      2
+     ],
+     [
+      11,
+      12,
+      12,
+      11
+     ],
+     [
+      11,
+      8,
+      10,
+      10
+     ],
+     [
+      13,
+      15,
+      12,
+      6
+     ],
+     [
+      14,
+      10,
+      13,
+      13
+     ]
+    ]
+   },
+   {
+    "part": "out",
+    "map": "U",
+    "layers": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "scale": 1
+   }
+  ],
+  "decode": {
+   "list": "test",
+   "items": 160,
+   "right": 98,
+   "strict": 0.6125,
+   "lenient": 0.6125,
+   "right_per_task": {
+    "del_word": [
+     27,
+     40
+    ],
+    "ins_word": [
+     26,
+     40
+    ],
+    "sub_word": [
+     30,
+     40
+    ],
+    "swap_word": [
+     15,
+     40
+    ]
+   }
+  },
+  "rows": "out/decodes/laptop--r1794486831697196000_2ecc81ef.jsonl",
+  "compare": {
+   "found": true,
+   "earlier_list": "test",
+   "earlier_right": 98,
+   "right": 98,
+   "equal": true
+  },
+  "n": 1
+ },
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      10,
+      7,
+      12,
+      6
+     ],
+     [
+      12,
+      0,
+      12,
+      8
+     ],
+     [
+      12,
+      7,
+      12,
+      6
+     ],
+     [
+      12,
+      6,
+      12,
+      8
+     ],
+     [
+      13,
+      2,
+      13,
+      12
+     ],
+     [
+      14,
+      2,
+      13,
+      12
+     ],
+     [
+      10,
+      4,
+      12,
+      3
+     ],
+     [
+      10,
+      15,
+      12,
+      8
+     ],
+     [
+      13,
+      5,
+      10,
+      10
+     ],
+     [
+      12,
+      12,
+      12,
+      11
+     ],
+     [
+      10,
+      8,
+      11,
+      2
+     ],
+     [
+      11,
+      12,
+      12,
+      11
+     ],
+     [
+      11,
+      8,
+      10,
+      10
+     ],
+     [
+      13,
+      15,
+      12,
+      6
+     ],
+     [
+      14,
+      10,
+      13,
+      13
+     ]
+    ]
+   }
+  ],
+  "decode": {
+   "list": "test",
+   "items": 160,
+   "right": 76,
+   "strict": 0.475,
+   "lenient": 0.475,
+   "right_per_task": {
+    "del_word": [
+     16,
+     40
+    ],
+    "ins_word": [
+     20,
+     40
+    ],
+    "sub_word": [
+     29,
+     40
+    ],
+    "swap_word": [
+     11,
+     40
+    ]
+   }
+  },
+  "rows": "out/decodes/laptop--r1794486831697196000_2ecc81ef.jsonl",
+  "compare": {
+   "found": true,
+   "earlier_list": "test",
+   "earlier_right": 76,
+   "right": 76,
+   "equal": true
+  },
+  "n": 2
+ },
+ {
+  "spec": [
+   {
+    "part": "out",
+    "map": "U",
+    "layers": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "scale": 1
+   }
+  ],
+  "decode": {
+   "list": "test",
+   "items": 160,
+   "right": 45,
+   "strict": 0.28125,
+   "lenient": 0.28125,
+   "right_per_task": {
+    "del_word": [
+     14,
+     40
+    ],
+    "ins_word": [
+     13,
+     40
+    ],
+    "sub_word": [
+     17,
+     40
+    ],
+    "swap_word": [
+     1,
+     40
+    ]
+   }
+  },
+  "rows": "out/decodes/laptop--r1794486831697196000_2ecc81ef.jsonl",
+  "compare": {
+   "found": true,
+   "earlier_list": "test",
+   "earlier_right": 45,
+   "right": 45,
+   "equal": true
+  },
+  "n": 3
+ },
+ {
+  "spec": [],
+  "decode": {
+   "list": "test",
+   "items": 160,
+   "right": 12,
+   "strict": 0.075,
+   "lenient": 0.075,
+   "right_per_task": {
+    "del_word": [
+     1,
+     40
+    ],
+    "ins_word": [
+     6,
+     40
+    ],
+    "sub_word": [
+     5,
+     40
+    ],
+    "swap_word": [
+     0,
+     40
+    ]
+   }
+  },
+  "rows": "out/decodes/laptop--r1794486831697196000_2ecc81ef.jsonl",
+  "compare": {
+   "found": true,
+   "earlier_list": "test",
+   "earlier_right": 12,
+   "right": 12,
+   "equal": true
+  },
+  "n": 4
+ },
+ {
+  "spec": [
+   {
+    "part": "direct",
+    "map": "proc",
+    "scale": 1
+   }
+  ],
+  "decode": {
+   "list": "test",
+   "items": 160,
+   "right": 52,
+   "strict": 0.325,
+   "lenient": 0.325,
+   "right_per_task": {
+    "del_word": [
+     18,
+     40
+    ],
+    "ins_word": [
+     18,
+     40
+    ],
+    "sub_word": [
+     13,
+     40
+    ],
+    "swap_word": [
+     3,
+     40
+    ]
+   }
+  },
+  "rows": "out/decodes/laptop--r1794486831697196000_2ecc81ef.jsonl",
+  "compare": {
+   "found": true,
+   "earlier_list": "test",
+   "earlier_right": 52,
+   "right": 52,
+   "equal": true
+  },
+  "n": 5
+ }
+]

@@ -1,0 +1,2808 @@
+{
+ "job": "route_1",
+ "part": "route",
+ "steps": {
+  "diff_reproduction_1": {
+   "seconds": 0.0,
+   "gate": "1 main's weights and values through the route path reproduce main alone's texts",
+   "items": 20,
+   "near_ties": []
+  },
+  "known_answer_1": {
+   "seconds": 66.4,
+   "gate": "1 main's weights and values through the route path reproduce main alone",
+   "cell": "rnone",
+   "largest_gap": 1.1939589405953496e-05,
+   "items": 20,
+   "passed": true
+  },
+  "diff_reproduction_2": {
+   "seconds": 0.0,
+   "gate": "2 F's weights and values through the route path reproduce the stored join's texts",
+   "items": 20,
+   "near_ties": []
+  },
+  "known_answer_2": {
+   "seconds": 117.8,
+   "gate": "2 F's weights and values through the route path reproduce the stored join",
+   "cell": "rjoin",
+   "largest_gap": 3.6172024800875785e-06,
+   "items": 20,
+   "passed": true
+  },
+  "clean_items": {
+   "seconds": 140.2,
+   "test": 75,
+   "fresh": 36
+  },
+  "progress": {
+   "seconds": 3024.2,
+   "items_done": 240,
+   "of": 240
+  },
+  "known_answer_3": {
+   "seconds": 3024.2,
+   "largest_departure_from_1": 4.172325134277344e-07,
+   "passed": true
+  },
+  "results": {
+   "seconds": 0.0,
+   "route": {
+    "all": {
+     "strict": {
+      "re_routing": "mixed",
+      "values": "F's values alone give part of the join's gain",
+      "test": {
+       "w1": {
+        "mean": 0.38125000000000003,
+        "lo": 0.3,
+        "hi": 0.46249999999999997
+       },
+       "w2": {
+        "mean": 0.1125,
+        "lo": 0.049999999999999996,
+        "hi": 0.18124999999999997
+       },
+       "v1": {
+        "mean": 0.13125,
+        "lo": 0.06250000000000001,
+        "hi": 0.19999999999999998
+       },
+       "v2": {
+        "mean": 0.36250000000000004,
+        "lo": 0.28125,
+        "hi": 0.44375000000000003
+       },
+       "control": {
+        "mean": 0.48125,
+        "lo": 0.40625,
+        "hi": 0.55625
+       },
+       "interaction": {
+        "mean": -0.01875,
+        "lo": -0.11875,
+        "hi": 0.08125
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.59375,
+         "lo": 0.51875,
+         "hi": 0.6687500000000001
+        },
+        "none": {
+         "mean": 0.1,
+         "lo": 0.05625,
+         "hi": 0.14390624999999913
+        },
+        "w_only": {
+         "mean": 0.48125,
+         "lo": 0.40625,
+         "hi": 0.55625
+        },
+        "v_only": {
+         "mean": 0.23125,
+         "lo": 0.16875,
+         "hi": 0.29375
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 23,
+         "ins_word": 28,
+         "sub_word": 29,
+         "swap_word": 15
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 5,
+         "sub_word": 10,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 15,
+         "ins_word": 25,
+         "sub_word": 25,
+         "swap_word": 12
+        },
+        "v_only": {
+         "del_word": 12,
+         "ins_word": 9,
+         "sub_word": 15,
+         "swap_word": 1
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 160
+      },
+      "fresh": {
+       "w1": {
+        "mean": 0.3875,
+        "lo": 0.275,
+        "hi": 0.5
+       },
+       "w2": {
+        "mean": 0.05,
+        "lo": -0.05,
+        "hi": 0.15
+       },
+       "v1": {
+        "mean": 0.175,
+        "lo": 0.0875,
+        "hi": 0.275
+       },
+       "v2": {
+        "mean": 0.26249999999999996,
+        "lo": 0.16218749999999998,
+        "hi": 0.36250000000000004
+       },
+       "control": {
+        "mean": 0.475,
+        "lo": 0.375,
+        "hi": 0.5750000000000001
+       },
+       "interaction": {
+        "mean": -0.125,
+        "lo": -0.275,
+        "hi": 0.012499999999999997
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.525,
+         "lo": 0.425,
+         "hi": 0.625
+        },
+        "none": {
+         "mean": 0.08750000000000001,
+         "lo": 0.03718750000000002,
+         "hi": 0.15000000000000002
+        },
+        "w_only": {
+         "mean": 0.475,
+         "lo": 0.375,
+         "hi": 0.5750000000000001
+        },
+        "v_only": {
+         "mean": 0.2625,
+         "lo": 0.175,
+         "hi": 0.35000000000000003
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 12,
+         "ins_word": 11,
+         "sub_word": 12,
+         "swap_word": 7
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 2,
+         "sub_word": 4,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 9,
+         "ins_word": 11,
+         "sub_word": 13,
+         "swap_word": 5
+        },
+        "v_only": {
+         "del_word": 6,
+         "ins_word": 4,
+         "sub_word": 9,
+         "swap_word": 2
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 80
+      }
+     },
+     "lenient": {
+      "re_routing": "mixed",
+      "values": "F's values alone give part of the join's gain",
+      "test": {
+       "w1": {
+        "mean": 0.38125000000000003,
+        "lo": 0.3,
+        "hi": 0.46249999999999997
+       },
+       "w2": {
+        "mean": 0.1125,
+        "lo": 0.049999999999999996,
+        "hi": 0.18124999999999997
+       },
+       "v1": {
+        "mean": 0.13125,
+        "lo": 0.06250000000000001,
+        "hi": 0.19999999999999998
+       },
+       "v2": {
+        "mean": 0.36250000000000004,
+        "lo": 0.28125,
+        "hi": 0.44375000000000003
+       },
+       "control": {
+        "mean": 0.48125,
+        "lo": 0.40625,
+        "hi": 0.55625
+       },
+       "interaction": {
+        "mean": -0.01875,
+        "lo": -0.11875,
+        "hi": 0.08125
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.59375,
+         "lo": 0.51875,
+         "hi": 0.6687500000000001
+        },
+        "none": {
+         "mean": 0.1,
+         "lo": 0.05625,
+         "hi": 0.14390624999999913
+        },
+        "w_only": {
+         "mean": 0.48125,
+         "lo": 0.40625,
+         "hi": 0.55625
+        },
+        "v_only": {
+         "mean": 0.23125,
+         "lo": 0.16875,
+         "hi": 0.29375
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 23,
+         "ins_word": 28,
+         "sub_word": 29,
+         "swap_word": 15
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 5,
+         "sub_word": 10,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 15,
+         "ins_word": 25,
+         "sub_word": 25,
+         "swap_word": 12
+        },
+        "v_only": {
+         "del_word": 12,
+         "ins_word": 9,
+         "sub_word": 15,
+         "swap_word": 1
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 160
+      },
+      "fresh": {
+       "w1": {
+        "mean": 0.3875,
+        "lo": 0.275,
+        "hi": 0.5
+       },
+       "w2": {
+        "mean": 0.05,
+        "lo": -0.05,
+        "hi": 0.15
+       },
+       "v1": {
+        "mean": 0.175,
+        "lo": 0.0875,
+        "hi": 0.275
+       },
+       "v2": {
+        "mean": 0.26249999999999996,
+        "lo": 0.16218749999999998,
+        "hi": 0.36250000000000004
+       },
+       "control": {
+        "mean": 0.475,
+        "lo": 0.375,
+        "hi": 0.5750000000000001
+       },
+       "interaction": {
+        "mean": -0.125,
+        "lo": -0.275,
+        "hi": 0.012499999999999997
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.525,
+         "lo": 0.425,
+         "hi": 0.625
+        },
+        "none": {
+         "mean": 0.08750000000000001,
+         "lo": 0.03718750000000002,
+         "hi": 0.15000000000000002
+        },
+        "w_only": {
+         "mean": 0.475,
+         "lo": 0.375,
+         "hi": 0.5750000000000001
+        },
+        "v_only": {
+         "mean": 0.2625,
+         "lo": 0.175,
+         "hi": 0.35000000000000003
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 12,
+         "ins_word": 11,
+         "sub_word": 12,
+         "swap_word": 7
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 2,
+         "sub_word": 4,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 9,
+         "ins_word": 11,
+         "sub_word": 13,
+         "swap_word": 5
+        },
+        "v_only": {
+         "del_word": 6,
+         "ins_word": 4,
+         "sub_word": 9,
+         "swap_word": 2
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 80
+      }
+     }
+    },
+    "no_unmatched_row": {
+     "strict": {
+      "re_routing": "mixed",
+      "values": "F's values alone give part of the join's gain",
+      "test": {
+       "w1": {
+        "mean": 0.4544807965860598,
+        "lo": 0.33463726884779516,
+        "hi": 0.5743243243243243
+       },
+       "w2": {
+        "mean": 0.13229018492176386,
+        "lo": 0.038762446657183494,
+        "hi": 0.23826458036984352
+       },
+       "v1": {
+        "mean": 0.19879089615931722,
+        "lo": 0.0906827880512091,
+        "hi": 0.3182788051209104
+       },
+       "v2": {
+        "mean": 0.3879800853485064,
+        "lo": 0.267425320056899,
+        "hi": 0.507823613086771
+       },
+       "control": {
+        "mean": 0.5352062588904694,
+        "lo": 0.42816500711237554,
+        "hi": 0.6419007823613087
+       },
+       "interaction": {
+        "mean": -0.06650071123755334,
+        "lo": -0.22618243243243244,
+        "hi": 0.09281650071123755
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.6674964438122333,
+         "lo": 0.5611664295874822,
+         "hi": 0.7738264580369844
+        },
+        "none": {
+         "mean": 0.08072546230440968,
+         "lo": 0.02702702702702703,
+         "hi": 0.14793741109530584
+        },
+        "w_only": {
+         "mean": 0.5352062588904694,
+         "lo": 0.42816500711237554,
+         "hi": 0.6419007823613087
+        },
+        "v_only": {
+         "mean": 0.2795163584637269,
+         "lo": 0.17318634423897583,
+         "hi": 0.38620199146514933
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 23,
+         "ins_word": 27,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 5,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 15,
+         "ins_word": 25,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "v_only": {
+         "del_word": 12,
+         "ins_word": 9,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 75
+      },
+      "fresh": {
+       "w1": {
+        "mean": 0.4489164086687306,
+        "lo": 0.25534055727554184,
+        "hi": 0.6191950464396284
+       },
+       "w2": {
+        "mean": 0.07894736842105263,
+        "lo": -0.08823529411764706,
+        "hi": 0.25239938080495317
+       },
+       "v1": {
+        "mean": 0.16408668730650156,
+        "lo": 0.023142414860681117,
+        "hi": 0.3281733746130031
+       },
+       "v2": {
+        "mean": 0.3637770897832817,
+        "lo": 0.19040247678018574,
+        "hi": 0.5309597523219814
+       },
+       "control": {
+        "mean": 0.5340557275541795,
+        "lo": 0.3668730650154799,
+        "hi": 0.695046439628483
+       },
+       "interaction": {
+        "mean": -0.08513931888544891,
+        "lo": -0.3080495356037152,
+        "hi": 0.1547987616099071
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.6130030959752322,
+         "lo": 0.4488390092879257,
+         "hi": 0.7770897832817337
+        },
+        "none": {
+         "mean": 0.08513931888544891,
+         "lo": 0.0,
+         "hi": 0.17647058823529413
+        },
+        "w_only": {
+         "mean": 0.5340557275541795,
+         "lo": 0.3668730650154799,
+         "hi": 0.695046439628483
+        },
+        "v_only": {
+         "mean": 0.24922600619195046,
+         "lo": 0.11145510835913312,
+         "hi": 0.4071981424148603
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 11,
+         "ins_word": 11,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 2,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 8,
+         "ins_word": 11,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "v_only": {
+         "del_word": 5,
+         "ins_word": 4,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 36
+      }
+     },
+     "lenient": {
+      "re_routing": "mixed",
+      "values": "F's values alone give part of the join's gain",
+      "test": {
+       "w1": {
+        "mean": 0.4544807965860598,
+        "lo": 0.33463726884779516,
+        "hi": 0.5743243243243243
+       },
+       "w2": {
+        "mean": 0.13229018492176386,
+        "lo": 0.038762446657183494,
+        "hi": 0.23826458036984352
+       },
+       "v1": {
+        "mean": 0.19879089615931722,
+        "lo": 0.0906827880512091,
+        "hi": 0.3182788051209104
+       },
+       "v2": {
+        "mean": 0.3879800853485064,
+        "lo": 0.267425320056899,
+        "hi": 0.507823613086771
+       },
+       "control": {
+        "mean": 0.5352062588904694,
+        "lo": 0.42816500711237554,
+        "hi": 0.6419007823613087
+       },
+       "interaction": {
+        "mean": -0.06650071123755334,
+        "lo": -0.22618243243243244,
+        "hi": 0.09281650071123755
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.6674964438122333,
+         "lo": 0.5611664295874822,
+         "hi": 0.7738264580369844
+        },
+        "none": {
+         "mean": 0.08072546230440968,
+         "lo": 0.02702702702702703,
+         "hi": 0.14793741109530584
+        },
+        "w_only": {
+         "mean": 0.5352062588904694,
+         "lo": 0.42816500711237554,
+         "hi": 0.6419007823613087
+        },
+        "v_only": {
+         "mean": 0.2795163584637269,
+         "lo": 0.17318634423897583,
+         "hi": 0.38620199146514933
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 23,
+         "ins_word": 27,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 5,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 15,
+         "ins_word": 25,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "v_only": {
+         "del_word": 12,
+         "ins_word": 9,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 75
+      },
+      "fresh": {
+       "w1": {
+        "mean": 0.4489164086687306,
+        "lo": 0.25534055727554184,
+        "hi": 0.6191950464396284
+       },
+       "w2": {
+        "mean": 0.07894736842105263,
+        "lo": -0.08823529411764706,
+        "hi": 0.25239938080495317
+       },
+       "v1": {
+        "mean": 0.16408668730650156,
+        "lo": 0.023142414860681117,
+        "hi": 0.3281733746130031
+       },
+       "v2": {
+        "mean": 0.3637770897832817,
+        "lo": 0.19040247678018574,
+        "hi": 0.5309597523219814
+       },
+       "control": {
+        "mean": 0.5340557275541795,
+        "lo": 0.3668730650154799,
+        "hi": 0.695046439628483
+       },
+       "interaction": {
+        "mean": -0.08513931888544891,
+        "lo": -0.3080495356037152,
+        "hi": 0.1547987616099071
+       },
+       "accuracy": {
+        "join": {
+         "mean": 0.6130030959752322,
+         "lo": 0.4488390092879257,
+         "hi": 0.7770897832817337
+        },
+        "none": {
+         "mean": 0.08513931888544891,
+         "lo": 0.0,
+         "hi": 0.17647058823529413
+        },
+        "w_only": {
+         "mean": 0.5340557275541795,
+         "lo": 0.3668730650154799,
+         "hi": 0.695046439628483
+        },
+        "v_only": {
+         "mean": 0.24922600619195046,
+         "lo": 0.11145510835913312,
+         "hi": 0.4071981424148603
+        },
+        "w_other": {
+         "mean": 0.0,
+         "lo": 0.0,
+         "hi": 0.0
+        }
+       },
+       "right": {
+        "join": {
+         "del_word": 11,
+         "ins_word": 11,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "none": {
+         "del_word": 1,
+         "ins_word": 2,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_only": {
+         "del_word": 8,
+         "ins_word": 11,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "v_only": {
+         "del_word": 5,
+         "ins_word": 4,
+         "sub_word": 0,
+         "swap_word": 0
+        },
+        "w_other": {
+         "del_word": 0,
+         "ins_word": 0,
+         "sub_word": 0,
+         "swap_word": 0
+        }
+       },
+       "items": 36
+      }
+     }
+    }
+   },
+   "affected_items": {
+    "test": 85,
+    "fresh": 44
+   },
+   "moved_keys": {
+    "test w_only": [
+     [
+      "published:del_word:009539",
+      0
+     ],
+     [
+      "published:del_word:009364",
+      0
+     ],
+     [
+      "published:del_word:009948",
+      0
+     ],
+     [
+      "published:del_word:009931",
+      0
+     ],
+     [
+      "published:del_word:009752",
+      0
+     ],
+     [
+      "published:del_word:009720",
+      0
+     ],
+     [
+      "published:del_word:009377",
+      0
+     ],
+     [
+      "published:del_word:009494",
+      8
+     ],
+     [
+      "published:del_word:009755",
+      0
+     ],
+     [
+      "published:del_word:009093",
+      16
+     ],
+     [
+      "published:del_word:009901",
+      0
+     ],
+     [
+      "published:del_word:009714",
+      0
+     ],
+     [
+      "published:del_word:009927",
+      0
+     ],
+     [
+      "published:del_word:009906",
+      0
+     ],
+     [
+      "published:del_word:009821",
+      0
+     ],
+     [
+      "published:del_word:009046",
+      0
+     ],
+     [
+      "published:del_word:009561",
+      0
+     ],
+     [
+      "published:del_word:009666",
+      0
+     ],
+     [
+      "published:del_word:009807",
+      0
+     ],
+     [
+      "published:del_word:009512",
+      0
+     ],
+     [
+      "published:del_word:009694",
+      0
+     ],
+     [
+      "published:del_word:009508",
+      0
+     ],
+     [
+      "published:del_word:009028",
+      0
+     ],
+     [
+      "published:del_word:009605",
+      0
+     ],
+     [
+      "published:del_word:009633",
+      0
+     ],
+     [
+      "published:del_word:009056",
+      0
+     ],
+     [
+      "published:del_word:009268",
+      0
+     ],
+     [
+      "published:del_word:009382",
+      0
+     ],
+     [
+      "published:del_word:009612",
+      0
+     ],
+     [
+      "published:del_word:009639",
+      0
+     ],
+     [
+      "published:del_word:009025",
+      0
+     ],
+     [
+      "published:del_word:009044",
+      0
+     ],
+     [
+      "published:del_word:009369",
+      0
+     ],
+     [
+      "published:del_word:009248",
+      0
+     ],
+     [
+      "published:del_word:009607",
+      0
+     ],
+     [
+      "published:del_word:009063",
+      0
+     ],
+     [
+      "published:del_word:009088",
+      0
+     ],
+     [
+      "published:del_word:009962",
+      0
+     ],
+     [
+      "published:del_word:009513",
+      0
+     ],
+     [
+      "published:del_word:009954",
+      0
+     ],
+     [
+      "published:ins_word:007361",
+      0
+     ],
+     [
+      "published:ins_word:007002",
+      30
+     ],
+     [
+      "published:ins_word:007884",
+      0
+     ],
+     [
+      "published:ins_word:007100",
+      0
+     ],
+     [
+      "published:ins_word:007989",
+      0
+     ],
+     [
+      "published:ins_word:007796",
+      0
+     ],
+     [
+      "published:ins_word:007229",
+      0
+     ],
+     [
+      "published:ins_word:007352",
+      0
+     ],
+     [
+      "published:ins_word:007615",
+      0
+     ],
+     [
+      "published:ins_word:007578",
+      0
+     ],
+     [
+      "published:ins_word:007365",
+      0
+     ],
+     [
+      "published:ins_word:007274",
+      0
+     ],
+     [
+      "published:ins_word:007801",
+      0
+     ],
+     [
+      "published:ins_word:007277",
+      0
+     ],
+     [
+      "published:ins_word:007430",
+      0
+     ],
+     [
+      "published:ins_word:007988",
+      0
+     ],
+     [
+      "published:ins_word:007399",
+      0
+     ],
+     [
+      "published:ins_word:007243",
+      0
+     ],
+     [
+      "published:ins_word:007956",
+      0
+     ],
+     [
+      "published:ins_word:007461",
+      23
+     ],
+     [
+      "published:ins_word:007111",
+      0
+     ],
+     [
+      "published:ins_word:007278",
+      0
+     ],
+     [
+      "published:ins_word:007395",
+      0
+     ],
+     [
+      "published:ins_word:007532",
+      0
+     ],
+     [
+      "published:ins_word:007605",
+      0
+     ],
+     [
+      "published:ins_word:007794",
+      0
+     ],
+     [
+      "published:ins_word:007466",
+      0
+     ],
+     [
+      "published:ins_word:007339",
+      0
+     ],
+     [
+      "published:ins_word:007420",
+      0
+     ],
+     [
+      "published:ins_word:007105",
+      14
+     ],
+     [
+      "published:ins_word:007067",
+      0
+     ],
+     [
+      "published:ins_word:007810",
+      0
+     ],
+     [
+      "published:ins_word:007193",
+      0
+     ],
+     [
+      "published:ins_word:007850",
+      0
+     ],
+     [
+      "published:ins_word:007898",
+      0
+     ],
+     [
+      "published:ins_word:007312",
+      0
+     ],
+     [
+      "published:ins_word:007773",
+      0
+     ],
+     [
+      "published:ins_word:007880",
+      0
+     ],
+     [
+      "published:ins_word:007813",
+      0
+     ],
+     [
+      "published:ins_word:007133",
+      0
+     ],
+     [
+      "published:sub_word:011037",
+      11
+     ],
+     [
+      "published:sub_word:011081",
+      10
+     ],
+     [
+      "published:sub_word:011123",
+      8
+     ],
+     [
+      "published:sub_word:011758",
+      11
+     ],
+     [
+      "published:sub_word:011430",
+      5
+     ],
+     [
+      "published:sub_word:011903",
+      33
+     ],
+     [
+      "published:sub_word:011792",
+      11
+     ],
+     [
+      "published:sub_word:011749",
+      11
+     ],
+     [
+      "published:sub_word:011175",
+      10
+     ],
+     [
+      "published:sub_word:011676",
+      9
+     ],
+     [
+      "published:sub_word:011263",
+      8
+     ],
+     [
+      "published:sub_word:011318",
+      13
+     ],
+     [
+      "published:sub_word:011055",
+      5
+     ],
+     [
+      "published:sub_word:011461",
+      50
+     ],
+     [
+      "published:sub_word:011115",
+      18
+     ],
+     [
+      "published:sub_word:011633",
+      7
+     ],
+     [
+      "published:sub_word:011976",
+      6
+     ],
+     [
+      "published:sub_word:011465",
+      9
+     ],
+     [
+      "published:sub_word:011087",
+      6
+     ],
+     [
+      "published:sub_word:011802",
+      10
+     ],
+     [
+      "published:sub_word:011222",
+      8
+     ],
+     [
+      "published:sub_word:011664",
+      9
+     ],
+     [
+      "published:sub_word:011688",
+      9
+     ],
+     [
+      "published:sub_word:011691",
+      11
+     ],
+     [
+      "published:sub_word:011607",
+      8
+     ],
+     [
+      "published:sub_word:011777",
+      15
+     ],
+     [
+      "published:sub_word:011703",
+      9
+     ],
+     [
+      "published:sub_word:011945",
+      12
+     ],
+     [
+      "published:sub_word:011090",
+      16
+     ],
+     [
+      "published:sub_word:011872",
+      10
+     ],
+     [
+      "published:sub_word:011491",
+      11
+     ],
+     [
+      "published:sub_word:011344",
+      9
+     ],
+     [
+      "published:sub_word:011933",
+      9
+     ],
+     [
+      "published:sub_word:011916",
+      13
+     ],
+     [
+      "published:sub_word:011095",
+      32
+     ],
+     [
+      "published:sub_word:011525",
+      23
+     ],
+     [
+      "published:sub_word:011596",
+      7
+     ],
+     [
+      "published:sub_word:011304",
+      6
+     ],
+     [
+      "published:sub_word:011279",
+      7
+     ],
+     [
+      "published:sub_word:011558",
+      8
+     ],
+     [
+      "published:swap_word:013709",
+      16
+     ],
+     [
+      "published:swap_word:013213",
+      16
+     ],
+     [
+      "published:swap_word:013953",
+      24
+     ],
+     [
+      "published:swap_word:013674",
+      14
+     ],
+     [
+      "published:swap_word:013436",
+      18
+     ],
+     [
+      "published:swap_word:013257",
+      38
+     ],
+     [
+      "published:swap_word:013872",
+      20
+     ],
+     [
+      "published:swap_word:013783",
+      14
+     ],
+     [
+      "published:swap_word:013439",
+      24
+     ],
+     [
+      "published:swap_word:013550",
+      34
+     ],
+     [
+      "published:swap_word:013340",
+      22
+     ],
+     [
+      "published:swap_word:013773",
+      28
+     ],
+     [
+      "published:swap_word:013648",
+      18
+     ],
+     [
+      "published:swap_word:013837",
+      24
+     ],
+     [
+      "published:swap_word:013269",
+      14
+     ],
+     [
+      "published:swap_word:013004",
+      14
+     ],
+     [
+      "published:swap_word:013517",
+      26
+     ],
+     [
+      "published:swap_word:013681",
+      20
+     ],
+     [
+      "published:swap_word:013572",
+      18
+     ],
+     [
+      "published:swap_word:013200",
+      10
+     ],
+     [
+      "published:swap_word:013923",
+      22
+     ],
+     [
+      "published:swap_word:013830",
+      20
+     ],
+     [
+      "published:swap_word:013857",
+      12
+     ],
+     [
+      "published:swap_word:013793",
+      10
+     ],
+     [
+      "published:swap_word:013804",
+      14
+     ],
+     [
+      "published:swap_word:013183",
+      24
+     ],
+     [
+      "published:swap_word:013799",
+      20
+     ],
+     [
+      "published:swap_word:013675",
+      18
+     ],
+     [
+      "published:swap_word:013985",
+      28
+     ],
+     [
+      "published:swap_word:013324",
+      34
+     ],
+     [
+      "published:swap_word:013251",
+      18
+     ],
+     [
+      "published:swap_word:013738",
+      16
+     ],
+     [
+      "published:swap_word:013271",
+      22
+     ],
+     [
+      "published:swap_word:013946",
+      24
+     ],
+     [
+      "published:swap_word:013640",
+      14
+     ],
+     [
+      "published:swap_word:013713",
+      14
+     ],
+     [
+      "published:swap_word:013940",
+      18
+     ],
+     [
+      "published:swap_word:013477",
+      24
+     ],
+     [
+      "published:swap_word:013273",
+      18
+     ],
+     [
+      "published:swap_word:013112",
+      20
+     ]
+    ],
+    "test v_only": [
+     [
+      "published:del_word:009539",
+      0
+     ],
+     [
+      "published:del_word:009364",
+      0
+     ],
+     [
+      "published:del_word:009948",
+      0
+     ],
+     [
+      "published:del_word:009931",
+      0
+     ],
+     [
+      "published:del_word:009752",
+      0
+     ],
+     [
+      "published:del_word:009720",
+      0
+     ],
+     [
+      "published:del_word:009377",
+      0
+     ],
+     [
+      "published:del_word:009494",
+      29
+     ],
+     [
+      "published:del_word:009755",
+      0
+     ],
+     [
+      "published:del_word:009093",
+      45
+     ],
+     [
+      "published:del_word:009901",
+      0
+     ],
+     [
+      "published:del_word:009714",
+      0
+     ],
+     [
+      "published:del_word:009927",
+      0
+     ],
+     [
+      "published:del_word:009906",
+      0
+     ],
+     [
+      "published:del_word:009821",
+      0
+     ],
+     [
+      "published:del_word:009046",
+      0
+     ],
+     [
+      "published:del_word:009561",
+      0
+     ],
+     [
+      "published:del_word:009666",
+      0
+     ],
+     [
+      "published:del_word:009807",
+      0
+     ],
+     [
+      "published:del_word:009512",
+      0
+     ],
+     [
+      "published:del_word:009694",
+      0
+     ],
+     [
+      "published:del_word:009508",
+      0
+     ],
+     [
+      "published:del_word:009028",
+      0
+     ],
+     [
+      "published:del_word:009605",
+      0
+     ],
+     [
+      "published:del_word:009633",
+      0
+     ],
+     [
+      "published:del_word:009056",
+      0
+     ],
+     [
+      "published:del_word:009268",
+      0
+     ],
+     [
+      "published:del_word:009382",
+      0
+     ],
+     [
+      "published:del_word:009612",
+      0
+     ],
+     [
+      "published:del_word:009639",
+      0
+     ],
+     [
+      "published:del_word:009025",
+      0
+     ],
+     [
+      "published:del_word:009044",
+      0
+     ],
+     [
+      "published:del_word:009369",
+      0
+     ],
+     [
+      "published:del_word:009248",
+      0
+     ],
+     [
+      "published:del_word:009607",
+      0
+     ],
+     [
+      "published:del_word:009063",
+      0
+     ],
+     [
+      "published:del_word:009088",
+      0
+     ],
+     [
+      "published:del_word:009962",
+      0
+     ],
+     [
+      "published:del_word:009513",
+      0
+     ],
+     [
+      "published:del_word:009954",
+      0
+     ],
+     [
+      "published:ins_word:007361",
+      0
+     ],
+     [
+      "published:ins_word:007002",
+      87
+     ],
+     [
+      "published:ins_word:007884",
+      0
+     ],
+     [
+      "published:ins_word:007100",
+      0
+     ],
+     [
+      "published:ins_word:007989",
+      0
+     ],
+     [
+      "published:ins_word:007796",
+      0
+     ],
+     [
+      "published:ins_word:007229",
+      0
+     ],
+     [
+      "published:ins_word:007352",
+      0
+     ],
+     [
+      "published:ins_word:007615",
+      0
+     ],
+     [
+      "published:ins_word:007578",
+      0
+     ],
+     [
+      "published:ins_word:007365",
+      0
+     ],
+     [
+      "published:ins_word:007274",
+      0
+     ],
+     [
+      "published:ins_word:007801",
+      0
+     ],
+     [
+      "published:ins_word:007277",
+      0
+     ],
+     [
+      "published:ins_word:007430",
+      0
+     ],
+     [
+      "published:ins_word:007988",
+      0
+     ],
+     [
+      "published:ins_word:007399",
+      0
+     ],
+     [
+      "published:ins_word:007243",
+      0
+     ],
+     [
+      "published:ins_word:007956",
+      0
+     ],
+     [
+      "published:ins_word:007461",
+      66
+     ],
+     [
+      "published:ins_word:007111",
+      0
+     ],
+     [
+      "published:ins_word:007278",
+      0
+     ],
+     [
+      "published:ins_word:007395",
+      0
+     ],
+     [
+      "published:ins_word:007532",
+      0
+     ],
+     [
+      "published:ins_word:007605",
+      0
+     ],
+     [
+      "published:ins_word:007794",
+      0
+     ],
+     [
+      "published:ins_word:007466",
+      0
+     ],
+     [
+      "published:ins_word:007339",
+      0
+     ],
+     [
+      "published:ins_word:007420",
+      0
+     ],
+     [
+      "published:ins_word:007105",
+      27
+     ],
+     [
+      "published:ins_word:007067",
+      0
+     ],
+     [
+      "published:ins_word:007810",
+      0
+     ],
+     [
+      "published:ins_word:007193",
+      34
+     ],
+     [
+      "published:ins_word:007850",
+      0
+     ],
+     [
+      "published:ins_word:007898",
+      0
+     ],
+     [
+      "published:ins_word:007312",
+      0
+     ],
+     [
+      "published:ins_word:007773",
+      0
+     ],
+     [
+      "published:ins_word:007880",
+      0
+     ],
+     [
+      "published:ins_word:007813",
+      0
+     ],
+     [
+      "published:ins_word:007133",
+      0
+     ],
+     [
+      "published:sub_word:011037",
+      30
+     ],
+     [
+      "published:sub_word:011081",
+      30
+     ],
+     [
+      "published:sub_word:011123",
+      33
+     ],
+     [
+      "published:sub_word:011758",
+      39
+     ],
+     [
+      "published:sub_word:011430",
+      15
+     ],
+     [
+      "published:sub_word:011903",
+      78
+     ],
+     [
+      "published:sub_word:011792",
+      33
+     ],
+     [
+      "published:sub_word:011749",
+      30
+     ],
+     [
+      "published:sub_word:011175",
+      30
+     ],
+     [
+      "published:sub_word:011676",
+      27
+     ],
+     [
+      "published:sub_word:011263",
+      27
+     ],
+     [
+      "published:sub_word:011318",
+      39
+     ],
+     [
+      "published:sub_word:011055",
+      12
+     ],
+     [
+      "published:sub_word:011461",
+      110
+     ],
+     [
+      "published:sub_word:011115",
+      63
+     ],
+     [
+      "published:sub_word:011633",
+      21
+     ],
+     [
+      "published:sub_word:011976",
+      15
+     ],
+     [
+      "published:sub_word:011465",
+      27
+     ],
+     [
+      "published:sub_word:011087",
+      21
+     ],
+     [
+      "published:sub_word:011802",
+      30
+     ],
+     [
+      "published:sub_word:011222",
+      24
+     ],
+     [
+      "published:sub_word:011664",
+      27
+     ],
+     [
+      "published:sub_word:011688",
+      24
+     ],
+     [
+      "published:sub_word:011691",
+      33
+     ],
+     [
+      "published:sub_word:011607",
+      21
+     ],
+     [
+      "published:sub_word:011777",
+      48
+     ],
+     [
+      "published:sub_word:011703",
+      30
+     ],
+     [
+      "published:sub_word:011945",
+      39
+     ],
+     [
+      "published:sub_word:011090",
+      45
+     ],
+     [
+      "published:sub_word:011872",
+      30
+     ],
+     [
+      "published:sub_word:011491",
+      33
+     ],
+     [
+      "published:sub_word:011344",
+      33
+     ],
+     [
+      "published:sub_word:011933",
+      27
+     ],
+     [
+      "published:sub_word:011916",
+      39
+     ],
+     [
+      "published:sub_word:011095",
+      63
+     ],
+     [
+      "published:sub_word:011525",
+      74
+     ],
+     [
+      "published:sub_word:011596",
+      18
+     ],
+     [
+      "published:sub_word:011304",
+      18
+     ],
+     [
+      "published:sub_word:011279",
+      21
+     ],
+     [
+      "published:sub_word:011558",
+      24
+     ],
+     [
+      "published:swap_word:013709",
+      24
+     ],
+     [
+      "published:swap_word:013213",
+      24
+     ],
+     [
+      "published:swap_word:013953",
+      33
+     ],
+     [
+      "published:swap_word:013674",
+      21
+     ],
+     [
+      "published:swap_word:013436",
+      30
+     ],
+     [
+      "published:swap_word:013257",
+      33
+     ],
+     [
+      "published:swap_word:013872",
+      30
+     ],
+     [
+      "published:swap_word:013783",
+      21
+     ],
+     [
+      "published:swap_word:013439",
+      36
+     ],
+     [
+      "published:swap_word:013550",
+      39
+     ],
+     [
+      "published:swap_word:013340",
+      33
+     ],
+     [
+      "published:swap_word:013773",
+      39
+     ],
+     [
+      "published:swap_word:013648",
+      27
+     ],
+     [
+      "published:swap_word:013837",
+      33
+     ],
+     [
+      "published:swap_word:013269",
+      21
+     ],
+     [
+      "published:swap_word:013004",
+      21
+     ],
+     [
+      "published:swap_word:013517",
+      40
+     ],
+     [
+      "published:swap_word:013681",
+      30
+     ],
+     [
+      "published:swap_word:013572",
+      27
+     ],
+     [
+      "published:swap_word:013200",
+      15
+     ],
+     [
+      "published:swap_word:013923",
+      33
+     ],
+     [
+      "published:swap_word:013830",
+      30
+     ],
+     [
+      "published:swap_word:013857",
+      18
+     ],
+     [
+      "published:swap_word:013793",
+      15
+     ],
+     [
+      "published:swap_word:013804",
+      24
+     ],
+     [
+      "published:swap_word:013183",
+      36
+     ],
+     [
+      "published:swap_word:013799",
+      30
+     ],
+     [
+      "published:swap_word:013675",
+      27
+     ],
+     [
+      "published:swap_word:013985",
+      39
+     ],
+     [
+      "published:swap_word:013324",
+      39
+     ],
+     [
+      "published:swap_word:013251",
+      24
+     ],
+     [
+      "published:swap_word:013738",
+      24
+     ],
+     [
+      "published:swap_word:013271",
+      33
+     ],
+     [
+      "published:swap_word:013946",
+      36
+     ],
+     [
+      "published:swap_word:013640",
+      21
+     ],
+     [
+      "published:swap_word:013713",
+      24
+     ],
+     [
+      "published:swap_word:013940",
+      24
+     ],
+     [
+      "published:swap_word:013477",
+      33
+     ],
+     [
+      "published:swap_word:013273",
+      27
+     ],
+     [
+      "published:swap_word:013112",
+      30
+     ]
+    ],
+    "fresh w_only": [
+     [
+      "published:del_word:009106",
+      0
+     ],
+     [
+      "published:del_word:009634",
+      0
+     ],
+     [
+      "published:del_word:009433",
+      0
+     ],
+     [
+      "published:del_word:009082",
+      0
+     ],
+     [
+      "published:del_word:009316",
+      0
+     ],
+     [
+      "published:del_word:009131",
+      0
+     ],
+     [
+      "published:del_word:009188",
+      0
+     ],
+     [
+      "published:del_word:009562",
+      0
+     ],
+     [
+      "published:del_word:009784",
+      0
+     ],
+     [
+      "published:del_word:009973",
+      0
+     ],
+     [
+      "published:del_word:009250",
+      0
+     ],
+     [
+      "published:del_word:009578",
+      0
+     ],
+     [
+      "published:del_word:009626",
+      14
+     ],
+     [
+      "published:del_word:009096",
+      0
+     ],
+     [
+      "published:del_word:009966",
+      0
+     ],
+     [
+      "published:del_word:009715",
+      0
+     ],
+     [
+      "published:del_word:009199",
+      0
+     ],
+     [
+      "published:del_word:009823",
+      0
+     ],
+     [
+      "published:del_word:009417",
+      0
+     ],
+     [
+      "published:del_word:009394",
+      0
+     ],
+     [
+      "published:ins_word:007050",
+      0
+     ],
+     [
+      "published:ins_word:007828",
+      15
+     ],
+     [
+      "published:ins_word:007150",
+      0
+     ],
+     [
+      "published:ins_word:007503",
+      0
+     ],
+     [
+      "published:ins_word:007320",
+      0
+     ],
+     [
+      "published:ins_word:007524",
+      0
+     ],
+     [
+      "published:ins_word:007081",
+      0
+     ],
+     [
+      "published:ins_word:007702",
+      0
+     ],
+     [
+      "published:ins_word:007791",
+      0
+     ],
+     [
+      "published:ins_word:007200",
+      0
+     ],
+     [
+      "published:ins_word:007140",
+      0
+     ],
+     [
+      "published:ins_word:007375",
+      0
+     ],
+     [
+      "published:ins_word:007838",
+      0
+     ],
+     [
+      "published:ins_word:007419",
+      0
+     ],
+     [
+      "published:ins_word:007327",
+      14
+     ],
+     [
+      "published:ins_word:007634",
+      0
+     ],
+     [
+      "published:ins_word:007070",
+      0
+     ],
+     [
+      "published:ins_word:007080",
+      11
+     ],
+     [
+      "published:ins_word:007116",
+      0
+     ],
+     [
+      "published:ins_word:007567",
+      0
+     ],
+     [
+      "published:sub_word:011904",
+      10
+     ],
+     [
+      "published:sub_word:011603",
+      13
+     ],
+     [
+      "published:sub_word:011163",
+      10
+     ],
+     [
+      "published:sub_word:011657",
+      18
+     ],
+     [
+      "published:sub_word:011320",
+      10
+     ],
+     [
+      "published:sub_word:011747",
+      7
+     ],
+     [
+      "published:sub_word:011061",
+      12
+     ],
+     [
+      "published:sub_word:011604",
+      7
+     ],
+     [
+      "published:sub_word:011121",
+      5
+     ],
+     [
+      "published:sub_word:011439",
+      12
+     ],
+     [
+      "published:sub_word:011441",
+      9
+     ],
+     [
+      "published:sub_word:011181",
+      11
+     ],
+     [
+      "published:sub_word:011213",
+      8
+     ],
+     [
+      "published:sub_word:011480",
+      13
+     ],
+     [
+      "published:sub_word:011561",
+      8
+     ],
+     [
+      "published:sub_word:011064",
+      12
+     ],
+     [
+      "published:sub_word:011993",
+      13
+     ],
+     [
+      "published:sub_word:011273",
+      9
+     ],
+     [
+      "published:sub_word:011397",
+      22
+     ],
+     [
+      "published:sub_word:011220",
+      12
+     ],
+     [
+      "published:swap_word:013425",
+      24
+     ],
+     [
+      "published:swap_word:013742",
+      18
+     ],
+     [
+      "published:swap_word:013376",
+      20
+     ],
+     [
+      "published:swap_word:013730",
+      22
+     ],
+     [
+      "published:swap_word:013370",
+      14
+     ],
+     [
+      "published:swap_word:013688",
+      18
+     ],
+     [
+      "published:swap_word:013598",
+      14
+     ],
+     [
+      "published:swap_word:013427",
+      12
+     ],
+     [
+      "published:swap_word:013365",
+      24
+     ],
+     [
+      "published:swap_word:013264",
+      22
+     ],
+     [
+      "published:swap_word:013229",
+      14
+     ],
+     [
+      "published:swap_word:013525",
+      21
+     ],
+     [
+      "published:swap_word:013991",
+      26
+     ],
+     [
+      "published:swap_word:013562",
+      12
+     ],
+     [
+      "published:swap_word:013049",
+      14
+     ],
+     [
+      "published:swap_word:013361",
+      12
+     ],
+     [
+      "published:swap_word:013585",
+      18
+     ],
+     [
+      "published:swap_word:013140",
+      24
+     ],
+     [
+      "published:swap_word:013766",
+      14
+     ],
+     [
+      "published:swap_word:013518",
+      18
+     ]
+    ],
+    "fresh v_only": [
+     [
+      "published:del_word:009106",
+      0
+     ],
+     [
+      "published:del_word:009634",
+      0
+     ],
+     [
+      "published:del_word:009433",
+      0
+     ],
+     [
+      "published:del_word:009082",
+      0
+     ],
+     [
+      "published:del_word:009316",
+      0
+     ],
+     [
+      "published:del_word:009131",
+      0
+     ],
+     [
+      "published:del_word:009188",
+      0
+     ],
+     [
+      "published:del_word:009562",
+      0
+     ],
+     [
+      "published:del_word:009784",
+      0
+     ],
+     [
+      "published:del_word:009973",
+      0
+     ],
+     [
+      "published:del_word:009250",
+      0
+     ],
+     [
+      "published:del_word:009578",
+      0
+     ],
+     [
+      "published:del_word:009626",
+      42
+     ],
+     [
+      "published:del_word:009096",
+      0
+     ],
+     [
+      "published:del_word:009966",
+      0
+     ],
+     [
+      "published:del_word:009715",
+      0
+     ],
+     [
+      "published:del_word:009199",
+      0
+     ],
+     [
+      "published:del_word:009823",
+      0
+     ],
+     [
+      "published:del_word:009417",
+      0
+     ],
+     [
+      "published:del_word:009394",
+      0
+     ],
+     [
+      "published:ins_word:007050",
+      0
+     ],
+     [
+      "published:ins_word:007828",
+      36
+     ],
+     [
+      "published:ins_word:007150",
+      0
+     ],
+     [
+      "published:ins_word:007503",
+      0
+     ],
+     [
+      "published:ins_word:007320",
+      0
+     ],
+     [
+      "published:ins_word:007524",
+      0
+     ],
+     [
+      "published:ins_word:007081",
+      0
+     ],
+     [
+      "published:ins_word:007702",
+      0
+     ],
+     [
+      "published:ins_word:007791",
+      0
+     ],
+     [
+      "published:ins_word:007200",
+      0
+     ],
+     [
+      "published:ins_word:007140",
+      0
+     ],
+     [
+      "published:ins_word:007375",
+      0
+     ],
+     [
+      "published:ins_word:007838",
+      0
+     ],
+     [
+      "published:ins_word:007419",
+      0
+     ],
+     [
+      "published:ins_word:007327",
+      42
+     ],
+     [
+      "published:ins_word:007634",
+      0
+     ],
+     [
+      "published:ins_word:007070",
+      0
+     ],
+     [
+      "published:ins_word:007080",
+      36
+     ],
+     [
+      "published:ins_word:007116",
+      0
+     ],
+     [
+      "published:ins_word:007567",
+      0
+     ],
+     [
+      "published:sub_word:011904",
+      30
+     ],
+     [
+      "published:sub_word:011603",
+      39
+     ],
+     [
+      "published:sub_word:011163",
+      30
+     ],
+     [
+      "published:sub_word:011657",
+      48
+     ],
+     [
+      "published:sub_word:011320",
+      30
+     ],
+     [
+      "published:sub_word:011747",
+      24
+     ],
+     [
+      "published:sub_word:011061",
+      36
+     ],
+     [
+      "published:sub_word:011604",
+      21
+     ],
+     [
+      "published:sub_word:011121",
+      15
+     ],
+     [
+      "published:sub_word:011439",
+      36
+     ],
+     [
+      "published:sub_word:011441",
+      27
+     ],
+     [
+      "published:sub_word:011181",
+      30
+     ],
+     [
+      "published:sub_word:011213",
+      24
+     ],
+     [
+      "published:sub_word:011480",
+      39
+     ],
+     [
+      "published:sub_word:011561",
+      21
+     ],
+     [
+      "published:sub_word:011064",
+      36
+     ],
+     [
+      "published:sub_word:011993",
+      42
+     ],
+     [
+      "published:sub_word:011273",
+      27
+     ],
+     [
+      "published:sub_word:011397",
+      72
+     ],
+     [
+      "published:sub_word:011220",
+      36
+     ],
+     [
+      "published:swap_word:013425",
+      36
+     ],
+     [
+      "published:swap_word:013742",
+      27
+     ],
+     [
+      "published:swap_word:013376",
+      30
+     ],
+     [
+      "published:swap_word:013730",
+      33
+     ],
+     [
+      "published:swap_word:013370",
+      21
+     ],
+     [
+      "published:swap_word:013688",
+      39
+     ],
+     [
+      "published:swap_word:013598",
+      21
+     ],
+     [
+      "published:swap_word:013427",
+      18
+     ],
+     [
+      "published:swap_word:013365",
+      36
+     ],
+     [
+      "published:swap_word:013264",
+      42
+     ],
+     [
+      "published:swap_word:013229",
+      21
+     ],
+     [
+      "published:swap_word:013525",
+      83
+     ],
+     [
+      "published:swap_word:013991",
+      39
+     ],
+     [
+      "published:swap_word:013562",
+      18
+     ],
+     [
+      "published:swap_word:013049",
+      21
+     ],
+     [
+      "published:swap_word:013361",
+      18
+     ],
+     [
+      "published:swap_word:013585",
+      27
+     ],
+     [
+      "published:swap_word:013140",
+      33
+     ],
+     [
+      "published:swap_word:013766",
+      21
+     ],
+     [
+      "published:swap_word:013518",
+      27
+     ]
+    ]
+   },
+   "weights_sum_after_mapping": 4.172325134277344e-07,
+   "unmatched_deciding_steps": {
+    "test": {
+     "w_only": 19,
+     "v_only": 14,
+     "w_other": 298
+    },
+    "fresh": {
+     "w_only": 2,
+     "v_only": 4,
+     "w_other": 135
+    }
+   },
+   "control_matched_on": {
+    "test": {
+     "w_only": {
+      "written_share": 0.9800853708726547,
+      "few_shot_weight": 0.0
+     },
+     "w_other": {
+      "written_share": 0.7799332889417921,
+      "few_shot_weight": 0.011547391226430982
+     }
+    },
+    "fresh": {
+     "w_only": {
+      "written_share": 0.9897804857644215,
+      "few_shot_weight": 0.0
+     },
+     "w_other": {
+      "written_share": 0.795295113753895,
+      "few_shot_weight": 0.0056213329873889325
+     }
+    }
+   },
+   "moved_by_rule": {
+    "test": {
+     "w_only moved key weight": 0.002872903451292459,
+     "w_other moved key weight": 0.19443411803057825,
+     "v_only host key rows valued by the rule": 0.006732238446078925
+    },
+    "fresh": {
+     "w_only moved key weight": 0.0023509177650598546,
+     "w_other moved key weight": 0.19151696705779706,
+     "v_only host key rows valued by the rule": 0.0071273248119911635
+    }
+   }
+  },
+  "summary": {
+   "seconds": 0.0,
+   "sentences": {
+    "re_routing": "mixed",
+    "values": "F's values alone give part of the join's gain"
+   },
+   "gates": {
+    "4 every item's other item is another item of its task": true,
+    "1 main's weights and values through the route path reproduce main alone's texts": true,
+    "1 rnone's recomputed output within 0.001 of the forward's own at every step": true,
+    "2 F's weights and values through the route path reproduce the stored join's texts": true,
+    "2 rjoin's recomputed output within 0.001 of the forward's own at every step": true,
+    "5 in every cell's forward main's identity and F's z are within the tolerance": true,
+    "3 F's weights moved onto main's rows sum to 1 at every deciding row": true
+   }
+  }
+ },
+ "status": "ok"
+}

@@ -1,0 +1,4375 @@
+{
+ "rows": [
+  {
+   "run": "select_3",
+   "label": "A − script_raw (test; fresh)",
+   "tag": "sentence changes",
+   "intervals": [
+    {
+     "path": "/select3/strict/test/A_minus_raw",
+     "job": {
+      "mean": 0.059375000000000004,
+      "lo": 1.7130394325270982e-18,
+      "hi": 0.11875
+     },
+     "stored": {
+      "mean": 0.059375000000000004,
+      "lo": 1.7130394325270982e-18,
+      "hi": 0.11875
+     },
+     "ind2000": {
+      "mean": 0.059375000000000004,
+      "lo": 0.0031250000000000028,
+      "hi": 0.115625
+     },
+     "ind10000": {
+      "mean": 0.059375000000000004,
+      "lo": 0.006249999999999997,
+      "hi": 0.115625
+     },
+     "seeds_lo": [
+      0.0031250000000000054,
+      3.469446951953614e-18,
+      0.009374999999999998
+     ],
+     "seeds_hi": [
+      0.115625,
+      0.11249999999999999,
+      0.11875000000000001
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/select3/strict/fresh/A_minus_raw",
+     "job": {
+      "mean": 0.08125,
+      "lo": 0.0,
+      "hi": 0.175
+     },
+     "stored": {
+      "mean": 0.08125,
+      "lo": 0.0,
+      "hi": 0.175
+     },
+     "ind2000": {
+      "mean": 0.08125,
+      "lo": 3.4260788650541965e-18,
+      "hi": 0.1625
+     },
+     "ind10000": {
+      "mean": 0.08125,
+      "lo": 0.006249999999999999,
+      "hi": 0.1625
+     },
+     "seeds_lo": [
+      0.006249999999999999,
+      0.0,
+      0.0062500000000000056
+     ],
+     "seeds_hi": [
+      0.1625,
+      0.15625,
+      0.16875
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select3/strict/raw",
+    "job": "mixed",
+    "stored": "mixed",
+    "ind2000": "the agents are above a script without the attention-change rankings",
+    "ind10000": "the agents are above a script without the attention-change rankings",
+    "seeds": {
+     "the agents are above a script without the attention-change rankings": 44,
+     "mixed": 6
+    }
+   },
+   "quoted": "GRAFT 458-459; WRITEUP 120-122 (§6); JOURNAL 3652, 3688-3692"
+  },
+  {
+   "run": "diff_4",
+   "label": "fresh: dR_11 − H alone",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/fresh dR_11-O/edit/strict/mean",
+     "job": {
+      "mean": 0.05,
+      "lo": 0.0,
+      "hi": 0.11249999999999999
+     },
+     "stored": {
+      "mean": 0.05,
+      "lo": 0.0,
+      "hi": 0.11249999999999999
+     },
+     "ind2000": {
+      "mean": 0.05,
+      "lo": -0.0125,
+      "hi": 0.1125
+     },
+     "ind10000": {
+      "mean": 0.05,
+      "lo": -0.0125,
+      "hi": 0.1125
+     },
+     "seeds_lo": [
+      -0.0125,
+      -0.025,
+      -0.0125
+     ],
+     "seeds_hi": [
+      0.1125,
+      0.1125,
+      0.125
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/strict/fresh",
+    "job": "does not hold",
+    "stored": "does not hold",
+    "ind2000": "does not hold",
+    "ind10000": "does not hold",
+    "seeds": {
+     "does not hold": 50
+    }
+   },
+   "quoted": "GRAFT 98, 344; WRITEUP 48; JOURNAL 3519, 3529"
+  },
+  {
+   "run": "select_2",
+   "label": "fresh: A − gradient top 16",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/select2/strict/fresh/gradient_difference",
+     "job": {
+      "mean": -0.043750000000000004,
+      "lo": -0.1125,
+      "hi": 0.037500000000000006
+     },
+     "stored": {
+      "mean": -0.043750000000000004,
+      "lo": -0.1125,
+      "hi": 0.037500000000000006
+     },
+     "ind2000": {
+      "mean": -0.043750000000000004,
+      "lo": -0.10625000000000001,
+      "hi": 0.018750000000000003
+     },
+     "ind10000": {
+      "mean": -0.043750000000000004,
+      "lo": -0.10625000000000001,
+      "hi": 0.024999999999999998
+     },
+     "seeds_lo": [
+      -0.10640625000000001,
+      -0.1125,
+      -0.10625
+     ],
+     "seeds_hi": [
+      0.025,
+      0.018750000000000003,
+      0.03125
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select2/strict/fresh/A_vs_gradient",
+    "job": "level",
+    "stored": "level",
+    "ind2000": "level",
+    "ind10000": "level",
+    "seeds": {
+     "level": 50
+    }
+   },
+   "quoted": "GRAFT 412 (sentence only)"
+  },
+  {
+   "run": "diff_2a",
+   "label": "fresh: dF_U − H alone; dF_U − other item",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/fresh dF_U-O/edit/strict/mean",
+     "job": {
+      "mean": 0.1875,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "stored": {
+      "mean": 0.1875,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "ind2000": {
+      "mean": 0.1875,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "ind10000": {
+      "mean": 0.1875,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "seeds_lo": [
+      0.1,
+      0.09999999999999999,
+      0.1
+     ],
+     "seeds_hi": [
+      0.275,
+      0.27499999999999997,
+      0.2875
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/fresh dF_U-other/edit/strict/mean",
+     "job": {
+      "mean": 0.17500000000000002,
+      "lo": 0.0875,
+      "hi": 0.2625
+     },
+     "stored": {
+      "mean": 0.17500000000000002,
+      "lo": 0.0875,
+      "hi": 0.2625
+     },
+     "ind2000": {
+      "mean": 0.17500000000000002,
+      "lo": 0.08750000000000001,
+      "hi": 0.2625
+     },
+     "ind10000": {
+      "mean": 0.17500000000000002,
+      "lo": 0.09999999999999999,
+      "hi": 0.2625
+     },
+     "seeds_lo": [
+      0.09359375,
+      0.0875,
+      0.09999999999999999
+     ],
+     "seeds_hi": [
+      0.2625,
+      0.25,
+      0.2625
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/fresh",
+    "job": "holds",
+    "stored": "holds",
+    "ind2000": "holds",
+    "ind10000": "holds",
+    "seeds": {
+     "holds": 50
+    }
+   },
+   "quoted": "GRAFT 88; WRITEUP 42"
+  },
+  {
+   "run": "diff_2a",
+   "label": "fresh: dF_U_late − H alone; − other item",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/fresh dF_U_late-O/edit/strict/mean",
+     "job": {
+      "mean": 0.18750000000000003,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "stored": {
+      "mean": 0.18750000000000003,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "ind2000": {
+      "mean": 0.18750000000000003,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "ind10000": {
+      "mean": 0.18750000000000003,
+      "lo": 0.1,
+      "hi": 0.275
+     },
+     "seeds_lo": [
+      0.1,
+      0.09999999999999999,
+      0.1
+     ],
+     "seeds_hi": [
+      0.275,
+      0.275,
+      0.2875
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/fresh dF_U_late-other/edit/strict/mean",
+     "job": {
+      "mean": 0.17500000000000002,
+      "lo": 0.09999999999999999,
+      "hi": 0.25
+     },
+     "stored": {
+      "mean": 0.17500000000000002,
+      "lo": 0.09999999999999999,
+      "hi": 0.25
+     },
+     "ind2000": {
+      "mean": 0.17500000000000002,
+      "lo": 0.0875,
+      "hi": 0.2625
+     },
+     "ind10000": {
+      "mean": 0.17500000000000002,
+      "lo": 0.0875,
+      "hi": 0.2625
+     },
+     "seeds_lo": [
+      0.0875,
+      0.0875,
+      0.09999999999999999
+     ],
+     "seeds_hi": [
+      0.2625,
+      0.2625,
+      0.275
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/fresh_U_late_note",
+    "job": "holds",
+    "stored": "holds",
+    "ind2000": "holds",
+    "ind10000": "holds",
+    "seeds": {
+     "holds": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_3m",
+   "label": "deciding − PD; share",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/deciding-PD/edit/strict/mean",
+     "job": {
+      "mean": 0.33125000000000004,
+      "lo": 0.25,
+      "hi": 0.41250000000000003
+     },
+     "stored": {
+      "mean": 0.33125000000000004,
+      "lo": 0.25,
+      "hi": 0.41250000000000003
+     },
+     "ind2000": {
+      "mean": 0.33125000000000004,
+      "lo": 0.25,
+      "hi": 0.4125
+     },
+     "ind10000": {
+      "mean": 0.33125000000000004,
+      "lo": 0.25625,
+      "hi": 0.4125
+     },
+     "seeds_lo": [
+      0.25,
+      0.24375000000000002,
+      0.25625
+     ],
+     "seeds_hi": [
+      0.4125,
+      0.40625,
+      0.41875
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/sentences/deciding/share",
+     "job": {
+      "mean": 0.3291139240506329,
+      "lo": 0.17105263157894735,
+      "hi": 0.4805194805194805
+     },
+     "stored": {
+      "mean": 0.3291139240506329,
+      "lo": 0.17105263157894735,
+      "hi": 0.4805194805194805
+     },
+     "ind2000": {
+      "mean": 0.3291139240506329,
+      "lo": 0.17807458143074584,
+      "hi": 0.47222222222222215
+     },
+     "ind10000": {
+      "mean": 0.3291139240506329,
+      "lo": 0.1818181818181818,
+      "hi": 0.46835443037974683
+     },
+     "seeds_lo": [
+      0.18403526878147286,
+      0.17069418386491558,
+      0.19512195121951223
+     ],
+     "seeds_hi": [
+      0.46795372349169806,
+      0.4578438755020079,
+      0.475015243902439
+     ],
+     "largest_end_move": 0.012165,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/deciding/sentence",
+    "job": "the body takes part",
+    "stored": "the body takes part",
+    "ind2000": "the body takes part",
+    "ind10000": "the body takes part",
+    "seeds": {
+     "the body takes part": 50
+    }
+   },
+   "quoted": "GRAFT 53-54, 312; WRITEUP 35-36"
+  },
+  {
+   "run": "diff_3m",
+   "label": "deciding_early − PD_early; share",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/deciding_early-PD_early/edit/strict/mean",
+     "job": {
+      "mean": 0.15625,
+      "lo": 0.0875,
+      "hi": 0.225
+     },
+     "stored": {
+      "mean": 0.15625,
+      "lo": 0.0875,
+      "hi": 0.225
+     },
+     "ind2000": {
+      "mean": 0.15625,
+      "lo": 0.08750000000000001,
+      "hi": 0.225
+     },
+     "ind10000": {
+      "mean": 0.15625,
+      "lo": 0.0875,
+      "hi": 0.225
+     },
+     "seeds_lo": [
+      0.0875,
+      0.08125,
+      0.09375
+     ],
+     "seeds_hi": [
+      0.225,
+      0.22499999999999998,
+      0.23125
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/sentences/deciding_early/share",
+     "job": {
+      "mean": -0.04166666666666665,
+      "lo": -0.35294117647058826,
+      "hi": 0.21052631578947364
+     },
+     "stored": {
+      "mean": -0.04166666666666665,
+      "lo": -0.35294117647058826,
+      "hi": 0.21052631578947364
+     },
+     "ind2000": {
+      "mean": -0.04166666666666665,
+      "lo": -0.3333333333333333,
+      "hi": 0.1724512743628184
+     },
+     "ind10000": {
+      "mean": -0.04166666666666665,
+      "lo": -0.3181818181818181,
+      "hi": 0.17647058823529413
+     },
+     "seeds_lo": [
+      -0.3125,
+      -0.3333333333333333,
+      -0.2857142857142857
+     ],
+     "seeds_hi": [
+      0.17318215892053962,
+      0.15009615384615332,
+      0.18757440476190426
+     ],
+     "largest_end_move": 0.034759,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/deciding_early/sentence",
+    "job": "the body takes part",
+    "stored": "the body takes part",
+    "ind2000": "the body takes part",
+    "ind10000": "the body takes part",
+    "seeds": {
+     "the body takes part": 50
+    }
+   },
+   "quoted": "GRAFT 55; WRITEUP 37"
+  },
+  {
+   "run": "diff_3m",
+   "label": "deciding_late − PD_late; share",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/deciding_late-PD_late/edit/strict/mean",
+     "job": {
+      "mean": 0.1875,
+      "lo": 0.10625,
+      "hi": 0.27499999999999997
+     },
+     "stored": {
+      "mean": 0.1875,
+      "lo": 0.10625,
+      "hi": 0.27499999999999997
+     },
+     "ind2000": {
+      "mean": 0.1875,
+      "lo": 0.11249999999999999,
+      "hi": 0.26875
+     },
+     "ind10000": {
+      "mean": 0.1875,
+      "lo": 0.11249999999999999,
+      "hi": 0.26875
+     },
+     "seeds_lo": [
+      0.10625000000000001,
+      0.10625,
+      0.1125
+     ],
+     "seeds_hi": [
+      0.26875,
+      0.2625,
+      0.275
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/sentences/deciding_late/share",
+     "job": {
+      "mean": 0.4915254237288136,
+      "lo": 0.29230769230769227,
+      "hi": 0.6885336976320583
+     },
+     "stored": {
+      "mean": 0.4915254237288136,
+      "lo": 0.29230769230769227,
+      "hi": 0.6885336976320583
+     },
+     "ind2000": {
+      "mean": 0.4915254237288136,
+      "lo": 0.2982362821948489,
+      "hi": 0.6793096054888504
+     },
+     "ind10000": {
+      "mean": 0.4915254237288136,
+      "lo": 0.3030017152658662,
+      "hi": 0.6825493612078977
+     },
+     "seeds_lo": [
+      0.3050755342667649,
+      0.2881291730868002,
+      0.3181637806637807
+     ],
+     "seeds_hi": [
+      0.6796427137695702,
+      0.6667808219178076,
+      0.6896551724137931
+     ],
+     "largest_end_move": 0.010694,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/deciding_late/sentence",
+    "job": "the body takes part",
+    "stored": "the body takes part",
+    "ind2000": "the body takes part",
+    "ind10000": "the body takes part",
+    "seeds": {
+     "the body takes part": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_3h",
+   "label": "dR_5 − H alone; − PR_5; − other item",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/dR_5-O/edit/strict/mean",
+     "job": {
+      "mean": 0.0125,
+      "lo": -0.0125,
+      "hi": 0.037500000000000006
+     },
+     "stored": {
+      "mean": 0.0125,
+      "lo": -0.0125,
+      "hi": 0.037500000000000006
+     },
+     "ind2000": {
+      "mean": 0.0125,
+      "lo": -0.012499999999999999,
+      "hi": 0.037500000000000006
+     },
+     "ind10000": {
+      "mean": 0.0125,
+      "lo": -0.012499999999999999,
+      "hi": 0.037500000000000006
+     },
+     "seeds_lo": [
+      -0.012499999999999999,
+      -0.0125,
+      -0.00625
+     ],
+     "seeds_hi": [
+      0.037500000000000006,
+      0.037500000000000006,
+      0.037500000000000006
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dR_5-PR_5/edit/strict/mean",
+     "job": {
+      "mean": 0.00625,
+      "lo": -0.018750000000000003,
+      "hi": 0.03125
+     },
+     "stored": {
+      "mean": 0.00625,
+      "lo": -0.018750000000000003,
+      "hi": 0.03125
+     },
+     "ind2000": {
+      "mean": 0.00625,
+      "lo": -0.018750000000000003,
+      "hi": 0.03125000000000001
+     },
+     "ind10000": {
+      "mean": 0.00625,
+      "lo": -0.018750000000000003,
+      "hi": 0.0375
+     },
+     "seeds_lo": [
+      -0.018750000000000003,
+      -0.018906249999999993,
+      -0.01875
+     ],
+     "seeds_hi": [
+      0.03125,
+      0.03125,
+      0.0375
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dR_5-dR_5_other/edit/strict/mean",
+     "job": {
+      "mean": 0.0125,
+      "lo": -0.0375,
+      "hi": 0.075
+     },
+     "stored": {
+      "mean": 0.0125,
+      "lo": -0.0375,
+      "hi": 0.075
+     },
+     "ind2000": {
+      "mean": 0.0125,
+      "lo": -0.025,
+      "hi": 0.0625
+     },
+     "ind10000": {
+      "mean": 0.0125,
+      "lo": -0.025,
+      "hi": 0.0625
+     },
+     "seeds_lo": [
+      -0.025,
+      -0.0375,
+      -0.025
+     ],
+     "seeds_hi": [
+      0.056406249999999145,
+      0.05,
+      0.0625
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/dR_5/sentence",
+    "job": "does not; does not follow the item",
+    "stored": "does not; does not follow the item",
+    "ind2000": "does not; does not follow the item",
+    "ind10000": "does not; does not follow the item",
+    "seeds": {
+     "does not; does not follow the item": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_3h",
+   "label": "dR_8 − H alone; − PR_8; − other item",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/dR_8-O/edit/strict/mean",
+     "job": {
+      "mean": 0.03125,
+      "lo": -0.00625,
+      "hi": 0.06875
+     },
+     "stored": {
+      "mean": 0.03125,
+      "lo": -0.00625,
+      "hi": 0.06875
+     },
+     "ind2000": {
+      "mean": 0.03125,
+      "lo": -0.006249999999999999,
+      "hi": 0.06875
+     },
+     "ind10000": {
+      "mean": 0.03125,
+      "lo": -0.006249999999999999,
+      "hi": 0.06875
+     },
+     "seeds_lo": [
+      -0.006249999999999999,
+      -0.00625,
+      0.0
+     ],
+     "seeds_hi": [
+      0.06875,
+      0.06874999999999999,
+      0.06875
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dR_8-PR_8/edit/strict/mean",
+     "job": {
+      "mean": 0.025,
+      "lo": -0.0125,
+      "hi": 0.0625
+     },
+     "stored": {
+      "mean": 0.025,
+      "lo": -0.0125,
+      "hi": 0.0625
+     },
+     "ind2000": {
+      "mean": 0.025,
+      "lo": -0.0125,
+      "hi": 0.0625
+     },
+     "ind10000": {
+      "mean": 0.025,
+      "lo": -0.0125,
+      "hi": 0.0625
+     },
+     "seeds_lo": [
+      -0.0125,
+      -0.0125,
+      -0.006250000000000002
+     ],
+     "seeds_hi": [
+      0.0625,
+      0.0625,
+      0.06875
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dR_8-dR_8_other/edit/strict/mean",
+     "job": {
+      "mean": 0.0125,
+      "lo": -0.037500000000000006,
+      "hi": 0.0625
+     },
+     "stored": {
+      "mean": 0.0125,
+      "lo": -0.037500000000000006,
+      "hi": 0.0625
+     },
+     "ind2000": {
+      "mean": 0.0125,
+      "lo": -0.05,
+      "hi": 0.07500000000000001
+     },
+     "ind10000": {
+      "mean": 0.0125,
+      "lo": -0.05,
+      "hi": 0.07500000000000001
+     },
+     "seeds_lo": [
+      -0.05,
+      -0.05,
+      -0.05
+     ],
+     "seeds_hi": [
+      0.07500000000000001,
+      0.075,
+      0.0875
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/dR_8/sentence",
+    "job": "does not; does not follow the item",
+    "stored": "does not; does not follow the item",
+    "ind2000": "does not; does not follow the item",
+    "ind10000": "does not; does not follow the item",
+    "seeds": {
+     "does not; does not follow the item": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_3h",
+   "label": "dR_11 − H alone; − PR_11; − other item (80 items)",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/differences/dR_11-O/edit/strict/mean",
+     "job": {
+      "mean": 0.11875000000000001,
+      "lo": 0.06875,
+      "hi": 0.16875
+     },
+     "stored": {
+      "mean": 0.11875000000000001,
+      "lo": 0.06875,
+      "hi": 0.16875
+     },
+     "ind2000": {
+      "mean": 0.11875000000000001,
+      "lo": 0.06874999999999999,
+      "hi": 0.17500000000000002
+     },
+     "ind10000": {
+      "mean": 0.11875000000000001,
+      "lo": 0.0625,
+      "hi": 0.17500000000000002
+     },
+     "seeds_lo": [
+      0.0625,
+      0.0625,
+      0.06875
+     ],
+     "seeds_hi": [
+      0.17500000000000002,
+      0.16875,
+      0.18125
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dR_11-PR_11/edit/strict/mean",
+     "job": {
+      "mean": 0.08750000000000001,
+      "lo": 0.037500000000000006,
+      "hi": 0.13749999999999998
+     },
+     "stored": {
+      "mean": 0.08750000000000001,
+      "lo": 0.037500000000000006,
+      "hi": 0.13749999999999998
+     },
+     "ind2000": {
+      "mean": 0.08750000000000001,
+      "lo": 0.03125000000000001,
+      "hi": 0.14375
+     },
+     "ind10000": {
+      "mean": 0.08750000000000001,
+      "lo": 0.0375,
+      "hi": 0.14375
+     },
+     "seeds_lo": [
+      0.0375,
+      0.03125,
+      0.04359375000000001
+     ],
+     "seeds_hi": [
+      0.14375,
+      0.1375,
+      0.14375000000000002
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dR_11-dR_11_other/edit/strict/mean",
+     "job": {
+      "mean": 0.05,
+      "lo": -0.025,
+      "hi": 0.1375
+     },
+     "stored": {
+      "mean": 0.05,
+      "lo": -0.025,
+      "hi": 0.1375
+     },
+     "ind2000": {
+      "mean": 0.05,
+      "lo": -0.024999999999999998,
+      "hi": 0.125
+     },
+     "ind10000": {
+      "mean": 0.05,
+      "lo": -0.024999999999999998,
+      "hi": 0.125
+     },
+     "seeds_lo": [
+      -0.024999999999999998,
+      -0.025,
+      -0.012500000000000004
+     ],
+     "seeds_hi": [
+      0.125,
+      0.1125,
+      0.125
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/dR_11/sentence",
+    "job": "carries; the body takes part; does not follow the item",
+    "stored": "carries; the body takes part; does not follow the item",
+    "ind2000": "carries; the body takes part; does not follow the item",
+    "ind10000": "carries; the body takes part; does not follow the item",
+    "seeds": {
+     "carries; the body takes part; does not follow the item": 50
+    }
+   },
+   "quoted": "GRAFT 95-96; WRITEUP 47-48"
+  },
+  {
+   "run": "chain_2",
+   "label": "F: chain − direct",
+   "tag": "moved",
+   "intervals": [
+    {
+     "path": "/F/chain_minus_direct/strict/mean",
+     "job": {
+      "mean": -0.09375,
+      "lo": -0.16249999999999998,
+      "hi": -0.03749999999999999
+     },
+     "stored": {
+      "mean": -0.09375,
+      "lo": -0.16249999999999998,
+      "hi": -0.03749999999999999
+     },
+     "ind2000": {
+      "mean": -0.09375,
+      "lo": -0.15,
+      "hi": -0.037500000000000006
+     },
+     "ind10000": {
+      "mean": -0.09375,
+      "lo": -0.15,
+      "hi": -0.037500000000000006
+     },
+     "seeds_lo": [
+      -0.15,
+      -0.15625,
+      -0.15
+     ],
+     "seeds_hi": [
+      -0.0375,
+      -0.04375,
+      -0.03125
+     ],
+     "largest_end_move": 0.0125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/F/sentence",
+    "job": "the chain is not above the direct route",
+    "stored": "the chain is not above the direct route",
+    "ind2000": "the chain is not above the direct route",
+    "ind10000": "the chain is not above the direct route",
+    "seeds": {
+     "the chain is not above the direct route": 50
+    }
+   },
+   "quoted": "GRAFT 101, 318; WRITEUP 56-57"
+  },
+  {
+   "run": "diff_4",
+   "label": "fresh: dR_11 − PR_11",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/fresh dR_11-PR_11/edit/strict/mean",
+     "job": {
+      "mean": 0.07500000000000001,
+      "lo": 0.0125,
+      "hi": 0.1375
+     },
+     "stored": {
+      "mean": 0.07500000000000001,
+      "lo": 0.0125,
+      "hi": 0.1375
+     },
+     "ind2000": {
+      "mean": 0.07500000000000001,
+      "lo": 0.0125,
+      "hi": 0.1375
+     },
+     "ind10000": {
+      "mean": 0.07500000000000001,
+      "lo": 0.0125,
+      "hi": 0.1375
+     },
+     "seeds_lo": [
+      0.0125,
+      0.0125,
+      0.0125
+     ],
+     "seeds_hi": [
+      0.1375,
+      0.1375,
+      0.15
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/strict/body",
+    "job": "the body takes part on fresh items",
+    "stored": "the body takes part on fresh items",
+    "ind2000": "the body takes part on fresh items",
+    "ind10000": "the body takes part on fresh items",
+    "seeds": {
+     "the body takes part on fresh items": 50
+    }
+   },
+   "quoted": "GRAFT 344"
+  },
+  {
+   "run": "diff_4",
+   "label": "both sets: dR_11 − dR_11_other",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/both dR_11-dR_11_other/edit/strict/mean",
+     "job": {
+      "mean": 0.0875,
+      "lo": 0.04583333333333334,
+      "hi": 0.12916666666666668
+     },
+     "stored": {
+      "mean": 0.0875,
+      "lo": 0.04583333333333334,
+      "hi": 0.12916666666666668
+     },
+     "ind2000": {
+      "mean": 0.0875,
+      "lo": 0.049999999999999996,
+      "hi": 0.12916666666666665
+     },
+     "ind10000": {
+      "mean": 0.0875,
+      "lo": 0.04583333333333334,
+      "hi": 0.12916666666666668
+     },
+     "seeds_lo": [
+      0.04583333333333334,
+      0.04166666666666667,
+      0.05
+     ],
+     "seeds_hi": [
+      0.12916666666666668,
+      0.12916666666666665,
+      0.13333333333333333
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/strict/item",
+    "job": "follows the item",
+    "stored": "follows the item",
+    "ind2000": "follows the item",
+    "ind10000": "follows the item",
+    "seeds": {
+     "follows the item": 50
+    }
+   },
+   "quoted": "GRAFT 344"
+  },
+  {
+   "run": "select_1",
+   "label": "A − gradient top 16",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/select/strict/differences/gradient_top16",
+     "job": {
+      "mean": 0.021875,
+      "lo": -0.03125,
+      "hi": 0.078125
+     },
+     "stored": {
+      "mean": 0.021875,
+      "lo": -0.03125,
+      "hi": 0.078125
+     },
+     "ind2000": {
+      "mean": 0.021875,
+      "lo": -0.034374999999999996,
+      "hi": 0.07820312499999957
+     },
+     "ind10000": {
+      "mean": 0.021875,
+      "lo": -0.031328124999999936,
+      "hi": 0.078125
+     },
+     "seeds_lo": [
+      -0.034374999999999996,
+      -0.03749999999999999,
+      -0.028125000000000004
+     ],
+     "seeds_hi": [
+      0.078125,
+      0.075,
+      0.08125
+     ],
+     "largest_end_move": 7.8e-05,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select/strict/A_vs_gradient",
+    "job": "level",
+    "stored": "level",
+    "ind2000": "level",
+    "ind10000": "level",
+    "seeds": {
+     "level": 50
+    }
+   },
+   "quoted": "GRAFT 67, 378-379"
+  },
+  {
+   "run": "select_1",
+   "label": "A − surrogate (black box)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/select/strict/differences/surrogate",
+     "job": {
+      "mean": 0.234375,
+      "lo": 0.17500000000000002,
+      "hi": 0.29375
+     },
+     "stored": {
+      "mean": 0.234375,
+      "lo": 0.17500000000000002,
+      "hi": 0.29375
+     },
+     "ind2000": {
+      "mean": 0.234375,
+      "lo": 0.175,
+      "hi": 0.296875
+     },
+     "ind10000": {
+      "mean": 0.234375,
+      "lo": 0.175,
+      "hi": 0.296875
+     },
+     "seeds_lo": [
+      0.174921875,
+      0.171796875,
+      0.178125
+     ],
+     "seeds_hi": [
+      0.296875,
+      0.29374999999999996,
+      0.30007812499999964
+     ],
+     "largest_end_move": 0.003125,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select/strict/A_vs_BB",
+    "job": "agents are above black-box search at equal evaluations",
+    "stored": "agents are above black-box search at equal evaluations",
+    "ind2000": "agents are above black-box search at equal evaluations",
+    "ind10000": "agents are above black-box search at equal evaluations",
+    "seeds": {
+     "agents are above black-box search at equal evaluations": 50
+    }
+   },
+   "quoted": "GRAFT 68, 378"
+  },
+  {
+   "run": "select_1",
+   "label": "A − direct-effect top 16",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/select/strict/differences/direct_top16",
+     "job": {
+      "mean": 0.159375,
+      "lo": 0.1,
+      "hi": 0.221875
+     },
+     "stored": {
+      "mean": 0.159375,
+      "lo": 0.1,
+      "hi": 0.221875
+     },
+     "ind2000": {
+      "mean": 0.159375,
+      "lo": 0.10312500000000001,
+      "hi": 0.21875
+     },
+     "ind10000": {
+      "mean": 0.159375,
+      "lo": 0.103125,
+      "hi": 0.21875
+     },
+     "seeds_lo": [
+      0.103125,
+      0.09999999999999999,
+      0.10625
+     ],
+     "seeds_hi": [
+      0.21875,
+      0.21562499999999998,
+      0.221875
+     ],
+     "largest_end_move": 0.003125,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select/strict/A_vs_direct",
+    "job": "agents are above the direct-effect ranking",
+    "stored": "agents are above the direct-effect ranking",
+    "ind2000": "agents are above the direct-effect ranking",
+    "ind10000": "agents are above the direct-effect ranking",
+    "seeds": {
+     "agents are above the direct-effect ranking": 50
+    }
+   },
+   "quoted": "GRAFT 379"
+  },
+  {
+   "run": "select_2",
+   "label": "test: A − script_columns",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/select2/strict/test/difference",
+     "job": {
+      "mean": 0.0031250000000000028,
+      "lo": -0.059375,
+      "hi": 0.065625
+     },
+     "stored": {
+      "mean": 0.0031250000000000028,
+      "lo": -0.059375,
+      "hi": 0.065625
+     },
+     "ind2000": {
+      "mean": 0.0031250000000000028,
+      "lo": -0.05937500000000001,
+      "hi": 0.06874999999999999
+     },
+     "ind10000": {
+      "mean": 0.0031250000000000028,
+      "lo": -0.059375,
+      "hi": 0.065625
+     },
+     "seeds_lo": [
+      -0.059375,
+      -0.06562499999999999,
+      -0.056249999999999994
+     ],
+     "seeds_hi": [
+      0.065625,
+      0.0625,
+      0.06875
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select2/strict/test/A_vs_S",
+    "job": "a scripted search with the same table matches the agents",
+    "stored": "a scripted search with the same table matches the agents",
+    "ind2000": "a scripted search with the same table matches the agents",
+    "ind10000": "a scripted search with the same table matches the agents",
+    "seeds": {
+     "a scripted search with the same table matches the agents": 50
+    }
+   },
+   "quoted": "GRAFT 70, 411"
+  },
+  {
+   "run": "select_2",
+   "label": "fresh: A − script_columns",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/select2/strict/fresh/difference",
+     "job": {
+      "mean": -0.03125,
+      "lo": -0.125,
+      "hi": 0.0625
+     },
+     "stored": {
+      "mean": -0.03125,
+      "lo": -0.125,
+      "hi": 0.0625
+     },
+     "ind2000": {
+      "mean": -0.03125,
+      "lo": -0.11875,
+      "hi": 0.05625
+     },
+     "ind10000": {
+      "mean": -0.03125,
+      "lo": -0.11875,
+      "hi": 0.05625
+     },
+     "seeds_lo": [
+      -0.11875,
+      -0.125,
+      -0.1125
+     ],
+     "seeds_hi": [
+      0.05625,
+      0.05,
+      0.0625
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select2/strict/fresh/A_vs_S",
+    "job": "a scripted search with the same table matches the agents",
+    "stored": "a scripted search with the same table matches the agents",
+    "ind2000": "a scripted search with the same table matches the agents",
+    "ind10000": "a scripted search with the same table matches the agents",
+    "seeds": {
+     "a scripted search with the same table matches the agents": 50
+    }
+   },
+   "quoted": "GRAFT 70, 411"
+  },
+  {
+   "run": "select_3",
+   "label": "greedy − A (test; fresh)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/select3/strict/test/greedy_minus_A",
+     "job": {
+      "mean": 0.09062500000000001,
+      "lo": 0.034375,
+      "hi": 0.146875
+     },
+     "stored": {
+      "mean": 0.09062500000000001,
+      "lo": 0.034375,
+      "hi": 0.146875
+     },
+     "ind2000": {
+      "mean": 0.09062500000000001,
+      "lo": 0.0375,
+      "hi": 0.15000000000000002
+     },
+     "ind10000": {
+      "mean": 0.09062500000000001,
+      "lo": 0.0375,
+      "hi": 0.146875
+     },
+     "seeds_lo": [
+      0.0358984375,
+      0.034375,
+      0.040624999999999994
+     ],
+     "seeds_hi": [
+      0.146875,
+      0.14375,
+      0.153125
+     ],
+     "largest_end_move": 0.003125,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/select3/strict/fresh/greedy_minus_A",
+     "job": {
+      "mean": 0.13124999999999998,
+      "lo": 0.05,
+      "hi": 0.2125
+     },
+     "stored": {
+      "mean": 0.13124999999999998,
+      "lo": 0.05,
+      "hi": 0.2125
+     },
+     "ind2000": {
+      "mean": 0.13124999999999998,
+      "lo": 0.04375000000000001,
+      "hi": 0.21265624999999916
+     },
+     "ind10000": {
+      "mean": 0.13124999999999998,
+      "lo": 0.04375000000000001,
+      "hi": 0.21875
+     },
+     "seeds_lo": [
+      0.04375000000000001,
+      0.037500000000000006,
+      0.05
+     ],
+     "seeds_hi": [
+      0.21875,
+      0.21249999999999997,
+      0.22499999999999998
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/select3/strict/room",
+    "job": "there was room above the agents",
+    "stored": "there was room above the agents",
+    "ind2000": "there was room above the agents",
+    "ind10000": "there was room above the agents",
+    "seeds": {
+     "there was room above the agents": 50
+    }
+   },
+   "quoted": "GRAFT 75, 457-458; WRITEUP 71"
+  },
+  {
+   "run": "join_1",
+   "label": "word group: all − O; all − S (mean reading)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/differences/word/all_minus_O/mean",
+     "job": {
+      "mean": 0.375,
+      "lo": 0.3,
+      "hi": 0.45
+     },
+     "stored": {
+      "mean": 0.375,
+      "lo": 0.3,
+      "hi": 0.45
+     },
+     "ind2000": {
+      "mean": 0.375,
+      "lo": 0.3,
+      "hi": 0.45
+     },
+     "ind10000": {
+      "mean": 0.375,
+      "lo": 0.3,
+      "hi": 0.45
+     },
+     "seeds_lo": [
+      0.30000000000000004,
+      0.29500000000000004,
+      0.30500000000000005
+     ],
+     "seeds_hi": [
+      0.45,
+      0.44499999999999995,
+      0.45499999999999996
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/differences/word/all_minus_S/mean",
+     "job": {
+      "mean": 0.38499999999999995,
+      "lo": 0.31,
+      "hi": 0.45999999999999996
+     },
+     "stored": {
+      "mean": 0.38499999999999995,
+      "lo": 0.31,
+      "hi": 0.45999999999999996
+     },
+     "ind2000": {
+      "mean": 0.38499999999999995,
+      "lo": 0.30999999999999994,
+      "hi": 0.45999999999999996
+     },
+     "ind10000": {
+      "mean": 0.38499999999999995,
+      "lo": 0.31,
+      "hi": 0.45999999999999996
+     },
+     "seeds_lo": [
+      0.31,
+      0.305,
+      0.315
+     ],
+     "seeds_hi": [
+      0.45999999999999996,
+      0.45499999999999996,
+      0.465
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/readings/word/mean",
+    "job": "the joined token model does the task",
+    "stored": "the joined token model does the task",
+    "ind2000": "the joined token model does the task",
+    "ind10000": "the joined token model does the task",
+    "seeds": {
+     "the joined token model does the task": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_1",
+   "label": "all group: all − O; all − S (mean reading)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/differences/all/all_minus_O/mean",
+     "job": {
+      "mean": 0.19791666666666666,
+      "lo": 0.14786458333333333,
+      "hi": 0.24583333333333335
+     },
+     "stored": {
+      "mean": 0.19791666666666666,
+      "lo": 0.14786458333333333,
+      "hi": 0.24583333333333335
+     },
+     "ind2000": {
+      "mean": 0.19791666666666666,
+      "lo": 0.15,
+      "hi": 0.24791666666666667
+     },
+     "ind10000": {
+      "mean": 0.19791666666666666,
+      "lo": 0.14791666666666667,
+      "hi": 0.2479166666666667
+     },
+     "seeds_lo": [
+      0.14791666666666667,
+      0.14375000000000002,
+      0.15
+     ],
+     "seeds_hi": [
+      0.24791666666666667,
+      0.24583333333333332,
+      0.25208333333333327
+     ],
+     "largest_end_move": 0.002083,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/differences/all/all_minus_S/mean",
+     "job": {
+      "mean": 0.22291666666666665,
+      "lo": 0.17703125,
+      "hi": 0.26880208333333305
+     },
+     "stored": {
+      "mean": 0.22291666666666665,
+      "lo": 0.17703125,
+      "hi": 0.26880208333333305
+     },
+     "ind2000": {
+      "mean": 0.22291666666666665,
+      "lo": 0.17916666666666667,
+      "hi": 0.26875
+     },
+     "ind10000": {
+      "mean": 0.22291666666666665,
+      "lo": 0.17708333333333334,
+      "hi": 0.26875
+     },
+     "seeds_lo": [
+      0.17703125,
+      0.1729166666666667,
+      0.17916666666666667
+     ],
+     "seeds_hi": [
+      0.2708333333333333,
+      0.26666666666666666,
+      0.27291666666666664
+     ],
+     "largest_end_move": 5.2e-05,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/readings/all/mean",
+    "job": "the joined token model does the task",
+    "stored": "the joined token model does the task",
+    "ind2000": "the joined token model does the task",
+    "ind10000": "the joined token model does the task",
+    "seeds": {
+     "the joined token model does the task": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_2",
+   "label": "word group: all − O; all − S (mean reading)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/differences/word/all_minus_O/mean",
+     "job": {
+      "mean": 0.476,
+      "lo": 0.404,
+      "hi": 0.5439999999999999
+     },
+     "stored": {
+      "mean": 0.476,
+      "lo": 0.404,
+      "hi": 0.5439999999999999
+     },
+     "ind2000": {
+      "mean": 0.476,
+      "lo": 0.41200000000000003,
+      "hi": 0.544
+     },
+     "ind10000": {
+      "mean": 0.476,
+      "lo": 0.40800000000000003,
+      "hi": 0.54
+     },
+     "seeds_lo": [
+      0.40800000000000003,
+      0.40789999999999993,
+      0.41200000000000003
+     ],
+     "seeds_hi": [
+      0.54,
+      0.536,
+      0.548
+     ],
+     "largest_end_move": 0.004,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    },
+    {
+     "path": "/results/differences/word/all_minus_S/mean",
+     "job": {
+      "mean": 0.476,
+      "lo": 0.40790000000000004,
+      "hi": 0.5479999999999999
+     },
+     "stored": {
+      "mean": 0.476,
+      "lo": 0.40790000000000004,
+      "hi": 0.5479999999999999
+     },
+     "ind2000": {
+      "mean": 0.476,
+      "lo": 0.41200000000000003,
+      "hi": 0.544
+     },
+     "ind10000": {
+      "mean": 0.476,
+      "lo": 0.4119,
+      "hi": 0.544
+     },
+     "seeds_lo": [
+      0.40800000000000003,
+      0.404,
+      0.41200000000000003
+     ],
+     "seeds_hi": [
+      0.5439999999999999,
+      0.5399999999999999,
+      0.548
+     ],
+     "largest_end_move": 0.004,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/readings/word/mean",
+    "job": "the joined token model does the task",
+    "stored": "the joined token model does the task",
+    "ind2000": "the joined token model does the task",
+    "ind10000": "the joined token model does the task",
+    "seeds": {
+     "the joined token model does the task": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_2",
+   "label": "all group: all − O; all − S (mean reading)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/differences/all/all_minus_O/mean",
+     "job": {
+      "mean": 0.2416666666666666,
+      "lo": 0.20333333333333337,
+      "hi": 0.2783333333333334
+     },
+     "stored": {
+      "mean": 0.2416666666666666,
+      "lo": 0.20333333333333337,
+      "hi": 0.2783333333333334
+     },
+     "ind2000": {
+      "mean": 0.2416666666666666,
+      "lo": 0.20833333333333334,
+      "hi": 0.27666666666666667
+     },
+     "ind10000": {
+      "mean": 0.2416666666666666,
+      "lo": 0.20666666666666667,
+      "hi": 0.27666666666666667
+     },
+     "seeds_lo": [
+      0.20666666666666667,
+      0.20499999999999996,
+      0.20833333333333334
+     ],
+     "seeds_hi": [
+      0.27666666666666667,
+      0.27499999999999997,
+      0.27999999999999997
+     ],
+     "largest_end_move": 0.003333,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    },
+    {
+     "path": "/results/differences/all/all_minus_S/mean",
+     "job": {
+      "mean": 0.27166666666666667,
+      "lo": 0.2333333333333333,
+      "hi": 0.31
+     },
+     "stored": {
+      "mean": 0.27166666666666667,
+      "lo": 0.2333333333333333,
+      "hi": 0.31
+     },
+     "ind2000": {
+      "mean": 0.27166666666666667,
+      "lo": 0.235,
+      "hi": 0.3083333333333334
+     },
+     "ind10000": {
+      "mean": 0.27166666666666667,
+      "lo": 0.23333333333333336,
+      "hi": 0.31
+     },
+     "seeds_lo": [
+      0.235,
+      0.2316666666666667,
+      0.23666666666666666
+     ],
+     "seeds_hi": [
+      0.30833333333333335,
+      0.30666666666666664,
+      0.3116666666666666
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/readings/all/mean",
+    "job": "the joined token model does the task",
+    "stored": "the joined token model does the task",
+    "ind2000": "the joined token model does the task",
+    "ind10000": "the joined token model does the task",
+    "seeds": {
+     "the joined token model does the task": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_3",
+   "label": "word group: all − O; all − S (mean reading)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/differences/word/all_minus_O/mean",
+     "job": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.5250000000000001
+     },
+     "stored": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.5250000000000001
+     },
+     "ind2000": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.525
+     },
+     "ind10000": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.53
+     },
+     "seeds_lo": [
+      0.38493749999999993,
+      0.375,
+      0.38999999999999996
+     ],
+     "seeds_hi": [
+      0.5250624999999998,
+      0.525,
+      0.53
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/differences/word/all_minus_S/mean",
+     "job": {
+      "mean": 0.445,
+      "lo": 0.36500000000000005,
+      "hi": 0.515
+     },
+     "stored": {
+      "mean": 0.445,
+      "lo": 0.36500000000000005,
+      "hi": 0.515
+     },
+     "ind2000": {
+      "mean": 0.445,
+      "lo": 0.37,
+      "hi": 0.52
+     },
+     "ind10000": {
+      "mean": 0.445,
+      "lo": 0.37,
+      "hi": 0.52
+     },
+     "seeds_lo": [
+      0.37,
+      0.36500000000000005,
+      0.375
+     ],
+     "seeds_hi": [
+      0.52,
+      0.515,
+      0.525
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/readings/word/mean",
+    "job": "the joined token model does the task",
+    "stored": "the joined token model does the task",
+    "ind2000": "the joined token model does the task",
+    "ind10000": "the joined token model does the task",
+    "seeds": {
+     "the joined token model does the task": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_3",
+   "label": "all group: all − O; all − S (mean reading)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/differences/all/all_minus_O/mean",
+     "job": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "stored": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "ind2000": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "ind10000": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "seeds_lo": [
+      0.18958333333333333,
+      0.1875,
+      0.19166666666666668
+     ],
+     "seeds_hi": [
+      0.26875,
+      0.26666666666666666,
+      0.2708333333333333
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/differences/all/all_minus_S/mean",
+     "job": {
+      "mean": 0.26041666666666663,
+      "lo": 0.21875,
+      "hi": 0.30416666666666664
+     },
+     "stored": {
+      "mean": 0.26041666666666663,
+      "lo": 0.21875,
+      "hi": 0.30416666666666664
+     },
+     "ind2000": {
+      "mean": 0.26041666666666663,
+      "lo": 0.21875,
+      "hi": 0.3020833333333333
+     },
+     "ind10000": {
+      "mean": 0.26041666666666663,
+      "lo": 0.21875,
+      "hi": 0.3020833333333333
+     },
+     "seeds_lo": [
+      0.21875,
+      0.21666666666666667,
+      0.22083333333333335
+     ],
+     "seeds_hi": [
+      0.3020833333333333,
+      0.29791666666666666,
+      0.30416666666666664
+     ],
+     "largest_end_move": 0.002083,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/readings/all/mean",
+    "job": "the joined token model does the task",
+    "stored": "the joined token model does the task",
+    "ind2000": "the joined token model does the task",
+    "ind10000": "the joined token model does the task",
+    "seeds": {
+     "the joined token model does the task": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_3",
+   "label": "word group controls: all − S_scaled; all − other; S_scaled − O; other − O",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/scoring/strict/controls/differences/word/all_minus_S_scaled/mean",
+     "job": {
+      "mean": 0.43500000000000005,
+      "lo": 0.36500000000000005,
+      "hi": 0.5051249999999994
+     },
+     "stored": {
+      "mean": 0.43500000000000005,
+      "lo": 0.36500000000000005,
+      "hi": 0.5051249999999994
+     },
+     "ind2000": {
+      "mean": 0.43500000000000005,
+      "lo": 0.37,
+      "hi": 0.5
+     },
+     "ind10000": {
+      "mean": 0.43500000000000005,
+      "lo": 0.37,
+      "hi": 0.5000000000000001
+     },
+     "seeds_lo": [
+      0.37,
+      0.365,
+      0.375
+     ],
+     "seeds_hi": [
+      0.5,
+      0.495,
+      0.505
+     ],
+     "largest_end_move": 0.005125,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    },
+    {
+     "path": "/results/scoring/strict/controls/differences/word/all_minus_other/mean",
+     "job": {
+      "mean": 0.595,
+      "lo": 0.525,
+      "hi": 0.6599999999999999
+     },
+     "stored": {
+      "mean": 0.595,
+      "lo": 0.525,
+      "hi": 0.6599999999999999
+     },
+     "ind2000": {
+      "mean": 0.595,
+      "lo": 0.53,
+      "hi": 0.66
+     },
+     "ind10000": {
+      "mean": 0.595,
+      "lo": 0.53,
+      "hi": 0.66
+     },
+     "seeds_lo": [
+      0.53,
+      0.525,
+      0.5349999999999999
+     ],
+     "seeds_hi": [
+      0.6599999999999999,
+      0.655,
+      0.66
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/scoring/strict/controls/differences/word/S_scaled_minus_O/mean",
+     "job": {
+      "mean": 0.019999999999999997,
+      "lo": -0.025,
+      "hi": 0.065
+     },
+     "stored": {
+      "mean": 0.019999999999999997,
+      "lo": -0.025,
+      "hi": 0.065
+     },
+     "ind2000": {
+      "mean": 0.019999999999999997,
+      "lo": -0.03,
+      "hi": 0.065
+     },
+     "ind10000": {
+      "mean": 0.019999999999999997,
+      "lo": -0.025000000000000005,
+      "hi": 0.065
+     },
+     "seeds_lo": [
+      -0.025,
+      -0.03,
+      -0.024999999999999998
+     ],
+     "seeds_hi": [
+      0.065,
+      0.06000000000000001,
+      0.06999999999999999
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/scoring/strict/controls/differences/word/other_minus_O/mean",
+     "job": {
+      "mean": -0.13999999999999999,
+      "lo": -0.195125,
+      "hi": -0.09
+     },
+     "stored": {
+      "mean": -0.13999999999999999,
+      "lo": -0.195125,
+      "hi": -0.09
+     },
+     "ind2000": {
+      "mean": -0.13999999999999999,
+      "lo": -0.195,
+      "hi": -0.08499999999999999
+     },
+     "ind10000": {
+      "mean": -0.13999999999999999,
+      "lo": -0.195,
+      "hi": -0.085
+     },
+     "seeds_lo": [
+      -0.195,
+      -0.195125,
+      -0.19
+     ],
+     "seeds_hi": [
+      -0.09,
+      -0.09,
+      -0.08499999999999999
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/scoring/strict/controls/readings/word/sentences",
+    "job": "the gain is the donor's skill on this item",
+    "stored": "the gain is the donor's skill on this item",
+    "ind2000": "the gain is the donor's skill on this item",
+    "ind10000": "the gain is the donor's skill on this item",
+    "seeds": {
+     "the gain is the donor's skill on this item": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_4",
+   "label": "word group: the gain all − O (localize; sentences use point shares)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/scoring/strict/localize/word/gain",
+     "job": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.5250000000000001
+     },
+     "stored": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.5250000000000001
+     },
+     "ind2000": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.525
+     },
+     "ind10000": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.53
+     },
+     "seeds_lo": [
+      0.38493749999999993,
+      0.375,
+      0.38999999999999996
+     ],
+     "seeds_hi": [
+      0.5250624999999998,
+      0.525,
+      0.53
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/scoring/strict/localize/word/sentences",
+    "job": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the last four layers suffice",
+    "stored": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the last four layers suffice",
+    "ind2000": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the last four layers suffice",
+    "ind10000": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the last four layers suffice",
+    "seeds": {
+     "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the last four layers suffice": 50
+    }
+   },
+   "quoted": "GRAFT 63 (shares only)"
+  },
+  {
+   "run": "join_3",
+   "label": "all group controls: all − S_scaled; all − other; S_scaled − O; other − O",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/scoring/strict/controls/differences/all/all_minus_S_scaled/mean",
+     "job": {
+      "mean": 0.26666666666666666,
+      "lo": 0.22708333333333333,
+      "hi": 0.30624999999999997
+     },
+     "stored": {
+      "mean": 0.26666666666666666,
+      "lo": 0.22708333333333333,
+      "hi": 0.30624999999999997
+     },
+     "ind2000": {
+      "mean": 0.26666666666666666,
+      "lo": 0.22916666666666666,
+      "hi": 0.30416666666666664
+     },
+     "ind10000": {
+      "mean": 0.26666666666666666,
+      "lo": 0.22916666666666663,
+      "hi": 0.3041666666666667
+     },
+     "seeds_lo": [
+      0.22916666666666663,
+      0.225,
+      0.23124999999999998
+     ],
+     "seeds_hi": [
+      0.30421874999999976,
+      0.30213541666666643,
+      0.30833333333333335
+     ],
+     "largest_end_move": 0.002083,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/scoring/strict/controls/differences/all/all_minus_other/mean",
+     "job": {
+      "mean": 0.42500000000000004,
+      "lo": 0.38541666666666674,
+      "hi": 0.4645833333333333
+     },
+     "stored": {
+      "mean": 0.42500000000000004,
+      "lo": 0.38541666666666674,
+      "hi": 0.4645833333333333
+     },
+     "ind2000": {
+      "mean": 0.42500000000000004,
+      "lo": 0.38749999999999996,
+      "hi": 0.4625000000000001
+     },
+     "ind10000": {
+      "mean": 0.42500000000000004,
+      "lo": 0.3875,
+      "hi": 0.4625000000000001
+     },
+     "seeds_lo": [
+      0.38749999999999996,
+      0.38333333333333336,
+      0.38958333333333334
+     ],
+     "seeds_hi": [
+      0.4625000000000001,
+      0.4604166666666667,
+      0.4666666666666666
+     ],
+     "largest_end_move": 0.002083,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/scoring/strict/controls/differences/all/S_scaled_minus_O/mean",
+     "job": {
+      "mean": -0.0375,
+      "lo": -0.0625,
+      "hi": -0.012500000000000002
+     },
+     "stored": {
+      "mean": -0.0375,
+      "lo": -0.0625,
+      "hi": -0.012500000000000002
+     },
+     "ind2000": {
+      "mean": -0.0375,
+      "lo": -0.0625,
+      "hi": -0.012499999999999997
+     },
+     "ind10000": {
+      "mean": -0.0375,
+      "lo": -0.0625,
+      "hi": -0.012499999999999995
+     },
+     "seeds_lo": [
+      -0.06255208333333334,
+      -0.06458333333333334,
+      -0.06249999999999999
+     ],
+     "seeds_hi": [
+      -0.012499999999999997,
+      -0.014583333333333332,
+      -0.010416666666666664
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/scoring/strict/controls/differences/all/other_minus_O/mean",
+     "job": {
+      "mean": -0.19583333333333333,
+      "lo": -0.22916666666666666,
+      "hi": -0.1625
+     },
+     "stored": {
+      "mean": -0.19583333333333333,
+      "lo": -0.22916666666666666,
+      "hi": -0.1625
+     },
+     "ind2000": {
+      "mean": -0.19583333333333333,
+      "lo": -0.22916666666666663,
+      "hi": -0.1625
+     },
+     "ind10000": {
+      "mean": -0.19583333333333333,
+      "lo": -0.22916666666666666,
+      "hi": -0.1625
+     },
+     "seeds_lo": [
+      -0.2270833333333334,
+      -0.22916666666666666,
+      -0.225
+     ],
+     "seeds_hi": [
+      -0.16458333333333333,
+      -0.16666666666666666,
+      -0.1625
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/scoring/strict/controls/readings/all/sentences",
+    "job": "the gain is the donor's skill on this item",
+    "stored": "the gain is the donor's skill on this item",
+    "ind2000": "the gain is the donor's skill on this item",
+    "ind10000": "the gain is the donor's skill on this item",
+    "seeds": {
+     "the gain is the donor's skill on this item": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "join_4",
+   "label": "all group: the gain all − O (localize; sentences use point shares)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/scoring/strict/localize/all/gain",
+     "job": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "stored": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "ind2000": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "ind10000": {
+      "mean": 0.22916666666666663,
+      "lo": 0.18958333333333333,
+      "hi": 0.26875
+     },
+     "seeds_lo": [
+      0.18958333333333333,
+      0.1875,
+      0.19166666666666668
+     ],
+     "seeds_hi": [
+      0.26875,
+      0.26666666666666666,
+      0.2708333333333333
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/scoring/strict/localize/all/sentences",
+    "job": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the deciding rows need both layer ranges",
+    "stored": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the deciding rows need both layer ranges",
+    "ind2000": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the deciding rows need both layer ranges",
+    "ind10000": "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the deciding rows need both layer ranges",
+    "seeds": {
+     "the deciding rows suffice: the donor's writes at the rows that write the answer carry it | the deciding rows need both layer ranges": 50
+    }
+   },
+   "quoted": "GRAFT 63 (shares only)"
+  },
+  {
+   "run": "srows_1",
+   "label": "S_rows − O (strict; lenient)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/srows/differences/strict/S_rows_minus_O/mean",
+     "job": {
+      "mean": 0.019999999999999997,
+      "lo": -0.035,
+      "hi": 0.07512499999999933
+     },
+     "stored": {
+      "mean": 0.019999999999999997,
+      "lo": -0.035,
+      "hi": 0.07512499999999933
+     },
+     "ind2000": {
+      "mean": 0.019999999999999997,
+      "lo": -0.04,
+      "hi": 0.07999999999999999
+     },
+     "ind10000": {
+      "mean": 0.019999999999999997,
+      "lo": -0.04,
+      "hi": 0.075
+     },
+     "seeds_lo": [
+      -0.039999999999999994,
+      -0.04499999999999999,
+      -0.034999999999999996
+     ],
+     "seeds_hi": [
+      0.07512499999999933,
+      0.075,
+      0.08
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/srows/differences/lenient/S_rows_minus_O/mean",
+     "job": {
+      "mean": 0.030000000000000006,
+      "lo": -0.025000000000000005,
+      "hi": 0.085
+     },
+     "stored": {
+      "mean": 0.030000000000000006,
+      "lo": -0.025000000000000005,
+      "hi": 0.085
+     },
+     "ind2000": {
+      "mean": 0.030000000000000006,
+      "lo": -0.030000000000000006,
+      "hi": 0.085
+     },
+     "ind10000": {
+      "mean": 0.030000000000000006,
+      "lo": -0.03,
+      "hi": 0.085
+     },
+     "seeds_lo": [
+      -0.029999999999999992,
+      -0.030000000000000006,
+      -0.024999999999999998
+     ],
+     "seeds_hi": [
+      0.09,
+      0.08499999999999999,
+      0.09000000000000001
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/srows/readings",
+    "job": "a no-skill write of F's size at the answer rows does not give the gain",
+    "stored": "a no-skill write of F's size at the answer rows does not give the gain",
+    "ind2000": "a no-skill write of F's size at the answer rows does not give the gain",
+    "ind10000": "a no-skill write of F's size at the answer rows does not give the gain",
+    "seeds": {
+     "a no-skill write of F's size at the answer rows does not give the gain": 50
+    }
+   },
+   "quoted": "GRAFT 60"
+  },
+  {
+   "run": "dist_1",
+   "label": "main: skill part (all − S)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/main/skill_part/mean",
+     "job": {
+      "mean": 0.445,
+      "lo": 0.36500000000000005,
+      "hi": 0.515
+     },
+     "stored": {
+      "mean": 0.445,
+      "lo": 0.36500000000000005,
+      "hi": 0.515
+     },
+     "ind2000": {
+      "mean": 0.445,
+      "lo": 0.37,
+      "hi": 0.52
+     },
+     "ind10000": {
+      "mean": 0.445,
+      "lo": 0.37,
+      "hi": 0.52
+     },
+     "seeds_lo": [
+      0.37,
+      0.36500000000000005,
+      0.375
+     ],
+     "seeds_hi": [
+      0.52,
+      0.515,
+      0.525
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/main/reading",
+    "job": "the join carries F's skill at this distance",
+    "stored": "the join carries F's skill at this distance",
+    "ind2000": "the join carries F's skill at this distance",
+    "ind10000": "the join carries F's skill at this distance",
+    "seeds": {
+     "the join carries F's skill at this distance": 50
+    }
+   },
+   "quoted": "GRAFT 103 (no interval)"
+  },
+  {
+   "run": "dist_1",
+   "label": "main: gain (all − O)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/main/gain/mean",
+     "job": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.5250000000000001
+     },
+     "stored": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.5250000000000001
+     },
+     "ind2000": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.525
+     },
+     "ind10000": {
+      "mean": 0.45499999999999996,
+      "lo": 0.38,
+      "hi": 0.53
+     },
+     "seeds_lo": [
+      0.38493749999999993,
+      0.375,
+      0.38999999999999996
+     ],
+     "seeds_hi": [
+      0.5250624999999998,
+      0.525,
+      0.53
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/main/gain_reading/gain over the host alone (includes what any main-body donor gives)",
+    "job": "the join works at this distance",
+    "stored": "the join works at this distance",
+    "ind2000": "the join works at this distance",
+    "ind10000": "the join works at this distance",
+    "seeds": {
+     "the join works at this distance": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "dist_1",
+   "label": "stage1-step1907359-tokens4001B: skill part (all − S)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/stage1-step1907359-tokens4001B/skill_part/mean",
+     "job": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "stored": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "ind2000": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "ind10000": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "seeds_lo": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "seeds_hi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/stage1-step1907359-tokens4001B/reading",
+    "job": "it does not at this distance",
+    "stored": "it does not at this distance",
+    "ind2000": "it does not at this distance",
+    "ind10000": "it does not at this distance",
+    "seeds": {
+     "it does not at this distance": 50
+    }
+   },
+   "quoted": "GRAFT 103 (no interval)"
+  },
+  {
+   "run": "dist_1",
+   "label": "stage1-step1907359-tokens4001B: gain (all − O)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/stage1-step1907359-tokens4001B/gain/mean",
+     "job": {
+      "mean": -0.17,
+      "lo": -0.215,
+      "hi": -0.125
+     },
+     "stored": {
+      "mean": -0.17,
+      "lo": -0.215,
+      "hi": -0.125
+     },
+     "ind2000": {
+      "mean": -0.17,
+      "lo": -0.215,
+      "hi": -0.125
+     },
+     "ind10000": {
+      "mean": -0.17,
+      "lo": -0.215,
+      "hi": -0.12999999999999998
+     },
+     "seeds_lo": [
+      -0.215,
+      -0.21999999999999997,
+      -0.21000000000000002
+     ],
+     "seeds_hi": [
+      -0.125,
+      -0.13,
+      -0.125
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/stage1-step1907359-tokens4001B/gain_reading/gain over the host alone (includes what any main-body donor gives)",
+    "job": "the join fails at this distance",
+    "stored": "the join fails at this distance",
+    "ind2000": "the join fails at this distance",
+    "ind10000": "the join fails at this distance",
+    "seeds": {
+     "the join fails at this distance": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "dist_1",
+   "label": "stage1-step970000-tokens2035B: skill part (all − S)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/stage1-step970000-tokens2035B/skill_part/mean",
+     "job": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "stored": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "ind2000": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "ind10000": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "seeds_lo": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "seeds_hi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/stage1-step970000-tokens2035B/reading",
+    "job": "it does not at this distance",
+    "stored": "it does not at this distance",
+    "ind2000": "it does not at this distance",
+    "ind10000": "it does not at this distance",
+    "seeds": {
+     "it does not at this distance": 50
+    }
+   },
+   "quoted": "GRAFT 103 (no interval)"
+  },
+  {
+   "run": "dist_1",
+   "label": "stage1-step970000-tokens2035B: gain (all − O)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/stage1-step970000-tokens2035B/gain/mean",
+     "job": {
+      "mean": -0.14,
+      "lo": -0.175,
+      "hi": -0.10500000000000001
+     },
+     "stored": {
+      "mean": -0.14,
+      "lo": -0.175,
+      "hi": -0.10500000000000001
+     },
+     "ind2000": {
+      "mean": -0.14,
+      "lo": -0.18,
+      "hi": -0.1
+     },
+     "ind10000": {
+      "mean": -0.14,
+      "lo": -0.18,
+      "hi": -0.1
+     },
+     "seeds_lo": [
+      -0.18,
+      -0.18000000000000002,
+      -0.175
+     ],
+     "seeds_hi": [
+      -0.1,
+      -0.10500000000000001,
+      -0.1
+     ],
+     "largest_end_move": 0.005,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/stage1-step970000-tokens2035B/gain_reading/gain over the host alone (includes what any main-body donor gives)",
+    "job": "the join fails at this distance",
+    "stored": "the join fails at this distance",
+    "ind2000": "the join fails at this distance",
+    "ind10000": "the join fails at this distance",
+    "seeds": {
+     "the join fails at this distance": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "dist_1",
+   "label": "stage1-step190000-tokens399B: skill part (all − S)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/stage1-step190000-tokens399B/skill_part/mean",
+     "job": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "stored": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "ind2000": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "ind10000": {
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "seeds_lo": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "seeds_hi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/stage1-step190000-tokens399B/reading",
+    "job": "it does not at this distance",
+    "stored": "it does not at this distance",
+    "ind2000": "it does not at this distance",
+    "ind10000": "it does not at this distance",
+    "seeds": {
+     "it does not at this distance": 50
+    }
+   },
+   "quoted": "GRAFT 103 (no interval)"
+  },
+  {
+   "run": "dist_1",
+   "label": "stage1-step190000-tokens399B: gain (all − O)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/dist/stage1-step190000-tokens399B/gain/mean",
+     "job": {
+      "mean": -0.11499999999999999,
+      "lo": -0.15,
+      "hi": -0.08
+     },
+     "stored": {
+      "mean": -0.11499999999999999,
+      "lo": -0.15,
+      "hi": -0.08
+     },
+     "ind2000": {
+      "mean": -0.11499999999999999,
+      "lo": -0.15000000000000002,
+      "hi": -0.08
+     },
+     "ind10000": {
+      "mean": -0.11499999999999999,
+      "lo": -0.15000000000000002,
+      "hi": -0.08
+     },
+     "seeds_lo": [
+      -0.15,
+      -0.155,
+      -0.15
+     ],
+     "seeds_hi": [
+      -0.08,
+      -0.08,
+      -0.075
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/dist/stage1-step190000-tokens399B/gain_reading/gain over the host alone (includes what any main-body donor gives)",
+    "job": "the join fails at this distance",
+    "stored": "the join fails at this distance",
+    "ind2000": "the join fails at this distance",
+    "ind10000": "the join fails at this distance",
+    "seeds": {
+     "the join fails at this distance": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "pair_1",
+   "label": "questions: O − F (G1)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/pair/questions/differences/O_minus_F/mean",
+     "job": {
+      "mean": 0.075,
+      "lo": 0.0325,
+      "hi": 0.12
+     },
+     "stored": {
+      "mean": 0.075,
+      "lo": 0.0325,
+      "hi": 0.12
+     },
+     "ind2000": {
+      "mean": 0.075,
+      "lo": 0.0325,
+      "hi": 0.12
+     },
+     "ind10000": {
+      "mean": 0.075,
+      "lo": 0.03,
+      "hi": 0.12
+     },
+     "seeds_lo": [
+      0.03,
+      0.0275,
+      0.035
+     ],
+     "seeds_hi": [
+      0.12,
+      0.1175,
+      0.125
+     ],
+     "largest_end_move": 0.0025,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/pair/readings/G1",
+    "job": "the token model leads on the questions in this format",
+    "stored": "the token model leads on the questions in this format",
+    "ind2000": "the token model leads on the questions in this format",
+    "ind10000": "the token model leads on the questions in this format",
+    "seeds": {
+     "the token model leads on the questions in this format": 50
+    }
+   },
+   "quoted": "JOURNAL"
+  },
+  {
+   "run": "pair_1",
+   "label": "questions all − F; questions all − O; CUTE all − O (G2, G3)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/pair/questions/differences/all_minus_F/mean",
+     "job": {
+      "mean": 0.045,
+      "lo": -0.0025,
+      "hi": 0.09
+     },
+     "stored": {
+      "mean": 0.045,
+      "lo": -0.0025,
+      "hi": 0.09
+     },
+     "ind2000": {
+      "mean": 0.045,
+      "lo": 0.0,
+      "hi": 0.09006249999999966
+     },
+     "ind10000": {
+      "mean": 0.045,
+      "lo": 0.0,
+      "hi": 0.09
+     },
+     "seeds_lo": [
+      0.0,
+      -0.0025,
+      0.0025
+     ],
+     "seeds_hi": [
+      0.09003124999999983,
+      0.09,
+      0.095
+     ],
+     "largest_end_move": 0.0025,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/pair/questions/differences/all_minus_O/mean",
+     "job": {
+      "mean": -0.03,
+      "lo": -0.07,
+      "hi": 0.01
+     },
+     "stored": {
+      "mean": -0.03,
+      "lo": -0.07,
+      "hi": 0.01
+     },
+     "ind2000": {
+      "mean": -0.03,
+      "lo": -0.0675,
+      "hi": 0.01
+     },
+     "ind10000": {
+      "mean": -0.03,
+      "lo": -0.07,
+      "hi": 0.01
+     },
+     "seeds_lo": [
+      -0.07,
+      -0.0725,
+      -0.0675
+     ],
+     "seeds_hi": [
+      0.01,
+      0.005,
+      0.0125
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/pair/cute/differences/all_minus_O/mean",
+     "job": {
+      "mean": 0.16666666666666666,
+      "lo": 0.10416666666666667,
+      "hi": 0.225
+     },
+     "stored": {
+      "mean": 0.16666666666666666,
+      "lo": 0.10416666666666667,
+      "hi": 0.225
+     },
+     "ind2000": {
+      "mean": 0.16666666666666666,
+      "lo": 0.10416666666666667,
+      "hi": 0.22916666666666666
+     },
+     "ind10000": {
+      "mean": 0.16666666666666666,
+      "lo": 0.10833333333333332,
+      "hi": 0.22916666666666666
+     },
+     "seeds_lo": [
+      0.10416666666666667,
+      0.09999999999999999,
+      0.10833333333333334
+     ],
+     "seeds_hi": [
+      0.22916666666666666,
+      0.22499999999999998,
+      0.2333333333333333
+     ],
+     "largest_end_move": 0.004167,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/pair/readings/joins/all",
+    "job": "the byte model's skill carries on fresh items (control moved)",
+    "stored": "the byte model's skill carries on fresh items (control moved)",
+    "ind2000": "the byte model's skill carries on fresh items (control moved)",
+    "ind10000": "the byte model's skill carries on fresh items (control moved)",
+    "seeds": {
+     "the byte model's skill carries on fresh items (control moved)": 50
+    }
+   },
+   "quoted": "GRAFT 108 (no interval)"
+  },
+  {
+   "run": "pair_1",
+   "label": "CUTE word group: all − O; all − S (mean reading)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/results/differences/word/all_minus_O/mean",
+     "job": {
+      "mean": 0.38,
+      "lo": 0.27999999999999997,
+      "hi": 0.48999999999999994
+     },
+     "stored": {
+      "mean": 0.38,
+      "lo": 0.27999999999999997,
+      "hi": 0.48999999999999994
+     },
+     "ind2000": {
+      "mean": 0.38,
+      "lo": 0.27999999999999997,
+      "hi": 0.4800000000000001
+     },
+     "ind10000": {
+      "mean": 0.38,
+      "lo": 0.27,
+      "hi": 0.49000000000000005
+     },
+     "seeds_lo": [
+      0.27,
+      0.26000000000000006,
+      0.27999999999999997
+     ],
+     "seeds_hi": [
+      0.49000000000000005,
+      0.48,
+      0.4902499999999987
+     ],
+     "largest_end_move": 0.01,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/results/differences/word/all_minus_S/mean",
+     "job": {
+      "mean": 0.38,
+      "lo": 0.27,
+      "hi": 0.48999999999999994
+     },
+     "stored": {
+      "mean": 0.38,
+      "lo": 0.27,
+      "hi": 0.48999999999999994
+     },
+     "ind2000": {
+      "mean": 0.38,
+      "lo": 0.27,
+      "hi": 0.48999999999999994
+     },
+     "ind10000": {
+      "mean": 0.38,
+      "lo": 0.27,
+      "hi": 0.49000000000000005
+     },
+     "seeds_lo": [
+      0.27,
+      0.26,
+      0.27975
+     ],
+     "seeds_hi": [
+      0.49000000000000005,
+      0.48,
+      0.5
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/results/readings/word/mean",
+    "job": "the joined token model does the task",
+    "stored": "the joined token model does the task",
+    "ind2000": "the joined token model does the task",
+    "ind10000": "the joined token model does the task",
+    "seeds": {
+     "the joined token model does the task": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_1",
+   "label": "R: main's difference form − main alone (reference)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/R/edit/strict/mean",
+     "job": {
+      "mean": -0.025,
+      "lo": -0.09375,
+      "hi": 0.0375
+     },
+     "stored": {
+      "mean": -0.025,
+      "lo": -0.09375,
+      "hi": 0.0375
+     },
+     "ind2000": {
+      "mean": -0.025,
+      "lo": -0.08750000000000001,
+      "hi": 0.0375
+     },
+     "ind10000": {
+      "mean": -0.025,
+      "lo": -0.0875,
+      "hi": 0.0375
+     },
+     "seeds_lo": [
+      -0.0875,
+      -0.09375,
+      -0.08125
+     ],
+     "seeds_hi": [
+      0.037500000000000006,
+      0.03125,
+      0.04375
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/maps/dF_U",
+    "job": "dF_U: not readable: the difference form does not carry the skill on main",
+    "stored": "dF_U: not readable: the difference form does not carry the skill on main",
+    "ind2000": "dF_U: not readable: the difference form does not carry the skill on main",
+    "ind10000": "dF_U: not readable: the difference form does not carry the skill on main",
+    "seeds": {
+     "dF_U: not readable: the difference form does not carry the skill on main": 50
+    }
+   },
+   "quoted": "GRAFT 84"
+  },
+  {
+   "run": "diff_1",
+   "label": "dF_U − H alone (exploratory)",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/dF_U-O/edit/strict/mean",
+     "job": {
+      "mean": 0.20625000000000002,
+      "lo": 0.15000000000000002,
+      "hi": 0.2625
+     },
+     "stored": {
+      "mean": 0.20625000000000002,
+      "lo": 0.15000000000000002,
+      "hi": 0.2625
+     },
+     "ind2000": {
+      "mean": 0.20625000000000002,
+      "lo": 0.15,
+      "hi": 0.26875
+     },
+     "ind10000": {
+      "mean": 0.20625000000000002,
+      "lo": 0.15,
+      "hi": 0.26875
+     },
+     "seeds_lo": [
+      0.15,
+      0.14375,
+      0.15000000000000002
+     ],
+     "seeds_hi": [
+      0.26875,
+      0.2625,
+      0.27499999999999997
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": null,
+   "quoted": "GRAFT 86; WRITEUP 40-42"
+  },
+  {
+   "run": "diff_1",
+   "label": "weight difference at H − H alone; Rw at main",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/wdiff_H/edit/strict/mean",
+     "job": {
+      "mean": -0.075,
+      "lo": -0.11875,
+      "hi": -0.0375
+     },
+     "stored": {
+      "mean": -0.075,
+      "lo": -0.11875,
+      "hi": -0.0375
+     },
+     "ind2000": {
+      "mean": -0.075,
+      "lo": -0.1125,
+      "hi": -0.037500000000000006
+     },
+     "ind10000": {
+      "mean": -0.075,
+      "lo": -0.11875,
+      "hi": -0.037500000000000006
+     },
+     "seeds_lo": [
+      -0.11875,
+      -0.11875,
+      -0.1125
+     ],
+     "seeds_hi": [
+      -0.037500000000000006,
+      -0.037500000000000006,
+      -0.0375
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/Rw/edit/strict/mean",
+     "job": {
+      "mean": 0.2,
+      "lo": 0.125,
+      "hi": 0.28125
+     },
+     "stored": {
+      "mean": 0.2,
+      "lo": 0.125,
+      "hi": 0.28125
+     },
+     "ind2000": {
+      "mean": 0.2,
+      "lo": 0.11875000000000001,
+      "hi": 0.275
+     },
+     "ind10000": {
+      "mean": 0.2,
+      "lo": 0.125,
+      "hi": 0.275
+     },
+     "seeds_lo": [
+      0.125,
+      0.11875000000000002,
+      0.13125
+     ],
+     "seeds_hi": [
+      0.275,
+      0.26875,
+      0.28125
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/wdiff",
+    "job": "it does not",
+    "stored": "it does not",
+    "ind2000": "it does not",
+    "ind10000": "it does not",
+    "seeds": {
+     "it does not": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_2a",
+   "label": "dF_U − P1H",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/dF_U-P1H/edit/strict/mean",
+     "job": {
+      "mean": -0.012499999999999999,
+      "lo": -0.075,
+      "hi": 0.05
+     },
+     "stored": {
+      "mean": -0.012499999999999999,
+      "lo": -0.075,
+      "hi": 0.05
+     },
+     "ind2000": {
+      "mean": -0.012499999999999999,
+      "lo": -0.08125,
+      "hi": 0.05625000000000001
+     },
+     "ind10000": {
+      "mean": -0.012499999999999999,
+      "lo": -0.08125,
+      "hi": 0.056249999999999994
+     },
+     "seeds_lo": [
+      -0.08125,
+      -0.0875,
+      -0.07500000000000001
+     ],
+     "seeds_hi": [
+      0.05625,
+      0.05000000000000001,
+      0.0625
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/logit/direct",
+    "job": "a direct write to the final norm accounts for it",
+    "stored": "a direct write to the final norm accounts for it",
+    "ind2000": "a direct write to the final norm accounts for it",
+    "ind10000": "a direct write to the final norm accounts for it",
+    "seeds": {
+     "a direct write to the final norm accounts for it": 50
+    }
+   },
+   "quoted": "GRAFT 89; WRITEUP 43"
+  },
+  {
+   "run": "diff_2a",
+   "label": "dF_U_early − P1H_early",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/dF_U_early-P1H_early/edit/strict/mean",
+     "job": {
+      "mean": 0.0125,
+      "lo": -0.018750000000000003,
+      "hi": 0.043906249999999154
+     },
+     "stored": {
+      "mean": 0.0125,
+      "lo": -0.018750000000000003,
+      "hi": 0.043906249999999154
+     },
+     "ind2000": {
+      "mean": 0.0125,
+      "lo": -0.018750000000000003,
+      "hi": 0.04375
+     },
+     "ind10000": {
+      "mean": 0.0125,
+      "lo": -0.018750000000000003,
+      "hi": 0.043750000000000004
+     },
+     "seeds_lo": [
+      -0.018750000000000003,
+      -0.025,
+      -0.018750000000000003
+     ],
+     "seeds_hi": [
+      0.049999999999999996,
+      0.04375,
+      0.05
+     ],
+     "largest_end_move": 0.000156,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/logit/early",
+    "job": "no use of the early writes beyond their direct effect is shown",
+    "stored": "no use of the early writes beyond their direct effect is shown",
+    "ind2000": "no use of the early writes beyond their direct effect is shown",
+    "ind10000": "no use of the early writes beyond their direct effect is shown",
+    "seeds": {
+     "no use of the early writes beyond their direct effect is shown": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_2a",
+   "label": "dF_U − P1",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/dF_U-P1/edit/strict/mean",
+     "job": {
+      "mean": 0.13749999999999998,
+      "lo": 0.0625,
+      "hi": 0.21250000000000002
+     },
+     "stored": {
+      "mean": 0.13749999999999998,
+      "lo": 0.0625,
+      "hi": 0.21250000000000002
+     },
+     "ind2000": {
+      "mean": 0.13749999999999998,
+      "lo": 0.0625,
+      "hi": 0.21875
+     },
+     "ind10000": {
+      "mean": 0.13749999999999998,
+      "lo": 0.06249999999999999,
+      "hi": 0.21874999999999997
+     },
+     "seeds_lo": [
+      0.05625000000000001,
+      0.056093750000000005,
+      0.0625
+     ],
+     "seeds_hi": [
+      0.21874999999999997,
+      0.2125,
+      0.21875
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/logit/P1",
+    "job": "proxy tuning in main's readout does not reach it",
+    "stored": "proxy tuning in main's readout does not reach it",
+    "ind2000": "proxy tuning in main's readout does not reach it",
+    "ind10000": "proxy tuning in main's readout does not reach it",
+    "seeds": {
+     "proxy tuning in main's readout does not reach it": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_2a",
+   "label": "dF_U − P2",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/dF_U-P2/edit/strict/mean",
+     "job": {
+      "mean": 0.0125,
+      "lo": -0.05625,
+      "hi": 0.08125000000000002
+     },
+     "stored": {
+      "mean": 0.0125,
+      "lo": -0.05625,
+      "hi": 0.08125000000000002
+     },
+     "ind2000": {
+      "mean": 0.0125,
+      "lo": -0.0625,
+      "hi": 0.08750000000000001
+     },
+     "ind10000": {
+      "mean": 0.0125,
+      "lo": -0.0625,
+      "hi": 0.0875
+     },
+     "seeds_lo": [
+      -0.0625,
+      -0.06875,
+      -0.05625
+     ],
+     "seeds_hi": [
+      0.0875,
+      0.08125,
+      0.09375
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/logit/P2",
+    "job": "proxy tuning on body outputs reaches it",
+    "stored": "proxy tuning on body outputs reaches it",
+    "ind2000": "proxy tuning on body outputs reaches it",
+    "ind10000": "proxy tuning on body outputs reaches it",
+    "seeds": {
+     "proxy tuning on body outputs reaches it": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_2b",
+   "label": "stage1-step970000-tokens2035B: dF_U − host alone",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/hosts/stage1-step970000-tokens2035B/differences/dF_U-O/edit/strict/mean",
+     "job": {
+      "mean": 0.225,
+      "lo": 0.16875,
+      "hi": 0.28125
+     },
+     "stored": {
+      "mean": 0.225,
+      "lo": 0.16875,
+      "hi": 0.28125
+     },
+     "ind2000": {
+      "mean": 0.225,
+      "lo": 0.1625,
+      "hi": 0.29374999999999996
+     },
+     "ind10000": {
+      "mean": 0.225,
+      "lo": 0.1625,
+      "hi": 0.28750000000000003
+     },
+     "seeds_lo": [
+      0.1625,
+      0.15625,
+      0.16859375
+     ],
+     "seeds_hi": [
+      0.29374999999999996,
+      0.2875,
+      0.29375
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": true,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/hosts/stage1-step970000-tokens2035B/sentence",
+    "job": "reaches",
+    "stored": "reaches",
+    "ind2000": "reaches",
+    "ind10000": "reaches",
+    "seeds": {
+     "reaches": 50
+    }
+   },
+   "quoted": "GRAFT 91; WRITEUP 42"
+  },
+  {
+   "run": "diff_2b",
+   "label": "stage1-step190000-tokens399B: dF_U − host alone",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/hosts/stage1-step190000-tokens399B/differences/dF_U-O/edit/strict/mean",
+     "job": {
+      "mean": 0.175,
+      "lo": 0.11875000000000001,
+      "hi": 0.23125
+     },
+     "stored": {
+      "mean": 0.175,
+      "lo": 0.11875000000000001,
+      "hi": 0.23125
+     },
+     "ind2000": {
+      "mean": 0.175,
+      "lo": 0.11875,
+      "hi": 0.23125
+     },
+     "ind10000": {
+      "mean": 0.175,
+      "lo": 0.11250000000000002,
+      "hi": 0.2375
+     },
+     "seeds_lo": [
+      0.11875,
+      0.1125,
+      0.11875000000000001
+     ],
+     "seeds_hi": [
+      0.2375,
+      0.23125,
+      0.24374999999999997
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/hosts/stage1-step190000-tokens399B/sentence",
+    "job": "reaches",
+    "stored": "reaches",
+    "ind2000": "reaches",
+    "ind10000": "reaches",
+    "seeds": {
+     "reaches": 50
+    }
+   },
+   "quoted": "GRAFT 91; WRITEUP 42"
+  },
+  {
+   "run": "diff_2b",
+   "label": "dF_proc − H alone; − no map; − other item",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/rotation/differences/dF_proc-O/edit/strict/mean",
+     "job": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.21250000000000002
+     },
+     "stored": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.21250000000000002
+     },
+     "ind2000": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.20625000000000002
+     },
+     "ind10000": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.20625000000000002
+     },
+     "seeds_lo": [
+      0.09375,
+      0.09375,
+      0.1
+     ],
+     "seeds_hi": [
+      0.20625000000000002,
+      0.20625,
+      0.21250000000000002
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/rotation/differences/dF_proc-dF_idH/edit/strict/mean",
+     "job": {
+      "mean": 0.18125,
+      "lo": 0.11875,
+      "hi": 0.25
+     },
+     "stored": {
+      "mean": 0.18125,
+      "lo": 0.11875,
+      "hi": 0.25
+     },
+     "ind2000": {
+      "mean": 0.18125,
+      "lo": 0.125,
+      "hi": 0.24375
+     },
+     "ind10000": {
+      "mean": 0.18125,
+      "lo": 0.125,
+      "hi": 0.24375
+     },
+     "seeds_lo": [
+      0.125,
+      0.11875,
+      0.125
+     ],
+     "seeds_hi": [
+      0.24375,
+      0.23750000000000002,
+      0.25
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/rotation/differences/dF_proc-dF_proc_other/edit/strict/mean",
+     "job": {
+      "mean": 0.175,
+      "lo": 0.1,
+      "hi": 0.2625
+     },
+     "stored": {
+      "mean": 0.175,
+      "lo": 0.1,
+      "hi": 0.2625
+     },
+     "ind2000": {
+      "mean": 0.175,
+      "lo": 0.1,
+      "hi": 0.26249999999999996
+     },
+     "ind10000": {
+      "mean": 0.175,
+      "lo": 0.1,
+      "hi": 0.26249999999999996
+     },
+     "seeds_lo": [
+      0.1,
+      0.09999999999999999,
+      0.1
+     ],
+     "seeds_hi": [
+      0.26249999999999996,
+      0.25,
+      0.2625
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/rotation/sentences/dF_proc",
+    "job": "carries; above no map; follows the item",
+    "stored": "carries; above no map; follows the item",
+    "ind2000": "carries; above no map; follows the item",
+    "ind10000": "carries; above no map; follows the item",
+    "seeds": {
+     "carries; above no map; follows the item": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_2b",
+   "label": "dF_Eproc − H alone; − no map; − other item",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/rotation/differences/dF_Eproc-O/edit/strict/mean",
+     "job": {
+      "mean": 0.03125,
+      "lo": 0.00625,
+      "hi": 0.06249999999999999
+     },
+     "stored": {
+      "mean": 0.03125,
+      "lo": 0.00625,
+      "hi": 0.06249999999999999
+     },
+     "ind2000": {
+      "mean": 0.03125,
+      "lo": 0.00625,
+      "hi": 0.0625
+     },
+     "ind10000": {
+      "mean": 0.03125,
+      "lo": 0.00625,
+      "hi": 0.06249999999999999
+     },
+     "seeds_lo": [
+      0.00625,
+      0.00625,
+      0.01234375000000001
+     ],
+     "seeds_hi": [
+      0.0625,
+      0.05625,
+      0.0625
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/rotation/differences/dF_Eproc-dF_idH/edit/strict/mean",
+     "job": {
+      "mean": 0.0625,
+      "lo": 0.025,
+      "hi": 0.10625
+     },
+     "stored": {
+      "mean": 0.0625,
+      "lo": 0.025,
+      "hi": 0.10625
+     },
+     "ind2000": {
+      "mean": 0.0625,
+      "lo": 0.025,
+      "hi": 0.10625
+     },
+     "ind10000": {
+      "mean": 0.0625,
+      "lo": 0.025,
+      "hi": 0.10625
+     },
+     "seeds_lo": [
+      0.025,
+      0.025,
+      0.025
+     ],
+     "seeds_hi": [
+      0.10625,
+      0.1,
+      0.10625000000000001
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/rotation/differences/dF_Eproc-dF_Eproc_other/edit/strict/mean",
+     "job": {
+      "mean": 0.0125,
+      "lo": -0.025,
+      "hi": 0.05
+     },
+     "stored": {
+      "mean": 0.0125,
+      "lo": -0.025,
+      "hi": 0.05
+     },
+     "ind2000": {
+      "mean": 0.0125,
+      "lo": -0.025,
+      "hi": 0.05
+     },
+     "ind10000": {
+      "mean": 0.0125,
+      "lo": -0.025,
+      "hi": 0.05
+     },
+     "seeds_lo": [
+      -0.025,
+      -0.025,
+      -0.025
+     ],
+     "seeds_hi": [
+      0.05,
+      0.05,
+      0.0625
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/rotation/sentences/dF_Eproc",
+    "job": "not readable: this map does not carry main's own differences into H's",
+    "stored": "not readable: this map does not carry main's own differences into H's",
+    "ind2000": "not readable: this map does not carry main's own differences into H's",
+    "ind10000": "not readable: this map does not carry main's own differences into H's",
+    "seeds": {
+     "not readable: this map does not carry main's own differences into H's": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_3m",
+   "label": "deciding − P2",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/deciding-P2/edit/strict/mean",
+     "job": {
+      "mean": 0.3375,
+      "lo": 0.2625,
+      "hi": 0.4125
+     },
+     "stored": {
+      "mean": 0.3375,
+      "lo": 0.2625,
+      "hi": 0.4125
+     },
+     "ind2000": {
+      "mean": 0.3375,
+      "lo": 0.25625,
+      "hi": 0.41875
+     },
+     "ind10000": {
+      "mean": 0.3375,
+      "lo": 0.25625,
+      "hi": 0.41875
+     },
+     "seeds_lo": [
+      0.25625,
+      0.25,
+      0.2625
+     ],
+     "seeds_hi": [
+      0.41875,
+      0.4125,
+      0.425
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/p2/sentence",
+    "job": "the join on main is above proxy tuning on body outputs",
+    "stored": "the join on main is above proxy tuning on body outputs",
+    "ind2000": "the join on main is above proxy tuning on body outputs",
+    "ind10000": "the join on main is above proxy tuning on body outputs",
+    "seeds": {
+     "the join on main is above proxy tuning on body outputs": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "diff_3h",
+   "label": "dF_proc − H alone; − P1H_proc",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/dF_proc-O/edit/strict/mean",
+     "job": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.21250000000000002
+     },
+     "stored": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.21250000000000002
+     },
+     "ind2000": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.20625000000000002
+     },
+     "ind10000": {
+      "mean": 0.15,
+      "lo": 0.09375,
+      "hi": 0.20625000000000002
+     },
+     "seeds_lo": [
+      0.09375,
+      0.09375,
+      0.1
+     ],
+     "seeds_hi": [
+      0.20625000000000002,
+      0.20625,
+      0.21250000000000002
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dF_proc-P1H_proc/edit/strict/mean",
+     "job": {
+      "mean": -0.09999999999999999,
+      "lo": -0.1625,
+      "hi": -0.03125000000000001
+     },
+     "stored": {
+      "mean": -0.09999999999999999,
+      "lo": -0.1625,
+      "hi": -0.03125000000000001
+     },
+     "ind2000": {
+      "mean": -0.09999999999999999,
+      "lo": -0.1625,
+      "hi": -0.0375
+     },
+     "ind10000": {
+      "mean": -0.09999999999999999,
+      "lo": -0.1625,
+      "hi": -0.0375
+     },
+     "seeds_lo": [
+      -0.1625,
+      -0.16875,
+      -0.1625
+     ],
+     "seeds_hi": [
+      -0.0375,
+      -0.037500000000000006,
+      -0.03125
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/dF_proc/sentence",
+    "job": "carries; a direct write to the final norm accounts for it",
+    "stored": "carries; a direct write to the final norm accounts for it",
+    "ind2000": "carries; a direct write to the final norm accounts for it",
+    "ind10000": "carries; a direct write to the final norm accounts for it",
+    "seeds": {
+     "carries; a direct write to the final norm accounts for it": 50
+    }
+   },
+   "quoted": "GRAFT 94-95"
+  },
+  {
+   "run": "diff_3h",
+   "label": "dF_proc_early − H alone; − P1H_proc_early",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/differences/dF_proc_early-O/edit/strict/mean",
+     "job": {
+      "mean": 0.0,
+      "lo": -0.04375,
+      "hi": 0.037500000000000006
+     },
+     "stored": {
+      "mean": 0.0,
+      "lo": -0.04375,
+      "hi": 0.037500000000000006
+     },
+     "ind2000": {
+      "mean": 0.0,
+      "lo": -0.037500000000000006,
+      "hi": 0.037500000000000006
+     },
+     "ind10000": {
+      "mean": 0.0,
+      "lo": -0.037500000000000006,
+      "hi": 0.037500000000000006
+     },
+     "seeds_lo": [
+      -0.037500000000000006,
+      -0.04375,
+      -0.0375
+     ],
+     "seeds_hi": [
+      0.037500000000000006,
+      0.0375,
+      0.04375
+     ],
+     "largest_end_move": 0.00625,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    },
+    {
+     "path": "/differences/dF_proc_early-P1H_proc_early/edit/strict/mean",
+     "job": {
+      "mean": 0.0,
+      "lo": -0.037500000000000006,
+      "hi": 0.037500000000000006
+     },
+     "stored": {
+      "mean": 0.0,
+      "lo": -0.037500000000000006,
+      "hi": 0.037500000000000006
+     },
+     "ind2000": {
+      "mean": 0.0,
+      "lo": -0.037500000000000006,
+      "hi": 0.037500000000000006
+     },
+     "ind10000": {
+      "mean": 0.0,
+      "lo": -0.037500000000000006,
+      "hi": 0.037500000000000006
+     },
+     "seeds_lo": [
+      -0.037500000000000006,
+      -0.04375,
+      -0.0375
+     ],
+     "seeds_hi": [
+      0.037500000000000006,
+      0.0375,
+      0.04375
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/sentences/dF_proc_early/sentence",
+    "job": "does not",
+    "stored": "does not",
+    "ind2000": "does not",
+    "ind10000": "does not",
+    "seeds": {
+     "does not": 50
+    }
+   },
+   "quoted": ""
+  },
+  {
+   "run": "chain_2",
+   "label": "O: chain − direct",
+   "tag": "unchanged",
+   "intervals": [
+    {
+     "path": "/O/chain_minus_direct/strict/mean",
+     "job": {
+      "mean": -0.03125,
+      "lo": -0.0625,
+      "hi": 0.0
+     },
+     "stored": {
+      "mean": -0.03125,
+      "lo": -0.0625,
+      "hi": 0.0
+     },
+     "ind2000": {
+      "mean": -0.03125,
+      "lo": -0.0625,
+      "hi": 0.0
+     },
+     "ind10000": {
+      "mean": -0.03125,
+      "lo": -0.0625,
+      "hi": 0.0
+     },
+     "seeds_lo": [
+      -0.0625,
+      -0.0625,
+      -0.0625
+     ],
+     "seeds_hi": [
+      0.0,
+      -0.006249999999999999,
+      0.0
+     ],
+     "largest_end_move": 0.0,
+     "job_end_outside_seed_range": false,
+     "reproduced": true
+    }
+   ],
+   "sentence": {
+    "path": "/O/sentence",
+    "job": "the chain is not above the direct route",
+    "stored": "the chain is not above the direct route",
+    "ind2000": "the chain is not above the direct route",
+    "ind10000": "the chain is not above the direct route",
+    "seeds": {
+     "the chain is not above the direct route": 50
+    }
+   },
+   "quoted": ""
+  }
+ ],
+ "counts": {
+  "sentence changes": 1,
+  "moved": 11,
+  "unchanged": 45
+ }
+}

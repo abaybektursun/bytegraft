@@ -1,0 +1,1644 @@
+{
+ "scored_counts": {
+  "reference": 258,
+  "random": 60,
+  "agent_a": 60,
+  "surrogate": 60,
+  "agent_b": 60
+ },
+ "equality": {
+  "request_sets_equal_logged": 10,
+  "response_scores_equal_logged": 10,
+  "requests": 10,
+  "mismatches": []
+ },
+ "told": {
+  "agent_a": {
+   "scores_told": 60,
+   "equal_to_logged_and_relayed": 60
+  },
+  "agent_b": {
+   "scores_told": 60,
+   "equal_to_logged_and_relayed": 60
+  }
+ },
+ "finals": {
+  "agent_a": {
+   "in_own_scored": true,
+   "fit_logged": 1.9596904657175813,
+   "fit_stated": 1.9596904657175813,
+   "is_own_best": true,
+   "own_best": 1.9596904657175813,
+   "distinct_sets": 60
+  },
+  "agent_b": {
+   "in_own_scored": true,
+   "fit_logged": 1.7976417025888636,
+   "fit_stated": 1.7976417025888636,
+   "is_own_best": true,
+   "own_best": 1.7976417025888636,
+   "distinct_sets": 60
+  },
+  "random": {
+   "in_own_scored": true,
+   "fit_logged": 0.7815382188796679,
+   "fit_stated": 0.7815382188796679,
+   "is_own_best": true,
+   "own_best": 0.7815382188796679,
+   "distinct_sets": 60
+  },
+  "surrogate": {
+   "in_own_scored": true,
+   "fit_logged": 1.2179235296208024,
+   "fit_stated": 1.2179235296208024,
+   "is_own_best": true,
+   "own_best": 1.2179235296208024,
+   "distinct_sets": 60
+  }
+ },
+ "independence": {
+  "by_round": {
+   "1": {
+    "identical_sets": 9,
+    "of_them_top_k_by_direct_effect": 4,
+    "of_them_one_whole_layer": 4,
+    "shared": [
+     [
+      [
+       12,
+       2
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       12,
+       6
+      ],
+      [
+       12,
+       8
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       12,
+       15
+      ],
+      [
+       13,
+       2
+      ],
+      [
+       13,
+       5
+      ],
+      [
+       13,
+       10
+      ],
+      [
+       13,
+       12
+      ],
+      [
+       13,
+       13
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       14,
+       7
+      ],
+      [
+       14,
+       10
+      ],
+      [
+       14,
+       13
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     [
+      [
+       14,
+       0
+      ],
+      [
+       14,
+       1
+      ],
+      [
+       14,
+       2
+      ],
+      [
+       14,
+       3
+      ],
+      [
+       14,
+       4
+      ],
+      [
+       14,
+       5
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       14,
+       7
+      ],
+      [
+       14,
+       8
+      ],
+      [
+       14,
+       9
+      ],
+      [
+       14,
+       10
+      ],
+      [
+       14,
+       11
+      ],
+      [
+       14,
+       12
+      ],
+      [
+       14,
+       13
+      ],
+      [
+       14,
+       14
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     [
+      [
+       15,
+       0
+      ],
+      [
+       15,
+       1
+      ],
+      [
+       15,
+       2
+      ],
+      [
+       15,
+       3
+      ],
+      [
+       15,
+       4
+      ],
+      [
+       15,
+       5
+      ],
+      [
+       15,
+       6
+      ],
+      [
+       15,
+       7
+      ],
+      [
+       15,
+       8
+      ],
+      [
+       15,
+       9
+      ],
+      [
+       15,
+       10
+      ],
+      [
+       15,
+       11
+      ],
+      [
+       15,
+       12
+      ],
+      [
+       15,
+       13
+      ],
+      [
+       15,
+       14
+      ],
+      [
+       15,
+       15
+      ]
+     ],
+     [
+      [
+       12,
+       6
+      ],
+      [
+       12,
+       8
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       5
+      ],
+      [
+       13,
+       13
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       14,
+       10
+      ],
+      [
+       15,
+       8
+      ]
+     ],
+     [
+      [
+       15,
+       8
+      ]
+     ],
+     [
+      [
+       13,
+       0
+      ],
+      [
+       13,
+       1
+      ],
+      [
+       13,
+       2
+      ],
+      [
+       13,
+       3
+      ],
+      [
+       13,
+       4
+      ],
+      [
+       13,
+       5
+      ],
+      [
+       13,
+       6
+      ],
+      [
+       13,
+       7
+      ],
+      [
+       13,
+       8
+      ],
+      [
+       13,
+       9
+      ],
+      [
+       13,
+       10
+      ],
+      [
+       13,
+       11
+      ],
+      [
+       13,
+       12
+      ],
+      [
+       13,
+       13
+      ],
+      [
+       13,
+       14
+      ],
+      [
+       13,
+       15
+      ]
+     ],
+     [
+      [
+       12,
+       6
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       14,
+       10
+      ],
+      [
+       15,
+       8
+      ]
+     ],
+     [
+      [
+       12,
+       2
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       12,
+       6
+      ],
+      [
+       12,
+       8
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       12,
+       15
+      ],
+      [
+       13,
+       2
+      ],
+      [
+       13,
+       5
+      ],
+      [
+       13,
+       12
+      ],
+      [
+       13,
+       13
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       14,
+       7
+      ],
+      [
+       14,
+       10
+      ],
+      [
+       14,
+       13
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       15,
+       8
+      ]
+     ],
+     [
+      [
+       12,
+       0
+      ],
+      [
+       12,
+       1
+      ],
+      [
+       12,
+       2
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       12,
+       4
+      ],
+      [
+       12,
+       5
+      ],
+      [
+       12,
+       6
+      ],
+      [
+       12,
+       7
+      ],
+      [
+       12,
+       8
+      ],
+      [
+       12,
+       9
+      ],
+      [
+       12,
+       10
+      ],
+      [
+       12,
+       11
+      ],
+      [
+       12,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       12,
+       14
+      ],
+      [
+       12,
+       15
+      ]
+     ]
+    ]
+   },
+   "2": {
+    "identical_sets": 1,
+    "of_them_top_k_by_direct_effect": 0,
+    "of_them_one_whole_layer": 0,
+    "shared": [
+     [
+      [
+       12,
+       1
+      ],
+      [
+       12,
+       2
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       12,
+       6
+      ],
+      [
+       12,
+       8
+      ],
+      [
+       12,
+       11
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       12,
+       15
+      ]
+     ]
+    ]
+   },
+   "3": {
+    "identical_sets": 0,
+    "of_them_top_k_by_direct_effect": 0,
+    "of_them_one_whole_layer": 0,
+    "shared": []
+   }
+  },
+  "identical_over_60": 12
+ },
+ "rules": {
+  "direct_effect": {
+   "set": [
+    [
+     12,
+     2
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     12,
+     15
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     15,
+     8
+    ]
+   ],
+   "fit_if_scored": 1.2640185161476059,
+   "scored_by": [
+    "agent_a",
+    "agent_b"
+   ],
+   "overlap": {
+    "final:agent_a": 8,
+    "final:agent_b": 6,
+    "final:gradient_top16": 5,
+    "final:direct_top16": 16,
+    "final:single_top16": 5,
+    "final:surrogate": 3,
+    "final:random": 2
+   }
+  },
+  "diff_norm": {
+   "set": [
+    [
+     10,
+     14
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     15,
+     2
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     15,
+     12
+    ]
+   ],
+   "fit_if_scored": 0.6076395323041985,
+   "scored_by": [
+    "agent_b"
+   ],
+   "overlap": {
+    "final:agent_a": 3,
+    "final:agent_b": 3,
+    "final:gradient_top16": 3,
+    "final:direct_top16": 6,
+    "final:single_top16": 3,
+    "final:surrogate": 0,
+    "final:random": 1
+   }
+  },
+  "attention_shift_L1": {
+   "set": [
+    [
+     2,
+     14
+    ],
+    [
+     2,
+     15
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     2
+    ],
+    [
+     9,
+     4
+    ],
+    [
+     10,
+     10
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     12,
+     11
+    ]
+   ],
+   "fit_if_scored": 1.450438546212749,
+   "scored_by": [
+    "agent_b"
+   ],
+   "overlap": {
+    "final:agent_a": 5,
+    "final:agent_b": 8,
+    "final:gradient_top16": 4,
+    "final:direct_top16": 3,
+    "final:single_top16": 4,
+    "final:surrogate": 3,
+    "final:random": 2
+   }
+  },
+  "operand_shift": {
+   "set": [
+    [
+     7,
+     4
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     8,
+     3
+    ],
+    [
+     8,
+     10
+    ],
+    [
+     9,
+     5
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     9,
+     14
+    ],
+    [
+     10,
+     6
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     10,
+     10
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "fit_if_scored": null,
+   "scored_by": [],
+   "overlap": {
+    "final:agent_a": 1,
+    "final:agent_b": 2,
+    "final:gradient_top16": 5,
+    "final:direct_top16": 0,
+    "final:single_top16": 5,
+    "final:surrogate": 0,
+    "final:random": 1
+   }
+  },
+  "diff_over_main_norm": {
+   "set": [
+    [
+     4,
+     13
+    ],
+    [
+     9,
+     3
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     6
+    ],
+    [
+     10,
+     10
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     13,
+     11
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     15,
+     13
+    ],
+    [
+     15,
+     14
+    ]
+   ],
+   "fit_if_scored": null,
+   "scored_by": [],
+   "overlap": {
+    "final:agent_a": 4,
+    "final:agent_b": 4,
+    "final:gradient_top16": 3,
+    "final:direct_top16": 6,
+    "final:single_top16": 3,
+    "final:surrogate": 2,
+    "final:random": 2
+   }
+  },
+  "direct_effect_layers_11_13": {
+   "set": [
+    [
+     11,
+     1
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     12,
+     15
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     13,
+     13
+    ]
+   ],
+   "fit_if_scored": null,
+   "scored_by": [],
+   "overlap": {
+    "final:agent_a": 9,
+    "final:agent_b": 6,
+    "final:gradient_top16": 6,
+    "final:direct_top16": 10,
+    "final:single_top16": 6,
+    "final:surrogate": 3,
+    "final:random": 3
+   }
+  },
+  "layer_12": {
+   "set": [
+    [
+     12,
+     0
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     12,
+     10
+    ],
+    [
+     12,
+     11
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     12,
+     14
+    ],
+    [
+     12,
+     15
+    ]
+   ],
+   "fit_if_scored": 1.2369607054707417,
+   "scored_by": [
+    "agent_a",
+    "agent_b"
+   ],
+   "overlap": {
+    "final:agent_a": 6,
+    "final:agent_b": 5,
+    "final:gradient_top16": 4,
+    "final:direct_top16": 6,
+    "final:single_top16": 4,
+    "final:surrogate": 4,
+    "final:random": 4
+   }
+  }
+ },
+ "finals_overlap": {
+  "final:agent_a": {
+   "final:agent_a": 16,
+   "final:agent_b": 10,
+   "final:gradient_top16": 6,
+   "final:direct_top16": 8,
+   "final:single_top16": 6,
+   "final:surrogate": 2,
+   "final:random": 2
+  },
+  "final:agent_b": {
+   "final:agent_a": 10,
+   "final:agent_b": 16,
+   "final:gradient_top16": 5,
+   "final:direct_top16": 6,
+   "final:single_top16": 5,
+   "final:surrogate": 2,
+   "final:random": 2
+  },
+  "final:gradient_top16": {
+   "final:agent_a": 6,
+   "final:agent_b": 5,
+   "final:gradient_top16": 16,
+   "final:direct_top16": 5,
+   "final:single_top16": 16,
+   "final:surrogate": 3,
+   "final:random": 3
+  },
+  "final:direct_top16": {
+   "final:agent_a": 8,
+   "final:agent_b": 6,
+   "final:gradient_top16": 5,
+   "final:direct_top16": 16,
+   "final:single_top16": 5,
+   "final:surrogate": 3,
+   "final:random": 2
+  },
+  "final:single_top16": {
+   "final:agent_a": 6,
+   "final:agent_b": 5,
+   "final:gradient_top16": 16,
+   "final:direct_top16": 5,
+   "final:single_top16": 16,
+   "final:surrogate": 3,
+   "final:random": 3
+  },
+  "final:surrogate": {
+   "final:agent_a": 2,
+   "final:agent_b": 2,
+   "final:gradient_top16": 3,
+   "final:direct_top16": 3,
+   "final:single_top16": 3,
+   "final:surrogate": 16,
+   "final:random": 2
+  },
+  "final:random": {
+   "final:agent_a": 2,
+   "final:agent_b": 2,
+   "final:gradient_top16": 3,
+   "final:direct_top16": 2,
+   "final:single_top16": 3,
+   "final:surrogate": 2,
+   "final:random": 16
+  }
+ },
+ "layer_hist": {
+  "final:agent_a": {
+   "11": 1,
+   "12": 6,
+   "13": 8,
+   "15": 1
+  },
+  "final:agent_b": {
+   "9": 1,
+   "10": 1,
+   "11": 1,
+   "12": 5,
+   "13": 6,
+   "14": 2
+  },
+  "final:gradient_top16": {
+   "8": 1,
+   "9": 1,
+   "10": 2,
+   "11": 4,
+   "12": 4,
+   "13": 2,
+   "14": 1,
+   "15": 1
+  },
+  "final:direct_top16": {
+   "12": 6,
+   "13": 4,
+   "14": 5,
+   "15": 1
+  },
+  "final:single_top16": {
+   "8": 1,
+   "9": 1,
+   "10": 2,
+   "11": 4,
+   "12": 4,
+   "13": 2,
+   "14": 1,
+   "15": 1
+  },
+  "final:surrogate": {
+   "3": 1,
+   "4": 1,
+   "5": 1,
+   "6": 1,
+   "7": 3,
+   "8": 2,
+   "9": 1,
+   "12": 4,
+   "15": 2
+  },
+  "final:random": {
+   "1": 1,
+   "2": 2,
+   "3": 2,
+   "4": 1,
+   "5": 1,
+   "8": 2,
+   "9": 2,
+   "12": 4,
+   "14": 1
+  }
+ },
+ "single_head_sum": {
+  "final:agent_a": 1.943047266227859,
+  "final:agent_b": 1.5152275188060722,
+  "final:gradient_top16": 2.7839164354793926,
+  "final:direct_top16": 1.1082457878718963,
+  "final:single_top16": 2.7839164354793926,
+  "final:surrogate": 1.2376933893517976,
+  "final:random": 0.8659622800991317
+ },
+ "stored_strict_flags_differ": {
+  "agent_a": 0,
+  "agent_b": 0,
+  "random": 0,
+  "surrogate": 0,
+  "gradient_top16": 0,
+  "direct_top16": 0,
+  "single_top16": 0,
+  "all_256": 0,
+  "none": 0
+ },
+ "accuracy": {
+  "agent_a": {
+   "right": 63,
+   "per_task": [
+    9,
+    20,
+    26,
+    8
+   ],
+   "mean": 0.39375,
+   "lo": 0.325,
+   "hi": 0.4625
+  },
+  "agent_b": {
+   "right": 58,
+   "per_task": [
+    6,
+    19,
+    24,
+    9
+   ],
+   "mean": 0.3625,
+   "lo": 0.2938,
+   "hi": 0.4313
+  },
+  "random": {
+   "right": 22,
+   "per_task": [
+    2,
+    8,
+    11,
+    1
+   ],
+   "mean": 0.1375,
+   "lo": 0.0875,
+   "hi": 0.1875
+  },
+  "surrogate": {
+   "right": 23,
+   "per_task": [
+    1,
+    11,
+    10,
+    1
+   ],
+   "mean": 0.14375,
+   "lo": 0.0938,
+   "hi": 0.1938
+  },
+  "gradient_top16": {
+   "right": 57,
+   "per_task": [
+    7,
+    23,
+    20,
+    7
+   ],
+   "mean": 0.35625,
+   "lo": 0.2875,
+   "hi": 0.425
+  },
+  "direct_top16": {
+   "right": 35,
+   "per_task": [
+    6,
+    12,
+    14,
+    3
+   ],
+   "mean": 0.21875,
+   "lo": 0.1562,
+   "hi": 0.2812
+  },
+  "single_top16": {
+   "right": 57,
+   "per_task": [
+    7,
+    23,
+    20,
+    7
+   ],
+   "mean": 0.35625,
+   "lo": 0.2875,
+   "hi": 0.425
+  },
+  "all_256": {
+   "right": 95,
+   "per_task": [
+    23,
+    28,
+    29,
+    15
+   ],
+   "mean": 0.59375,
+   "lo": 0.5188,
+   "hi": 0.6625
+  },
+  "none": {
+   "right": 16,
+   "per_task": [
+    1,
+    5,
+    10,
+    0
+   ],
+   "mean": 0.1,
+   "lo": 0.0563,
+   "hi": 0.1437
+  }
+ },
+ "paired": {
+  "A - surrogate": {
+   "mean": 0.23438,
+   "lo": 0.175,
+   "hi": 0.2969,
+   "only_x": 49,
+   "only_y": 2,
+   "texts_equal": null
+  },
+  "A - gradient_top16": {
+   "mean": 0.02188,
+   "lo": -0.0312,
+   "hi": 0.0781,
+   "only_x": 21,
+   "only_y": 16,
+   "texts_equal": null
+  },
+  "A - direct_top16": {
+   "mean": 0.15938,
+   "lo": 0.1031,
+   "hi": 0.2188,
+   "only_x": 38,
+   "only_y": 5,
+   "texts_equal": null
+  },
+  "agent_a - gradient_top16": {
+   "mean": 0.0375,
+   "lo": -0.0187,
+   "hi": 0.0938,
+   "only_x": 15,
+   "only_y": 9,
+   "texts_equal": 99
+  },
+  "agent_b - gradient_top16": {
+   "mean": 0.00625,
+   "lo": -0.0563,
+   "hi": 0.0688,
+   "only_x": 15,
+   "only_y": 14,
+   "texts_equal": 93
+  },
+  "agent_a - agent_b": {
+   "mean": 0.03125,
+   "lo": -0.025,
+   "hi": 0.0875,
+   "only_x": 13,
+   "only_y": 8,
+   "texts_equal": 109
+  },
+  "gradient_top16 - single_top16": {
+   "mean": 0.0,
+   "lo": 0.0,
+   "hi": 0.0,
+   "only_x": 0,
+   "only_y": 0,
+   "texts_equal": 160
+  },
+  "A - random": {
+   "mean": 0.24062,
+   "lo": 0.1781,
+   "hi": 0.3063,
+   "only_x": 50,
+   "only_y": 4,
+   "texts_equal": null
+  },
+  "surrogate - random": {
+   "mean": 0.00625,
+   "lo": -0.0375,
+   "hi": 0.05,
+   "only_x": 7,
+   "only_y": 6,
+   "texts_equal": 98
+  },
+  "agent_a - surrogate": {
+   "mean": 0.25,
+   "lo": 0.1813,
+   "hi": 0.3187,
+   "only_x": 41,
+   "only_y": 1,
+   "texts_equal": 67
+  },
+  "agent_b - surrogate": {
+   "mean": 0.21875,
+   "lo": 0.15,
+   "hi": 0.2875,
+   "only_x": 37,
+   "only_y": 2,
+   "texts_equal": 77
+  }
+ },
+ "fit_test": {
+  "agent_a": {
+   "fit": 1.9596904657175813,
+   "single_head_sum": 1.943,
+   "test": 0.39375
+  },
+  "agent_b": {
+   "fit": 1.7976417025888636,
+   "single_head_sum": 1.515,
+   "test": 0.3625
+  },
+  "random": {
+   "fit": 0.7815382188796679,
+   "single_head_sum": 0.866,
+   "test": 0.1375
+  },
+  "surrogate": {
+   "fit": 1.2179235296208024,
+   "single_head_sum": 1.238,
+   "test": 0.14375
+  },
+  "gradient_top16": {
+   "fit": null,
+   "single_head_sum": 2.784,
+   "test": 0.35625
+  },
+  "direct_top16": {
+   "fit": 1.2640185161476059,
+   "single_head_sum": 1.108,
+   "test": 0.21875
+  },
+  "single_top16": {
+   "fit": null,
+   "single_head_sum": 2.784,
+   "test": 0.35625
+  },
+  "all_256": {
+   "fit": 3.904171581051082,
+   "single_head_sum": null,
+   "test": 0.59375
+  },
+  "none": {
+   "fit": 0.0,
+   "single_head_sum": null,
+   "test": 0.1
+  }
+ },
+ "selection": {
+  "agent_a": {
+   "best": 1.9596904657175813,
+   "median": 1.1185329208836905,
+   "round_best": [
+    1.2640185161476059,
+    1.565494307246277,
+    1.9596904657175813
+   ]
+  },
+  "agent_b": {
+   "best": 1.7976417025888636,
+   "median": 1.332974915799272,
+   "round_best": [
+    1.450438546212749,
+    1.674340670718723,
+    1.7976417025888636
+   ]
+  },
+  "random": {
+   "best": 0.7815382188796679,
+   "median": 0.12260395378045175,
+   "round_best": [
+    0.6025228306498049,
+    0.7815382188796679,
+    0.7657872900070701
+   ]
+  },
+  "surrogate": {
+   "best": 1.2179235296208024,
+   "median": 0.5742601849067472,
+   "round_best": [
+    0.8082552453771029,
+    1.0631211813709733,
+    1.2179235296208024
+   ]
+  }
+ },
+ "combined_sentences": {
+  "A_vs_BB": "agents are above black-box search at equal evaluations",
+  "A_vs_gradient": "level",
+  "A_vs_direct": "agents are above the direct-effect ranking"
+ },
+ "combined_gates": {
+  "3 the scored log holds only agent_a, agent_b, random, surrogate and reference": true,
+  "4 none of the four has more than 60 scored sets": true,
+  "5 each method's final set is one of its own scored sets, random's and surrogate's fit_score the logged score": true
+ },
+ "baselines_surrogate_rule": "best scored set",
+ "final_words": {
+  "agent_a": "f my 60 sets.\n\nThe set is the layer-12 heads 12.6, 12.8, 12.3, 12.1, 12.2 and 12.11, the layer-13 copy heads 13.2, 13.4, 13.5, 13.6, 13.9, 13.12, 13.13 and 13.14, plus 11.9 and 15.3.\n\nThe reason for it, in order of strength:\n- **Layer 12 matters most.** Carrying the four heads 12.6, 12.8, 12.3 and 12.13, which look at the rest of the sentence instead of the operand in F, scored 0.76 by themselves. The other 12 layer-12 heads scored 0.23, which is what 16 random heads give (0.28).\n- **The layer-13 copy heads add the most on top.** Six of them added +0.53 to those four layer-12 heads. Eight random heads added +0.11.\n- **12.8 is needed.** Dropping it from my round-3 set 1 cost 0.30 (1.705 to 1.406).\n- **12.13 is not needed.** Swapping it for 15.3 raised the score from 1.705 to 1.960.\n\nI expect it to keep most of its advantage on the 160 new items, but probably not the full 1.96. A model that adds one fixed amount per head fits my other sets to about 0.08. Fitted without set 20, it predicts about 1.71 for set 20, so 0.25 of the score is unexplained. 15.3 by itself added nothing across the round-3 design sets: 1.543 on average with it, 1.553 without. So part of the jump is probably either a real interaction or chance on these 80 items, made larger because I picked the best of 60. Allowing for that, my estimate for new items is about 1.75 to 1.8. That is still at least as good as my round-3 set 1 and above the round-2 best of 1.566.\n\nThe table's direct-effect column ranked heads badly: its top head, 15.8, scored -0.009 alone. Attention change in layers 8 to 15 ranked the right heads.\n\n```json\n{\"final\": [[12, 6], [12, 8], [12, 3], [13, 2], [13, 13], [11, 9], [12, 2], [12, 11], [12, 1], [13, 12], [13, 14], [13, 4], [13, 6], [13, 5], [13, 9], [15, 3]], \"round\": 3, \"set\": 20}\n```",
+  "agent_b": "My final set is round 3, set 14. It scored 1.798, the highest of my 60 sets, with share 0.725. It is round 2's set 12 with 9.4 and 8.8 swapped out for 14.7 and 14.10.\n\n**Why this set.** I did not pick it for its raw score alone. An additive ridge model fitted on the other 59 sets predicts 1.82 for it without seeing its own score. The two other sets that contain 14.7 and 14.10 also scored high, at 1.755 and 1.758. Most of the score comes from five layer-12 heads, 12.6, 12.8, 12.3, 12.11 and 12.1, which scored 1.34 alone. The donor shifts these heads' attention away from the operand: four of them onto the rest of the sentence, and 12.1 off the instruction words. The other heads each add a small amount.\n\n**Will it hold on new items?** I expect the core to hold on the 160 new items, but the score to drop somewhat, to roughly 1.6 to 1.7. It is the best of 60 scored sets, and the top eight sets are all within about 0.1 of each other, so part of its lead is item noise.\n\n```json\n{\"final\": [[12,6],[12,8],[12,3],[12,11],[12,1],[10,10],[9,2],[11,7],[13,9],[13,14],[13,10],[13,2],[13,4],[13,6],[14,7],[14,10]], \"round\": 3, \"set\": 14}\n```"
+ },
+ "samples": {
+  "agent_a": {
+   "right": {
+    "id": "published:del_word:009028",
+    "prompt_tail": "Delete every instance of \" fun \" in \" They have fun. \". Answer: \"",
+    "gold": " They have.",
+    "text": " They have. \"\n"
+   },
+   "wrong": {
+    "id": "published:del_word:009025",
+    "prompt_tail": "Delete every instance of \" and \" in \" He put on his hat and coat and ran outside. \". Answer: \"",
+    "gold": " He put on his hat coat ran outside.",
+    "text": " He put on his coat and ran outside. \"\n"
+   }
+  },
+  "agent_b": {
+   "right": {
+    "id": "published:del_word:009512",
+    "prompt_tail": "Delete every instance of \" fun \" in \" It is fun. \". Answer: \"",
+    "gold": " It is.",
+    "text": " It is. \"\n"
+   },
+   "wrong": {
+    "id": "published:del_word:009025",
+    "prompt_tail": "Delete every instance of \" and \" in \" He put on his hat and coat and ran outside. \". Answer: \"",
+    "gold": " He put on his hat coat ran outside.",
+    "text": " He put on his coat and ran outside. \"\n"
+   }
+  },
+  "gradient_top16": {
+   "right": {
+    "id": "published:del_word:009028",
+    "prompt_tail": "Delete every instance of \" fun \" in \" They have fun. \". Answer: \"",
+    "gold": " They have.",
+    "text": " They have. \"\n"
+   },
+   "wrong": {
+    "id": "published:del_word:009025",
+    "prompt_tail": "Delete every instance of \" and \" in \" He put on his hat and coat and ran outside. \". Answer: \"",
+    "gold": " He put on his hat coat ran outside.",
+    "text": " He put on his coat and ran outside. \"\n"
+   }
+  },
+  "surrogate": {
+   "right": {
+    "id": "published:del_word:009821",
+    "prompt_tail": "Delete every instance of \" The \" in \" The store is big and open. \". Answer: \"",
+    "gold": " store is big and open.",
+    "text": " store is big and open. \"\n"
+   },
+   "wrong": {
+    "id": "published:del_word:009025",
+    "prompt_tail": "Delete every instance of \" and \" in \" He put on his hat and coat and ran outside. \". Answer: \"",
+    "gold": " He put on his hat coat ran outside.",
+    "text": " He put on his coat and ran outside. \"\n"
+   }
+  }
+ }
+}

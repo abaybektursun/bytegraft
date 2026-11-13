@@ -1,0 +1,298 @@
+[
+ {
+  "spec": [],
+  "count": {
+   "list": "test",
+   "items": 80,
+   "right": 46,
+   "share": 0.575,
+   "other_tokens": 5,
+   "right_per_task": {
+    "spell": [
+     26,
+     40
+    ],
+    "spell_inverse": [
+     20,
+     40
+    ]
+   }
+  },
+  "rows": "out/counts/laptop--r1794532417165413000_c0aaa80a.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 3102
+ },
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      14,
+      8,
+      14,
+      10
+     ],
+     [
+      10,
+      5,
+      4,
+      5
+     ],
+     [
+      9,
+      9,
+      12,
+      11
+     ],
+     [
+      7,
+      10,
+      2,
+      1
+     ],
+     [
+      11,
+      7,
+      6,
+      5
+     ],
+     [
+      8,
+      14,
+      2,
+      1
+     ],
+     [
+      14,
+      4,
+      4,
+      9
+     ],
+     [
+      13,
+      6,
+      12,
+      6
+     ],
+     [
+      7,
+      15,
+      3,
+      13
+     ],
+     [
+      12,
+      7,
+      12,
+      3
+     ]
+    ]
+   }
+  ],
+  "count": {
+   "list": "test",
+   "items": 80,
+   "right": 30,
+   "share": 0.375,
+   "other_tokens": 25,
+   "right_per_task": {
+    "spell": [
+     16,
+     40
+    ],
+    "spell_inverse": [
+     14,
+     40
+    ]
+   }
+  },
+  "rows": "out/counts/laptop--r1794532417165413000_c0aaa80a.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 3103
+ },
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      14,
+      8,
+      14,
+      10
+     ],
+     [
+      10,
+      5,
+      4,
+      5
+     ],
+     [
+      9,
+      9,
+      12,
+      11
+     ],
+     [
+      7,
+      10,
+      2,
+      1
+     ],
+     [
+      11,
+      7,
+      6,
+      5
+     ],
+     [
+      8,
+      14,
+      2,
+      1
+     ],
+     [
+      14,
+      4,
+      4,
+      9
+     ],
+     [
+      13,
+      6,
+      12,
+      6
+     ],
+     [
+      7,
+      15,
+      3,
+      13
+     ],
+     [
+      12,
+      7,
+      12,
+      3
+     ]
+    ],
+    "donor": "S"
+   }
+  ],
+  "count": {
+   "list": "test",
+   "items": 80,
+   "right": 33,
+   "share": 0.4125,
+   "other_tokens": 23,
+   "right_per_task": {
+    "spell": [
+     17,
+     40
+    ],
+    "spell_inverse": [
+     16,
+     40
+    ]
+   }
+  },
+  "rows": "out/counts/laptop--r1794532417165413000_c0aaa80a.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 3104
+ },
+ {
+  "spec": [
+   {
+    "part": "weights",
+    "pairs": [
+     [
+      14,
+      8,
+      14,
+      10
+     ],
+     [
+      10,
+      5,
+      4,
+      5
+     ],
+     [
+      9,
+      9,
+      12,
+      11
+     ],
+     [
+      7,
+      10,
+      2,
+      1
+     ],
+     [
+      11,
+      7,
+      6,
+      5
+     ],
+     [
+      8,
+      14,
+      2,
+      1
+     ],
+     [
+      14,
+      4,
+      4,
+      9
+     ],
+     [
+      13,
+      6,
+      12,
+      6
+     ],
+     [
+      7,
+      15,
+      3,
+      13
+     ],
+     [
+      12,
+      7,
+      12,
+      3
+     ]
+    ],
+    "other": true
+   }
+  ],
+  "count": {
+   "list": "test",
+   "items": 80,
+   "right": 34,
+   "share": 0.425,
+   "other_tokens": 22,
+   "right_per_task": {
+    "spell": [
+     16,
+     40
+    ],
+    "spell_inverse": [
+     18,
+     40
+    ]
+   }
+  },
+  "rows": "out/counts/laptop--r1794532417165413000_c0aaa80a.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 3105
+ }
+]

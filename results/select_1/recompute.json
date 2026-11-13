@@ -1,0 +1,115 @@
+{
+ "right_del_ins_sub_swap": {
+  "agent_a": [
+   9,
+   20,
+   26,
+   8
+  ],
+  "agent_b": [
+   6,
+   19,
+   24,
+   9
+  ],
+  "direct_top16": [
+   6,
+   12,
+   14,
+   3
+  ],
+  "gradient_top16": [
+   7,
+   23,
+   20,
+   7
+  ],
+  "random": [
+   2,
+   8,
+   11,
+   1
+  ],
+  "single_top16": [
+   7,
+   23,
+   20,
+   7
+  ],
+  "surrogate": [
+   1,
+   11,
+   10,
+   1
+  ]
+ },
+ "BB": "surrogate",
+ "fit_scores": {
+  "agent_a": 1.9596904657175813,
+  "agent_b": 1.7976417025888636,
+  "random": 0.7815382188796679,
+  "surrogate": 1.2179235296208024,
+  "gradient_top16": null,
+  "direct_top16": null,
+  "all_256": 3.904171581051082,
+  "none": 0.0,
+  "single_top16": null
+ },
+ "differences": {
+  "A - surrogate": {
+   "strict": {
+    "mean": 0.234375,
+    "lo": 0.174921875,
+    "hi": 0.296875
+   },
+   "lenient": {
+    "mean": 0.234375,
+    "lo": 0.174921875,
+    "hi": 0.296875
+   },
+   "combined_interval": [
+    0.17500000000000002,
+    0.29375
+   ]
+  },
+  "A - gradient_top16": {
+   "strict": {
+    "mean": 0.021875000000000002,
+    "lo": -0.03125,
+    "hi": 0.075
+   },
+   "lenient": {
+    "mean": 0.021875000000000002,
+    "lo": -0.03125,
+    "hi": 0.075
+   },
+   "combined_interval": [
+    -0.03125,
+    0.078125
+   ]
+  },
+  "A - direct_top16": {
+   "strict": {
+    "mean": 0.15937500000000002,
+    "lo": 0.10312500000000001,
+    "hi": 0.215625
+   },
+   "lenient": {
+    "mean": 0.15937500000000002,
+    "lo": 0.10312500000000001,
+    "hi": 0.215625
+   },
+   "combined_interval": [
+    0.1,
+    0.221875
+   ]
+  }
+ },
+ "strict_equals_lenient": true,
+ "gradient_single_texts_equal": 160,
+ "sentences": {
+  "A_vs_BB": "agents are above black-box search at equal evaluations",
+  "A_vs_gradient": "level",
+  "A_vs_direct": "agents are above the direct-effect ranking"
+ }
+}

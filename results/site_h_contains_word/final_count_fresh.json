@@ -1,0 +1,149 @@
+[
+ {
+  "spec": [],
+  "count": {
+   "list": "fresh",
+   "items": 20,
+   "right": 8,
+   "share": 0.4,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     8,
+     20
+    ]
+   },
+   "yes_no_items": 20,
+   "yes_golds": 9,
+   "yes_written": 17,
+   "right_on_yes_golds": 7,
+   "right_on_no_golds": 1
+  },
+  "rows": "out/counts/laptop--r1794536226753705000_1787b1d9.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 168
+ },
+ {
+  "spec": [
+   {
+    "part": "site",
+    "from": {
+     "layer": 15,
+     "kind": "resid",
+     "what": "F-S"
+    },
+    "to": {
+     "layer": 16,
+     "kind": "resid"
+    },
+    "map": "fit",
+    "scale": 1.0
+   }
+  ],
+  "count": {
+   "list": "fresh",
+   "items": 20,
+   "right": 19,
+   "share": 0.95,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     19,
+     20
+    ]
+   },
+   "yes_no_items": 20,
+   "yes_golds": 9,
+   "yes_written": 8,
+   "right_on_yes_golds": 8,
+   "right_on_no_golds": 11
+  },
+  "rows": "out/counts/laptop--r1794536226753705000_1787b1d9.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 169
+ },
+ {
+  "spec": [
+   {
+    "part": "site",
+    "from": {
+     "layer": 15,
+     "kind": "resid",
+     "what": "F-S"
+    },
+    "to": {
+     "layer": 16,
+     "kind": "resid"
+    },
+    "map": "fit",
+    "scale": 1.0,
+    "donor": "S"
+   }
+  ],
+  "count": {
+   "list": "fresh",
+   "items": 20,
+   "right": 8,
+   "share": 0.4,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     8,
+     20
+    ]
+   },
+   "yes_no_items": 20,
+   "yes_golds": 9,
+   "yes_written": 17,
+   "right_on_yes_golds": 7,
+   "right_on_no_golds": 1
+  },
+  "rows": "out/counts/laptop--r1794536226753705000_1787b1d9.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 170
+ },
+ {
+  "spec": [
+   {
+    "part": "site",
+    "from": {
+     "layer": 15,
+     "kind": "resid",
+     "what": "F-S"
+    },
+    "to": {
+     "layer": 16,
+     "kind": "resid"
+    },
+    "map": "fit",
+    "scale": 1.0,
+    "other": true
+   }
+  ],
+  "count": {
+   "list": "fresh",
+   "items": 20,
+   "right": 11,
+   "share": 0.55,
+   "other_tokens": 0,
+   "right_per_task": {
+    "contains_word": [
+     11,
+     20
+    ]
+   },
+   "yes_no_items": 20,
+   "yes_golds": 9,
+   "yes_written": 12,
+   "right_on_yes_golds": 6,
+   "right_on_no_golds": 5
+  },
+  "rows": "out/counts/laptop--r1794536226753705000_1787b1d9.jsonl",
+  "score_gold": "gold+closing by bytes",
+  "tied_to_decodes": false,
+  "n": 171
+ }
+]
